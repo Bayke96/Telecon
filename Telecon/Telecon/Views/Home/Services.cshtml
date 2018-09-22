@@ -1,0 +1,50 @@
+﻿@{
+    Layout = "~/Views/Estructura/_Layout.cshtml";
+    Page.Title = "Telecon Erickson C.A - Services";
+}
+
+<div class="PanelServicios">
+    <h2>AVAILABLE SERVICES</h2>
+    <hr />
+    <div class="CercosElectricos">
+        <p>ELECTRIC FENCES</p>
+        <div></div>
+    </div>
+    <div class="AccesoAutorizado">
+        <p>CCTV INSTALLATION</p>
+        <div></div>
+    </div>
+    <div class="PortonesAutomatizados">
+        <p>SLIDING GATES KITS</p>
+        <div></div>
+    </div>
+    <div class="CentralesTelefonicas">
+        <p>TELEPHONE EXCHANGES</p>
+        <div></div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        $(".CercosElectricos").click(function () {
+            window.location.href = "electricfences";
+        });
+    });
+    $(function () {
+        $(".AccesoAutorizado").click(function () {
+            window.location.href = "cctv";
+        });
+    });
+    $(function () {
+        $(".PortonesAutomatizados").click(function () {
+            window.location.href = "sliding-gates";
+        });
+    });
+    $(function () {
+        $(".CentralesTelefonicas").click(function () {
+            window.location.href = "telephone-exchange";
+        });
+    });
+</script>
+

@@ -1,0 +1,63 @@
+﻿@{
+    Layout = "~/Views/Estructura/_Layout.cshtml";
+    Page.Title = "Telecon Erickson C.A - Create User";
+}
+
+
+
+
+<div class="PanelCrear">
+    <form method="post" name="CrearUsuario">
+        <h4 id="TituloNombreUsuario">Username</h4>
+        <input id="CampoNombreUsuario" type="text" name="NombreUsuario" />
+        <h4 id="TituloNombre">Names</h4>
+        <input id="CampoNombre" type="text" name="Nombres" />
+        <h4 id="TituloApellidos">Lastnames</h4>
+        <input id="CampoApellidos" type="text" name="Apellidos" />
+        <h4 id="TituloCorreo">E-mail</h4>
+        <input id="CampoCorreo" type="text" name="Correo" />
+        <h4 id="TituloEdad">Age</h4>
+        <input id="CampoEdad" type="text" name="Edad" />
+        <h4 id="TituloDireccion">Address</h4>
+        <input id="CampoDireccion" type="text" name="Direccion" />
+        <h4 id="TituloTelefono">Phone Number</h4>
+        <input id="CampoTelefono" type="text" name="Telefono" />
+        <h4 id="TituloAdmin">Admin Privileges</h4>
+        <label id="PAdmin" class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+        </label>
+        <button type="button">CREATE</button>
+        <button id="BotonBorrar" type="reset">RESET</button>
+    </form>
+
+    <div class="AvatarImg"></div>
+
+    <label id="BuscarImagen" for="files" class="btn btn-primary">Choose Image</label>
+    <input id="files" accept="image/*" style="visibility:hidden;" type="file" name="myFileSelect">
+</div>
+
+<script type="text/javascript">
+    $('#files').change(function () {
+        var file = this.files[0];
+        var reader = new FileReader();
+        reader.onloadend = function () {
+            $('.AvatarImg').css('background-image', 'url("' + reader.result + '")');
+        }
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+        }
+    });
+
+    
+    $("#BotonBorrar").click(function () {
+        $('.AvatarImg').css('background-image', 'url("/Style/Media/UsuarioPre.png")');
+    }
+    );
+
+    $(document).ready(function () {
+        $('.AdminButton').css('visibility', 'visible');
+    });
+
+</script>

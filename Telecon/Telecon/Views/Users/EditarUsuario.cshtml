@@ -1,0 +1,92 @@
+﻿@{
+    Layout = "~/Views/Estructura/_Forma.cshtml";
+    Page.Title = "Telecon Erickson C.A - Editar Usuario";
+}
+
+<h2 id="EditTitle">EDITAR USUARIO - CRISTIAN GONZÁLEZ </h2>
+
+<form name="EditarUsuario" method="post">
+
+    <div class="EditarFoto">
+        <h2>FOTO DE PERFIL</h2>
+        <hr />
+        <img id="EditImage" class="img-responsive img-thumbnail" src="~/Style/Media/UsuarioPre.png" />
+
+        <label id="EditarImagen" for="archivos" class="btn btn-primary">Buscar Imagen</label>
+        <input id="archivos" accept="image/*" style="visibility:hidden;" type="file" name="myImagenSelect">
+    </div>
+
+    <div class="EditarCargo">
+        <h2><b>PRIVILEGIOS</b></h2>
+        <hr />
+        <input id="RankCheck" type="checkbox" class="checkbox" name="Administrador" value="Admin">
+        
+        <p>Administrador</p>
+    </div>
+
+    <div class="PanelEditar">
+        <table class="TablaEditar" border="1">
+            <tr>
+                <td colspan="2" id="EditHeader"><p>INFORMACIÓN DE USUARIO</p></td>
+            </tr>
+            <tr>
+                <td class="EditarCell"><p>NOMBRE DE USUARIO</p></td>
+                <td><input class="form-control" type="text" name="NombreUsuario" /></td>
+            </tr>
+            <tr>
+                <td class="EditarCell"><p>NOMBRES</p></td>
+                <td><input class="form-control" type="text" name="Nombres" /></td>
+            </tr>
+            <tr>
+                <td class="EditarCell"><p>APELLIDOS</p></td>
+                <td><input class="form-control" type="text" name="Apellidos" /></td>
+            </tr>
+            <tr>
+                <td class="EditarCell"><p>EDAD</p></td>
+                <td><input class="form-control" type="text" name="Edad" /></td>
+            </tr>
+            <tr>
+                <td class="EditarCell"><p>CORREO</p></td>
+                <td><input class="form-control" type="text" name="Correo" /></td>
+            </tr>
+            <tr>
+                <td class="EditarCell"><p>TELÉFONO</p></td>
+                <td><input class="form-control" type="text" name="Telefono" /></td>
+            </tr>
+            <tr></tr>
+        </table>
+
+        <button type="button">ACTUALIZAR</button>
+        <button type="button" id="BtnRegresar">REGRESAR</button>
+    </div>
+
+
+
+</form>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.AdminButton').css('visibility', 'visible');
+
+    });
+
+    $('#archivos').change(function () {
+        var file = this.files[0];
+        var reader = new FileReader();
+        reader.onloadend = function () {
+            $('#EditImage').attr('src', ''+ reader.result + '');
+        }
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+        }
+    });
+
+    $(function () {
+        $("#BtnRegresar").click(function () {
+            window.location.href = "/es/admin/usuarios";
+        });
+    });
+</script>

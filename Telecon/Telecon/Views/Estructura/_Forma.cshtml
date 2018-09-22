@@ -1,0 +1,24 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+          "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+    <title>@Page.Title</title>
+
+
+    <link rel="stylesheet" href="~/Style/Estilo.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <script src="~/Scripts/jquery-1.9.0.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+
+</head>
+<body>
+    <div>
+        @RenderPage("_Menu.cshtml")
+        @RenderBody()
+    </div>
+</body>
+</html>

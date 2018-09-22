@@ -1,0 +1,95 @@
+﻿@{
+    Layout = "~/Views/Estructura/_Forma.cshtml";
+    Page.Title = "Telecon Erickson C.A - Usuarios";
+}
+
+<div class="PanelBusqueda">
+    <form method="post" name="FormaBuscar">
+        <p><span class="glyphicon glyphicon-user"></span>   BUSCAR</p>
+        <hr /><br />
+        <h5>Código de Usuario</h5>
+        <input type="text" name="Codigo" />
+        <h5>Nombres y Apellidos</h5>
+        <input type="text" name="Nombre" />
+        <h5>Correo</h5>
+        <input type="text" name="Correo" />
+        <h5>Teléfono</h5>
+        <input type="text" name="Telefono" />
+        <div class="btn-group dropup SearchMenu">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                Ordenar por
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#"><span class="glyphicon glyphicon-barcode"></span><b>&ensp;Código</b></a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span><b>&ensp;Nombre</b></a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-envelope"></span><b>&ensp;Correo</b></a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-phone"></span><b>&ensp;Teléfono</b></a></li>
+            </ul>
+        </div>
+        <button type="reset" class="BtnBorrar">BORRAR</button>
+    </form>
+</div>
+
+
+
+<h2 id="UsersTitle">TELECON ERICKSON C.A - LISTA DE USUARIOS</h2>
+
+<table class="TablaUsuarios">
+    <tr>
+        <td>Código</td>
+        <td>Nombre de Usuario</td>
+        <td>Nombres</td>
+        <td>Apellidos</td>
+        <td style="border-bottom-style: solid; width: 15%; padding-top: 1em; padding-bottom: 0.5em; padding-left: 0;">Correo</td>
+        <td style="padding-bottom: 0.5em; border-bottom-style: solid; border-top-style: none;">Teléfono</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Bayke</td>
+        <td>Cristian David</td>
+        <td>González Lugo</td>
+        <td>cdgl1996@gmail.com</td>
+        <td>0416-6860677</td>
+        <td><button type="button">Editar</button></td>
+        <td><button type="button">Borrar</button></td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>KKaY</td>
+        <td>Kevin</td>
+        <td>Reinbold</td>
+        <td>Kevin@gmail.com</td>
+        <td>04249258444</td>
+        <td><button type="button">Editar</button></td>
+        <td><button type="button">Borrar</button></td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>LowaG</td>
+        <td>Istvan</td>
+        <td>Gati</td>
+        <td>Gatillo@gmail.com</td>
+        <td>04161234567</td>
+        <td><button type="button">Editar</button></td>
+        <td><button type="button">Borrar</button></td>
+    </tr>
+</table>
+
+<button id="BtnCrear" type="button">CREAR USUARIO</button>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.AdminButton').css('visibility', 'visible');
+
+    });
+
+    $(function () {
+        $("#BtnCrear").click(function () {
+            window.location.href = "/es/admin/usuarios/crearusuario";
+        });
+    });
+
+</script>
+
+

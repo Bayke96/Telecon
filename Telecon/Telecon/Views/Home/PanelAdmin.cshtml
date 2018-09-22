@@ -1,0 +1,45 @@
+﻿@{
+    Layout = "~/Views/Estructura/_Forma.cshtml";
+    Page.Title = "Telecon Erickson C.A - Panel de Administración";
+}
+
+<div class="AdminPanel">
+    <h2>PANEL DE ADMINISTRACIÓN</h2>
+    <hr />
+    <div class="PUsuarios"><p>USUARIOS</p>
+    <div></div>
+    </div>
+    <hr />
+    <div class="PProductos"><p>PRODUCTOS</p>
+    <div></div>
+    </div>
+    <hr />
+    <div class="PPrivilegios"><p>PRIVILEGIOS</p>
+    <div></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.AdminButton').css('visibility', 'visible');
+    });
+
+    $(function () {
+        $(".PUsuarios").click(function () {
+            window.location.href = "/es/admin/usuarios";
+        });
+    });
+
+    $(function () {
+        $(".PProductos").click(function () {
+            window.location.href = "/es/admin/productos";
+        });
+    });
+
+    $(function () {
+        $(".PPrivilegios").click(function () {
+            window.location.href = "/es/admin/privilegios";
+        });
+    });
+
+</script>

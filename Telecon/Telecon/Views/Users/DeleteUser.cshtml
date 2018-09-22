@@ -1,0 +1,76 @@
+﻿@{
+    Layout = "~/Views/Estructura/_Layout.cshtml";
+    Page.Title = "Telecon Erickson C.A - Delete User";
+}
+
+<h2 id="DeleteTitle">DELETE USER - CRISTIAN GONZÁLEZ </h2>
+
+<form name="EliminarUsuario" method="post">
+
+    <div class="EditarFoto">
+        <h2>PROFILE AVATAR</h2>
+        <hr />
+        <img id="DeleteImage" class="img-responsive img-thumbnail" src="~/Style/Media/UsuarioPre.png" />
+    </div>
+
+    <div class="EliminarCargo">
+        <h2><b>PRIVILEGES</b></h2>
+        <hr />
+        <p>USER</p>
+    </div>
+
+    <div class="PanelEliminar">
+        <table class="TablaEditar" border="1">
+            <tr>
+                <td colspan="2" id="EditHeader">USER INFO</td>
+            </tr>
+            <tr>
+                <td class="EditarCell">USERNAME</td>
+                <td><p>Bayke</p></td>
+            </tr>
+            <tr>
+                <td class="EditarCell">NAMES</td>
+                <td><p>Cristian David</p></td>
+            </tr>
+            <tr>
+                <td class="EditarCell">LASTNAMES</td>
+                <td><p>González Lugo</p></td>
+            </tr>
+            <tr>
+                <td class="EditarCell">AGE</td>
+                <td><p>21 años</p></td>
+            </tr>
+            <tr>
+                <td class="EditarCell">E-MAIL</td>
+                <td><p>cdgl1996@gmail.com</p></td>
+            </tr>
+            <tr>
+                <td class="EditarCell">PHONE</td>
+                <td><p>0416-6860677</p></td>
+            </tr>
+            <tr></tr>
+        </table>
+
+        <p id="MsgConfirmacion">¿ Are you sure you wish to delete this user ?</p>
+        <button type="button" id="BtnSi">YES</button>
+        <button type="button" id="BtnNo">NO</button>
+    </div>
+
+</form>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.AdminButton').css('visibility', 'visible');
+
+    });
+
+   
+
+    $(function () {
+        $("#BtnNo").click(function () {
+            window.location.href = "/en/admin/users";
+        });
+    });
+</script>
+
+

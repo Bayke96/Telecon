@@ -1,0 +1,68 @@
+﻿    <div class="MenuP">
+    <div class="MenuGroup">
+        <button type="button" id="HomeButton">Inicio</button>
+        <button type="button" id="ProductButton">Productos Disponibles</button>
+        <button type="button" id="ServiceButton">Servicios</button>
+        <button type="button" id="GeneralButton">Información General</button>
+        <button type="button" id="ContactButton">Información de Contacto</button>
+    </div>
+
+    <div class="MenuSecundario">
+        <button type="button" id="LoginButton">Ingresar</button>
+        <div class="btn-group">
+            <button type="button" id="LanguageM" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                Lenguaje
+                <span class="caret"></span>
+            </button>
+
+            <ul class="dropdown-menu" id="Languages" role="menu">
+                <li class="text-center"><a href="#"><img id="SpanishFlag" class="img-responsive" src="~/Style/Media/SpanishFlag.png"><b>Español</b></a></li>
+                <li class="text-center"><a href="#"><img id="EnglishFlag" class="img-responsive" src="~/Style/Media/EnglishFlag.jpg"><b>English</b></a></li>
+            </ul>
+
+        </div>
+    </div>
+
+    <button type="button" class="AdminButton">Panel de Administración</button>
+
+</div>
+
+
+
+<script type="text/javascript">
+    $(function () {
+        $("#HomeButton").click(function () {
+            window.location.href = "/es/inicio";
+        });
+    });
+
+    $(function () {
+        $("#ServiceButton").click(function () {
+            window.location.href = "/es/servicios";
+        });
+    });
+
+    $(function () {
+        $("#GeneralButton").click(function () {
+            window.location.href = "/es/info";
+        });
+    });
+
+    $(function () {
+        $("#ContactButton").click(function () {
+            window.location.href = "/es/contacto";
+        });
+    });
+
+    $(function () {
+        $("#LoginButton").click(function () {
+            window.location.href = "/es/conectar";
+        });
+    });
+
+    $(function () {
+        $(".AdminButton").click(function () {
+            window.location.href = "/es/admin";
+        });
+    });
+</script>

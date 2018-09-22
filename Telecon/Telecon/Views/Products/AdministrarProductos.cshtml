@@ -1,0 +1,76 @@
+﻿@{
+    Layout = "~/Views/Estructura/_Forma.cshtml";
+    Page.Title = "Telecon Erickson C.A - Administración de productos";
+}
+
+<p id="ProductsTitle">TELECON ERICKSON C.A - ADMINISTRACIÓN DE PRODUCTOS</p>
+
+<form method="post" name="ControlProductos">
+
+    <div class="AdministracionProductos">
+        <table class="TablaEditar" border="1">
+            <tr>
+                <td colspan="2"><p>CONTROL DE PRODUCTOS</p></td>
+            </tr>
+            <tr>
+                <td>Aumentar precios (%)</td>
+                <td><input type="text" name="Incremento" class="form-control" /></td>
+            </tr>
+            <tr>
+                <td>Precio Maximo</td>
+                <td><input type="text" name="Incremento" class="form-control" /></td>
+            </tr>
+            <tr>
+                <td>Precio Minimo</td>
+                <td><input type="text" name="Incremento" class="form-control" /></td>
+            </tr>
+            <tr>
+                <td>Adición de productos</td>
+                <td><label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider round"></span>
+                        </label>
+                </td>
+            </tr>
+            <tr>
+                <td>Modificación de productos</td>
+                <td>
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider round"></span>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>Eliminación de productos</td>
+                <td>
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider round"></span>
+                    </label>
+                </td>
+            </tr>
+        </table>
+
+        <button type="button" id="ProductosAceptar">ACEPTAR</button>
+        <button type="button" id="ProductosRegresar">REGRESAR</button>
+        <button type="reset" id="ProductosBorrar">VALORES PREDETERMINADOS</button>
+    </div>
+
+</form>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.AdminButton').css('visibility', 'visible');
+
+    });
+
+    $(function () {
+        $("#ProductosRegresar").click(function () {
+            window.location.href = "/es/admin";
+        });
+    });
+
+</script>
+
+

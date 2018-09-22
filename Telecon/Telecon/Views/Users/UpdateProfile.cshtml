@@ -1,0 +1,42 @@
+﻿@{
+    Layout = "~/Views/Estructura/_Layout.cshtml";
+    Page.Title = "Telecon Erickson C.A - Update Profile";
+}
+
+<div class="ActualizarPerfil">
+    <h2>UPDATE PROFILE - CRISTIAN GONZÁLEZ</h2>
+    <hr />
+    <form method="post">
+
+        <table>
+            <tr>
+                <th>Names</th>
+                <td><input type="text" class="form-control" name="Nombres" /></td>
+            </tr>
+            <tr>
+                <th>Lastnames</th>
+                <td><input type="text" class="form-control" name="Apellidos" /></td>
+            </tr>
+            <tr>
+                <th>E-mail</th>
+                <td><input type="text" class="form-control" name="Correo" /></td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td><input type="text" class="form-control" name="Edad" /></td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td><input type="text" class="form-control" name="Direccion" /></td>
+            </tr>
+            <tr>
+                <th>Phone Number</th>
+                <td><input type="text" class="form-control" name="Telefono" /></td>
+            </tr>
+        </table>
+
+        <button type="button">UPDATE</button>
+        <button type="reset">RESET</button>
+    </form>
+    
+</div>

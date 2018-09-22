@@ -1,0 +1,72 @@
+﻿    <div class="MenuP">
+    <div class="MenuGroup">
+        <button type="button" id="HomeButton">Home</button>
+        <button type="button" id="ProductButton">Available Products</button>
+        <button type="button" id="ServiceButton">Services</button>
+        <button type="button" id="GeneralButton">General Information</button>
+        <button type="button" id="ContactButton">Contact Information</button>
+    </div>
+
+    <div class="MenuSecundario">
+        <button type="button" id="LoginButton">Login</button>
+        <div class="btn-group">
+            <button type="button" id="LanguageM" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                Languages
+                <span class="caret"></span>
+            </button>
+
+            <ul class="dropdown-menu" id="Languages" role="menu">
+                <li class="text-center"><a href="#"><img id="SpanishFlag" class="img-responsive" src="~/Style/Media/SpanishFlag.png"><b>Español</b></a></li>
+                <li class="text-center"><a href="#"><img id="EnglishFlag" class="img-responsive" src="~/Style/Media/EnglishFlag.jpg"><b>English</b></a></li>
+            </ul>
+
+        </div>
+    </div>
+
+    <button type="button" class="AdminButton">Administration Panel</button>
+
+</div>
+
+
+
+<script type="text/javascript">
+    $(function () {
+        $("#HomeButton").click(function () {
+            window.location.href = "/en/home";
+        });
+    });
+
+    $(function () {
+        $("#ServiceButton").click(function () {
+            window.location.href = "/en/services";
+        });
+    });
+
+    $(function () {
+        $("#GeneralButton").click(function () {
+            window.location.href = "/en/info";
+        });
+    });
+
+    $(function () {
+        $("#ContactButton").click(function () {
+            window.location.href = "/en/contact";
+        });
+    });
+
+    $(function () {
+        $("#LoginButton").click(function () {
+            window.location.href = "/en/login";
+        });
+    });
+
+    $(function () {
+        $(".AdminButton").click(function () {
+            window.location.href = "/en/admin";
+        });
+    });
+
+
+    
+
+</script>

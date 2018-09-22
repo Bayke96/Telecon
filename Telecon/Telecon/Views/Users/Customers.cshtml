@@ -1,0 +1,224 @@
+﻿@{
+    Layout = "~/Views/Estructura/_Layout.cshtml";
+    Page.Title = "Telecon Erickson C.A - My Customers";
+}
+
+
+<h2 id="TClientes">CUSTOMERS LIST</h2>
+
+
+<div class="ClientsBlock">
+    <button type="button" id="AgregarCB">Add Customer<div id="AgregarC"></div></button>
+    <button type="button" id="ModificarCB">Edit Customer<div id="ModificarC"></div></button>
+    <button type="button" id="EliminarCB">Delete Customer<div id="EliminarC"></div></button>
+</div>
+
+
+<form method="post">
+    <div id="VAgregarC" class="VentanaAgregarC">
+        <div>
+            <span class="pull-right glyphicon glyphicon-off" id="CerrarVentanaAgregarC"></span>
+            <h2>Add New Customer</h2>
+            <hr />
+            <p>Company's Name</p>
+            <input type="text" name="razonsocial" />
+            <p>Names</p>
+            <input type="text" name="nombres" />
+            <p>Lastnames</p>
+            <input type="text" name="apellidos" />
+            <p>Phone Number</p>
+            <input type="text" name="telefono" />
+            <p>Address</p>
+            <input type="text" name="direccion" />
+            <p>Note</p>
+            <textarea rows="2" cols="50" name="comentarios"></textarea>
+            <button type="button">Add</button>
+            <button type="reset">Reset</button>
+
+        </div>
+    </div>
+</form>
+
+
+<form method="post">
+    <div id="VModificarC" class="VentanaModificarC">
+        <div>
+            <span class="pull-right glyphicon glyphicon-off" id="CerrarVentanaModificarC"></span>
+            <h2>Edit Customer</h2>
+            <hr />
+            <p id="NombreCliente">Customer</p>
+            <select id="SeleccionCliente">
+                <option value="A">Cristian González</option>
+                <option value="B">Kevin Reinbold</option>
+                <option value="C">Telecon Erickson C.A</option>
+                <option value="D">Carnicería Bolivar</option>
+            </select>
+            <p>Company's Name</p>
+            <input type="text" name="razorsocial" />
+            <p>Names</p>
+            <input type="text" name="nombres" />
+            <p>Lastnames</p>
+            <input type="text" name="apellidos" />
+            <p>Phone Number</p>
+            <input type="text" name="telefono" />
+            <p>Address</p>
+            <input type="text" name="direccion" />
+            <p>Note</p>
+            <textarea rows="2" cols="50" name="comentarios"></textarea>
+            <button type="button">Update</button>
+            <button type="reset">Reset</button>
+
+        </div>
+    </div>
+</form>
+
+
+
+<form method="post">
+    <div id="VEliminarC" class="VentanaEliminarC">
+        <div>
+            <span class="pull-right glyphicon glyphicon-off" id="CerrarVentanaEliminarC"></span>
+            <h2>Delete Customer(s)</h2>
+            <hr /><br />
+            <p>¿Are you sure you wish to delete the following users from your list?</p>
+            <div id="EListaClientes">
+                <table border="1">
+                    <tr>
+                        <td colspan="2">Customers</td>
+                    </tr>
+                    <tr>
+                        <td>Company's Name</td>
+                        <td>Address</td>
+                    </tr>
+                    <tr>
+                        <td>Telecon Erickson C.A</td>
+                        <td>El Roble, San Félix</td>
+                    </tr>
+                    <tr>
+                        <td>Cristian González</td>
+                        <td>Los Mangos, Puerto Ordaz</td>
+                    </tr>
+                    <tr>
+                        <td>Kevin Reinbold</td>
+                        <td>Rottweil, Alemania</td>
+                    </tr>
+                    <tr>
+                        <td>Johnny Cage</td>
+                        <td>Chicago, Estados Unidos</td>
+                    </tr>
+                    <tr>
+                        <td>Vasquez, Lenny</td>
+                        <td>Rio de Janeiro, Brasil</td>
+                    </tr>
+                    <tr>
+                        <td>Stefan Georgiev</td>
+                        <td>Sofia, Bulgaria</td>
+                    </tr>
+                    <tr>
+                        <td>Istvan Gati</td>
+                        <td>Budapest, Hungría</td>
+                    </tr>
+                    <tr>
+                        <td>Alessando Sadcunt</td>
+                        <td>Italia</td>
+                    </tr>
+                    <tr>
+                        <td>Haris Kahrimanovic</td>
+                        <td>Amsterdam, Holanda</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <button type="button">Yes</button>
+            <button type="button" id="NoEliminarCliente">No</button>
+
+        </div>
+    </div>
+</form>
+
+
+
+
+
+<table class="TablaClientes">
+    <tr>
+        <th></th>
+        <th>N°</th>
+        <th>Company's Name</th>
+        <th>Names</th>
+        <th>Lastnames</th>
+        <th>Phone</th>
+        <th>Address</th>
+    </tr>
+    <tr>
+        <td><input type="checkbox" /></td>
+        <td>1</td>
+        <td>Telecon Erickson C.A</td>
+        <td>Cristian David</td>
+        <td>González Lugo</td>
+        <td>0416-6860677</td>
+        <td>Los Mangos, Puerto Ordaz</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" value="1" /></td>
+        <td>2</td>
+        <td>Telecon Erickson C.A</td>
+        <td>Cristian David</td>
+        <td>González Lugo</td>
+        <td>0416-6860677</td>
+        <td>Los Mangos, Puerto Ordaz</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" /></td>
+        <td>3</td>
+        <td>Telecon Erickson C.A</td>
+        <td>Cristian David</td>
+        <td>González Lugo</td>
+        <td>0416-6860677</td>
+        <td>Los Mangos, Puerto Ordaz</td>
+    </tr>
+</table>
+
+<script type="text/javascript">
+
+
+    $(function () {
+        $("#AgregarCB").click(function () {
+            window.location.href = "#VAgregarC";
+        });
+    });
+    $(function () {
+        $("#CerrarVentanaAgregarC").click(function () {
+            window.location.href = "customers";
+        });
+    });
+
+    $(function () {
+        $("#ModificarCB").click(function () {
+            window.location.href = "#VModificarC";
+        });
+    });
+    $(function () {
+        $("#CerrarVentanaModificarC").click(function () {
+            window.location.href = "customers";
+        });
+    });
+
+
+
+    $(function () {
+        $("#EliminarCB").click(function () {
+            window.location.href = "#VEliminarC";
+        });
+    });
+    $(function () {
+        $("#CerrarVentanaEliminarC").click(function () {
+            window.location.href = "customers";
+        });
+    });
+    $(function () {
+        $("#NoEliminarCliente").click(function () {
+            window.location.href = "customers";
+        });
+    });
+</script>

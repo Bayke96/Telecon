@@ -1,0 +1,83 @@
+﻿@{
+    Layout = "~/Views/Estructura/_Layout.cshtml";
+    Page.Title = "Telecon Erickson C.A - Account Profile";
+}
+
+
+<div class="OpcionesPerfil">
+    <h2>OPTIONS</h2>
+    <hr />
+
+    <button type="button" id="UpdateProfile">Update profile<div id="PImg1"></div></button>
+    <button type="button" id="ChangePassword">Change password<div id="PImg2"></div></button>
+    <button type="button" id="MyCustomers">My customers<div id="PImg3"></div></button>
+    <button type="button" id="Chat">Online chat<div id="PImg4"></div></button>
+    <button type="button">Log out<div id="PImg5"></div></button>
+</div>
+
+<div class="PanelPerfil">
+    <h2>USER PROFILE - CRISTIAN GONZÁLEZ</h2>
+    <hr />
+
+    <img src="~/Style/Media/IMGPAPELERIA.jpg" id="ImgPerfil" />
+
+    <p>Cristian González</p>
+    <p>Puerto Ordaz, Los Mangos</p>
+    <p>Usuario Normal</p>
+    <p>0416-6860677</p>
+    <p>cdgl1996@gmail.com</p>
+</div>
+
+<div class="CambioImagen">
+    <h2>CHANGE AVATAR</h2>
+    <hr />
+
+    <img src="~/Style/Media/IMGPAPELERIA.jpg" id="CambioImgPerfil" />
+
+    <label id="ActualizarImagen" for="UpdateImg" class="btn btn-primary">Choose Image</label>
+    <input id="UpdateImg" accept="image/*" style="visibility:hidden;" type="file" name="myImagenSelect">
+
+</div>
+
+
+<script type="text/javascript">
+    $('#UpdateImg').change(function () {
+        var file = this.files[0];
+        var reader = new FileReader();
+        reader.onloadend = function () {
+            $('#CambioImgPerfil').attr('src', '' + reader.result + '');
+        }
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+        }
+    });
+
+
+    $(function () {
+        $("#UpdateProfile").click(function () {
+            window.location.href = "/en/profile/update";
+        });
+    });
+
+    $(function () {
+        $("#ChangePassword").click(function () {
+            window.location.href = "/en/profile/changepassword";
+        });
+    });
+
+    $(function () {
+        $("#MyCustomers").click(function () {
+            window.location.href = "/en/profile/customers";
+        });
+    });
+
+    $(function () {
+        $("#Chat").click(function () {
+            window.location.href = "/en/chat";
+        });
+    });
+
+
+
+</script>

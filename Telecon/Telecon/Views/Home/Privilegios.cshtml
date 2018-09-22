@@ -1,0 +1,66 @@
+﻿@{
+    Layout = "~/Views/Estructura/_Forma.cshtml";
+    Page.Title = "Telecon Erickson C.A - Administración de privilegios";
+}
+
+<div class="PanelPrivilegios">
+    <h2>CONTROL DE PRIVILEGIOS</h2>
+    <hr />
+    <table class="TablaEditar" border="1">
+        <tr>
+            <td>FOTOS DE PERFIL</td>
+            <td>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider round"></span>
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>PERMITIR CAMBIO DE CONTRASEÑA</td>
+            <td>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider round"></span>
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>PERMITIR CAMBIO DE CORREO</td>
+            <td>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider round"></span>
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>PERMITIR ACCESO DE USUARIO</td>
+            <td>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider round"></span>
+                </label>
+            </td>
+        </tr>
+    </table>
+
+    <button type="button">ACEPTAR</button>
+    <button type="button" id="ReturnButton">REGRESAR</button>
+
+</div>
+
+<script type="text/javascript">
+     $(document).ready(function () {
+        $('.AdminButton').css('visibility', 'visible');
+
+    });
+
+    $(function () {
+        $("#ReturnButton").click(function () {
+            window.location.href = "/es/admin";
+        });
+    });
+</script>
+
+

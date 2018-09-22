@@ -1,0 +1,76 @@
+﻿@{
+    Layout = "~/Views/Estructura/_Layout.cshtml";
+    Page.Title = "Telecon Erickson C.A - PRODUCTS ADMIN";
+}
+
+<p id="ProductsTitle">TELECON ERICKSON C.A - PRODUCTS ADMINISTRATION</p>
+
+<form method="post" name="ControlProductos">
+
+    <div class="AdministracionProductos">
+        <table class="TablaEditar" border="1">
+            <tr>
+                <td colspan="2"><p>PRODUCTS MANAGEMENT</p></td>
+            </tr>
+            <tr>
+                <td>RAISE PRICES (%)</td>
+                <td><input type="text" name="Incremento" class="form-control" /></td>
+            </tr>
+            <tr>
+                <td>MAXIMUM PRICE</td>
+                <td><input type="text" name="Maximo" class="form-control" /></td>
+            </tr>
+            <tr>
+                <td>MINIMUM PRICE</td>
+                <td><input type="text" name="Minimo" class="form-control" /></td>
+            </tr>
+            <tr>
+                <td>ADD PRODUCTS</td>
+                <td><label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider round"></span>
+                        </label>
+                </td>
+            </tr>
+            <tr>
+                <td>EDIT PRODUCTS</td>
+                <td>
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider round"></span>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>DELETE PRODUCTS</td>
+                <td>
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider round"></span>
+                    </label>
+                </td>
+            </tr>
+        </table>
+
+        <button type="button" id="ProductosAceptar">ACCEPT</button>
+        <button type="button" id="ProductosRegresar">RETURN</button>
+        <button type="reset" id="ProductosBorrar">DEFAULT VALUES</button>
+    </div>
+
+</form>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.AdminButton').css('visibility', 'visible');
+
+    });
+
+    $(function () {
+        $("#ProductosRegresar").click(function () {
+            window.location.href = "/en/admin";
+        });
+    });
+
+</script>
+
+

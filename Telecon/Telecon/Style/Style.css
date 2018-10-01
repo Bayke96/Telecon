@@ -470,7 +470,7 @@
   #PAdmin {
     position: relative;
     bottom: 7.4em;
-    left: 11%; }
+    left: 10.5%; }
   .AvatarImg {
     background: transparent;
     position: relative;
@@ -762,7 +762,7 @@
     font-size: 90%;
     bottom: 3.8em;
     position: relative;
-    left: 25.5%;
+    left: 29.5%;
     width: 70%; }
   .PanelEditar {
     margin-bottom: -100px;
@@ -834,7 +834,7 @@
   #EditImage {
     position: relative;
     top: 1em;
-    width: 44.83%;
+    width: 48.23%;
     height: 45%;
     left: 28%; }
   #EditarImagen {
@@ -862,7 +862,7 @@
   #RankCheck {
     display: inline;
     position: relative;
-    right: 3em;
+    right: 25%;
     top: 0.55em;
     width: 9%; }
   .EditarCargo h2 {
@@ -882,7 +882,7 @@
     position: relative;
     bottom: 1.5em;
     width: 2%;
-    left: 33%;
+    left: 40%;
     font-size: 65%; }
   #DeleteTitle {
     color: white;
@@ -891,7 +891,7 @@
     letter-spacing: 0.3em;
     position: relative;
     bottom: 1em;
-    left: 23%;
+    left: 27%;
     width: 70%; }
   #DeleteImage {
     position: relative;
@@ -903,7 +903,7 @@
     padding: 0;
     bottom: 0;
     position: relative;
-    top: 13%;
+    top: 15%;
     font-size: 68%; }
   .PanelEliminar {
     margin-bottom: -100px;
@@ -939,7 +939,7 @@
     padding-bottom: 0.5em;
     width: 49.2%;
     position: relative;
-    top: 3.5em;
+    top: 4em;
     transition: all 500ms ease; }
   .PanelEliminar button:hover {
     background-color: rgba(0, 0, 179, 0.5); }
@@ -1004,7 +1004,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 90%;
     position: relative;
-    left: 11%;
+    left: 14%;
     width: 80%;
     bottom: 2.5em; }
   #ContactHeader {
@@ -1249,15 +1249,15 @@
   #ProductosAceptar {
     width: 49.45%;
     position: relative;
-    top: 5em; }
+    top: 6em; }
   #ProductosRegresar {
     width: 49.45%;
     position: relative;
-    top: 5em; }
+    top: 6em; }
   #ProductosBorrar {
     position: relative;
     width: 99.9%;
-    top: 5.2em; }
+    top: 6.2em; }
   .switch {
     position: relative;
     display: inline-block;
@@ -1345,7 +1345,7 @@
     color: white;
     padding: 1em;
     position: relative;
-    top: 6.3em;
+    top: 7.5em;
     transition: all 500ms ease;
     font-size: 75%; }
   .PanelPrivilegios button:hover {
@@ -1398,7 +1398,7 @@
     text-align: justify;
     position: relative;
     left: 5%;
-    top: 6.5em;
+    top: 5.3em;
     font-size: 70%; }
   #PCerco2 {
     width: 30%;
@@ -1455,7 +1455,7 @@
     letter-spacing: 0.2em;
     font-size: 80%;
     position: relative;
-    left: 54%;
+    left: 60%;
     width: 35%;
     top: 56.3em; }
   #Cam2 {
@@ -1716,7 +1716,8 @@
     padding-right: 2em;
     position: relative;
     top: 19em;
-    left: -16%;
+    left: -17%;
+    width: 26%;
     transition: all 500ms ease;
     font-size: 60%;
     height: 4em; }
@@ -2199,7 +2200,7 @@
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     position: relative;
-    top: 0.5em;
+    top: 0.6em;
     left: 13%;
     height: 2.3em;
     margin: 0;
@@ -2214,7 +2215,7 @@
   #NombreCliente {
     position: relative;
     top: 0.7em;
-    left: 28%; }
+    left: 23%; }
   #SeleccionCliente {
     font-size: 80%;
     width: 59%;
@@ -2520,7 +2521,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 90%;
     position: relative;
-    left: 15%;
+    left: 17%;
     width: 80%;
     bottom: 2.5em; }
   .RecuperarContraseña input[type="text"] {
@@ -2689,7 +2690,7 @@
     font-size: 80%; }
   #LoginButton {
     background-image: url("Media/LoginIcon.png");
-    background-size: 20%;
+    background-size: 25%;
     background-repeat: no-repeat;
     background-position: 0.5em center;
     height: 2em;
@@ -3069,7 +3070,7 @@
     right: 10%; }
   #PAdmin {
     position: relative;
-    left: 9.5%; }
+    left: 8.8%; }
   .AvatarImg {
     background: transparent;
     position: relative;
@@ -3361,7 +3362,7 @@
     font-size: 120%;
     bottom: 2.3em;
     position: relative;
-    left: 20.5%;
+    left: 26.5%;
     width: 70%; }
   .PanelEditar {
     margin-bottom: -100px;
@@ -3455,9 +3456,9 @@
   #EditImage {
     position: relative;
     top: 1em;
-    width: 45%;
+    width: 49%;
     height: 50%;
-    left: 26%; }
+    left: 28%; }
   #EditarImagen {
     position: relative;
     top: 8.5em;
@@ -3483,7 +3484,7 @@
   #RankCheck {
     display: inline;
     position: relative;
-    right: 3.5em;
+    right: 25%;
     top: 0.45em;
     width: 9%; }
   .EditarCargo h2 {
@@ -3503,7 +3504,7 @@
     position: relative;
     bottom: 1.7em;
     width: 2%;
-    left: 31%;
+    left: 40%;
     font-size: 75%; }
   #DeleteTitle {
     color: white;
@@ -3512,7 +3513,7 @@
     letter-spacing: 0.3em;
     position: relative;
     bottom: 1em;
-    left: 21%;
+    left: 25%;
     width: 70%; }
   #DeleteImage {
     position: relative;
@@ -3624,7 +3625,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 100%;
     position: relative;
-    left: 14%;
+    left: 17%;
     width: 80%;
     bottom: 1.5em; }
   #ContactHeader {
@@ -3869,15 +3870,15 @@
   #ProductosAceptar {
     width: 49.4%;
     position: relative;
-    top: 5em; }
+    top: 6em; }
   #ProductosRegresar {
     width: 49.7%;
     position: relative;
-    top: 5em; }
+    top: 6em; }
   #ProductosBorrar {
     position: relative;
     width: 99.9%;
-    top: 5.2em; }
+    top: 6.2em; }
   .switch {
     position: relative;
     display: inline-block;
@@ -3965,7 +3966,7 @@
     color: white;
     padding: 1em;
     position: relative;
-    top: 6.3em;
+    top: 7.5em;
     transition: all 500ms ease;
     font-size: 75%; }
   .PanelPrivilegios button:hover {
@@ -4075,7 +4076,7 @@
     letter-spacing: 0.2em;
     font-size: 80%;
     position: relative;
-    left: 50%;
+    left: 63%;
     width: 35%;
     top: 56.3em; }
   #Cam2 {
@@ -4106,7 +4107,7 @@
     width: 20%;
     height: 20%;
     position: relative;
-    left: 59%;
+    left: 65%;
     top: 74em; }
   .Portones h2 {
     font-family: 'Anton', sans-serif;
@@ -4135,7 +4136,7 @@
     top: -3.7em; }
   #PT3 {
     position: relative;
-    left: 18%;
+    left: 20%;
     top: 11.8em; }
   #PT4 {
     position: relative;
@@ -4151,6 +4152,7 @@
     top: -2em; }
   #TCremalleras {
     position: relative;
+    left: 18%;
     top: 8em; }
   #TControles {
     position: relative;
@@ -4296,7 +4298,7 @@
     height: 23em;
     position: relative;
     top: 3em;
-    left: 19%; }
+    left: 17.5%; }
   .RecuperarContraseña h2 {
     color: white;
     letter-spacing: 0.3em;
@@ -4335,7 +4337,7 @@
     padding-right: 2em;
     position: relative;
     top: 19em;
-    left: -6%;
+    left: -10.5%;
     transition: all 500ms ease;
     font-size: 60%;
     display: inline;
@@ -4830,7 +4832,7 @@
   #NombreCliente {
     position: relative;
     top: 0.7em;
-    left: 27%; }
+    left: 23%; }
   #SeleccionCliente {
     font-size: 80%;
     width: 59%;
@@ -5176,7 +5178,7 @@
     font-size: 80%; }
   #LoginButton {
     background-image: url("Media/LoginIcon.png");
-    background-size: 20%;
+    background-size: 27%;
     background-repeat: no-repeat;
     background-position: 0.5em center;
     height: 2em;
@@ -5556,7 +5558,7 @@
     right: 10%; }
   #PAdmin {
     position: relative;
-    left: 9.5%; }
+    left: 8.8%; }
   .AvatarImg {
     background: transparent;
     position: relative;
@@ -5851,7 +5853,7 @@
     font-size: 140%;
     top: 1.3em;
     position: relative;
-    left: 12.5%;
+    left: 20.5%;
     width: 80%;
     font-weight: bold; }
   .PanelEditar {
@@ -5975,7 +5977,7 @@
   #RankCheck {
     display: inline;
     position: relative;
-    right: 3.5em;
+    right: 25%;
     top: 0.45em;
     width: 9%; }
   .EditarCargo h2 {
@@ -5995,7 +5997,7 @@
     position: relative;
     bottom: 1.7em;
     width: 2%;
-    left: 31%;
+    left: 40%;
     font-size: 75%; }
   #DeleteTitle {
     color: white;
@@ -6004,7 +6006,7 @@
     letter-spacing: 0.3em;
     position: relative;
     top: 2em;
-    left: 10%;
+    left: 25%;
     width: 80%;
     font-weight: bold; }
   #DeleteImage {
@@ -6371,15 +6373,15 @@
   #ProductosAceptar {
     width: 49.4%;
     position: relative;
-    top: 5em; }
+    top: 6.4em; }
   #ProductosRegresar {
     width: 49.7%;
     position: relative;
-    top: 5em; }
+    top: 6.4em; }
   #ProductosBorrar {
     position: relative;
     width: 99.9%;
-    top: 5.2em; }
+    top: 6.62em; }
   .switch {
     position: relative;
     display: inline-block;
@@ -6467,7 +6469,7 @@
     color: white;
     padding: 1em;
     position: relative;
-    top: 6.3em;
+    top: 7.8em;
     transition: all 500ms ease;
     font-size: 75%; }
   .PanelPrivilegios button:hover {
@@ -6579,7 +6581,7 @@
     letter-spacing: 0.2em;
     font-size: 90%;
     position: relative;
-    left: 53%;
+    left: 58%;
     width: 35%;
     top: 55.7em; }
   #Cam2 {
@@ -6656,6 +6658,7 @@
     top: -2em; }
   #TCremalleras {
     position: relative;
+    left: 15%;
     top: 8em; }
   #TControles {
     position: relative;
@@ -6839,8 +6842,9 @@
     padding-left: 2em;
     padding-right: 2em;
     position: relative;
-    top: 20em;
-    left: -16%;
+    top: 21em;
+    left: -18%;
+    width: 30%;
     transition: all 500ms ease;
     font-size: 80%;
     display: inline;
@@ -7234,7 +7238,7 @@
     padding-top: 0.3em;
     padding-bottom: 1.3em;
     position: relative;
-    bottom: -5em;
+    bottom: -3.5em;
     left: 19%;
     height: 2.3em;
     margin: 0;
@@ -7326,7 +7330,7 @@
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     position: relative;
-    top: 3em;
+    top: 2em;
     left: 13%;
     height: 2.3em;
     margin: 0;
@@ -7341,7 +7345,7 @@
   #NombreCliente {
     position: relative;
     top: 0.7em;
-    left: 27%; }
+    left: 23%; }
   #SeleccionCliente {
     font-size: 80%;
     width: 59%;
@@ -7612,7 +7616,7 @@
     font-size: 120%;
     bottom: 2.3em;
     position: relative;
-    left: 23.5%;
+    left: 26.5%;
     width: 70%; }
   #EditImage {
     position: relative;
@@ -7631,8 +7635,8 @@
     font-family: 'Rubik', sans-serif;
     font-size: 100%;
     position: relative;
-    left: 14.7%;
-    width: 80%;
+    left: 20%;
+    width: 70%;
     bottom: 1.5em; }
   .RecuperarContraseña {
     border-top-width: 3em;
@@ -7687,8 +7691,8 @@
     padding-left: 2em;
     padding-right: 2em;
     position: relative;
-    top: 19em;
-    left: -4.5%;
+    top: 18.5em;
+    left: -9.5%;
     transition: all 500ms ease;
     font-size: 60%;
     display: inline;
@@ -7779,7 +7783,7 @@
     letter-spacing: 0.3em;
     position: relative;
     bottom: 1em;
-    left: 18%;
+    left: 29%;
     width: 70%; }
   #AdminText {
     position: relative;
@@ -7895,7 +7899,7 @@
     padding-top: 0.3em;
     padding-bottom: 1.3em;
     position: relative;
-    bottom: -5.5em;
+    bottom: -6em;
     left: 19%;
     height: 2.3em;
     margin: 0;
@@ -7914,7 +7918,7 @@
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     position: relative;
-    top: 0.5em;
+    top: 0.6em;
     left: 13%;
     height: 2.3em;
     margin: 0;
@@ -7938,7 +7942,7 @@
     padding-right: 2em;
     position: relative;
     top: 19em;
-    left: -2%;
+    left: -8%;
     transition: all 500ms ease;
     font-size: 60%;
     display: inline;
@@ -7951,8 +7955,8 @@
     font-family: 'Rubik', sans-serif;
     font-size: 100%;
     position: relative;
-    left: 16.5%;
-    width: 80%;
+    left: 20.5%;
+    width: 70%;
     bottom: 1.5em; }
   .RecuperarContraseña input[type="text"] {
     position: relative;
@@ -7968,7 +7972,7 @@
     padding-right: 2em;
     position: relative;
     top: 19em;
-    left: -1%;
+    left: -6.5%;
     transition: all 500ms ease;
     font-size: 60%;
     display: inline;
@@ -7983,6 +7987,14 @@
     position: relative;
     left: 34%; } }
 
+@media(min-width: 871px){
+    #ActualizarImagen{
+        position: relative;
+        top: 45%;
+        left: -26%;
+    }
+}
+
 @media (min-width: 880px) {
   #ContactTitle {
     color: white;
@@ -7990,8 +8002,8 @@
     font-family: 'Rubik', sans-serif;
     font-size: 100%;
     position: relative;
-    left: 17.5%;
-    width: 80%;
+    left: 21.5%;
+    width: 70%;
     bottom: 1.5em; }
   .RecuperarContraseña input[type="text"] {
     position: relative;
@@ -8007,7 +8019,7 @@
     padding-right: 2em;
     position: relative;
     top: 19em;
-    left: 1%;
+    right: 9%;
     transition: all 500ms ease;
     font-size: 60%;
     display: inline;
@@ -8029,8 +8041,8 @@
     font-family: 'Rubik', sans-serif;
     font-size: 100%;
     position: relative;
-    left: 18%;
-    width: 80%;
+    left: 22%;
+    width: 70%;
     bottom: 1.5em; }
   #DeleteTitle {
     color: white;
@@ -8039,7 +8051,7 @@
     letter-spacing: 0.3em;
     position: relative;
     bottom: 1em;
-    left: 25%;
+    left: 30%;
     width: 70%; }
   #EditTitle {
     color: white;
@@ -8208,15 +8220,15 @@
   #ProductosAceptar {
     width: 49.4%;
     position: relative;
-    top: 5em; }
+    top: 6em; }
   #ProductosRegresar {
     width: 49.7%;
     position: relative;
-    top: 5em; }
+    top: 6em; }
   #ProductosBorrar {
     position: relative;
     width: 99.9%;
-    top: 5.2em; }
+    top: 6.2em; }
   .switch {
     position: relative;
     display: inline-block;
@@ -8321,18 +8333,19 @@
     padding-right: 2em;
     position: relative;
     top: 19em;
-    left: 2%;
+    left: -5%;
     transition: all 500ms ease;
     font-size: 60%;
     display: inline;
     height: 4em; }
   .RecuperarContraseña button:hover {
     background-color: rgba(0, 0, 179, 0.5); }
-  #ActualizarImagen {
-    font-size: 75%;
-    position: relative;
-    top: 3em;
-    left: 30%; } }
+    #ActualizarImagen {
+        font-size: 75%;
+        position: relative;
+        top: 45%;
+        left: -26%;
+    } }
 
 @media (min-width: 907px) {
   #ActualizarImagen {
@@ -8351,8 +8364,8 @@
     font-family: 'Rubik', sans-serif;
     font-size: 100%;
     position: relative;
-    left: 19%;
-    width: 80%;
+    left: 23.5%;
+    width: 70%;
     bottom: 1.5em; }
   .RecuperarContraseña input[type="text"] {
     position: relative;
@@ -8368,7 +8381,7 @@
     padding-right: 2em;
     position: relative;
     top: 19em;
-    left: 4%;
+    left: -4%;
     transition: all 500ms ease;
     font-size: 60%;
     display: inline;
@@ -8390,8 +8403,8 @@
     font-family: 'Rubik', sans-serif;
     font-size: 100%;
     position: relative;
-    left: 20%;
-    width: 80%;
+    left: 23%;
+    width: 70%;
     bottom: 1.5em; }
   .PanelContacto {
     position: relative;
@@ -8403,8 +8416,8 @@
     letter-spacing: 0.3em;
     position: relative;
     bottom: 1em;
-    left: 26%;
-    width: 70%; }
+    left: 31%;
+    width: 65%; }
   #EditTitle {
     color: white;
     letter-spacing: 0.3em;
@@ -8503,7 +8516,7 @@
     padding-right: 2em;
     position: relative;
     top: 19em;
-    left: 6%;
+    left: -4%;
     transition: all 500ms ease;
     font-size: 60%;
     display: inline;
@@ -8602,7 +8615,7 @@
     font-size: 90%; }
   #LoginButton {
     background-image: url("Media/LoginIcon.png");
-    background-size: 20%;
+    background-size: 25%;
     background-repeat: no-repeat;
     background-position: 0.5em center;
     height: 2em;
@@ -8611,7 +8624,7 @@
     top: 0.55em;
     left: -31%;
     text-align: right;
-    width: 55%;
+    width: 50%;
     transition: all 200ms ease;
     font-size: 80%;
     padding-left: 0;
@@ -9275,7 +9288,7 @@
     font-size: 120%;
     bottom: 1.3em;
     position: relative;
-    left: 28.5%;
+    left: 31%;
     width: 70%; }
   .PanelEditar {
     margin-bottom: -100px;
@@ -9359,13 +9372,13 @@
   #EditImage {
     position: relative;
     top: 1em;
-    width: 40%;
+    width: 50%;
     height: 50%;
     left: 24%; }
   #EditarImagen {
     position: relative;
     top: 8.5em;
-    left: -18.5%;
+    left: -22.5%;
     font-size: 80%; }
   .EditarCargo {
     color: white;
@@ -9387,7 +9400,7 @@
   #RankCheck {
     display: inline;
     position: relative;
-    right: 4em;
+    right: 25%;
     top: 0.45em;
     width: 7%; }
   .EditarCargo h2 {
@@ -9407,7 +9420,7 @@
     position: relative;
     bottom: 1.7em;
     width: 2%;
-    left: 34%;
+    left: 40%;
     font-size: 75%; }
   #DeleteTitle {
     color: white;
@@ -9416,7 +9429,7 @@
     letter-spacing: 0.3em;
     position: relative;
     bottom: 1em;
-    left: 26%;
+    left: 29.5%;
     width: 70%; }
   #DeleteImage {
     position: relative;
@@ -9528,7 +9541,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 120%;
     position: relative;
-    left: 17%;
+    left: 20%;
     width: 70%;
     bottom: 1.5em; }
   #ContactHeader {
@@ -9773,15 +9786,15 @@
   #ProductosAceptar {
     width: 49.4%;
     position: relative;
-    top: 3.2em; }
+    top: 4.2em; }
   #ProductosRegresar {
     width: 49.7%;
     position: relative;
-    top: 3.2em; }
+    top: 4.2em; }
   #ProductosBorrar {
     position: relative;
     width: 99.9%;
-    top: 3.5em; }
+    top: 4.5em; }
   .switch {
     position: relative;
     display: inline-block;
@@ -9869,7 +9882,7 @@
     color: white;
     padding: 1em;
     position: relative;
-    top: 6.3em;
+    top: 7.7em;
     transition: all 500ms ease;
     font-size: 75%; }
   .PanelPrivilegios button:hover {
@@ -9970,9 +9983,9 @@
     color: white;
     font-size: 140%;
     position: relative;
-    left: 77%;
+    left: 67%;
     width: 15%;
-    top: 13.7em;
+    top: 16.7em;
     margin-bottom: -300px; }
   #AccesoTitle2B {
     color: white;
@@ -9981,13 +9994,13 @@
     position: relative;
     left: 56%;
     width: 35%;
-    top: 50.9em; }
+    top: 55.9em; }
   #Cam2 {
     width: 15%;
     height: 15%;
     position: relative;
     left: 27%;
-    top: 38em; }
+    top: 41.5em; }
   #AccesoTitle3 {
     font-family: 'Anton', sans-serif;
     color: white;
@@ -9995,23 +10008,23 @@
     position: relative;
     left: 25%;
     width: 35%;
-    top: 31.5em;
+    top: 35.5em;
     margin-bottom: -517px; }
   #AccesoTitle3B {
     color: white;
     letter-spacing: 0.2em;
     font-size: 80%;
     position: relative;
-    left: 22%;
+    left: 27%;
     width: 35%;
-    top: 101.4em;
+    top: 108.4em;
     height: 7.8em; }
   #Cam3 {
     width: 20%;
     height: 20%;
     position: relative;
     left: 57%;
-    top: 69em; }
+    top: 75em; }
   .Portones h2 {
     font-family: 'Anton', sans-serif;
     color: white;
@@ -10039,7 +10052,7 @@
     top: -3.7em; }
   #PT3 {
     position: relative;
-    left: 18%;
+    left: 20%;
     top: 11.8em; }
   #PT4 {
     position: relative;
@@ -10238,6 +10251,7 @@
     padding-right: 3em;
     position: relative;
     top: 13em;
+    width: 31%;
     left: -13%;
     transition: all 500ms ease;
     font-size: 80%; }
@@ -10716,7 +10730,7 @@
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     position: relative;
-    top: 1.6em;
+    top: 1.63em;
     left: 21%;
     height: 2.3em;
     margin: 0;
@@ -10731,7 +10745,7 @@
   #NombreCliente {
     position: relative;
     top: 0.7em;
-    left: 42%; }
+    left: 37%; }
   #SeleccionCliente {
     font-size: 80%;
     width: 45%;
@@ -11236,14 +11250,14 @@
     position: relative;
     left: 56.5%;
     width: 35%;
-    top: 50.9em; }
+    top: 55.9em; }
   #ContactTitle {
     color: white;
     letter-spacing: 0.3em;
     font-family: 'Rubik', sans-serif;
     font-size: 120%;
     position: relative;
-    left: 18.5%;
+    left: 20.5%;
     width: 70%;
     bottom: 1.5em; } }
 
@@ -11480,7 +11494,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 120%;
     position: relative;
-    left: 18.5%;
+    left: 20.5%;
     width: 70%;
     bottom: 1.5em; }
   .RecuperarContraseña button {
@@ -11581,16 +11595,15 @@
     font-size: 90%; }
   #LoginButton {
     background-image: url("Media/LoginIcon.png");
-    background-size: 20%;
+    background-size: 25%;
     background-repeat: no-repeat;
     background-position: 0.5em center;
     height: 2em;
-    width: 2em;
     position: relative;
     top: 0.55em;
     left: -34%;
     text-align: right;
-    width: 55%;
+    width: 50%;
     transition: all 200ms ease;
     font-size: 80%;
     padding-left: 0;
@@ -12251,7 +12264,7 @@
     font-size: 120%;
     bottom: 1.3em;
     position: relative;
-    left: 28%;
+    left: 31.5%;
     width: 70%; }
   .PanelEditar {
     margin-bottom: -100px;
@@ -12335,13 +12348,13 @@
   #EditImage {
     position: relative;
     top: 1em;
-    width: 40%;
+    width: 50%;
     height: 50%;
     left: 22.5%; }
   #EditarImagen {
     position: relative;
     top: 8.5em;
-    left: -19.6%;
+    left: -22.6%;
     font-size: 80%; }
   .EditarCargo {
     color: white;
@@ -12363,7 +12376,7 @@
   #RankCheck {
     display: inline;
     position: relative;
-    right: 4em;
+    right: 25%;
     top: 0.5em;
     width: 8%; }
   .EditarCargo h2 {
@@ -12383,7 +12396,7 @@
     position: relative;
     bottom: 1.6em;
     width: 2%;
-    left: 36%;
+    left: 40%;
     font-size: 75%; }
   #DeleteTitle {
     color: white;
@@ -12392,8 +12405,8 @@
     letter-spacing: 0.3em;
     position: relative;
     bottom: 1em;
-    left: 26.5%;
-    width: 70%; }
+    left: 30%;
+    width: 65%; }
   #DeleteImage {
     position: relative;
     top: 12%;
@@ -12504,7 +12517,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 120%;
     position: relative;
-    left: 18.5%;
+    left: 20%;
     width: 70%;
     bottom: 1.5em; }
   #ContactHeader {
@@ -12749,15 +12762,15 @@
   #ProductosAceptar {
     width: 49.4%;
     position: relative;
-    top: 3.2em; }
+    top: 4.2em; }
   #ProductosRegresar {
     width: 49.7%;
     position: relative;
-    top: 3.2em; }
+    top: 4.2em; }
   #ProductosBorrar {
     position: relative;
     width: 99.9%;
-    top: 3.5em; }
+    top: 4.5em; }
   .switch {
     position: relative;
     display: inline-block;
@@ -12845,7 +12858,7 @@
     color: white;
     padding: 1em;
     position: relative;
-    top: 6.3em;
+    top: 7.7em;
     transition: all 500ms ease;
     font-size: 75%; }
   .PanelPrivilegios button:hover {
@@ -12946,7 +12959,7 @@
     color: white;
     font-size: 140%;
     position: relative;
-    left: 77%;
+    left: 68%;
     width: 15%;
     top: 15.7em;
     margin-bottom: -300px; }
@@ -12978,7 +12991,7 @@
     letter-spacing: 0.2em;
     font-size: 80%;
     position: relative;
-    left: 22%;
+    left: 27%;
     width: 35%;
     top: 104.9em;
     height: 7.8em; }
@@ -13015,7 +13028,7 @@
     top: -3.7em; }
   #PT3 {
     position: relative;
-    left: 18%;
+    left: 20%;
     top: 11.8em; }
   #PT4 {
     position: relative;
@@ -13693,7 +13706,7 @@
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     position: relative;
-    top: 1.6em;
+    top: 1.69em;
     left: 21%;
     height: 2.3em;
     margin: 0;
@@ -13708,7 +13721,7 @@
   #NombreCliente {
     position: relative;
     top: 0.7em;
-    left: 42%; }
+    left: 37%; }
   #SeleccionCliente {
     font-size: 80%;
     width: 45%;
@@ -14061,7 +14074,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 120%;
     position: relative;
-    left: 19.5%;
+    left: 20.5%;
     width: 70%;
     bottom: 1.5em; }
   #AccesoTitle2B {
@@ -14345,7 +14358,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 120%;
     position: relative;
-    left: 20%;
+    left: 21%;
     width: 70%;
     bottom: 1.5em; }
   #AccesoTitle2B {
@@ -14601,7 +14614,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 120%;
     position: relative;
-    left: 20.5%;
+    left: 21.5%;
     width: 70%;
     bottom: 1.5em; } }
 
@@ -14962,7 +14975,7 @@
     font-size: 90%; }
   #LoginButton {
     background-image: url("Media/LoginIcon.png");
-    background-size: 20%;
+    background-size: 25%;
     background-repeat: no-repeat;
     background-position: 0.5em center;
     height: 2em;
@@ -14971,7 +14984,7 @@
     top: 0.55em;
     left: -35%;
     text-align: right;
-    width: 55%;
+    width: 52%;
     transition: all 200ms ease;
     font-size: 80%;
     padding-left: 0;
@@ -15632,7 +15645,7 @@
     font-size: 120%;
     bottom: 1.3em;
     position: relative;
-    left: 31%;
+    left: 34%;
     width: 70%; }
   .PanelEditar {
     margin-bottom: -100px;
@@ -15746,7 +15759,7 @@
   #RankCheck {
     display: inline;
     position: relative;
-    right: 4.5em;
+    right: 25%;
     top: 0.45em;
     width: 7%;
     overflow: hidden; }
@@ -15767,7 +15780,7 @@
     position: relative;
     bottom: 1.6em;
     width: 2%;
-    left: 34%;
+    left: 40%;
     font-size: 75%; }
   #DeleteTitle {
     color: white;
@@ -15776,8 +15789,8 @@
     letter-spacing: 0.3em;
     position: relative;
     bottom: 1em;
-    left: 29.5%;
-    width: 70%; }
+    left: 32.5%;
+    width: 65%; }
   #DeleteImage {
     position: relative;
     top: 12%;
@@ -15888,7 +15901,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 120%;
     position: relative;
-    left: 21.5%;
+    left: 24.5%;
     width: 70%;
     bottom: 1.5em; }
   #ContactHeader {
@@ -16133,15 +16146,15 @@
   #ProductosAceptar {
     width: 49.4%;
     position: relative;
-    top: 3.2em; }
+    top: 4.2em; }
   #ProductosRegresar {
     width: 49.7%;
     position: relative;
-    top: 3.2em; }
+    top: 4.2em; }
   #ProductosBorrar {
     position: relative;
     width: 99.9%;
-    top: 3.5em; }
+    top: 4.5em; }
   .switch {
     position: relative;
     display: inline-block;
@@ -16229,7 +16242,7 @@
     color: white;
     padding: 1em;
     position: relative;
-    top: 6.3em;
+    top: 7.7em;
     transition: all 500ms ease;
     font-size: 75%; }
   .PanelPrivilegios button:hover {
@@ -16330,7 +16343,7 @@
     color: white;
     font-size: 140%;
     position: relative;
-    left: 75%;
+    left: 67%;
     width: 15%;
     top: 15.7em;
     margin-bottom: -300px; }
@@ -16362,7 +16375,7 @@
     letter-spacing: 0.2em;
     font-size: 80%;
     position: relative;
-    left: 22%;
+    left: 27%;
     width: 35%;
     top: 104.9em;
     height: 7.8em; }
@@ -16399,7 +16412,7 @@
     top: -3.7em; }
   #PT3 {
     position: relative;
-    left: 18%;
+    left: 20%;
     top: 11.8em; }
   #PT4 {
     position: relative;
@@ -16585,7 +16598,7 @@
     text-align: center;
     color: white;
     position: relative;
-    left: 34.8%;
+    left: 36.88%;
     top: 4em;
     font-size: 90%; }
   .RecuperarContraseña button {
@@ -16599,7 +16612,7 @@
     padding-right: 3em;
     position: relative;
     top: 13em;
-    left: -4%;
+    left: -9%;
     transition: all 500ms ease;
     font-size: 80%; }
   .RecuperarContraseña button:hover {
@@ -16986,7 +16999,7 @@
     padding-top: 0.3em;
     padding-bottom: 1.3em;
     position: relative;
-    top: 4em;
+    top: 4.3em;
     left: 26%;
     height: 2.3em;
     margin: 0;
@@ -17077,7 +17090,7 @@
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     position: relative;
-    top: 1.5em;
+    top: 1.75em;
     left: 21%;
     height: 2.3em;
     margin: 0;
@@ -17092,7 +17105,7 @@
   #NombreCliente {
     position: relative;
     top: 0.7em;
-    left: 42%; }
+    left: 39%; }
   #SeleccionCliente {
     font-size: 80%;
     width: 45%;
@@ -17607,7 +17620,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 120%;
     position: relative;
-    left: 22.5%;
+    left: 24.5%;
     width: 70%;
     bottom: 1.5em; } }
 
@@ -17623,7 +17636,7 @@
     padding-right: 3em;
     position: relative;
     top: 13em;
-    left: -1.5%;
+    left: -7.5%;
     transition: all 500ms ease;
     font-size: 80%; } }
 
@@ -17634,7 +17647,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 120%;
     position: relative;
-    left: 23%;
+    left: 25%;
     width: 70%;
     bottom: 0.5em; } }
 
@@ -17645,7 +17658,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 120%;
     position: relative;
-    left: 24%;
+    left: 25%;
     width: 70%;
     bottom: 0.5em; }
   .RecuperarContraseña input[type="text"] {
@@ -17662,7 +17675,7 @@
     padding-right: 3em;
     position: relative;
     top: 13em;
-    left: -0.2%;
+    left: -7.2%;
     transition: all 500ms ease;
     font-size: 80%; } }
 
@@ -17764,7 +17777,7 @@
     top: -0.55em;
     left: -40%;
     text-align: right;
-    width: 60%;
+    width: 55%;
     transition: all 200ms ease; }
   #LoginButton:hover {
     color: aqua;
@@ -18125,7 +18138,7 @@
     right: 10%; }
   #PAdmin {
     position: relative;
-    left: 7.7%;
+    left: 7.2%;
     bottom: 3.5em; }
   .AvatarImg {
     background: transparent;
@@ -18419,7 +18432,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 150%;
     position: relative;
-    left: 28%;
+    left: 31.5%;
     width: 70%;
     top: 1em; }
   .PanelEditar {
@@ -18534,7 +18547,7 @@
   #RankCheck {
     display: inline;
     position: relative;
-    right: 5.2em;
+    right: 25%;
     top: 0.35em;
     width: 6%; }
   .EditarCargo h2 {
@@ -18554,7 +18567,7 @@
     position: relative;
     bottom: 1.65em;
     width: 2%;
-    left: 33%;
+    left: 40%;
     font-size: 100%; }
   #DeleteTitle {
     color: white;
@@ -18563,7 +18576,7 @@
     letter-spacing: 0.3em;
     position: relative;
     top: 0.5em;
-    left: 31.5%;
+    left: 34.5%;
     width: 60%; }
   #DeleteImage {
     position: relative;
@@ -18672,7 +18685,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 150%;
     position: relative;
-    left: 18.8%;
+    left: 21.4%;
     width: 70%;
     top: 1em; }
   #ContactHeader {
@@ -18913,15 +18926,15 @@
   #ProductosAceptar {
     width: 49.7%;
     position: relative;
-    top: 2.3em; }
+    top: 3.1em; }
   #ProductosRegresar {
     width: 49.7%;
     position: relative;
-    top: 2.3em; }
+    top: 3.1em; }
   #ProductosBorrar {
     position: relative;
     width: 99.9%;
-    top: 2.4em; }
+    top: 3.2em; }
   .switch {
     position: relative;
     display: inline-block;
@@ -19009,7 +19022,7 @@
     color: white;
     padding: 1em;
     position: relative;
-    top: 3.7em;
+    top: 5.2em;
     transition: all 500ms ease;
     font-size: 90%; }
   .PanelPrivilegios button:hover {
@@ -19110,7 +19123,7 @@
     color: white;
     font-size: 180%;
     position: relative;
-    left: 77%;
+    left: 71%;
     width: 15%;
     top: 14.2em;
     margin-bottom: -300px; }
@@ -19119,7 +19132,7 @@
     letter-spacing: 0.2em;
     font-size: 100%;
     position: relative;
-    left: 56.5%;
+    left: 59.5%;
     width: 35%;
     top: 47.1em; }
   #Cam2 {
@@ -19179,7 +19192,7 @@
     top: -1.4em; }
   #PT3 {
     position: relative;
-    left: 18%;
+    left: 19.5%;
     top: 15em; }
   #PT4 {
     position: relative;
@@ -19380,7 +19393,7 @@
     padding-right: 3em;
     position: relative;
     top: 9em;
-    left: -9%;
+    left: -7.8%;
     transition: all 500ms ease;
     font-size: 100%; }
   .RecuperarContraseña button:hover {
@@ -19764,7 +19777,7 @@
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     position: relative;
-    top: 4em;
+    top: 5.1em;
     left: 31%;
     height: 2.3em;
     margin: 0;
@@ -19855,7 +19868,7 @@
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     position: relative;
-    top: 2em;
+    top: 3.5em;
     left: 26%;
     height: 2.3em;
     margin: 0;
@@ -19870,12 +19883,12 @@
   #NombreCliente {
     position: relative;
     top: 0.5em;
-    left: 55%; }
+    left: 38%; }
   #SeleccionCliente {
     font-size: 90%;
-    width: 35%;
+    width: 47%;
     position: relative;
-    left: 66%;
+    left: 54%;
     bottom: 1.9em;
     border-radius: 5px; }
   .VentanaEliminarC {
@@ -20145,7 +20158,7 @@
     padding-right: 3em;
     position: relative;
     top: 9em;
-    left: -6.4%;
+    left: -7.4%;
     transition: all 500ms ease;
     font-size: 100%; } }
 
@@ -20242,7 +20255,7 @@
     top: -0.95em;
     left: -45%;
     text-align: right;
-    width: 60%;
+    width: 55%;
     transition: all 200ms ease; }
   #LoginButton:hover {
     color: aqua;
@@ -20893,7 +20906,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 150%;
     position: relative;
-    left: 29.5%;
+    left: 33%;
     width: 45%;
     top: -0.3em; }
   .PanelEditar {
@@ -21013,7 +21026,7 @@
   #RankCheck {
     display: inline;
     position: relative;
-    right: 5em;
+    right: 20%;
     top: 0.4em; }
   .EditarCargo h2 {
     letter-spacing: 0.2em;
@@ -21032,7 +21045,7 @@
     position: relative;
     bottom: 1.6em;
     width: 2%;
-    left: 34%;
+    left: 40%;
     font-size: 100%; }
   #DeleteTitle {
     color: white;
@@ -21041,7 +21054,7 @@
     letter-spacing: 0.3em;
     position: relative;
     top: 0.5em;
-    left: 32.5%;
+    left: 35.3%;
     width: 60%; }
   #DeleteImage {
     position: relative;
@@ -21150,7 +21163,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 150%;
     position: relative;
-    left: 19.8%;
+    left: 22.2%;
     width: 70%;
     top: 1em; }
   #ContactHeader {
@@ -21391,15 +21404,15 @@
   #ProductosAceptar {
     width: 49.7%;
     position: relative;
-    top: 2.3em; }
+    top: 3.1em; }
   #ProductosRegresar {
     width: 49.7%;
     position: relative;
-    top: 2.3em; }
+    top: 3.1em; }
   #ProductosBorrar {
     position: relative;
     width: 99.9%;
-    top: 2.4em; }
+    top: 3.2em; }
   .switch {
     position: relative;
     display: inline-block;
@@ -21487,7 +21500,7 @@
     color: white;
     padding: 1em;
     position: relative;
-    top: 3.7em;
+    top: 5.2em;
     transition: all 500ms ease;
     font-size: 90%; }
   .PanelPrivilegios button:hover {
@@ -21588,7 +21601,7 @@
     color: white;
     font-size: 180%;
     position: relative;
-    left: 77%;
+    left: 71%;
     width: 15%;
     top: 14.2em;
     margin-bottom: -300px; }
@@ -21597,7 +21610,7 @@
     letter-spacing: 0.2em;
     font-size: 100%;
     position: relative;
-    left: 56.5%;
+    left: 59.5%;
     width: 35%;
     top: 47.1em; }
   #Cam2 {
@@ -21657,7 +21670,7 @@
     top: -3.4em; }
   #PT3 {
     position: relative;
-    left: 18%;
+    left: 19%;
     top: 13em; }
   #PT4 {
     position: relative;
@@ -21857,7 +21870,7 @@
     padding-right: 3em;
     position: relative;
     top: 9em;
-    left: -5%;
+    left: -6.5%;
     transition: all 500ms ease;
     font-size: 100%; }
   .RecuperarContraseña button:hover {
@@ -22241,7 +22254,7 @@
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     position: relative;
-    top: 5em;
+    top: 5.1em;
     left: 31%;
     height: 2.3em;
     margin: 0;
@@ -22347,12 +22360,12 @@
   #NombreCliente {
     position: relative;
     top: 0.5em;
-    left: 55%; }
+    left: 41%; }
   #SeleccionCliente {
     font-size: 90%;
-    width: 35%;
+    width: 45%;
     position: relative;
-    left: 66%;
+    left: 56%;
     bottom: 1.9em;
     border-radius: 5px; }
   .VentanaEliminarC {
@@ -22721,9 +22734,9 @@
     width: 50%;
     position: relative;
     top: -0.30em;
-    left: -35%;
+    left: -25%;
     text-align: right;
-    width: 60%;
+    width: 50%;
     transition: all 200ms ease;
     font-size: 100%;
     padding-left: 1.5em; }
@@ -22777,11 +22790,11 @@
     padding-top: 0.5%;
     padding-bottom: 1.5%;
     position: relative;
-    left: 84.6%;
+    left: 85.9%;
     bottom: 8em;
     margin-bottom: -100px;
     visibility: hidden;
-    width: 14%;
+    width: 12%;
     height: 20%; }
   .AdminButton:hover {
     background-color: red; }
@@ -23379,9 +23392,9 @@
     font-family: 'Rubik', sans-serif;
     font-size: 150%;
     position: relative;
-    left: 30.8%;
+    left: 33.8%;
     width: 70%;
-    bottom: 0.3em; }
+    top: 2.3em; }
   .PanelEditar {
     margin-bottom: -100px;
     color: white;
@@ -23494,7 +23507,7 @@
   #RankCheck {
     display: inline;
     position: relative;
-    right: 5.5em;
+    right: 25%;
     top: 0.4em;
     width: 5%; }
   .EditarCargo h2 {
@@ -23514,7 +23527,7 @@
     position: relative;
     bottom: 1.6em;
     width: 2%;
-    left: 34%;
+    left: 40%;
     font-size: 100%; }
   #DeleteTitle {
     color: white;
@@ -23523,7 +23536,7 @@
     letter-spacing: 0.3em;
     position: relative;
     top: 2.5em;
-    left: 33.8%;
+    left: 36%;
     width: 60%; }
   #DeleteImage {
     position: relative;
@@ -23634,7 +23647,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 150%;
     position: relative;
-    left: 21.5%;
+    left: 23.5%;
     width: 70%;
     top: 1em; }
   #ContactHeader {
@@ -23875,15 +23888,15 @@
   #ProductosAceptar {
     width: 49.7%;
     position: relative;
-    top: 2.3em; }
+    top: 3.13em; }
   #ProductosRegresar {
     width: 49.7%;
     position: relative;
-    top: 2.3em; }
+    top: 3.1em; }
   #ProductosBorrar {
     position: relative;
     width: 99.9%;
-    top: 2.4em; }
+    top: 3.2em; }
   .switch {
     position: relative;
     display: inline-block;
@@ -23971,7 +23984,7 @@
     color: white;
     padding: 1em;
     position: relative;
-    top: 3.7em;
+    top: 5.2em;
     transition: all 500ms ease;
     font-size: 90%; }
   .PanelPrivilegios button:hover {
@@ -24074,7 +24087,7 @@
     color: white;
     font-size: 180%;
     position: relative;
-    left: 77%;
+    left: 71%;
     width: 15%;
     top: 14.2em;
     margin-bottom: -300px; }
@@ -24083,7 +24096,7 @@
     letter-spacing: 0.2em;
     font-size: 100%;
     position: relative;
-    left: 58%;
+    left: 60%;
     width: 35%;
     top: 47.1em; }
   #Cam2 {
@@ -24143,7 +24156,7 @@
     top: -0.4em; }
   #PT3 {
     position: relative;
-    left: 18%;
+    left: 19%;
     top: 16em; }
   #PT4 {
     position: relative;
@@ -24343,7 +24356,7 @@
     padding-right: 3em;
     position: relative;
     top: 9em;
-    left: -1%;
+    left: -5%;
     transition: all 500ms ease;
     font-size: 100%; }
   .RecuperarContraseña button:hover {
@@ -24728,7 +24741,7 @@
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     position: relative;
-    top: 4em;
+    top: 2.5em;
     left: 31%;
     height: 2.3em;
     margin: 0;
@@ -24820,7 +24833,7 @@
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     position: relative;
-    top: 3.5em;
+    top: 2em;
     left: 26%;
     height: 2.3em;
     margin: 0;
@@ -24835,7 +24848,7 @@
   #NombreCliente {
     position: relative;
     top: 0.5em;
-    left: 55%; }
+    left: 52%; }
   #SeleccionCliente {
     font-size: 90%;
     width: 35%;
@@ -25036,31 +25049,35 @@
     margin-top: 0.2em;
     border-radius: 2px;
     top: 28.3em; }
-  .Contenedor input[type="text"] {
-    font-size: 80%;
-    height: 100%;
-    width: 92%;
-    font-family: 'Rubik', sans-serif;
-    color: lightslategrey;
-    text-align: right;
-    padding-right: 1em;
-    border-radius: 5px;
-    border-style: solid;
-    border-color: darkgrey;
-    height: 2.5em;
-    position: relative;
-    top: 0.2em; }
-  .Contenedor button {
-    width: 7.5%;
-    height: 2em;
-    position: relative;
-    left: 92.5%;
-    bottom: 1.85em;
-    background-color: dodgerblue;
-    border-style: solid;
-    border-radius: 5%;
-    color: white;
-    transition: all 500ms ease; }
+    .Contenedor input[type="text"] {
+        font-size: 80%;
+        height: 100%;
+        width: 92%;
+        font-family: 'Rubik', sans-serif;
+        color: lightslategrey;
+        text-align: right;
+        padding-right: 1em;
+        border-radius: 5px;
+        border-style: solid;
+        border-color: darkgrey;
+        left: 0.3%;
+        height: 2.5em;
+        position: relative;
+        top: -0.1em;
+    }
+
+    .Contenedor button {
+        width: 7%;
+        height: 2em;
+        position: relative;
+        left: 0.5%;
+        top: 0.1em;
+        background-color: dodgerblue;
+        border-style: solid;
+        border-radius: 5%;
+        color: white;
+        transition: all 500ms ease;
+    }
   .Contenedor button:hover {
     color: dodgerblue;
     background-color: white; }
@@ -25105,7 +25122,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 150%;
     position: relative;
-    left: 22.5%;
+    left: 24.5%;
     width: 70%;
     top: 1em; }
   .RecuperarContraseña input[type="text"] {
@@ -25113,7 +25130,7 @@
     left: 38.6%; }
   .RecuperarContraseña button {
     position: relative;
-    left: 1%; } }
+    left: -4%; } }
 
 @media (min-width: 1600px) {
   #ContactTitle {
@@ -25122,7 +25139,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 150%;
     position: relative;
-    left: 23.5%;
+    left: 25%;
     width: 70%;
     top: 1em; }
   .RecuperarContraseña input[type="text"] {
@@ -25130,7 +25147,8 @@
     left: 39.3%; }
   .RecuperarContraseña button {
     position: relative;
-    left: 3.5%; } }
+    width: 25%;
+    left: 2.5%; } }
 
 @media (min-width: 1640px) {
   #AdminCheck {
@@ -25245,9 +25263,9 @@
     width: 50%;
     position: relative;
     top: -0.30em;
-    left: -50%;
+    left: -40%;
     text-align: right;
-    width: 60%;
+    width: 50%;
     transition: all 200ms ease;
     font-size: 100%;
     padding-left: 1.5em; }
@@ -25301,7 +25319,7 @@
     padding-top: 0.5%;
     padding-bottom: 1.5%;
     position: relative;
-    left: 85.7%;
+    left: 86%;
     bottom: 8em;
     margin-bottom: -100px;
     visibility: hidden;
@@ -25933,9 +25951,9 @@
     font-family: 'Rubik', sans-serif;
     font-size: 150%;
     position: relative;
-    left: 33.4%;
+    left: 36.4%;
     width: 70%;
-    top: 1.3em; }
+    top: 2.3em; }
   .PanelEditar {
     margin-bottom: -100px;
     color: white;
@@ -26048,7 +26066,7 @@
   #RankCheck {
     display: inline;
     position: relative;
-    right: 25%;
+    right: 20%;
     top: 0.3em;
     width: 5%; }
   .EditarCargo h2 {
@@ -26068,7 +26086,7 @@
     position: relative;
     bottom: 1.8em;
     width: 2%;
-    left: 36%;
+    left: 43%;
     font-size: 100%; }
   #DeleteTitle {
     color: white;
@@ -26077,7 +26095,7 @@
     letter-spacing: 0.3em;
     position: relative;
     top: 2.5em;
-    left: 32.8%;
+    left: 35.4%;
     width: 60%; }
   #DeleteImage {
     position: relative;
@@ -26186,7 +26204,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 150%;
     position: relative;
-    left: 25.2%;
+    left: 27.2%;
     width: 70%;
     top: 1em; }
   #ContactHeader {
@@ -26427,15 +26445,15 @@
   #ProductosAceptar {
     width: 49.7%;
     position: relative;
-    top: 2.3em; }
+    top: 3.1em; }
   #ProductosRegresar {
     width: 49.7%;
     position: relative;
-    top: 2.3em; }
+    top: 3.1em; }
   #ProductosBorrar {
     position: relative;
     width: 99.9%;
-    top: 2.4em; }
+    top: 3.3em; }
   .switch {
     position: relative;
     display: inline-block;
@@ -26523,7 +26541,7 @@
     color: white;
     padding: 1em;
     position: relative;
-    top: 3.7em;
+    top: 5.27em;
     transition: all 500ms ease;
     font-size: 90%; }
   .PanelPrivilegios button:hover {
@@ -26626,7 +26644,7 @@
     color: white;
     font-size: 180%;
     position: relative;
-    left: 77%;
+    left: 71%;
     width: 15%;
     top: 17.2em;
     margin-bottom: -300px; }
@@ -26635,7 +26653,7 @@
     letter-spacing: 0.2em;
     font-size: 100%;
     position: relative;
-    left: 61%;
+    left: 62%;
     width: 35%;
     top: 52.8em; }
   #Cam2 {
@@ -26695,7 +26713,7 @@
     top: -0.4em; }
   #PT3 {
     position: relative;
-    left: 18%;
+    left: 19.5%;
     top: 16em; }
   #PT4 {
     position: relative;
@@ -26895,7 +26913,7 @@
     padding-right: 3em;
     position: relative;
     top: 9em;
-    left: 5.5%;
+    left: 3%;
     transition: all 500ms ease;
     font-size: 100%; }
   .RecuperarContraseña button:hover {
@@ -27280,7 +27298,7 @@
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     position: relative;
-    top: 4em;
+    top: 2.5em;
     left: 31%;
     height: 2.3em;
     margin: 0;
@@ -27372,7 +27390,7 @@
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     position: relative;
-    top: 3.5em;
+    top: 2em;
     left: 26%;
     height: 2.3em;
     margin: 0;
@@ -27387,7 +27405,7 @@
   #NombreCliente {
     position: relative;
     top: 0.5em;
-    left: 55%; }
+    left: 54%; }
   #SeleccionCliente {
     font-size: 90%;
     width: 35%;
@@ -27656,7 +27674,7 @@
     left: 39.9%; }
   .RecuperarContraseña button {
     position: relative;
-    left: 6.5%; } }
+    left: 4%; } }
 
 @media (min-width: 1800px) {
   #ContactTitle {
@@ -27665,7 +27683,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 150%;
     position: relative;
-    left: 26.5%;
+    left: 28%;
     width: 70%;
     top: 2em; }
   .RecuperarContraseña input[type="text"] {
@@ -27673,7 +27691,7 @@
     left: 40.4%; }
   .RecuperarContraseña button {
     position: relative;
-    left: 9%; } }
+    left: 5%; } }
 
 @media (min-width: 1891px) {
   .Lista img {
@@ -27690,7 +27708,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 150%;
     position: relative;
-    left: 28.5%;
+    left: 29.5%;
     width: 70%;
     top: 2em; }
   .RecuperarContraseña input[type="text"] {
@@ -27698,7 +27716,7 @@
     left: 40.9%; }
   .RecuperarContraseña button {
     position: relative;
-    left: 11%; }
+    left: 6%; }
   .Card5 {
     visibility: hidden; } }
 
@@ -27795,9 +27813,9 @@
     width: 50%;
     position: relative;
     top: -1.50em;
-    left: -50%;
+    left: -40%;
     text-align: right;
-    width: 60%;
+    width: 50%;
     transition: all 200ms ease;
     font-size: 100%;
     padding-left: 1.5em; }
@@ -28493,7 +28511,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 150%;
     position: relative;
-    left: 36%;
+    left: 38.6%;
     width: 70%;
     top: 2.3em; }
   .PanelEditar {
@@ -28608,7 +28626,7 @@
   #RankCheck {
     display: inline;
     position: relative;
-    right: 25%;
+    right: 15%;
     top: 0.4em;
     width: 5%; }
   .EditarCargo h2 {
@@ -28628,7 +28646,7 @@
     position: relative;
     bottom: 1.65em;
     width: 2%;
-    left: 36%;
+    left: 44%;
     font-size: 100%; }
   #DeleteTitle {
     color: white;
@@ -28637,7 +28655,7 @@
     letter-spacing: 0.3em;
     position: relative;
     top: 2.5em;
-    left: 32.8%;
+    left: 35%;
     width: 60%; }
   #DeleteImage {
     position: relative;
@@ -28746,7 +28764,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 150%;
     position: relative;
-    left: 28%;
+    left: 30%;
     width: 70%;
     top: 1em; }
   #ContactHeader {
@@ -28987,15 +29005,15 @@
   #ProductosAceptar {
     width: 49.7%;
     position: relative;
-    top: 2.3em; }
+    top: 3.1em; }
   #ProductosRegresar {
     width: 49.7%;
     position: relative;
-    top: 2.3em; }
+    top: 3.1em; }
   #ProductosBorrar {
     position: relative;
     width: 99.9%;
-    top: 2.4em; }
+    top: 3.3em; }
   .switch {
     position: relative;
     display: inline-block;
@@ -29083,7 +29101,7 @@
     color: white;
     padding: 1em;
     position: relative;
-    top: 3.7em;
+    top: 5.3em;
     transition: all 500ms ease;
     font-size: 90%; }
   .PanelPrivilegios button:hover {
@@ -29186,7 +29204,7 @@
     color: white;
     font-size: 180%;
     position: relative;
-    left: 75%;
+    left: 70%;
     width: 15%;
     top: 19.6em;
     margin-bottom: -300px; }
@@ -29195,7 +29213,7 @@
     letter-spacing: 0.2em;
     font-size: 100%;
     position: relative;
-    left: 61%;
+    left: 62%;
     width: 35%;
     top: 56.8em; }
   #Cam2 {
@@ -29227,7 +29245,7 @@
     height: 30%;
     position: relative;
     left: 54%;
-    top: 78em; }
+    top: 76em; }
   .Portones h2 {
     font-family: 'Anton', sans-serif;
     color: white;
@@ -29456,7 +29474,7 @@
     padding-right: 3em;
     position: relative;
     top: 14em;
-    left: -4%;
+    left: -6%;
     transition: all 500ms ease;
     font-size: 70%; }
   .RecuperarContraseña button:hover {
@@ -29840,7 +29858,7 @@
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     position: relative;
-    top: 4em;
+    top: 2.5em;
     left: 31%;
     height: 2.3em;
     margin: 0;
@@ -29931,7 +29949,7 @@
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     position: relative;
-    top: 3.5em;
+    top: 2em;
     left: 26%;
     height: 2.3em;
     margin: 0;
@@ -29946,7 +29964,7 @@
   #NombreCliente {
     position: relative;
     top: 0.5em;
-    left: 53%; }
+    left: 50%; }
   #SeleccionCliente {
     font-size: 90%;
     width: 37%;
@@ -30165,7 +30183,7 @@
     height: 2.3em;
     position: relative;
     left: 0.1%;
-    top: 0.15em;
+    top: 0.3em;
     background-color: dodgerblue;
     border-style: solid;
     border-radius: 5%;
@@ -30320,9 +30338,9 @@
     width: 50%;
     position: relative;
     top: -3em;
-    left: -32%;
+    left: -25%;
     text-align: right;
-    width: 62%;
+    width: 52%;
     transition: all 200ms ease;
     font-size: 150%;
     padding-left: 1.5em; }
@@ -31021,9 +31039,9 @@
     font-family: 'Rubik', sans-serif;
     font-size: 180%;
     position: relative;
-    left: 37.8%;
+    left: 39.8%;
     width: 70%;
-    top: 4.3em; }
+    top: 6.3em; }
   .PanelEditar {
     margin-bottom: -100px;
     color: white;
@@ -31137,7 +31155,7 @@
   #RankCheck {
     display: inline;
     position: relative;
-    right: 25%;
+    right: 15%;
     top: 0.4em;
     width: 5%; }
   .EditarCargo h2 {
@@ -31157,7 +31175,7 @@
     position: relative;
     bottom: 1.65em;
     width: 2%;
-    left: 36%;
+    left: 45%;
     font-size: 100%; }
   #DeleteTitle {
     color: white;
@@ -31166,7 +31184,7 @@
     letter-spacing: 0.3em;
     position: relative;
     top: 6.5em;
-    left: 34.4%;
+    left: 36.2%;
     width: 60%; }
   #DeleteImage {
     position: relative;
@@ -31275,7 +31293,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 180%;
     position: relative;
-    left: 30%;
+    left: 32%;
     width: 70%;
     top: 5em; }
   #ContactHeader {
@@ -31715,7 +31733,7 @@
     color: white;
     font-size: 180%;
     position: relative;
-    left: 70%;
+    left: 66%;
     width: 15%;
     top: 21.6em;
     margin-bottom: -300px; }
@@ -31756,7 +31774,7 @@
     height: 25%;
     position: relative;
     left: 54%;
-    top: 82em; }
+    top: 80em; }
   .Portones h2 {
     font-family: 'Anton', sans-serif;
     color: white;
@@ -31986,8 +32004,8 @@
     padding-right: 3em;
     position: relative;
     top: 14em;
-    width: 35%;
-    left: -8%;
+    width: 25%;
+    left: 2%;
     transition: all 500ms ease;
     font-size: 100%; }
   .RecuperarContraseña button:hover {
@@ -32371,7 +32389,7 @@
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     position: relative;
-    top: 4em;
+    top: 2.5em;
     left: 31%;
     height: 2.3em;
     margin: 0;
@@ -32462,7 +32480,7 @@
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     position: relative;
-    top: 3.5em;
+    top: 2em;
     left: 26%;
     height: 2.3em;
     margin: 0;
@@ -32477,7 +32495,7 @@
   #NombreCliente {
     position: relative;
     top: 0.5em;
-    left: 53%; }
+    left: 51%; }
   #SeleccionCliente {
     font-size: 90%;
     width: 37%;
@@ -32696,7 +32714,7 @@
     height: 2.3em;
     position: relative;
     left: 0.1%;
-    top: 0.15em;
+    top: 0.3em;
     background-color: dodgerblue;
     border-style: solid;
     border-radius: 5%;
@@ -32832,9 +32850,9 @@
     width: 50%;
     position: relative;
     top: -3em;
-    left: -32%;
+    left: -25%;
     text-align: right;
-    width: 67%;
+    width: 52%;
     transition: all 200ms ease;
     font-size: 180%;
     padding-left: 1.5em; }
@@ -33534,7 +33552,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 210%;
     position: relative;
-    left: 35.8%;
+    left: 37.2%;
     width: 70%;
     top: 5.3em; }
   .PanelEditar {
@@ -33650,7 +33668,7 @@
   #RankCheck {
     display: inline;
     position: relative;
-    right: 25%;
+    right: 20%;
     top: 0.4em;
     width: 5%; }
   .EditarCargo h2 {
@@ -33670,7 +33688,7 @@
     position: relative;
     bottom: 1.65em;
     width: 2%;
-    left: 36%;
+    left: 41%;
     font-size: 100%; }
   #DeleteTitle {
     color: white;
@@ -33679,7 +33697,7 @@
     letter-spacing: 0.3em;
     position: relative;
     top: 6.5em;
-    left: 36.2%;
+    left: 37.8%;
     width: 60%; }
   #DeleteImage {
     position: relative;
@@ -33788,7 +33806,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 250%;
     position: relative;
-    left: 27.2%;
+    left: 28.7%;
     width: 70%;
     top: 7em; }
   #ContactHeader {
@@ -34228,7 +34246,7 @@
     color: white;
     font-size: 220%;
     position: relative;
-    left: 65%;
+    left: 61.5%;
     width: 15%;
     top: 21.6em;
     margin-bottom: -300px; }
@@ -34237,7 +34255,7 @@
     letter-spacing: 0.2em;
     font-size: 140%;
     position: relative;
-    left: 53%;
+    left: 55%;
     width: 35%;
     top: 49.4em; }
   #Cam2 {
@@ -34260,7 +34278,7 @@
     letter-spacing: 0.2em;
     font-size: 140%;
     position: relative;
-    left: 22%;
+    left: 21%;
     width: 35%;
     top: 87em;
     height: 11.8em; }
@@ -34498,7 +34516,7 @@
     padding-right: 3em;
     position: relative;
     top: 14em;
-    left: -8%;
+    left: 2%;
     transition: all 500ms ease;
     font-size: 130%; }
   .RecuperarContraseña button:hover {
@@ -34745,9 +34763,9 @@
     font-family: 'Rubik', sans-serif;
     color: white;
     padding: 0.5em;
-    width: 20%;
+    width: 15%;
     position: relative;
-    left: 30%;
+    left: 35%;
     top: 6.5em;
     transition: all 500ms ease; }
   .CambioContraseña button:hover {
@@ -34882,7 +34900,7 @@
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     position: relative;
-    top: 4em;
+    top: 2.5em;
     left: 31%;
     height: 2.3em;
     margin: 0;
@@ -34973,7 +34991,7 @@
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     position: relative;
-    top: 3.5em;
+    top: 2em;
     left: 26%;
     height: 2.3em;
     margin: 0;
@@ -34988,7 +35006,7 @@
   #NombreCliente {
     position: relative;
     top: 0.5em;
-    left: 53%; }
+    left: 51%; }
   #SeleccionCliente {
     font-size: 90%;
     width: 37%;
@@ -35203,11 +35221,11 @@
     position: relative;
     top: 0.2em; }
   .Contenedor button {
-    width: 6.2%;
+    width: 6%;
     height: 2.3em;
     position: relative;
-    left: 0.1%;
-    top: 0.15em;
+    left: 0.3%;
+    top: 0.3em;
     background-color: dodgerblue;
     border-style: solid;
     border-radius: 5%;
@@ -35343,9 +35361,9 @@
     width: 50%;
     position: relative;
     top: -3em;
-    left: -32%;
+    left: -21%;
     text-align: right;
-    width: 67%;
+    width: 52%;
     transition: all 200ms ease;
     font-size: 180%;
     padding-left: 1.5em; }
@@ -36045,9 +36063,9 @@
     font-family: 'Rubik', sans-serif;
     font-size: 300%;
     position: relative;
-    left: 32.2%;
+    left: 34.6%;
     width: 70%;
-    top: 5.3em; }
+    top: 7.3em; }
   .PanelEditar {
     margin-bottom: -100px;
     color: white;
@@ -36161,7 +36179,7 @@
   #RankCheck {
     display: inline;
     position: relative;
-    right: 35%;
+    right: 20%;
     top: 0.4em;
     width: 5%; }
   .EditarCargo h2 {
@@ -36181,7 +36199,7 @@
     position: relative;
     bottom: 1.65em;
     width: 2%;
-    left: 30%;
+    left: 40%;
     font-size: 180%; }
   #DeleteTitle {
     color: white;
@@ -36190,7 +36208,7 @@
     letter-spacing: 0.3em;
     position: relative;
     top: 6.5em;
-    left: 32.7%;
+    left: 35%;
     width: 60%; }
   #DeleteImage {
     position: relative;
@@ -36299,7 +36317,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 300%;
     position: relative;
-    left: 25.8%;
+    left: 27.3%;
     width: 70%;
     top: 7em; }
   #ContactHeader {
@@ -36544,15 +36562,15 @@
   #ProductosAceptar {
     width: 49.7%;
     position: relative;
-    top: 8.7em; }
+    top: 9.3em; }
   #ProductosRegresar {
     width: 49.7%;
     position: relative;
-    top: 8.7em; }
+    top: 9.3em; }
   #ProductosBorrar {
     position: relative;
     width: 99.9%;
-    top: 8.9em; }
+    top: 9.39em; }
   .switch {
     position: relative;
     display: inline-block;
@@ -36640,7 +36658,7 @@
     color: white;
     padding: 1em;
     position: relative;
-    top: 10.2em;
+    top: 10.6em;
     transition: all 500ms ease;
     font-size: 180%; }
   .PanelPrivilegios button:hover {
@@ -36743,7 +36761,7 @@
     color: white;
     font-size: 280%;
     position: relative;
-    left: 65%;
+    left: 60%;
     width: 15%;
     top: 21.6em;
     margin-bottom: -300px; }
@@ -36752,7 +36770,7 @@
     letter-spacing: 0.2em;
     font-size: 180%;
     position: relative;
-    left: 51.5%;
+    left: 52.5%;
     width: 35%;
     top: 45.8em; }
   #Cam2 {
@@ -36999,7 +37017,7 @@
     text-align: center;
     color: white;
     position: relative;
-    left: 37.72%;
+    left: 38.42%;
     top: 6em;
     font-size: 220%; }
   .RecuperarContraseña button {
@@ -37013,10 +37031,10 @@
     padding-right: 3em;
     position: relative;
     top: 22em;
-    left: -10%;
+    left: 2%;
     transition: all 500ms ease;
     font-size: 180%;
-    width: 35%; }
+    width: 25%; }
   .RecuperarContraseña button:hover {
     background-color: rgba(0, 0, 179, 0.5); }
   .OpcionesPerfil {
@@ -37398,7 +37416,7 @@
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     position: relative;
-    top: 4.8em;
+    top: 3em;
     left: 31%;
     height: 2.3em;
     margin: 0;
@@ -37489,7 +37507,7 @@
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     position: relative;
-    top: 4.5em;
+    top: 3em;
     left: 26%;
     height: 2.3em;
     margin: 0;
@@ -37504,7 +37522,7 @@
   #NombreCliente {
     position: relative;
     top: 0.5em;
-    left: 53%; }
+    left: 50%; }
   #SeleccionCliente {
     font-size: 110%;
     width: 37%;
@@ -37719,12 +37737,12 @@
     position: relative;
     top: -0.22em; }
   .Contenedor button {
-    width: 6.2%;
+    width: 6%;
     height: 1.7em;
     position: relative;
     font-size: 300%;
-    left: 0.1%;
-    top: 0.15em;
+    left: 0.3%;
+    top: 0.1em;
     background-color: dodgerblue;
     border-style: solid;
     border-radius: 5%;
@@ -37859,7 +37877,7 @@
     font-size: 80%; }
   #LoginButton {
     background-image: url("Media/LoginIcon.png");
-    background-size: 20%;
+    background-size: 25%;
     background-repeat: no-repeat;
     background-position: 0.5em center;
     height: 2em;
@@ -37868,7 +37886,7 @@
     top: 0.41em;
     right: 12%;
     text-align: right;
-    width: 50%;
+    width: 47%;
     transition: all 200ms ease;
     font-size: 66%;
     padding-left: 0;
@@ -38543,7 +38561,7 @@
     font-size: 90%;
     bottom: 3.8em;
     position: relative;
-    left: 25.5%;
+    left: 29%;
     width: 70%; }
   .PanelEditar {
     margin-bottom: -100px;
@@ -38643,7 +38661,7 @@
   #RankCheck {
     display: inline;
     position: relative;
-    right: 3em;
+    right: 25%;
     top: 0.55em;
     width: 9%; }
   .EditarCargo h2 {
@@ -38663,7 +38681,7 @@
     position: relative;
     bottom: 1.5em;
     width: 2%;
-    left: 33%;
+    left: 40%;
     font-size: 65%; }
   #DeleteTitle {
     color: white;
@@ -38672,7 +38690,7 @@
     letter-spacing: 0.3em;
     position: relative;
     bottom: 3em;
-    left: 23%;
+    left: 28%;
     width: 70%; }
   #DeleteImage {
     position: relative;
@@ -38785,7 +38803,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 90%;
     position: relative;
-    left: 11%;
+    left: 13%;
     width: 80%;
     bottom: 2.5em; }
   #ContactHeader {
@@ -39227,7 +39245,7 @@
     color: white;
     font-size: 140%;
     position: relative;
-    left: 77%;
+    left: 74.5%;
     width: 15%;
     top: 16.7em;
     margin-bottom: -300px; }
@@ -39236,7 +39254,7 @@
     letter-spacing: 0.2em;
     font-size: 80%;
     position: relative;
-    left: 54%;
+    left: 56%;
     width: 35%;
     top: 56.3em; }
   #Cam2 {
@@ -39497,6 +39515,7 @@
     padding-right: 2em;
     position: relative;
     top: 19em;
+    width: 25%;
     left: -16%;
     transition: all 500ms ease;
     font-size: 60%;
@@ -39997,7 +40016,7 @@
   #NombreCliente {
     position: relative;
     top: 0.7em;
-    left: 28%; }
+    left: 24%; }
   #SeleccionCliente {
     font-size: 80%;
     width: 59%;
@@ -40303,7 +40322,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 90%;
     position: relative;
-    left: 15%;
+    left: 16%;
     width: 80%;
     bottom: 2.5em; }
   .RecuperarContraseña input[type="text"] {
@@ -40472,7 +40491,7 @@
     font-size: 80%; }
   #LoginButton {
     background-image: url("Media/LoginIcon.png");
-    background-size: 20%;
+    background-size: 25%;
     background-repeat: no-repeat;
     background-position: 0.5em center;
     height: 2em;
@@ -40481,7 +40500,7 @@
     top: 0.41em;
     right: 12%;
     text-align: right;
-    width: 50%;
+    width: 48%;
     transition: all 200ms ease;
     font-size: 66%;
     padding-left: 0;
@@ -41143,7 +41162,7 @@
     font-size: 120%;
     bottom: 2.3em;
     position: relative;
-    left: 20.5%;
+    left: 26%;
     width: 70%; }
   .PanelEditar {
     margin-bottom: -100px;
@@ -41265,7 +41284,7 @@
   #RankCheck {
     display: inline;
     position: relative;
-    right: 3.5em;
+    right: 25%;
     top: 0.45em;
     width: 9%; }
   .EditarCargo h2 {
@@ -41285,7 +41304,7 @@
     position: relative;
     bottom: 1.7em;
     width: 2%;
-    left: 31%;
+    left: 40%;
     font-size: 75%; }
   #DeleteTitle {
     color: white;
@@ -41294,8 +41313,8 @@
     letter-spacing: 0.3em;
     position: relative;
     bottom: 1em;
-    left: 21%;
-    width: 70%; }
+    left: 26%;
+    width: 65%; }
   #DeleteImage {
     position: relative;
     top: 1.5em;
@@ -41306,7 +41325,7 @@
     padding: 0;
     bottom: 0;
     position: relative;
-    top: 13%;
+    top: 15%;
     font-size: 70%; }
   .PanelEliminar {
     margin-bottom: -100px;
@@ -41341,7 +41360,7 @@
     padding-bottom: 0.5em;
     width: 49.2%;
     position: relative;
-    top: 3.5em;
+    top: 4em;
     transition: all 500ms ease; }
   .PanelEliminar button:hover {
     background-color: rgba(0, 0, 179, 0.5); }
@@ -41406,7 +41425,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 100%;
     position: relative;
-    left: 14%;
+    left: 15.5%;
     width: 80%;
     bottom: 1.5em; }
   #ContactHeader {
@@ -41651,15 +41670,15 @@
   #ProductosAceptar {
     width: 49.4%;
     position: relative;
-    top: 5em; }
+    top: 6.2em; }
   #ProductosRegresar {
     width: 49.7%;
     position: relative;
-    top: 5em; }
+    top: 6.2em; }
   #ProductosBorrar {
     position: relative;
     width: 99.9%;
-    top: 5.2em; }
+    top: 6.4em; }
   .switch {
     position: relative;
     display: inline-block;
@@ -41747,7 +41766,7 @@
     color: white;
     padding: 1em;
     position: relative;
-    top: 6.3em;
+    top: 8.3em;
     transition: all 500ms ease;
     font-size: 75%; }
   .PanelPrivilegios button:hover {
@@ -41848,7 +41867,7 @@
     color: white;
     font-size: 140%;
     position: relative;
-    left: 77%;
+    left: 76%;
     width: 15%;
     top: 16.7em;
     margin-bottom: -300px; }
@@ -41857,7 +41876,7 @@
     letter-spacing: 0.2em;
     font-size: 80%;
     position: relative;
-    left: 50%;
+    left: 60.5%;
     width: 35%;
     top: 56.3em; }
   #Cam2 {
@@ -41888,7 +41907,7 @@
     width: 20%;
     height: 20%;
     position: relative;
-    left: 59%;
+    left: 65%;
     top: 74em; }
   .Portones h2 {
     font-family: 'Anton', sans-serif;
@@ -42117,7 +42136,7 @@
     padding-right: 2em;
     position: relative;
     top: 19em;
-    left: -6%;
+    left: -9%;
     transition: all 500ms ease;
     font-size: 60%;
     display: inline;
@@ -42597,7 +42616,7 @@
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     position: relative;
-    top: 3.8em;
+    top: 4.8em;
     left: 13%;
     height: 2.3em;
     margin: 0;
@@ -42612,7 +42631,7 @@
   #NombreCliente {
     position: relative;
     top: 0.7em;
-    left: 27%; }
+    left: 24%; }
   #SeleccionCliente {
     font-size: 80%;
     width: 59%;
@@ -42958,7 +42977,7 @@
     font-size: 80%; }
   #LoginButton {
     background-image: url("Media/LoginIcon.png");
-    background-size: 20%;
+    background-size: 25%;
     background-repeat: no-repeat;
     background-position: 0.5em center;
     height: 2em;
@@ -42967,7 +42986,7 @@
     top: 0.41em;
     right: 12%;
     text-align: right;
-    width: 50%;
+    width: 48%;
     transition: all 200ms ease;
     font-size: 66%;
     padding-left: 0;
@@ -43636,7 +43655,7 @@
     font-size: 140%;
     top: 1.3em;
     position: relative;
-    left: 12.5%;
+    left: 20.5%;
     width: 80%;
     font-weight: bold; }
   .PanelEditar {
@@ -43760,7 +43779,7 @@
   #RankCheck {
     display: inline;
     position: relative;
-    right: 3.5em;
+    right: 25%;
     top: 0.45em;
     width: 9%; }
   .EditarCargo h2 {
@@ -43780,7 +43799,7 @@
     position: relative;
     bottom: 1.7em;
     width: 2%;
-    left: 31%;
+    left: 40%;
     font-size: 75%; }
   #DeleteTitle {
     color: white;
@@ -43789,7 +43808,7 @@
     letter-spacing: 0.3em;
     position: relative;
     top: 2em;
-    left: 11%;
+    left: 19%;
     width: 80%;
     font-weight: bold; }
   #DeleteImage {
@@ -43904,7 +43923,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 110%;
     position: relative;
-    left: 10%;
+    left: 12.5%;
     width: 85%;
     bottom: 1.5em;
     font-weight: bold; }
@@ -44156,15 +44175,15 @@
   #ProductosAceptar {
     width: 49.4%;
     position: relative;
-    top: 6.3em; }
+    top: 6.9em; }
   #ProductosRegresar {
     width: 49.7%;
     position: relative;
-    top: 6.3em; }
+    top: 6.9em; }
   #ProductosBorrar {
     position: relative;
     width: 99.9%;
-    top: 6.5em; }
+    top: 7em; }
   .switch {
     position: relative;
     display: inline-block;
@@ -44252,7 +44271,7 @@
     color: white;
     padding: 1em;
     position: relative;
-    top: 8em;
+    top: 8.2em;
     transition: all 500ms ease;
     font-size: 75%; }
   .PanelPrivilegios button:hover {
@@ -44364,7 +44383,7 @@
     letter-spacing: 0.2em;
     font-size: 90%;
     position: relative;
-    left: 53%;
+    left: 58.5%;
     width: 35%;
     top: 55.7em; }
   #Cam2 {
@@ -44624,8 +44643,9 @@
     padding-left: 2em;
     padding-right: 2em;
     position: relative;
-    top: 20em;
+    top: 21em;
     left: -16%;
+    width: 28%;
     transition: all 500ms ease;
     font-size: 80%;
     display: inline;
@@ -45111,7 +45131,7 @@
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     position: relative;
-    top: 2.5em;
+    top: 3.5em;
     left: 13%;
     height: 2.3em;
     margin: 0;
@@ -45126,7 +45146,7 @@
   #NombreCliente {
     position: relative;
     top: 0.7em;
-    left: 27%; }
+    left: 23.5%; }
   #SeleccionCliente {
     font-size: 80%;
     width: 59%;
@@ -45416,7 +45436,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 100%;
     position: relative;
-    left: 14.7%;
+    left: 15.7%;
     width: 80%;
     bottom: 1.5em; }
   .RecuperarContraseña {
@@ -45473,7 +45493,7 @@
     padding-right: 2em;
     position: relative;
     top: 19em;
-    left: -4.5%;
+    left: -8.5%;
     transition: all 500ms ease;
     font-size: 60%;
     display: inline;
@@ -45564,7 +45584,7 @@
     letter-spacing: 0.3em;
     position: relative;
     bottom: 1em;
-    left: 18%;
+    left: 26%;
     width: 70%; }
   .AvatarImg {
     height: 50%; }
@@ -45661,7 +45681,7 @@
     padding-right: 2em;
     position: relative;
     top: 19em;
-    right: 4%;
+    left: -8%;
     transition: all 500ms ease;
     font-size: 60%;
     display: inline;
@@ -45725,7 +45745,7 @@
     padding-right: 2em;
     position: relative;
     top: 19em;
-    left: -2%;
+    left: -7%;
     transition: all 500ms ease;
     font-size: 60%;
     display: inline;
@@ -45738,7 +45758,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 100%;
     position: relative;
-    left: 16.5%;
+    left: 19.5%;
     width: 80%;
     bottom: 1.5em; }
   .RecuperarContraseña input[type="text"] {
@@ -45755,7 +45775,7 @@
     padding-right: 2em;
     position: relative;
     top: 19em;
-    left: -1%;
+    left: -6%;
     transition: all 500ms ease;
     font-size: 60%;
     display: inline;
@@ -45770,6 +45790,14 @@
     position: relative;
     left: 34%; } }
 
+@media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) and (min-width: 873px) {
+    #ActualizarImagen {
+        position: relative;
+        top: 10em;
+        left: -26%;
+    }
+}
+
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) and (min-width: 880px) {
   #ContactTitle {
     color: white;
@@ -45777,8 +45805,8 @@
     font-family: 'Rubik', sans-serif;
     font-size: 100%;
     position: relative;
-    left: 17.5%;
-    width: 80%;
+    left: 21.5%;
+    width: 70%;
     bottom: 1.5em; }
   .RecuperarContraseña input[type="text"] {
     position: relative;
@@ -45794,7 +45822,7 @@
     padding-right: 2em;
     position: relative;
     top: 19em;
-    left: 1%;
+    left: -5%;
     transition: all 500ms ease;
     font-size: 60%;
     display: inline;
@@ -45816,8 +45844,8 @@
     font-family: 'Rubik', sans-serif;
     font-size: 100%;
     position: relative;
-    left: 18%;
-    width: 80%;
+    left: 22%;
+    width: 70%;
     bottom: 1.5em; }
   #DeleteTitle {
     color: white;
@@ -45826,8 +45854,8 @@
     letter-spacing: 0.3em;
     position: relative;
     bottom: 1em;
-    left: 25%;
-    width: 70%; }
+    left: 28%;
+    width: 65%; }
   #EditTitle {
     color: white;
     letter-spacing: 0.3em;
@@ -45997,15 +46025,15 @@
   #ProductosAceptar {
     width: 49.4%;
     position: relative;
-    top: 5em; }
+    top: 6.3em; }
   #ProductosRegresar {
     width: 49.7%;
     position: relative;
-    top: 5em; }
+    top: 6.3em; }
   #ProductosBorrar {
     position: relative;
     width: 99.9%;
-    top: 5.2em; }
+    top: 6.4em; }
   .switch {
     position: relative;
     display: inline-block;
@@ -46110,18 +46138,19 @@
     padding-right: 2em;
     position: relative;
     top: 19em;
-    left: 2%;
+    left: -4.5%;
     transition: all 500ms ease;
     font-size: 60%;
     display: inline;
     height: 4em; }
   .RecuperarContraseña button:hover {
     background-color: rgba(0, 0, 179, 0.5); }
-  #ActualizarImagen {
-    font-size: 75%;
-    position: relative;
-    top: 3em;
-    left: 30%; } }
+    #ActualizarImagen {
+        font-size: 75%;
+        position: relative;
+        top: 10em;
+        left: -26%;
+    } }
 
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) and (min-width: 907px) {
   #ActualizarImagen {
@@ -46140,8 +46169,8 @@
     font-family: 'Rubik', sans-serif;
     font-size: 100%;
     position: relative;
-    left: 19%;
-    width: 80%;
+    left: 23%;
+    width: 70%;
     bottom: 1.5em; }
   .RecuperarContraseña input[type="text"] {
     position: relative;
@@ -46157,7 +46186,7 @@
     padding-right: 2em;
     position: relative;
     top: 19em;
-    left: 4%;
+    left: -4%;
     transition: all 500ms ease;
     font-size: 60%;
     display: inline;
@@ -46179,8 +46208,8 @@
     font-family: 'Rubik', sans-serif;
     font-size: 100%;
     position: relative;
-    left: 20%;
-    width: 80%;
+    left: 22.5%;
+    width: 70%;
     bottom: 1.5em; }
   .PanelContacto {
     position: relative;
@@ -46192,8 +46221,8 @@
     letter-spacing: 0.3em;
     position: relative;
     bottom: 1em;
-    left: 26%;
-    width: 70%; }
+    left: 30.5%;
+    width: 65%; }
   #EditTitle {
     color: white;
     letter-spacing: 0.3em;
@@ -46292,7 +46321,7 @@
     padding-right: 2em;
     position: relative;
     top: 19em;
-    left: 6%;
+    left: -2%;
     transition: all 500ms ease;
     font-size: 60%;
     display: inline;
@@ -46391,7 +46420,7 @@
     font-size: 90%; }
   #LoginButton {
     background-image: url("Media/LoginIcon.png");
-    background-size: 20%;
+    background-size: 25%;
     background-repeat: no-repeat;
     background-position: 0.5em center;
     height: 2em;
@@ -46400,7 +46429,7 @@
     top: 0.55em;
     left: -23%;
     text-align: right;
-    width: 55%;
+    width: 52%;
     transition: all 200ms ease;
     font-size: 80%;
     padding-left: 0;
@@ -47064,7 +47093,7 @@
     font-size: 120%;
     bottom: 1.3em;
     position: relative;
-    left: 28.5%;
+    left: 31%;
     width: 70%; }
   .PanelEditar {
     margin-bottom: -100px;
@@ -47176,7 +47205,7 @@
   #RankCheck {
     display: inline;
     position: relative;
-    right: 4em;
+    right: 25%;
     top: 0.45em;
     width: 7%; }
   .EditarCargo h2 {
@@ -47196,7 +47225,7 @@
     position: relative;
     bottom: 1.7em;
     width: 2%;
-    left: 34%;
+    left: 40%;
     font-size: 75%; }
   #DeleteTitle {
     color: white;
@@ -47205,7 +47234,7 @@
     letter-spacing: 0.3em;
     position: relative;
     bottom: 1em;
-    left: 26%;
+    left: 29%;
     width: 70%; }
   #DeleteImage {
     position: relative;
@@ -47317,7 +47346,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 120%;
     position: relative;
-    left: 17%;
+    left: 21%;
     width: 70%;
     bottom: 1.5em; }
   #ContactHeader {
@@ -47510,7 +47539,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 100%;
     position: relative;
-    left: 17%;
+    left: 15%;
     width: 70%;
     top: 0.5em; }
   .AdministracionProductos {
@@ -47562,15 +47591,15 @@
   #ProductosAceptar {
     width: 49.4%;
     position: relative;
-    top: 3.2em; }
+    top: 4.5em; }
   #ProductosRegresar {
     width: 49.7%;
     position: relative;
-    top: 3.2em; }
+    top: 4.5em; }
   #ProductosBorrar {
     position: relative;
     width: 99.9%;
-    top: 3.5em; }
+    top: 4.7em; }
   .switch {
     position: relative;
     display: inline-block;
@@ -47658,7 +47687,7 @@
     color: white;
     padding: 1em;
     position: relative;
-    top: 6.3em;
+    top: 8.2em;
     transition: all 500ms ease;
     font-size: 75%; }
   .PanelPrivilegios button:hover {
@@ -47759,9 +47788,9 @@
     color: white;
     font-size: 140%;
     position: relative;
-    left: 77%;
+    left: 68%;
     width: 15%;
-    top: 13.7em;
+    top: 15.7em;
     margin-bottom: -300px; }
   #AccesoTitle2B {
     color: white;
@@ -47770,13 +47799,13 @@
     position: relative;
     left: 56%;
     width: 35%;
-    top: 50.9em; }
+    top: 54.5em; }
   #Cam2 {
     width: 15%;
     height: 15%;
     position: relative;
     left: 27%;
-    top: 38em; }
+    top: 40em; }
   #AccesoTitle3 {
     font-family: 'Anton', sans-serif;
     color: white;
@@ -47784,23 +47813,23 @@
     position: relative;
     left: 25%;
     width: 35%;
-    top: 31.5em;
+    top: 33.5em;
     margin-bottom: -517px; }
   #AccesoTitle3B {
     color: white;
     letter-spacing: 0.2em;
     font-size: 80%;
     position: relative;
-    left: 22%;
+    left: 26%;
     width: 35%;
-    top: 101.4em;
+    top: 105em;
     height: 7.8em; }
   #Cam3 {
     width: 20%;
     height: 20%;
     position: relative;
     left: 57%;
-    top: 69em; }
+    top: 72em; }
   .Portones h2 {
     font-family: 'Anton', sans-serif;
     color: white;
@@ -48027,6 +48056,7 @@
     padding-right: 3em;
     position: relative;
     top: 13em;
+    width: 31%;
     left: -13%;
     transition: all 500ms ease;
     font-size: 80%; }
@@ -48505,7 +48535,7 @@
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     position: relative;
-    top: 2.6em;
+    top: 3.8em;
     left: 21%;
     height: 2.3em;
     margin: 0;
@@ -48520,7 +48550,7 @@
   #NombreCliente {
     position: relative;
     top: 0.7em;
-    left: 42%; }
+    left: 38%; }
   #SeleccionCliente {
     font-size: 80%;
     width: 45%;
@@ -49036,16 +49066,16 @@
     letter-spacing: 0.2em;
     font-size: 80%;
     position: relative;
-    left: 56.5%;
+    left: 56%;
     width: 35%;
-    top: 50.9em; }
+    top: 54.5em; }
   #ContactTitle {
     color: white;
     letter-spacing: 0.3em;
     font-family: 'Rubik', sans-serif;
     font-size: 120%;
     position: relative;
-    left: 18.5%;
+    left: 21.5%;
     width: 70%;
     bottom: 1.5em; } }
 
@@ -49282,7 +49312,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 120%;
     position: relative;
-    left: 18.5%;
+    left: 21.5%;
     width: 70%;
     bottom: 1.5em; }
   .RecuperarContraseña button {
@@ -49383,7 +49413,7 @@
     font-size: 90%; }
   #LoginButton {
     background-image: url("Media/LoginIcon.png");
-    background-size: 20%;
+    background-size: 25%;
     background-repeat: no-repeat;
     background-position: 0.5em center;
     height: 2em;
@@ -49392,7 +49422,7 @@
     top: 0.55em;
     left: -23%;
     text-align: right;
-    width: 55%;
+    width: 50%;
     transition: all 200ms ease;
     font-size: 80%;
     padding-left: 0;
@@ -50059,7 +50089,7 @@
     font-size: 120%;
     bottom: 1.3em;
     position: relative;
-    left: 28%;
+    left: 31.5%;
     width: 70%; }
   .PanelEditar {
     margin-bottom: -100px;
@@ -50171,7 +50201,7 @@
   #RankCheck {
     display: inline;
     position: relative;
-    right: 4em;
+    right: 25%;
     top: 0.5em;
     width: 8%; }
   .EditarCargo h2 {
@@ -50191,7 +50221,7 @@
     position: relative;
     bottom: 1.6em;
     width: 2%;
-    left: 36%;
+    left: 40%;
     font-size: 75%; }
   #DeleteTitle {
     color: white;
@@ -50200,8 +50230,8 @@
     letter-spacing: 0.3em;
     position: relative;
     bottom: 1em;
-    left: 26.5%;
-    width: 70%; }
+    left: 30.5%;
+    width: 65%; }
   #DeleteImage {
     position: relative;
     top: 1.5em;
@@ -50312,7 +50342,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 120%;
     position: relative;
-    left: 18.5%;
+    left: 21.5%;
     width: 70%;
     bottom: 1.5em; }
   #ContactHeader {
@@ -50557,15 +50587,15 @@
   #ProductosAceptar {
     width: 49.4%;
     position: relative;
-    top: 3.2em; }
+    top: 4.5em; }
   #ProductosRegresar {
     width: 49.7%;
     position: relative;
-    top: 3.2em; }
+    top: 4.5em; }
   #ProductosBorrar {
     position: relative;
     width: 99.9%;
-    top: 3.5em; }
+    top: 4.7em; }
   .switch {
     position: relative;
     display: inline-block;
@@ -50653,7 +50683,7 @@
     color: white;
     padding: 1em;
     position: relative;
-    top: 6.3em;
+    top: 8.3em;
     transition: all 500ms ease;
     font-size: 75%; }
   .PanelPrivilegios button:hover {
@@ -50754,7 +50784,7 @@
     color: white;
     font-size: 140%;
     position: relative;
-    left: 77%;
+    left: 69.5%;
     width: 15%;
     top: 15.7em;
     margin-bottom: -300px; }
@@ -50786,7 +50816,7 @@
     letter-spacing: 0.2em;
     font-size: 80%;
     position: relative;
-    left: 22%;
+    left: 26%;
     width: 35%;
     top: 104.9em;
     height: 7.8em; }
@@ -51501,7 +51531,7 @@
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     position: relative;
-    top: 2.6em;
+    top: 3.9em;
     left: 21%;
     height: 2.3em;
     margin: 0;
@@ -51516,7 +51546,7 @@
   #NombreCliente {
     position: relative;
     top: 0.7em;
-    left: 42%; }
+    left: 38%; }
   #SeleccionCliente {
     font-size: 80%;
     width: 45%;
@@ -51885,7 +51915,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 120%;
     position: relative;
-    left: 19.5%;
+    left: 22%;
     width: 70%;
     bottom: 1.5em; }
   #AccesoTitle2B {
@@ -52191,7 +52221,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 120%;
     position: relative;
-    left: 20%;
+    left: 22.5%;
     width: 70%;
     bottom: 1.5em; }
   #AccesoTitle2B {
@@ -52481,7 +52511,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 120%;
     position: relative;
-    left: 20.5%;
+    left: 23%;
     width: 70%;
     bottom: 1.5em; } }
 
@@ -52746,7 +52776,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 120%;
     position: relative;
-    left: 21.5%;
+    left: 24%;
     width: 70%;
     bottom: 1.5em; }
   #AccesoTitle2B {
@@ -52857,7 +52887,7 @@
     font-size: 90%; }
   #LoginButton {
     background-image: url("Media/LoginIcon.png");
-    background-size: 20%;
+    background-size: 25%;
     background-repeat: no-repeat;
     background-position: 0.5em center;
     height: 2em;
@@ -52866,7 +52896,7 @@
     top: 0.55em;
     left: -23%;
     text-align: right;
-    width: 55%;
+    width: 52%;
     transition: all 200ms ease;
     font-size: 80%;
     padding-left: 0;
@@ -53530,7 +53560,7 @@
     font-size: 120%;
     bottom: 1.3em;
     position: relative;
-    left: 31%;
+    left: 34%;
     width: 70%; }
   .PanelEditar {
     margin-bottom: -100px;
@@ -53644,7 +53674,7 @@
   #RankCheck {
     display: inline;
     position: relative;
-    right: 4.5em;
+    right: 20%;
     top: 0.45em;
     width: 7%;
     overflow: hidden; }
@@ -53665,7 +53695,7 @@
     position: relative;
     bottom: 1.6em;
     width: 2%;
-    left: 34%;
+    left: 40%;
     font-size: 75%; }
   #DeleteTitle {
     color: white;
@@ -53674,8 +53704,8 @@
     letter-spacing: 0.3em;
     position: relative;
     bottom: 1em;
-    left: 29.5%;
-    width: 70%; }
+    left: 32.5%;
+    width: 65%; }
   #DeleteImage {
     position: relative;
     top: 1.5em;
@@ -53786,7 +53816,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 120%;
     position: relative;
-    left: 21.5%;
+    left: 24%;
     width: 70%;
     bottom: 1.5em; }
   #ContactHeader {
@@ -54031,15 +54061,15 @@
   #ProductosAceptar {
     width: 49.4%;
     position: relative;
-    top: 3.2em; }
+    top: 4.5em; }
   #ProductosRegresar {
     width: 49.7%;
     position: relative;
-    top: 3.2em; }
+    top: 4.5em; }
   #ProductosBorrar {
     position: relative;
     width: 99.9%;
-    top: 3.5em; }
+    top: 4.7em; }
   .switch {
     position: relative;
     display: inline-block;
@@ -54123,11 +54153,11 @@
     border-color: white;
     border-style: solid;
     letter-spacing: 0.3em;
-    width: 49.4%;
+    width: 49.7%;
     color: white;
     padding: 1em;
     position: relative;
-    top: 6.3em;
+    top: 8.3em;
     transition: all 500ms ease;
     font-size: 75%; }
   .PanelPrivilegios button:hover {
@@ -54228,7 +54258,7 @@
     color: white;
     font-size: 140%;
     position: relative;
-    left: 76.4%;
+    left: 68.4%;
     width: 15%;
     top: 15.7em;
     margin-bottom: -300px; }
@@ -54237,7 +54267,7 @@
     letter-spacing: 0.2em;
     font-size: 80%;
     position: relative;
-    left: 57%;
+    left: 58%;
     width: 35%;
     top: 54.3em; }
   #Cam2 {
@@ -54260,7 +54290,7 @@
     letter-spacing: 0.2em;
     font-size: 80%;
     position: relative;
-    left: 22%;
+    left: 27%;
     width: 35%;
     top: 104.9em;
     height: 7.8em; }
@@ -54483,7 +54513,7 @@
     text-align: center;
     color: white;
     position: relative;
-    left: 34.8%;
+    left: 36.8%;
     top: 4em;
     font-size: 90%; }
   .RecuperarContraseña button {
@@ -54497,7 +54527,7 @@
     padding-right: 3em;
     position: relative;
     top: 13em;
-    left: -4%;
+    left: -8%;
     transition: all 500ms ease;
     font-size: 80%; }
   .RecuperarContraseña button:hover {
@@ -54990,7 +55020,7 @@
   #NombreCliente {
     position: relative;
     top: 0.7em;
-    left: 42%; }
+    left: 40%; }
   #SeleccionCliente {
     font-size: 80%;
     width: 45%;
@@ -55523,7 +55553,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 120%;
     position: relative;
-    left: 22.5%;
+    left: 24.5%;
     width: 70%;
     bottom: 1.5em; } }
 
@@ -55568,7 +55598,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 120%;
     position: relative;
-    left: 23%;
+    left: 26%;
     width: 70%;
     bottom: 0.5em; }
   #AdminCheck {
@@ -55595,7 +55625,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 120%;
     position: relative;
-    left: 24%;
+    left: 26%;
     width: 70%;
     bottom: 0.5em; }
   .RecuperarContraseña input[type="text"] {
@@ -55715,7 +55745,7 @@
     top: -0.95em;
     left: -30%;
     text-align: right;
-    width: 60%;
+    width: 55%;
     transition: all 200ms ease; }
   #LoginButton:hover {
     color: aqua;
@@ -56369,7 +56399,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 150%;
     position: relative;
-    left: 28%;
+    left: 32%;
     width: 70%;
     top: 1em; }
   .PanelEditar {
@@ -56484,7 +56514,7 @@
   #RankCheck {
     display: inline;
     position: relative;
-    right: 5.2em;
+    right: 20%;
     top: 0.35em;
     width: 6%; }
   .EditarCargo h2 {
@@ -56504,7 +56534,7 @@
     position: relative;
     bottom: 1.65em;
     width: 2%;
-    left: 33%;
+    left: 40%;
     font-size: 100%; }
   #DeleteTitle {
     color: white;
@@ -56513,7 +56543,7 @@
     letter-spacing: 0.3em;
     position: relative;
     top: 0.5em;
-    left: 31.5%;
+    left: 34%;
     width: 60%; }
   #DeleteImage {
     position: relative;
@@ -56622,7 +56652,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 150%;
     position: relative;
-    left: 18.8%;
+    left: 21.2%;
     width: 70%;
     top: 1em; }
   #ContactHeader {
@@ -56863,15 +56893,15 @@
   #ProductosAceptar {
     width: 49.7%;
     position: relative;
-    top: 2.3em; }
+    top: 3.1em; }
   #ProductosRegresar {
     width: 49.7%;
     position: relative;
-    top: 2.3em; }
+    top: 3.1em; }
   #ProductosBorrar {
     position: relative;
     width: 99.9%;
-    top: 2.4em; }
+    top: 3.2em; }
   .switch {
     position: relative;
     display: inline-block;
@@ -56959,7 +56989,7 @@
     color: white;
     padding: 1em;
     position: relative;
-    top: 3.7em;
+    top: 5.8em;
     transition: all 500ms ease;
     font-size: 90%; }
   .PanelPrivilegios button:hover {
@@ -57061,7 +57091,7 @@
     color: white;
     font-size: 180%;
     position: relative;
-    left: 77%;
+    left: 72%;
     width: 15%;
     top: 14.2em;
     margin-bottom: -300px; }
@@ -57070,7 +57100,7 @@
     letter-spacing: 0.2em;
     font-size: 100%;
     position: relative;
-    left: 56.5%;
+    left: 59.5%;
     width: 35%;
     top: 47.1em; }
   #Cam2 {
@@ -57715,7 +57745,7 @@
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     position: relative;
-    top: 5.5em;
+    top: 7em;
     left: 31%;
     height: 2.3em;
     margin: 0;
@@ -57806,7 +57836,7 @@
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     position: relative;
-    top: 3em;
+    top: 4.5em;
     left: 26%;
     height: 2.3em;
     margin: 0;
@@ -57821,7 +57851,7 @@
   #NombreCliente {
     position: relative;
     top: 0.5em;
-    left: 55%; }
+    left: 50%; }
   #SeleccionCliente {
     font-size: 90%;
     width: 35%;
@@ -58193,7 +58223,7 @@
     top: -0.95em;
     left: -30%;
     text-align: right;
-    width: 60%;
+    width: 55%;
     transition: all 200ms ease; }
   #LoginButton:hover {
     color: aqua;
@@ -58844,7 +58874,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 150%;
     position: relative;
-    left: 29.5%;
+    left: 33%;
     width: 45%;
     top: -0.3em; }
   .PanelEditar {
@@ -58964,7 +58994,7 @@
   #RankCheck {
     display: inline;
     position: relative;
-    right: 5em;
+    right: 20%;
     top: 0.4em; }
   .EditarCargo h2 {
     letter-spacing: 0.2em;
@@ -58983,7 +59013,7 @@
     position: relative;
     bottom: 1.6em;
     width: 2%;
-    left: 34%;
+    left: 40%;
     font-size: 100%; }
   #DeleteTitle {
     color: white;
@@ -58992,7 +59022,7 @@
     letter-spacing: 0.3em;
     position: relative;
     top: 0.5em;
-    left: 32.5%;
+    left: 35%;
     width: 60%; }
   #DeleteImage {
     position: relative;
@@ -59101,7 +59131,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 150%;
     position: relative;
-    left: 19.8%;
+    left: 22.5%;
     width: 70%;
     top: 1em; }
   #ContactHeader {
@@ -59342,15 +59372,15 @@
   #ProductosAceptar {
     width: 49.7%;
     position: relative;
-    top: 2.3em; }
+    top: 3.1em; }
   #ProductosRegresar {
     width: 49.7%;
     position: relative;
-    top: 2.3em; }
+    top: 3.1em; }
   #ProductosBorrar {
     position: relative;
     width: 99.9%;
-    top: 2.4em; }
+    top: 3.2em; }
   .switch {
     position: relative;
     display: inline-block;
@@ -59438,7 +59468,7 @@
     color: white;
     padding: 1em;
     position: relative;
-    top: 3.7em;
+    top: 5.8em;
     transition: all 500ms ease;
     font-size: 90%; }
   .PanelPrivilegios button:hover {
@@ -59539,7 +59569,7 @@
     color: white;
     font-size: 180%;
     position: relative;
-    left: 77%;
+    left: 72%;
     width: 15%;
     top: 14.2em;
     margin-bottom: -300px; }
@@ -59548,7 +59578,7 @@
     letter-spacing: 0.2em;
     font-size: 100%;
     position: relative;
-    left: 56.5%;
+    left: 60.5%;
     width: 35%;
     top: 47.1em; }
   #Cam2 {
@@ -59808,7 +59838,7 @@
     padding-right: 3em;
     position: relative;
     top: 9em;
-    left: -5%;
+    left: -7%;
     transition: all 500ms ease;
     font-size: 100%; }
   .RecuperarContraseña button:hover {
@@ -60298,7 +60328,7 @@
   #NombreCliente {
     position: relative;
     top: 0.5em;
-    left: 55%; }
+    left: 51%; }
   #SeleccionCliente {
     font-size: 90%;
     width: 35%;
@@ -60674,7 +60704,7 @@
     top: -0.30em;
     left: -35%;
     text-align: right;
-    width: 60%;
+    width: 55%;
     transition: all 200ms ease;
     font-size: 100%;
     padding-left: 1.5em; }
@@ -60732,7 +60762,7 @@
     bottom: 3em;
     margin-bottom: -100px;
     visibility: hidden;
-    width: 14%;
+    width: 12%;
     height: 20%; }
   .AdminButton:hover {
     background-color: red; }
@@ -61343,9 +61373,9 @@
     font-family: 'Rubik', sans-serif;
     font-size: 150%;
     position: relative;
-    left: 30.8%;
+    left: 33.8%;
     width: 70%;
-    bottom: 0.3em; }
+    top: 2.3em; }
   .PanelEditar {
     margin-bottom: -100px;
     color: white;
@@ -61458,7 +61488,7 @@
   #RankCheck {
     display: inline;
     position: relative;
-    right: 5.5em;
+    right: 20%;
     top: 0.4em;
     width: 5%; }
   .EditarCargo h2 {
@@ -61478,7 +61508,7 @@
     position: relative;
     bottom: 1.6em;
     width: 2%;
-    left: 34%;
+    left: 40%;
     font-size: 100%; }
   #DeleteTitle {
     color: white;
@@ -61487,7 +61517,7 @@
     letter-spacing: 0.3em;
     position: relative;
     top: 2.5em;
-    left: 33.8%;
+    left: 36%;
     width: 60%; }
   #DeleteImage {
     position: relative;
@@ -61598,7 +61628,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 150%;
     position: relative;
-    left: 21.5%;
+    left: 23.8%;
     width: 70%;
     top: 1em; }
   #ContactHeader {
@@ -61839,15 +61869,15 @@
   #ProductosAceptar {
     width: 49.7%;
     position: relative;
-    top: 2.3em; }
+    top: 3.1em; }
   #ProductosRegresar {
     width: 49.7%;
     position: relative;
-    top: 2.3em; }
+    top: 3.1em; }
   #ProductosBorrar {
     position: relative;
     width: 99.9%;
-    top: 2.4em; }
+    top: 3.2em; }
   .switch {
     position: relative;
     display: inline-block;
@@ -61935,7 +61965,7 @@
     color: white;
     padding: 1em;
     position: relative;
-    top: 3.7em;
+    top: 5.8em;
     transition: all 500ms ease;
     font-size: 90%; }
   .PanelPrivilegios button:hover {
@@ -62038,7 +62068,7 @@
     color: white;
     font-size: 180%;
     position: relative;
-    left: 77%;
+    left: 67.5%;
     width: 15%;
     top: 14.2em;
     margin-bottom: -300px; }
@@ -62307,7 +62337,7 @@
     padding-right: 3em;
     position: relative;
     top: 9em;
-    left: -1%;
+    left: -5%;
     transition: all 500ms ease;
     font-size: 100%; }
   .RecuperarContraseña button:hover {
@@ -62799,7 +62829,7 @@
   #NombreCliente {
     position: relative;
     top: 0.5em;
-    left: 55%; }
+    left: 52%; }
   #SeleccionCliente {
     font-size: 90%;
     width: 35%;
@@ -63011,15 +63041,16 @@
     border-radius: 5px;
     border-style: solid;
     border-color: darkgrey;
+    left: 0.3%;
     height: 2.5em;
     position: relative;
-    top: 0.2em; }
+    top: -0.1em; }
   .Contenedor button {
-    width: 7.5%;
+    width: 7%;
     height: 2em;
     position: relative;
-    left: 92.5%;
-    bottom: 1.85em;
+    left: 0.5%;
+    top: 0.1em;
     background-color: dodgerblue;
     border-style: solid;
     border-radius: 5%;
@@ -63069,7 +63100,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 150%;
     position: relative;
-    left: 22.5%;
+    left: 24%;
     width: 70%;
     top: 1em; }
   .RecuperarContraseña input[type="text"] {
@@ -63077,7 +63108,7 @@
     left: 38.6%; }
   .RecuperarContraseña button {
     position: relative;
-    left: 1%; } }
+    left: -4%; } }
 
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) and (min-width: 1600px) {
   #ContactTitle {
@@ -63086,7 +63117,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 150%;
     position: relative;
-    left: 23.5%;
+    left: 25.5%;
     width: 70%;
     top: 1em; }
   .RecuperarContraseña input[type="text"] {
@@ -63094,7 +63125,7 @@
     left: 39.3%; }
   .RecuperarContraseña button {
     position: relative;
-    left: 3.5%; } }
+    left: -3.5%; } }
 
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) and (min-width: 1640px) {
   #AdminCheck {
@@ -63211,7 +63242,7 @@
     top: -0.30em;
     left: -50%;
     text-align: right;
-    width: 60%;
+    width: 52%;
     transition: all 200ms ease;
     font-size: 100%;
     padding-left: 1.5em; }
@@ -63269,7 +63300,7 @@
     bottom: 3em;
     margin-bottom: -100px;
     visibility: hidden;
-    width: 14%;
+    width: 11%;
     height: 20%; }
   .AdminButton:hover {
     background-color: red; }
@@ -63900,7 +63931,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 150%;
     position: relative;
-    left: 33.4%;
+    left: 36.4%;
     width: 70%;
     top: 1.3em; }
   .PanelEditar {
@@ -64015,7 +64046,7 @@
   #RankCheck {
     display: inline;
     position: relative;
-    right: 25%;
+    right: 20%;
     top: 0.3em;
     width: 5%; }
   .EditarCargo h2 {
@@ -64035,7 +64066,7 @@
     position: relative;
     bottom: 1.8em;
     width: 2%;
-    left: 36%;
+    left: 42%;
     font-size: 100%; }
   #DeleteTitle {
     color: white;
@@ -64044,7 +64075,7 @@
     letter-spacing: 0.3em;
     position: relative;
     top: 2.5em;
-    left: 32.8%;
+    left: 35.4%;
     width: 60%; }
   #DeleteImage {
     position: relative;
@@ -64153,7 +64184,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 150%;
     position: relative;
-    left: 25.2%;
+    left: 27.2%;
     width: 70%;
     top: 1em; }
   #ContactHeader {
@@ -64394,15 +64425,15 @@
   #ProductosAceptar {
     width: 49.7%;
     position: relative;
-    top: 2.3em; }
+    top: 3.1em; }
   #ProductosRegresar {
     width: 49.7%;
     position: relative;
-    top: 2.3em; }
+    top: 3.1em; }
   #ProductosBorrar {
     position: relative;
     width: 99.9%;
-    top: 2.4em; }
+    top: 3.2em; }
   .switch {
     position: relative;
     display: inline-block;
@@ -64490,7 +64521,7 @@
     color: white;
     padding: 1em;
     position: relative;
-    top: 3.7em;
+    top: 5.7em;
     transition: all 500ms ease;
     font-size: 90%; }
   .PanelPrivilegios button:hover {
@@ -64593,7 +64624,7 @@
     color: white;
     font-size: 180%;
     position: relative;
-    left: 77%;
+    left: 72%;
     width: 15%;
     top: 17.2em;
     margin-bottom: -300px; }
@@ -64602,9 +64633,9 @@
     letter-spacing: 0.2em;
     font-size: 100%;
     position: relative;
-    left: 61%;
+    left: 63%;
     width: 35%;
-    top: 52.8em; }
+    top: 52.3em; }
   #Cam2 {
     width: 20%;
     height: 20%;
@@ -64862,7 +64893,8 @@
     padding-right: 3em;
     position: relative;
     top: 9em;
-    left: 5.5%;
+    width: 25%;
+    left: 3.5%;
     transition: all 500ms ease;
     font-size: 100%; }
   .RecuperarContraseña button:hover {
@@ -65354,7 +65386,7 @@
   #NombreCliente {
     position: relative;
     top: 0.5em;
-    left: 55%; }
+    left: 53%; }
   #SeleccionCliente {
     font-size: 90%;
     width: 35%;
@@ -65555,20 +65587,21 @@
     margin-top: 0.2em;
     border-radius: 2px;
     top: 28.3em; }
-  .Contenedor input[type="text"] {
-    font-size: 80%;
-    height: 100%;
-    width: 93%;
-    font-family: 'Rubik', sans-serif;
-    color: lightslategrey;
-    text-align: right;
-    padding-right: 1em;
-    border-radius: 5px;
-    border-style: solid;
-    border-color: darkgrey;
-    height: 2.5em;
-    position: relative;
-    top: 0.2em; }
+    .Contenedor input[type="text"] {
+        font-size: 80%;
+        height: 100%;
+        width: 93%;
+        font-family: 'Rubik', sans-serif;
+        color: lightslategrey;
+        text-align: right;
+        padding-right: 1em;
+        border-radius: 5px;
+        border-style: solid;
+        border-color: darkgrey;
+        height: 2.5em;
+        position: relative;
+        top: -0.1em;
+    }
   .Contenedor button {
     width: 6.2%;
     height: 2em;
@@ -65623,7 +65656,7 @@
     left: 39.9%; }
   .RecuperarContraseña button {
     position: relative;
-    left: 6.5%; } }
+    left: 4.5%; } }
 
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) and (min-width: 1800px) {
   #ContactTitle {
@@ -65632,7 +65665,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 150%;
     position: relative;
-    left: 26.5%;
+    left: 28.5%;
     width: 70%;
     top: 2em; }
   .RecuperarContraseña input[type="text"] {
@@ -65640,7 +65673,7 @@
     left: 40.4%; }
   .RecuperarContraseña button {
     position: relative;
-    left: 9%; } }
+    left: 5.5%; } }
 
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) and (min-width: 1891px) {
   .Lista img {
@@ -65657,7 +65690,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 150%;
     position: relative;
-    left: 28.5%;
+    left: 29%;
     width: 70%;
     top: 2em; }
   .RecuperarContraseña input[type="text"] {
@@ -65665,7 +65698,7 @@
     left: 40.9%; }
   .RecuperarContraseña button {
     position: relative;
-    left: 11%; }
+    left: 6%; }
   .Card5 {
     visibility: hidden; } }
 
@@ -65764,7 +65797,7 @@
     top: -1.50em;
     left: -50%;
     text-align: right;
-    width: 60%;
+    width: 52%;
     transition: all 200ms ease;
     font-size: 100%;
     padding-left: 1.5em; }
@@ -65818,7 +65851,7 @@
     padding-top: 0.5%;
     padding-bottom: 1.5%;
     position: relative;
-    left: 86.4%;
+    left: 85.4%;
     bottom: 4em;
     margin-bottom: -100px;
     visibility: hidden;
@@ -66473,7 +66506,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 150%;
     position: relative;
-    left: 36%;
+    left: 39%;
     width: 70%;
     top: 2.3em; }
   .PanelEditar {
@@ -66588,7 +66621,7 @@
   #RankCheck {
     display: inline;
     position: relative;
-    right: 25%;
+    right: 20%;
     top: 0.4em;
     width: 5%; }
   .EditarCargo h2 {
@@ -66608,7 +66641,7 @@
     position: relative;
     bottom: 1.65em;
     width: 2%;
-    left: 36%;
+    left: 43%;
     font-size: 100%; }
   #DeleteTitle {
     color: white;
@@ -66617,7 +66650,7 @@
     letter-spacing: 0.3em;
     position: relative;
     top: 2.5em;
-    left: 32.8%;
+    left: 35%;
     width: 60%; }
   #DeleteImage {
     position: relative;
@@ -66726,7 +66759,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 150%;
     position: relative;
-    left: 28%;
+    left: 30%;
     width: 70%;
     top: 4em; }
   #ContactHeader {
@@ -66967,15 +67000,15 @@
   #ProductosAceptar {
     width: 49.7%;
     position: relative;
-    top: 2.3em; }
+    top: 3.1em; }
   #ProductosRegresar {
     width: 49.7%;
     position: relative;
-    top: 2.3em; }
+    top: 3.1em; }
   #ProductosBorrar {
     position: relative;
     width: 99.9%;
-    top: 2.4em; }
+    top: 3.2em; }
   .switch {
     position: relative;
     display: inline-block;
@@ -67063,7 +67096,7 @@
     color: white;
     padding: 1em;
     position: relative;
-    top: 3.7em;
+    top: 5.8em;
     transition: all 500ms ease;
     font-size: 90%; }
   .PanelPrivilegios button:hover {
@@ -67166,7 +67199,7 @@
     color: white;
     font-size: 180%;
     position: relative;
-    left: 75%;
+    left: 72%;
     width: 15%;
     top: 19.6em;
     margin-bottom: -300px; }
@@ -67175,7 +67208,7 @@
     letter-spacing: 0.2em;
     font-size: 100%;
     position: relative;
-    left: 61%;
+    left: 63.8%;
     width: 35%;
     top: 56.8em; }
   #Cam2 {
@@ -67436,7 +67469,7 @@
     padding-right: 3em;
     position: relative;
     top: 14em;
-    left: -4%;
+    left: -5%;
     transition: all 500ms ease;
     font-size: 70%; }
   .RecuperarContraseña button:hover {
@@ -67926,7 +67959,7 @@
   #NombreCliente {
     position: relative;
     top: 0.5em;
-    left: 53%; }
+    left: 50%; }
   #SeleccionCliente {
     font-size: 90%;
     width: 37%;
@@ -68139,7 +68172,7 @@
     border-color: darkgrey;
     height: 2.5em;
     position: relative;
-    top: 0.2em; }
+    top: 0.1em; }
   .Contenedor button {
     width: 6.2%;
     height: 2.3em;
@@ -68197,15 +68230,15 @@
     position: relative;
     left: 30.5%;
     width: 70%;
-    top: 2em; }
+    top: 4em; }
   .RecuperarContraseña input[type="text"] {
     position: relative;
     width: 24%;
     left: 37.7%; }
   .RecuperarContraseña button {
     position: relative;
-    width: 30%;
-    left: -5%; } }
+    width: 25%;
+    left: 0.5%; } }
 
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) and (min-width: 2550px) {
   .MenuP {
@@ -68302,7 +68335,7 @@
     top: -3em;
     left: -32%;
     text-align: right;
-    width: 62%;
+    width: 55%;
     transition: all 200ms ease;
     font-size: 150%;
     padding-left: 1.5em; }
@@ -68357,7 +68390,7 @@
     padding-top: 0.5%;
     padding-bottom: 1.2%;
     position: relative;
-    left: 88%;
+    left: 86.8%;
     bottom: 5.5em;
     margin-bottom: -100px;
     visibility: hidden;
@@ -69001,7 +69034,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 180%;
     position: relative;
-    left: 37.8%;
+    left: 40%;
     width: 70%;
     top: 4.3em; }
   .PanelEditar {
@@ -69117,7 +69150,7 @@
   #RankCheck {
     display: inline;
     position: relative;
-    right: 25%;
+    right: 20%;
     top: 0.4em;
     width: 5%; }
   .EditarCargo h2 {
@@ -69137,7 +69170,7 @@
     position: relative;
     bottom: 1.65em;
     width: 2%;
-    left: 36%;
+    left: 43%;
     font-size: 100%; }
   #DeleteTitle {
     color: white;
@@ -69146,7 +69179,7 @@
     letter-spacing: 0.3em;
     position: relative;
     top: 6.5em;
-    left: 34.4%;
+    left: 36.4%;
     width: 60%; }
   #DeleteImage {
     position: relative;
@@ -69255,7 +69288,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 180%;
     position: relative;
-    left: 30%;
+    left: 32%;
     width: 70%;
     top: 5em; }
   #ContactHeader {
@@ -69592,7 +69625,7 @@
     color: white;
     padding: 1em;
     position: relative;
-    top: 5.4em;
+    top: 5.8em;
     transition: all 500ms ease;
     font-size: 90%; }
   .PanelPrivilegios button:hover {
@@ -69695,7 +69728,7 @@
     color: white;
     font-size: 180%;
     position: relative;
-    left: 70%;
+    left: 68%;
     width: 15%;
     top: 21.6em;
     margin-bottom: -300px; }
@@ -69704,7 +69737,7 @@
     letter-spacing: 0.2em;
     font-size: 100%;
     position: relative;
-    left: 59.3%;
+    left: 61.8%;
     width: 35%;
     top: 60.4em; }
   #Cam2 {
@@ -69966,8 +69999,8 @@
     padding-right: 3em;
     position: relative;
     top: 14em;
-    width: 35%;
-    left: -8%;
+    width: 25%;
+    left: 2%;
     transition: all 500ms ease;
     font-size: 100%; }
   .RecuperarContraseña button:hover {
@@ -70214,9 +70247,9 @@
     font-family: 'Rubik', sans-serif;
     color: white;
     padding: 0.5em;
-    width: 20%;
+    width: 15%;
     position: relative;
-    left: 30%;
+    left: 35%;
     top: 6.5em;
     transition: all 500ms ease; }
   .CambioContraseña button:hover {
@@ -70457,7 +70490,7 @@
   #NombreCliente {
     position: relative;
     top: 0.5em;
-    left: 53%; }
+    left: 51%; }
   #SeleccionCliente {
     font-size: 90%;
     width: 37%;
@@ -70676,7 +70709,7 @@
     height: 2.3em;
     position: relative;
     left: 0.1%;
-    top: 0.15em;
+    top: 0.25em;
     background-color: dodgerblue;
     border-style: solid;
     border-radius: 5%;
@@ -70814,7 +70847,7 @@
     top: -3em;
     left: -32%;
     text-align: right;
-    width: 67%;
+    width: 57%;
     transition: all 200ms ease;
     font-size: 180%;
     padding-left: 1.5em; }
@@ -70869,7 +70902,7 @@
     padding-top: 0.5%;
     padding-bottom: 1.2%;
     position: relative;
-    left: 90.2%;
+    left: 88.68%;
     bottom: 7em;
     margin-bottom: -100px;
     visibility: hidden;
@@ -71514,7 +71547,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 210%;
     position: relative;
-    left: 35.8%;
+    left: 37.8%;
     width: 70%;
     top: 5.3em; }
   .PanelEditar {
@@ -71630,7 +71663,7 @@
   #RankCheck {
     display: inline;
     position: relative;
-    right: 25%;
+    right: 18%;
     top: 0.4em;
     width: 5%; }
   .EditarCargo h2 {
@@ -71650,7 +71683,7 @@
     position: relative;
     bottom: 1.65em;
     width: 2%;
-    left: 36%;
+    left: 44%;
     font-size: 100%; }
   #DeleteTitle {
     color: white;
@@ -71659,7 +71692,7 @@
     letter-spacing: 0.3em;
     position: relative;
     top: 6.5em;
-    left: 36.2%;
+    left: 38.2%;
     width: 60%; }
   #DeleteImage {
     position: relative;
@@ -71768,7 +71801,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 250%;
     position: relative;
-    left: 27.2%;
+    left: 28.8%;
     width: 70%;
     top: 7em; }
   #ContactHeader {
@@ -72105,7 +72138,7 @@
     color: white;
     padding: 1em;
     position: relative;
-    top: 7.7em;
+    top: 7.8em;
     transition: all 500ms ease;
     font-size: 110%; }
   .PanelPrivilegios button:hover {
@@ -72208,7 +72241,7 @@
     color: white;
     font-size: 220%;
     position: relative;
-    left: 65%;
+    left: 62%;
     width: 15%;
     top: 21.6em;
     margin-bottom: -300px; }
@@ -72217,7 +72250,7 @@
     letter-spacing: 0.2em;
     font-size: 140%;
     position: relative;
-    left: 53%;
+    left: 55.5%;
     width: 35%;
     top: 49.4em; }
   #Cam2 {
@@ -72478,7 +72511,7 @@
     padding-right: 3em;
     position: relative;
     top: 14em;
-    left: -8%;
+    left: 3%;
     transition: all 500ms ease;
     font-size: 130%; }
   .RecuperarContraseña button:hover {
@@ -72968,7 +73001,7 @@
   #NombreCliente {
     position: relative;
     top: 0.5em;
-    left: 53%; }
+    left: 50%; }
   #SeleccionCliente {
     font-size: 90%;
     width: 37%;
@@ -73183,10 +73216,10 @@
     position: relative;
     top: 0.2em; }
   .Contenedor button {
-    width: 6.2%;
+    width: 5.82%;
     height: 2.3em;
     position: relative;
-    left: 0.1%;
+    left: 0.5%;
     top: 0.15em;
     background-color: dodgerblue;
     border-style: solid;
@@ -73325,7 +73358,7 @@
     top: -3em;
     left: -32%;
     text-align: right;
-    width: 67%;
+    width: 57%;
     transition: all 200ms ease;
     font-size: 180%;
     padding-left: 1.5em; }
@@ -73380,12 +73413,12 @@
     padding-top: 0.5%;
     padding-bottom: 1.2%;
     position: relative;
-    left: 90.6%;
+    left: 89.2%;
     bottom: 5.5em;
     margin-bottom: -100px;
     visibility: hidden;
     width: 8%;
-    height: 5em; }
+    height: 3em; }
   .AdminButton:hover {
     background-color: red; }
   .Lista img {
@@ -74025,7 +74058,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 300%;
     position: relative;
-    left: 32.2%;
+    left: 34.8%;
     width: 70%;
     top: 5.3em; }
   .PanelEditar {
@@ -74141,7 +74174,7 @@
   #RankCheck {
     display: inline;
     position: relative;
-    right: 35%;
+    right: 25%;
     top: 0.4em;
     width: 5%; }
   .EditarCargo h2 {
@@ -74161,7 +74194,7 @@
     position: relative;
     bottom: 1.65em;
     width: 2%;
-    left: 30%;
+    left: 40%;
     font-size: 180%; }
   #DeleteTitle {
     color: white;
@@ -74170,7 +74203,7 @@
     letter-spacing: 0.3em;
     position: relative;
     top: 6.5em;
-    left: 32.7%;
+    left: 35%;
     width: 60%; }
   #DeleteImage {
     position: relative;
@@ -74279,7 +74312,7 @@
     font-family: 'Rubik', sans-serif;
     font-size: 300%;
     position: relative;
-    left: 25.8%;
+    left: 27.7%;
     width: 70%;
     top: 7em; }
   #ContactHeader {
@@ -74524,15 +74557,15 @@
   #ProductosAceptar {
     width: 49.7%;
     position: relative;
-    top: 8.7em; }
+    top: 9.4em; }
   #ProductosRegresar {
     width: 49.7%;
     position: relative;
-    top: 8.7em; }
+    top: 9.4em; }
   #ProductosBorrar {
     position: relative;
     width: 99.9%;
-    top: 8.9em; }
+    top: 9.5em; }
   .switch {
     position: relative;
     display: inline-block;
@@ -74620,7 +74653,7 @@
     color: white;
     padding: 1em;
     position: relative;
-    top: 10.2em;
+    top: 10.6em;
     transition: all 500ms ease;
     font-size: 180%; }
   .PanelPrivilegios button:hover {
@@ -74723,7 +74756,7 @@
     color: white;
     font-size: 280%;
     position: relative;
-    left: 65%;
+    left: 62%;
     width: 15%;
     top: 21.6em;
     margin-bottom: -300px; }
@@ -74732,7 +74765,7 @@
     letter-spacing: 0.2em;
     font-size: 180%;
     position: relative;
-    left: 51.5%;
+    left: 54.5%;
     width: 35%;
     top: 45.8em; }
   #Cam2 {
@@ -74979,7 +75012,7 @@
     text-align: center;
     color: white;
     position: relative;
-    left: 37.72%;
+    left: 38.5%;
     top: 6em;
     font-size: 220%; }
   .RecuperarContraseña button {
@@ -74993,10 +75026,10 @@
     padding-right: 3em;
     position: relative;
     top: 22em;
-    left: -8%;
+    left: 3%;
     transition: all 500ms ease;
     font-size: 180%;
-    width: 35%; }
+    width: 25%; }
   .RecuperarContraseña button:hover {
     background-color: rgba(0, 0, 179, 0.5); }
   .OpcionesPerfil {
@@ -75484,7 +75517,7 @@
   #NombreCliente {
     position: relative;
     top: 0.5em;
-    left: 53%; }
+    left: 50%; }
   #SeleccionCliente {
     font-size: 110%;
     width: 37%;
@@ -75699,11 +75732,11 @@
     position: relative;
     top: -0.22em; }
   .Contenedor button {
-    width: 6.2%;
+    width: 6.0%;
     height: 1.7em;
     position: relative;
     font-size: 300%;
-    left: 0.1%;
+    left: 0.35%;
     top: 0.15em;
     background-color: dodgerblue;
     border-style: solid;

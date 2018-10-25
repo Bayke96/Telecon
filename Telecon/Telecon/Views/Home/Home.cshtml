@@ -4,36 +4,129 @@
 }
 
 <body>
-  
-       <div class="Lista">
-           <img src="~/Style/Media/IMGPAPELERIA.jpg" />
-           <div class="BloqueTexto">
-               <h2><b>OFFICE ARTICLES</b></h2>
-           </div>
-       </div>
+
+    <div class="Lista">
+        <img onclick="CarouselLink()" id="carousel-bg" src="~/Style/Media/Security.jpg" />
+        <div class="BloqueTexto">
+            <h2 id="carousel-text"><b>SECURITY</b></h2>
+        </div>
+    </div>
 
     <p id="Latest">LATEST PRODUCTS</p>
 
     <div class="Cabecera">
         <div class="Card1">
+            <div id="product-image-1" class="product-image">
 
+            </div>
+            <div class="latest-info">
+                <p>Name</p>
+                <p>Price</p>
+            </div>
         </div>
         <div class="Card2">
+            <div id="product-image-2" class="product-image">
 
+            </div>
+            <div class="latest-info">
+                <p>Name</p>
+                <p>Price</p>
+            </div>
         </div>
         <div class="Card3">
+            <div id="product-image-3" class="product-image">
 
+            </div>
+            <div class="latest-info">
+                <p>Name</p>
+                <p>Price</p>
+            </div>
         </div>
         <div class="Card4">
+            <div id="product-image-4" class="product-image">
 
+            </div>
+            <div class="latest-info">
+                <p>Name</p>
+                <p>Price</p>
+            </div>
         </div>
         <div class="Card5">
+            <div id="product-image-5" class="product-image">
 
+            </div>
+            <div class="latest-info">
+                <p>Name</p>
+                <p>Price</p>
+            </div>
         </div>
     </div>
 
-       
-      
-   
+
+
+
 </body>
+
+
+
+
+
+<script type="text/javascript">
+    document.getElementById("carousel-text").innerHTML = "SECURITY";
+    var image = document.getElementById("carousel-bg");
+    var currentPos = 0;
+    var images = ["/Style/Media/Security.jpg", "/Style/Media/cercos-electricos.png", "/Style/Media/portones-electricos.jpg", "/Style/Media/articulos-papeleria.jpg", "/Style/Media/Contactanos.jpg"];
+
+    function CarouselLink() {
+        var texto = document.getElementById("carousel-text").innerHTML;
+
+        if (texto.toUpperCase() == "SECURITY") {
+            window.location.href = "/en/cctv";
+        }
+        if (texto.toUpperCase() == "ELECTRIC FENCES") {
+            window.location.href = "/en/electricfences";
+        }
+        if (texto.toUpperCase() == "AUTOMATIC GATES") {
+            window.location.href = "/en/sliding-gates";
+        }
+        if (texto.toUpperCase() == "PRODUCTS") {
+            window.location.href = "/en/products";
+        }
+        if (texto.toUpperCase() == "CONTACT US") {
+            window.location.href = "/en/contact";
+        }
+    }
+
+
+    function imageslide() {
+
+
+        $('#carousel-bg').fadeOut(1500, function () {
+            $('#carousel-bg').attr('src', images[currentPos]).fadeIn();
+            if (currentPos == 0) document.getElementById("carousel-text").innerHTML = "SECURITY";
+            if (currentPos == 1) document.getElementById("carousel-text").innerHTML = "ELECTRIC FENCES";
+            if (currentPos == 2) document.getElementById("carousel-text").innerHTML = "AUTOMATIC GATES";
+            if (currentPos == 3) document.getElementById("carousel-text").innerHTML = "PRODUCTS";
+            if (currentPos == 4) document.getElementById("carousel-text").innerHTML = "CONTACT US";
+        });
+        currentPos++;
+        if (currentPos >= images.length) {
+            currentPos = 0;
+        }
+    }
+
+    setInterval(imageslide, 9000);
+
+
+    $(function () {
+        $("#Español").click(function () {
+            window.location.href = "/es/inicio";
+        });
+    });
+    $(function () {
+        $("#English").click(function () {
+            window.location.href = "/en/home";
+        });
+    });
+</script>
 

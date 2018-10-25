@@ -1,0 +1,83 @@
+﻿@{
+    Layout = "~/Views/Estructura/_Layout.cshtml";
+    Page.Title = "Telecon Erickson C.A - Delete Product";
+}
+
+
+
+<body>
+
+
+
+    <div class="PanelAgregarProducto">
+        <form method="post">
+            <h2>Delete product</h2><hr />
+
+            <div class="ProductoImgPrincipal">
+
+            </div>
+            <table class="TablaImagenes" border="0">
+                <tr>
+                    <td>
+                        <div class="ImgP2">
+
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ImgP3">
+
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ImgP4">
+
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div class="FormularioAProducto">
+                <p>Name</p>
+                <p class="product-info">Caja de lapices</p>
+                
+                <p>Description</p>
+                <p class="product-info">
+                    Caja de lapices mongol N° 2, forradas en madera con goma de borrador,
+                    marca fabel castle, fabricados en Valencia, Venezuela.
+                </p>
+                <p>Price</p>
+                <p class="product-info">2575.80 BsS</p>
+                
+            </div>
+
+            <p id="parrafo-confirmacion">¿Are you sure you wish to delete this product?</p>
+            <button type="button">Yes</button>
+            <button id="ResetBtn" type="reset" onclick="Retornar();">No</button>
+
+
+        </form>
+    </div>
+
+
+
+</body>
+
+<script type="text/javascript">
+
+    function Retornar() {
+        window.location.href = '/en/products';
+    }
+
+    $(function () {
+        $("#Español").click(function () {
+            window.location.href = "/es/productos/eliminar";
+        });
+    });
+    $(function () {
+        $("#English").click(function () {
+            window.location.href = "/en/products/delete";
+        });
+    });
+
+</script>
+
+

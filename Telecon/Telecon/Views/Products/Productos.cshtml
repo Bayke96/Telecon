@@ -1,0 +1,529 @@
+﻿@{
+    Layout = "~/Views/Estructura/_Forma.cshtml";
+    Page.Title = "Telecon Erickson C.A - Productos Disponibles";
+}
+
+
+
+<script type="text/javascript">
+    function NuevoProducto() {
+        window.location.href = '/es/productos/agregar';
+    }
+    function ModificarProducto() {
+        window.location.href = '/es/productos/modificar';
+    }
+    function EliminarProducto() {
+        window.location.href = '/es/productos/eliminar';
+    }
+</script>
+
+<body>
+
+
+
+    <div id="DivProd">
+        <p id="OrdenarProducto">Ordenar por</p>
+        <div class="OrdenarPor">
+            <table class="TablaOrdenar">
+                <tr>
+                    <th>Asc.</th>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="glyphicon glyphicon-barcode"></span>
+                        Código
+                        <span class="dropup">
+                            <span class="caret"></span>
+                        </span>
+
+
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <span class="glyphicon glyphicon-sort-by-alphabet"></span>
+                        Nombre
+                        <span class="dropup">
+                            <span class="caret"></span>
+                        </span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <span class="glyphicon glyphicon-usd"></span>
+                        Precio
+                        <span class="dropup">
+                            <span class="caret"></span>
+                        </span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <span class="glyphicon glyphicon-plus-sign"></span>
+                        Unidades
+                        <span class="dropup">
+                            <span class="caret"></span>
+                        </span>
+                    </td>
+
+                </tr>
+            </table>
+
+
+            <table class="TablaOrdenarDesc">
+                <tr>
+                    <th>Desc.</th>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="glyphicon glyphicon-barcode"></span>
+                        Código
+                        <span class="caret"></span>
+
+
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <span class="glyphicon glyphicon-sort-by-alphabet"></span>
+                        Nombre
+                        <span class="caret"></span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <span class="glyphicon glyphicon-usd"></span>
+                        Precio
+                        <span class="caret"></span>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <span class="glyphicon glyphicon-plus-sign"></span>
+                        Unidades
+                        <span class="caret"></span>
+                    </td>
+
+                </tr>
+            </table>
+
+
+        </div>
+    </div>
+
+    <div class="ProductosDiv">
+        <button id="NuevoProducto" onclick="return NuevoProducto();" type="submit"><span class="glyphicon glyphicon-plus"></span><br />Nuevo Producto</button>
+        <button id="ModificarProducto" onclick="return ModificarProducto();" type="submit"><span class="glyphicon glyphicon-edit"></span><br />Modificar Producto</button>
+        <button id="EliminarProducto" onclick="return EliminarProducto();" type="submit"><span class="glyphicon glyphicon-remove"></span><br />Eliminar Producto</button>
+    </div>
+
+
+    <h2 id="ItemsTitle">ITEMS DISPONIBLES</h2>
+
+    <div class="ContenedorProductos">
+        <table class="TablaProductos" border="0">
+            <tr>
+                <td>
+                    <div class="ProductoF">
+                        <div class="ImagenProducto"></div>
+
+                        <p class="PNombre">Nombre</p>
+                        <p class="PPrecio">Precio</p>
+                      
+                    </div>
+                </td>
+                <td>
+                    <div class="ProductoF">
+                        <div class="ImagenProducto"></div>
+                        <p class="PNombre">Nombre</p>
+                        <p class="PPrecio">Precio</p>
+                       
+                    </div>
+
+                </td>
+                <td>
+                    <div class="ProductoF">
+                        <div class="ImagenProducto"></div>
+                        <p class="PNombre">Nombre</p>
+                        <p class="PPrecio">Precio</p>
+                       
+                    </div>
+
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="ProductoF">
+                        <div class="ImagenProducto"></div>
+                        <p class="PNombre">Nombre</p>
+                        <p class="PPrecio">Precio</p>
+                      
+                    </div>
+                </td>
+                <td>
+                    <div class="ProductoF">
+                        <div class="ImagenProducto"></div>
+                        <p class="PNombre">Nombre</p>
+                        <p class="PPrecio">Precio</p>
+                       
+                    </div>
+                </td>
+                <td>
+                    <div class="ProductoF">
+                        <div class="ImagenProducto"></div>
+                        <p class="PNombre">Nombre</p>
+                        <p class="PPrecio">Precio</p>
+                      
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="ProductoF">
+                        <div class="ImagenProducto"></div>
+                        <p class="PNombre">Nombre</p>
+                        <p class="PPrecio">Precio</p>
+                       
+                    </div>
+
+                </td>
+                <td>
+                    <div class="ProductoF">
+                        <div class="ImagenProducto"></div>
+                        <p class="PNombre">Nombre</p>
+                        <p class="PPrecio">Precio</p>
+                       
+                    </div>
+                </td>
+                <td>
+                    <div class="ProductoF">
+                        <div class="ImagenProducto"></div>
+                        <p class="PNombre">Nombre</p>
+                        <p class="PPrecio">Precio</p>
+                       
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="ProductoF">
+                        <div class="ImagenProducto"></div>
+                        <p class="PNombre">Nombre</p>
+                        <p class="PPrecio">Precio</p>
+                       
+                    </div>
+                </td>
+                <td>
+                    <div class="ProductoF">
+                        <div class="ImagenProducto"></div>
+                        <p class="PNombre">Nombre</p>
+                        <p class="PPrecio">Precio</p>
+                       
+                    </div>
+                </td>
+                <td>
+                    <div class="ProductoF">
+                        <div class="ImagenProducto"></div>
+                        <p class="PNombre">Nombre</p>
+                        <p class="PPrecio">Precio</p>
+                        
+
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+
+
+    </div>
+
+    <div class="contenedor-productos-full">
+        <table class="tabla-productos-full" border="0">
+            <tr>
+                <td>
+                    <div class="ProductoF">
+                        <div class="ImagenProducto"></div>
+                        <p class="PNombre">Nombre</p>
+                        <p class="PPrecio">Precio</p>
+                        
+                    </div>
+                </td>
+                <td>
+                    <div class="ProductoF">
+                        <div class="ImagenProducto"></div>
+                        <p class="PNombre">Nombre</p>
+                        <p class="PPrecio">Precio</p>
+                       
+                    </div>
+                </td>
+                <td>
+                    <div class="ProductoF">
+                        <div class="ImagenProducto"></div>
+                        <p class="PNombre">Nombre</p>
+                        <p class="PPrecio">Precio</p>
+                        
+                    </div>
+                </td>
+                <td>
+                    <div class="ProductoF">
+                        <div class="ImagenProducto"></div>
+                        <p class="PNombre">Nombre</p>
+                        <p class="PPrecio">Precio</p>
+                       
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="ProductoF">
+                        <div class="ImagenProducto"></div>
+                        <p class="PNombre">Nombre</p>
+                        <p class="PPrecio">Precio</p>
+                      
+                    </div>
+                </td>
+                <td>
+                    <div class="ProductoF">
+                        <div class="ImagenProducto"></div>
+                        <p class="PNombre">Nombre</p>
+                        <p class="PPrecio">Precio</p>
+                       
+                    </div>
+                </td>
+                <td>
+                    <div class="ProductoF">
+                        <div class="ImagenProducto"></div>
+                        <p class="PNombre">Nombre</p>
+                        <p class="PPrecio">Precio</p>
+                       
+                    </div>
+                </td>
+                <td>
+                    <div class="ProductoF">
+                        <div class="ImagenProducto"></div>
+                        <p class="PNombre">Nombre</p>
+                        <p class="PPrecio">Precio</p>
+                      
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="ProductoF">
+                        <div class="ImagenProducto"></div>
+                        <p class="PNombre">Nombre</p>
+                        <p class="PPrecio">Precio</p>
+                       
+                    </div>
+                </td>
+                <td>
+                    <div class="ProductoF">
+                        <div class="ImagenProducto"></div>
+                        <p class="PNombre">Nombre</p>
+                        <p class="PPrecio">Precio</p>
+                      
+                    </div>
+                </td>
+                <td>
+                    <div class="ProductoF">
+                        <div class="ImagenProducto"></div>
+                        <p class="PNombre">Nombre</p>
+                        <p class="PPrecio">Precio</p>
+                      
+                    </div>
+                </td>
+                <td>
+                    <div class="ProductoF">
+                        <div class="ImagenProducto"></div>
+                        <p class="PNombre">Nombre</p>
+                        <p class="PPrecio">Precio</p>
+                       
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="ProductoF">
+                        <div class="ImagenProducto"></div>
+                        <p class="PNombre">Nombre</p>
+                        <p class="PPrecio">Precio</p>
+                   
+                    </div>
+                </td>
+                <td>
+                    <div class="ProductoF">
+                        <div class="ImagenProducto"></div>
+                        <p class="PNombre">Nombre</p>
+                        <p class="PPrecio">Precio</p>
+                       
+                    </div>
+                </td>
+                <td>
+                    <div class="ProductoF">
+                        <div class="ImagenProducto"></div>
+                        <p class="PNombre">Nombre</p>
+                        <p class="PPrecio">Precio</p>
+                       
+                    </div>
+                </td>
+                <td>
+                    <div class="ProductoF">
+                        <div class="ImagenProducto"></div>
+                        <p class="PNombre">Nombre</p>
+                        <p class="PPrecio">Precio</p>
+                       
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+
+
+        <div id="DivProdB">
+            <p id="OrdenarProductoB">Ordenar por</p>
+            <div class="OrdenarPor">
+                <table class="TablaOrdenar">
+                    <tr>
+                        <th>Asc.</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="glyphicon glyphicon-barcode"></span>
+                            Código
+                            <span class="dropup">
+                                <span class="caret"></span>
+                            </span>
+
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="glyphicon glyphicon-sort-by-alphabet"></span>
+                            Nombre
+                            <span class="dropup">
+                                <span class="caret"></span>
+                            </span>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="glyphicon glyphicon-usd"></span>
+                            Precio
+                            <span class="dropup">
+                                <span class="caret"></span>
+                            </span>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="glyphicon glyphicon-plus-sign"></span>
+                            Unidades
+                            <span class="dropup">
+                                <span class="caret"></span>
+                            </span>
+                        </td>
+
+                    </tr>
+                </table>
+
+
+                <table class="TablaOrdenarDesc">
+                    <tr>
+                        <th>Desc.</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="glyphicon glyphicon-barcode"></span>
+                            Código
+                            <span class="caret"></span>
+
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="glyphicon glyphicon-sort-by-alphabet"></span>
+                            Nombre
+                            <span class="caret"></span>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="glyphicon glyphicon-usd"></span>
+                            Precio
+                            <span class="caret"></span>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="glyphicon glyphicon-plus-sign"></span>
+                            Unidades
+                            <span class="caret"></span>
+                        </td>
+
+                    </tr>
+                </table>
+
+
+            </div>
+        </div>
+
+        <div class="ProductosDivB">
+            <button id="NuevoProducto" onclick="return NuevoProducto();" type="submit"><span class="glyphicon glyphicon-plus"></span><br />Nuevo Producto</button>
+            <button id="ModificarProducto" onclick="return ModificarProducto();" type="submit"><span class="glyphicon glyphicon-edit"></span><br />Modificar Producto</button>
+            <button id="EliminarProducto" onclick="return EliminarProducto();" type="submit"><span class="glyphicon glyphicon-remove"></span><br />Eliminar Producto</button>
+        </div>
+
+
+
+
+
+
+
+
+
+</body>
+
+
+<script type="text/javascript">
+
+  
+
+   
+
+
+
+  
+    $(function () {
+        $("#Español").click(function () {
+            window.location.href = "/es/productos";
+        });
+    });
+    $(function () {
+        $("#English").click(function () {
+            window.location.href = "/en/products";
+        });
+    });
+
+</script>
+
+

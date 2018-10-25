@@ -6,29 +6,61 @@
 <body>
   
        <div class="Lista">
-           <img src="~/Style/Media/IMGPAPELERIA.jpg" />
+           <img onclick="CarouselLink()" id="carousel-bg" src="~/Style/Media/Security.jpg" />
            <div class="BloqueTexto">
-               <h2><b>PAPELERÍA</b></h2>
+               <h2 id="carousel-text"><b>SEGURIDAD</b></h2>
+
            </div>
+
        </div>
 
     <p id="Latest">ULTIMOS PRODUCTOS</p>
 
     <div class="Cabecera">
         <div class="Card1">
+            <div id="product-image-1" class="product-image">
 
+            </div>
+            <div class="latest-info">
+                <p>Nombre</p>
+                <p>Precio</p>
+            </div>
         </div>
         <div class="Card2">
+            <div id="product-image-2" class="product-image">
 
+            </div>
+            <div class="latest-info">
+                <p>Nombre</p>
+                <p>Precio</p>
+            </div>
         </div>
         <div class="Card3">
+            <div id="product-image-3" class="product-image">
 
+            </div>
+            <div class="latest-info">
+                <p>Nombre</p>
+                <p>Precio</p>
+            </div>
         </div>
         <div class="Card4">
+            <div id="product-image-4" class="product-image">
 
+            </div>
+            <div class="latest-info">
+                <p>Nombre</p>
+                <p>Precio</p>
+            </div>
         </div>
         <div class="Card5">
+            <div id="product-image-5" class="product-image">
 
+            </div>
+            <div class="latest-info">
+                <p>Nombre</p>
+                <p>Precio</p>
+            </div>
         </div>
     </div>
 
@@ -37,3 +69,61 @@
    
 </body>
 
+<script type="text/javascript">
+    document.getElementById("carousel-text").innerHTML = "SEGURIDAD";
+    
+    var image = document.getElementById("carousel-bg");
+    var currentPos = 0;
+    var images = ["/Style/Media/Security.jpg", "/Style/Media/cercos-electricos.png", "/Style/Media/portones-electricos.jpg", "/Style/Media/articulos-papeleria.jpg", "/Style/Media/Contactanos.jpg"];
+
+    function CarouselLink() {
+        var texto = document.getElementById("carousel-text").innerHTML;
+        
+        if (texto.toUpperCase() == "SEGURIDAD") {
+            window.location.href = "/es/accesoautorizado";
+        }
+        if (texto.toUpperCase() == "CERCOS ELÉCTRICOS") {
+            window.location.href = "/es/cercoselectricos";
+        }
+        if (texto.toUpperCase() == "PORTONES AUTOMATIZADOS") {
+            window.location.href = "/es/portones";
+        }
+        if (texto.toUpperCase() == "PRODUCTOS") {
+            window.location.href = "/es/productos";
+        }
+        if (texto.toUpperCase() == "CONTACTANOS") {
+            window.location.href = "/es/contacto";
+        }
+    }
+
+
+    function imageslide() {
+      
+       
+        $('#carousel-bg').fadeOut(1500, function () {
+            $('#carousel-bg').attr('src', images[currentPos]).fadeIn();
+            if (currentPos == 0) document.getElementById("carousel-text").innerHTML = "SEGURIDAD";
+            if (currentPos == 1) document.getElementById("carousel-text").innerHTML = "CERCOS ELÉCTRICOS";
+            if (currentPos == 2) document.getElementById("carousel-text").innerHTML = "PORTONES AUTOMATIZADOS";
+            if (currentPos == 3) document.getElementById("carousel-text").innerHTML = "PRODUCTOS";
+            if (currentPos == 4) document.getElementById("carousel-text").innerHTML = "CONTACTANOS";
+        });
+        currentPos++;
+        if (currentPos >= images.length) {
+            currentPos = 0;
+        }
+    }
+
+    setInterval(imageslide, 7000);
+
+    $(function () {
+        $("#Español").click(function () {
+            window.location.href = "/es/inicio";
+        });
+    });
+    $(function () {
+        $("#English").click(function () {
+            window.location.href = "/en/home";
+        });
+    });
+</script>

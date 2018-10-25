@@ -220,6 +220,7 @@
     </Content>
     <Content Include="Style\Media\AgregarCliente.jpg" />
     <Content Include="Style\Media\AgregarCliente.png" />
+    <Content Include="Style\Media\articulos-papeleria.jpg" />
     <Content Include="Style\Media\BG.jpeg" />
     <Content Include="Style\Media\BG.jpg" />
     <Content Include="Style\Media\BG.png" />
@@ -234,6 +235,7 @@
     <Content Include="Style\Media\centrales1.png" />
     <Content Include="Style\Media\centrales2.png" />
     <Content Include="Style\Media\centrales3.png" />
+    <Content Include="Style\Media\cercos-electricos.png" />
     <Content Include="Style\Media\Cercos.jpg" />
     <Content Include="Style\Media\Cercos1.png" />
     <Content Include="Style\Media\Cercos2.png" />
@@ -244,6 +246,7 @@
     <Content Include="Style\Media\ClientesBG.jpg" />
     <Content Include="Style\Media\CloseWindowIcon.png" />
     <Content Include="Style\Media\CompanyIcon.png" />
+    <Content Include="Style\Media\Contactanos.jpg" />
     <Content Include="Style\Media\ContactIcon.png" />
     <Content Include="Style\Media\EliminarCliente.jpg" />
     <Content Include="Style\Media\EnglishFlag.jpg" />
@@ -256,13 +259,16 @@
     <Content Include="Style\Media\Porton2.png" />
     <Content Include="Style\Media\Porton3.png" />
     <Content Include="Style\Media\Porton4.png" />
+    <Content Include="Style\Media\portones-electricos.jpg" />
     <Content Include="Style\Media\Portones.jpg" />
     <Content Include="Style\Media\PrivilegiosFondo.jpg" />
     <Content Include="Style\Media\ProductosFondo.jpg" />
+    <Content Include="Style\Media\Security.jpg" />
     <Content Include="Style\Media\SecurityBG.jpg" />
     <Content Include="Style\Media\ServicesIcon.png" />
     <Content Include="Style\Media\SHOPPINGICON.png" />
     <Content Include="Style\Media\SpanishFlag.png" />
+    <Content Include="Style\Media\UnknownProduct.png" />
     <Content Include="Style\Media\UsuarioPre.png" />
     <Content Include="Style\Media\Valores.png" />
     <Content Include="Style\Style.css">
@@ -337,6 +343,16 @@
     <Content Include="Views\Users\Customers.cshtml" />
     <Content Include="Views\Users\OnlineChat.cshtml" />
     <Content Include="Style\Estilo.scss" />
+    <Content Include="Views\Products\Products.cshtml" />
+    <Content Include="Views\Products\Productos.cshtml" />
+    <Content Include="Views\Products\NuevoProducto.cshtml" />
+    <Content Include="Views\Products\ModificarProducto.cshtml" />
+    <Content Include="Views\Products\EliminarProducto.cshtml" />
+    <Content Include="Views\Products\AddProduct.cshtml" />
+    <Content Include="Views\Products\EditProduct.cshtml" />
+    <Content Include="Views\Products\DeleteProduct.cshtml" />
+    <Content Include="Views\Products\Producto.cshtml" />
+    <Content Include="Views\Products\Product.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

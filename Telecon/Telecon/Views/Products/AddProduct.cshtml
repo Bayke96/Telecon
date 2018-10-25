@@ -1,0 +1,135 @@
+﻿@{
+    Layout = "~/Views/Estructura/_Layout.cshtml";
+    Page.Title = "Telecon Erickson C.A - Add Product";
+}
+
+
+
+<body>
+
+
+    <div class="PanelAgregarProducto">
+        <form method="post">
+            <h2>Add product</h2><hr />
+
+            <div class="ProductoImgPrincipal">
+                <input id="PImg1" name="PImg1" type="file" style="opacity: 0.0; position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height:100%;" />
+            </div>
+            <table class="TablaImagenes" border="0">
+                <tr>
+                    <td>
+                        <div class="ImgP2">
+                            <input id="PImg2" name="PImg2" type="file" style="opacity: 0.0; position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height:100%;" />
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ImgP3">
+                            <input id="PImg3" name="PImg3" type="file" style="opacity: 0.0; position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height:100%;" />
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ImgP4">
+                            <input id="PImg4" name="PImg4" type="file" style="opacity: 0.0; position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height:100%;" />
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div class="FormularioAProducto">
+                <p>Name</p>
+                <input type="text" name="NombreProducto" class="form-control" />
+                
+                <p>Description</p>
+                <textarea name="DescripcionProducto"></textarea>
+                <p>Price</p>
+                <input type="text" name="PrecioProducto" class="form-control" />
+                
+            </div>
+
+            <button type="button">Add</button>
+            <button id="ResetBtn" type="reset">Reset</button>
+
+
+        </form>
+    </div>
+
+
+
+
+
+</body>
+
+<script type="text/javascript">
+
+
+
+
+    $("#ResetBtn").click(function () {
+        $('.ProductoImgPrincipal').css('background-image', '');
+        $('.ImgP2').css('background-image', '');
+        $('.ImgP3').css('background-image', '');
+        $('.ImgP4').css('background-image', '');
+    }
+    );
+
+    $('#PImg1').change(function () {
+        var file = this.files[0];
+        var reader = new FileReader();
+        reader.onloadend = function () {
+            $('.ProductoImgPrincipal').css('background-image', 'url("' + reader.result + '")');
+        }
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+        }
+    });
+
+    $('#PImg2').change(function () {
+        var file = this.files[0];
+        var reader = new FileReader();
+        reader.onloadend = function () {
+            $('.ImgP2').css('background-image', 'url("' + reader.result + '")');
+        }
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+        }
+    });
+
+    $('#PImg3').change(function () {
+        var file = this.files[0];
+        var reader = new FileReader();
+        reader.onloadend = function () {
+            $('.ImgP3').css('background-image', 'url("' + reader.result + '")');
+        }
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+        }
+    });
+
+    $('#PImg4').change(function () {
+        var file = this.files[0];
+        var reader = new FileReader();
+        reader.onloadend = function () {
+            $('.ImgP4').css('background-image', 'url("' + reader.result + '")');
+        }
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+        }
+    });
+
+    $(function () {
+        $("#Español").click(function () {
+            window.location.href = "/es/productos/agregar";
+        });
+    });
+    $(function () {
+        $("#English").click(function () {
+            window.location.href = "/en/products/add";
+        });
+    });
+
+</script>
+
+

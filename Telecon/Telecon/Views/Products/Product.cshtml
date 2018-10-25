@@ -1,0 +1,57 @@
+﻿@{
+    Layout = "~/Views/Estructura/_Layout.cshtml";
+    Page.Title = "Telecon Erickson C.A - Product Information";
+}
+
+
+
+<body>
+
+
+    <div class="product-detail">
+
+        <div id="main-image"></div>
+        <div id="secondary-images-block">
+            <div id="image-b" class="secondary-image"></div>
+            <div id="image-c" class="secondary-image"></div>
+            <div id="image-d" class="secondary-image"></div>
+        </div>
+        <div id="product-data">
+            <h2 id="product-title">Pencils Pack Model Mongol N° 2</h2>
+            <h2 id="product-description">Box containing 24 pencils made of wood and rubber.<br /><br />- Yellow colored.</h2>
+            <h2>12500,75 BsS</h2>
+           
+            <button onclick="Return();" id="return-button" type="button">Return</button>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+
+<script type="text/javascript">
+
+
+
+    function Return() {
+        window.location.href = "/en/products";
+    }
+
+    
+
+    $(function () {
+        $("#Español").click(function () {
+            window.location.href = "/es/producto";
+        });
+    });
+    $(function () {
+        $("#English").click(function () {
+            window.location.href = "/en/product";
+        });
+    });
+
+</script>
+
+

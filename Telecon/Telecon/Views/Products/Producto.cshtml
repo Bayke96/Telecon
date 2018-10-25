@@ -1,0 +1,56 @@
+﻿@{
+    Layout = "~/Views/Estructura/_Forma.cshtml";
+    Page.Title = "Telecon Erickson C.A - Información de Producto";
+}
+
+
+
+
+
+<body>
+
+    <div class="product-detail">
+
+        <div id="main-image"></div>
+        <div id="secondary-images-block">
+            <div id="image-b" class="secondary-image"></div>
+            <div id="image-c" class="secondary-image"></div>
+            <div id="image-d" class="secondary-image"></div>
+        </div>
+        <div id="product-data">
+            <h2 id="product-title">Caja de lapices Mongol N° 2</h2>
+            <h2 id="product-description">Caja de lapices tallados en madera, con borrador de goma, color amarillo, punta de gráfito</h2>
+            <h2>12500,75 BsS</h2>
+            
+            <button onclick="Return();" id="return-button" type="button">Regresar</button>
+        </div>
+       
+    </div>
+
+
+
+</body>
+
+
+<script type="text/javascript">
+
+    function Return() {
+        window.location.href = "/es/productos";
+    }
+
+   
+  
+    $(function () {
+        $("#Español").click(function () {
+            window.location.href = "/es/producto";
+        });
+    });
+    $(function () {
+        $("#English").click(function () {
+            window.location.href = "/en/product";
+        });
+    });
+
+</script>
+
+

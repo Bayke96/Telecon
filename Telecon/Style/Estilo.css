@@ -7,6 +7,26 @@
     cursor: context-menu;
     background-image: url("/Style/Media/BG.jpg");
     background-repeat: repeat-y; }
+  .modal-header {
+    background-color: red;
+    border-radius: 2px;
+    fill-opacity: 1.0;
+    flood-opacity: 1.0;
+    opacity: 1.0;
+    stop-opacity: 1.0;
+    stroke-opacity: 1.0; }
+  #cerrar-validacion {
+    display: none; }
+  .modal-header span {
+    color: black !important;
+    opacity: 1 !important;
+    fill-opacity: 1; }
+  .modal-body p {
+    font-weight: bold;
+    font-size: 90%; }
+  .modal-footer {
+    background-color: red;
+    border-radius: 2px; }
   .ContenedorProductos {
     display: inline-block; }
   .contenedor-productos-full {
@@ -1811,12 +1831,16 @@
   .OpcionesPerfil button:hover > div {
     opacity: 0.699999988079071044921875; }
   #PImg1 {
+    cursor: grab;
     background-image: url("Media/BotonBG1.png"); }
   #PImg2 {
+    cursor: grab;
     background-image: url("Media/SecurityBG.jpg"); }
   #PImg3 {
+    cursor: grab;
     background-image: url("Media/ClientesBG.jpg"); }
   #PImg4 {
+    cursor: grab;
     background-image: url("Media/ChatBG.jpg"); }
   #PImg5 {
     background-image: url("Media/CerrarSesionBG.jpg"); }

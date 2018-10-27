@@ -5,7 +5,7 @@
 
 <h2 id="EditTitle">EDITAR USUARIO - CRISTIAN GONZÁLEZ </h2>
 
-<form name="EditarUsuario" method="post">
+<form name="EditarUsuario" method="post" autocomplete="off">
 
     <div class="EditarFoto">
         <h2>FOTO DE PERFIL</h2>
@@ -20,7 +20,7 @@
         <h2><b>PRIVILEGIOS</b></h2>
         <hr />
         <input id="RankCheck" type="checkbox" class="checkbox" name="Administrador" value="Admin">
-        
+
         <p>Administrador</p>
     </div>
 
@@ -31,32 +31,33 @@
             </tr>
             <tr>
                 <td class="EditarCell"><p>NOMBRE DE USUARIO</p></td>
-                <td><input class="form-control" type="text" name="NombreUsuario" /></td>
+
+                <td> @Html.TextBox("nombre_usuario", "", new { @id="username-text", @class = "form-control", @value = "", maxlength = "24", required = "required" })</td>
             </tr>
             <tr>
                 <td class="EditarCell"><p>NOMBRES</p></td>
-                <td><input class="form-control" type="text" name="Nombres" /></td>
+                <td> @Html.TextBox("nombres", "", new { @id="firstnames-text", @class = "form-control", @value = "", maxlength = "50", required = "required" })</td>
             </tr>
             <tr>
                 <td class="EditarCell"><p>APELLIDOS</p></td>
-                <td><input class="form-control" type="text" name="Apellidos" /></td>
+                <td> @Html.TextBox("apellidos", "", new { @id="lastnames-text", @class = "form-control", @value = "", maxlength = "50", required = "required" })</td>
             </tr>
             <tr>
                 <td class="EditarCell"><p>EDAD</p></td>
-                <td><input class="form-control" type="text" name="Edad" /></td>
+                <td> @Html.TextBox("edad", "", new { @id = "age-text", @class = "form-control", @value = "", maxlength = "2", required = "required" })</td>
             </tr>
             <tr>
                 <td class="EditarCell"><p>CORREO</p></td>
-                <td><input class="form-control" type="text" name="Correo" /></td>
+                <td> @Html.TextBox("correo", "", new { @id = "email-text", @class = "form-control", @value = "", maxlength = "50", required = "required" })</td>
             </tr>
             <tr>
                 <td class="EditarCell"><p>TELÉFONO</p></td>
-                <td><input class="form-control" type="text" name="Telefono" /></td>
+                <td>@Html.TextBox("telefono", "", new { @id = "phone-text", @class = "form-control", @value = "", maxlength = "50" })</td>
             </tr>
-            <tr></tr>
+
         </table>
 
-        <button type="button">ACTUALIZAR</button>
+        <button onclick="return EditUser();" type="button">ACTUALIZAR</button>
         <button type="button" id="BtnRegresar">REGRESAR</button>
     </div>
 
@@ -64,9 +65,128 @@
 
 </form>
 
+<div id="validacion" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button id="cerrar-validacion" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">x</span>
+                </button>
+            </div>
+            <div id="validaciones-contenido" class="modal-body">
+
+
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 <script type="text/javascript">
+
+    var timer = null;
+
+    function EditUser() {
+
+        // Datos del usuario
+        var usuario = document.getElementById("username-text").value,
+            nombres = document.getElementById("firstnames-text").value,
+            apellidos = document.getElementById("lastnames-text").value,
+            correo = document.getElementById("email-text").value,
+            edad = document.getElementById("age-text").value,
+            telefono = document.getElementById("phone-text").value;
+
+
+
+
+        var divtext = document.getElementById("validaciones-contenido");
+        var validaciones = "";
+        var reuser = new RegExp("^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$");
+        var numeros = new RegExp("^[0-9]+$");
+        var letras = new RegExp("^[-+0-9\\s]+$");
+
+        var renames = new RegExp("^[a-zA-Z\\s]+$");
+
+        if (usuario.trim() == "" || usuario == null) {
+            validaciones += "<p>Debe escribir un nombre de usuario.</p>\n"
+        }
+        if (usuario.trim() != "" && reuser.test(usuario) == false) {
+            validaciones += "<p>El campo nombre de usuario solo acepta caracteres alfanumericos</p>\n"
+        }
+        if (usuario.trim() != "" && usuario.length < 3) {
+            validaciones += "<p>El nombre de usuario debe contener minimo 3 caracteres.</p>\n"
+        }
+
+        if (nombres.trim() == "" || nombres == null) {
+            validaciones += "<p>Debe escribir un nombre.</p>\n"
+        }
+        if (nombres.trim() != "" && renames.test(nombres) == false) {
+            validaciones += "<p>El campo nombres solo acepta letras y espacios.</p>\n"
+        }
+        if (nombres.trim() != "" && nombres.length < 3) {
+            validaciones += "<p>El nombre debe contener minimo 3 caracteres.</p>\n"
+        }
+
+        if (apellidos.trim() == "" || apellidos == null) {
+            validaciones += "<p>Debe escribir un apellido.</p>\n"
+        }
+        if (apellidos.trim() != "" && renames.test(apellidos) == false) {
+            validaciones += "<p>El campo apellidos solo acepta letras y espacios.</p>\n"
+        }
+        if (apellidos.trim() != "" && apellidos.length < 2) {
+            validaciones += "<p>El apellido debe contener minimo 2 caracteres.</p>\n"
+        }
+        console.log(edad);
+
+        if (edad.trim() == "" || edad == null) {
+            validaciones += "<p>Debe escribir la edad del usuario.</p>\n"
+        }
+        if (edad.trim() != "" && numeros.test(edad) == false) {
+            validaciones += "<p>El campo edad solo acepta números.</p>\n"
+            document.getElementById("age-text").value = "";
+        }
+        if (edad.trim() != "" && edad < 15) {
+            validaciones += "<p>El usuario debe tener un minimo de 15 años para tener una cuenta.</p>\n"
+        }
+
+        if (correo.trim() == "" || correo == null) {
+            validaciones += "<p>Debe escribir un correo.</p>\n"
+        }
+        if (correo.trim() != "" && !correo.includes("@@")) {
+            validaciones += "<p>El correo debe incluir un &#64;</p>\n"
+        }
+        if (correo.trim() != "" && correo.length < 6) {
+            validaciones += "<p>El correo debe contener minimo 6 caracteres.</p>\n"
+        }
+
+        if (telefono.trim() != "" && letras.test(telefono) == false) {
+            validaciones += "<p>El campo telefono solo acepta números y simbolos + -</p>\n"
+        }
+
+
+
+        if (validaciones != "") {
+            divtext.innerHTML = validaciones;
+            $('#validacion').modal('show');
+            validaciones = "";
+
+            window.clearTimeout(timer);
+            timer = setTimeout(function () {
+                $("#cerrar-validacion").click();
+            }, 5000); // <-- time in milliseconds
+            return false;
+        } else {
+            return true;
+        }
+
+
+    }
+
+
     $(document).ready(function () {
         $('.AdminButton').css('visibility', 'visible');
 
@@ -76,7 +196,7 @@
         var file = this.files[0];
         var reader = new FileReader();
         reader.onloadend = function () {
-            $('#EditImage').attr('src', ''+ reader.result + '');
+            $('#EditImage').attr('src', '' + reader.result + '');
         }
         if (file) {
             reader.readAsDataURL(file);

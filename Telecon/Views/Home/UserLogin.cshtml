@@ -4,19 +4,86 @@
 }
 
 <div class="LoginForm">
-    <form method="post" name="LoginForm">
+    <form method="post" name="LoginForm" autocomplete="off">
         <p>USER LOGIN</p>
         <h4 id="EtiquetaNombre">Username</h4>
-        <input type="text" class="CampoNombre" name="Nombre" />
+        @Html.TextBox("user_name", "", new { id = "username", @class = "CampoNombre", @value = "", required = "required" })
         <h4 id="EtiquetaContraseña">Password</h4>
-        <input type="password" class="CampoContraseña" name="Contraseña" />
-        <button id="BtnIngresar">LOGIN</button>
+        @Html.Password("user_password", "", new { id = "pass", @class = "CampoContraseña", @value = "", required = "required" })
+        <button onclick="return Login();" id="BtnIngresar">LOGIN</button>
         <button type="reset" id="BtnBorrar">RESET</button>
         <a href="forgotpassword">I forgot my password</a>
     </form>
 </div>
 
+<div id="validacion" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button id="cerrar-validacion" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">x</span>
+                </button>
+            </div>
+            <div id="validaciones-contenido" class="modal-body">
+
+
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+
 <script type="text/javascript">
+
+    var timer = null;
+
+    function Login() {
+
+        var user = document.getElementById("username").value;
+        var password = document.getElementById("pass").value;
+        var divtext = document.getElementById("validaciones-contenido");
+        var validaciones = "";
+        var reuser = new RegExp("^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$");
+
+        if (user.trim() == "" || user == null) {
+            validaciones += "<p>You must type an username.</p>\n"
+        }
+        if (user.trim() != "" && reuser.test(user) == false) {
+            validaciones += "<p>The username field only accepts alphanumeric characters</p>\n"
+        }
+        if (user.trim() != "" && user.length < 3) {
+            validaciones += "<p>The username must contain at least 3 characters.</p>\n"
+        }
+        if (password.trim() == "" || password == null) {
+            validaciones += "<p>You must type a password.</p>\n"
+        }
+        if (password.trim() != "" && password.length < 12) {
+            validaciones += "<p>The password must contain at least 12 characters.</p>\n"
+        }
+        var re = new RegExp("\S*(\S*([a-zA-Z]\S*[0-9])|([0-9]\S*[a-zA-Z]))\S*");
+        if (password.trim() != "" && password.length >= 12 && re.test(password) == false) {
+            validaciones += "<p>The password must contain letters AND numbers.</p>\n"
+        }
+        
+
+        if (validaciones != "") {
+            divtext.innerHTML = validaciones;
+            $('#validacion').modal('show');
+            validaciones = "";
+
+            window.clearTimeout(timer);
+            timer = setTimeout(function () {
+                $("#cerrar-validacion").click();
+            }, 5000); // <-- time in milliseconds
+            return false;
+        } else {
+            return true;
+        }
+
+
+    }
 
     $(function () {
         $("#Español").click(function () {

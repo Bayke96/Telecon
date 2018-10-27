@@ -6,42 +6,150 @@
 <div class="ActualizarPerfil">
     <h2>ACTUALIZAR PERFIL - CRISTIAN GONZÁLEZ</h2>
     <hr />
-    <form method="post">
+    <form method="post" autocomplete="off">
 
         <table>
             <tr>
                 <th>Nombres</th>
-                <td><input type="text" class="form-control" name="Nombres" /></td>
+                <td> @Html.TextBox("nombres", "", new { @id = "firstnames-text", @class = "form-control", @value = "", maxlength = "50", required = "required" })</td>
             </tr>
             <tr>
                 <th>Apellidos</th>
-                <td><input type="text" class="form-control" name="Apellidos" /></td>
+                <td> @Html.TextBox("apellidos", "", new { @id = "lastnames-text", @class = "form-control", @value = "", maxlength = "50", required = "required" })</td>
             </tr>
             <tr>
                 <th>Correo</th>
-                <td><input type="text" class="form-control" name="Correo" /></td>
+                <td> @Html.TextBox("correo", "", new { @id = "email-text", @class = "form-control", @value = "", maxlength = "50", required = "required" })</td>
             </tr>
             <tr>
                 <th>Edad</th>
-                <td><input type="text" class="form-control" name="Edad" /></td>
+                <td> @Html.TextBox("edad", "", new { @id = "age-text", @class = "form-control", @value = "", maxlength = "2", required = "required" })</td>
             </tr>
             <tr>
                 <th>Dirección</th>
-                <td><input type="text" class="form-control" name="Direccion" /></td>
+                <td>@Html.TextBox("direccion", "", new { @id = "address-text", @class = "form-control", @value = "", maxlength = "128" })</td>
             </tr>
             <tr>
                 <th>Teléfono</th>
-                <td><input type="text" class="form-control" name="Telefono" /></td>
+                <td>@Html.TextBox("telefono", "", new { @id = "phone-text", @class = "form-control", @value = "", maxlength = "50" })</td>
             </tr>
         </table>
 
-        <button type="button">ACTUALIZAR</button>
+        <button type="button" onclick="return UpdateProfile();">ACTUALIZAR</button>
         <button type="reset">BORRAR</button>
     </form>
     
 </div>
 
+<div id="validacion" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button id="cerrar-validacion" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">x</span>
+                </button>
+            </div>
+            <div id="validaciones-contenido" class="modal-body">
+
+
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+
 <script type="text/javascript">
+
+    var timer = null;
+
+    function UpdateProfile() {
+
+        // Datos del usuario
+        var nombres = document.getElementById("firstnames-text").value,
+            apellidos = document.getElementById("lastnames-text").value,
+            correo = document.getElementById("email-text").value,
+            edad = document.getElementById("age-text").value,
+            direccion = document.getElementById("address-text").value,
+            telefono = document.getElementById("phone-text").value;
+
+        
+        var divtext = document.getElementById("validaciones-contenido");
+        var validaciones = "";
+        var reuser = new RegExp("^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$");
+        var numeros = new RegExp("^[0-9]+$");
+        var letras = new RegExp("^[-+0-9\\s]+$");
+        var renames = new RegExp("^[a-zA-Z\\s]+$");
+
+       
+        if (nombres.trim() == "" || nombres == null) {
+            validaciones += "<p>Debe escribir un nombre.</p>\n"
+        }
+        if (nombres.trim() != "" && renames.test(nombres) == false) {
+            validaciones += "<p>El campo nombres solo acepta letras y espacios.</p>\n"
+        }
+        if (nombres.trim() != "" && nombres.length < 3) {
+            validaciones += "<p>El nombre debe contener minimo 3 caracteres.</p>\n"
+        }
+
+        if (apellidos.trim() == "" || apellidos == null) {
+            validaciones += "<p>Debe escribir un apellido.</p>\n"
+        }
+        if (apellidos.trim() != "" && renames.test(apellidos) == false) {
+            validaciones += "<p>El campo apellidos solo acepta letras y espacios.</p>\n"
+        }
+        if (apellidos.trim() != "" && apellidos.length < 2) {
+            validaciones += "<p>El apellido debe contener minimo 2 caracteres.</p>\n"
+        }
+
+        if (correo.trim() == "" || correo == null) {
+            validaciones += "<p>Debe escribir un correo.</p>\n"
+        }
+        if (correo.trim() != "" && !correo.includes("@@")) {
+            validaciones += "<p>El correo debe incluir un &#64;</p>\n"
+        }
+        if (correo.trim() != "" && correo.length < 6) {
+            validaciones += "<p>El correo debe contener minimo 6 caracteres.</p>\n"
+        }
+
+        if (edad.trim() == "" || edad == null) {
+            validaciones += "<p>Debe escribir la edad del usuario.</p>\n"
+        }
+        if (edad.trim() != "" && numeros.test(edad) == false) {
+            validaciones += "<p>El campo edad solo acepta números.</p>\n"
+            document.getElementById("age-text").value = "";
+        }
+        if (edad.trim() != "" && edad < 15) {
+            validaciones += "<p>El usuario debe tener un minimo de 15 años para tener una cuenta.</p>\n"
+        }
+
+        if (direccion.trim() != "" && direccion.length < 4) {
+            validaciones += "<p>La dirección debe contener un minimo de 4 caracteres.</p>\n"
+        }
+
+        if (telefono.trim() != "" && letras.test(telefono) == false) {
+            validaciones += "<p>El campo telefono solo acepta números y simbolos + -</p>\n"
+        }
+
+        if (validaciones != "") {
+            divtext.innerHTML = validaciones;
+            $('#validacion').modal('show');
+            validaciones = "";
+
+            window.clearTimeout(timer);
+            timer = setTimeout(function () {
+                $("#cerrar-validacion").click();
+            }, 5000); // <-- time in milliseconds
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+
+
+
      $(function () {
         $("#Español").click(function () {
             window.location.href = "/es/perfil/actualizarperfil";

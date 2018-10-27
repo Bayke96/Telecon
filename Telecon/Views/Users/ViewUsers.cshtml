@@ -4,17 +4,17 @@
 }
 
 <div class="PanelBusqueda">
-    <form method="post" name="FormaBuscar">
+    <form method="post" name="FormaBuscar" autocomplete="off">
         <p><span class="glyphicon glyphicon-user"></span>   SEARCH</p>
         <hr /><br />
         <h5>User Code</h5>
-        <input type="text" name="Codigo" />
+        @Html.TextBox("Codigo", "", new { id = "buscar_codigo", oninput = "return Validacion();", @value = "" })
         <h5>Names & Lastnames</h5>
-        <input type="text" name="Nombre" />
+        @Html.TextBox("Nombre", "", new { @value = "" })
         <h5>E-mail</h5>
-        <input type="text" name="Correo" />
+        @Html.TextBox("Correo", "", new { oninput = "return Validacion();", @value = "" })
         <h5>Phone</h5>
-        <input type="text" name="Telefono" />
+        @Html.TextBox("Telefono", "", new { @value = "" })
         <div class="btn-group dropup SearchMenu">
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                 Sort by
@@ -31,7 +31,24 @@
     </form>
 </div>
 
+<div id="validacion" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button id="cerrar-validacion" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">x</span>
+                </button>
+            </div>
+            <div id="validaciones-contenido" class="modal-body">
 
+
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
 
 <h2 id="UsersTitle">TELECON ERICKSON C.A - USERS LIST</h2>
 
@@ -79,6 +96,40 @@
 <button id="BtnCrear" type="button">CREATE USER</button>
 
 <script type="text/javascript">
+
+    function Validacion() {
+        var e = document.getElementById('buscar_codigo').value;
+
+        var divtext = document.getElementById("validaciones-contenido");
+        var timer = null;
+        e.onpropertychange = e.oninput; // for IE8
+        var re = new RegExp("^[0-9]+$");
+        var validaciones = "";
+
+
+        if (re.test(e) == false && e.trim() != "") {
+            validaciones += "<p>The user code field only accepts numbers.</p>";
+        }
+       
+        if (validaciones != "") {
+            divtext.innerHTML = validaciones;
+           
+            $('#validacion').modal('show');
+            validaciones = "";
+            
+            window.clearTimeout(timer);
+            timer = setTimeout(function () {
+                $("#cerrar-validacion").click();
+            }, 2000); // <-- time in milliseconds
+            document.getElementById('buscar_codigo').value = "";
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+
+
     $(document).ready(function(){
         $('.AdminButton').css('visibility', 'visible');
 

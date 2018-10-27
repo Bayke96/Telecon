@@ -34,30 +34,141 @@
                 </tr>
             </table>
             <div class="FormularioAProducto">
+                <p>Choose product</p>
+                <select id="selector-productos" onchange="Botones();">
+                    <option>Choose</option>
+                   
+                </select>
                 <p>Name</p>
-                <input type="text" name="NombreProducto" class="form-control" />
-                
+                @Html.TextBox("nombre_producto", "", new { @id = "nombre_producto", @class = "form-control", @value = "", maxlength = "128" })
+
                 <p>Description</p>
-                <textarea name="DescripcionProducto"></textarea>
+                @Html.TextArea("descripcion_producto", "", new { @id = "descripcion_producto", @value = "", maxlength = "128" })
                 <p>Price</p>
-                <input type="text" name="PrecioProducto" class="form-control" />
-                
+                @Html.TextBox("precio_producto", "", new { @id = "precio_producto", @class = "form-control", @value = "", maxlength = "15" })
+
             </div>
 
-            <button type="button">Edit</button>
-            <button id="ResetBtn" type="reset">Reset</button>
+            <button type="button" id="boton-editar" hidden onclick="return UpdateProduct();">Edit</button>
+            <button id="ResetBtn" type="reset" hidden>Reset</button>
 
 
         </form>
     </div>
 
 
+    <div id="validacion" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button id="cerrar-validacion" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">x</span>
+                    </button>
+                </div>
+                <div id="validaciones-contenido" class="modal-body">
 
+
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 </body>
 
 <script type="text/javascript">
+
+    var timer = null;
+
+    function UpdateProduct() {
+        var e = document.getElementById("selector-productos");
+        var strUser = e.options[e.selectedIndex].text;
+        // Datos del usuario
+        var nombre = document.getElementById("nombre_producto").value,
+            descripcion = document.getElementById("descripcion_producto").value,
+            precio = document.getElementById("precio_producto").value.replace(',', '.');
+
+        var divtext = document.getElementById("validaciones-contenido");
+        var validaciones = "";
+        var numeros = new RegExp("^[0-9]+$");
+        var decimales = new RegExp("(?<=^| )\d+(\.\d+)?(?=$| )");
+
+        if (precio != "" && isNaN(parseFloat(precio)) == false) document.getElementById("precio_producto").value = parseFloat(precio).toFixed(2);
+
+
+        if (strUser == "Choose") {
+            validaciones += "<p>You must choose a product.</p>\n"
+        }
+
+        if (nombre.trim() == "" || nombre.trim() == null) {
+            validaciones += "<p>You must type a name for the product.</p>\n"
+        }
+        if (nombre.trim() != "" && nombre.length < 3) {
+            validaciones += "<p>The product's name must contain at least 3 characters.</p>\n"
+        }
+
+        if (descripcion.trim() == "" || descripcion.trim() == null) {
+            validaciones += "<p>You must type a description for the product.</p>\n"
+        }
+        if (descripcion.trim() != "" && descripcion.length < 12) {
+            validaciones += "<p>The product's description must contain at least 12 characters.</p>\n"
+        }
+
+        if (precio.trim() == "" || precio.trim() == null) {
+            validaciones += "<p>You must type a price for the product.</p>\n"
+        }
+        if (precio.trim() != "" && isNaN(precio) == true) {
+            validaciones += "<p>The price only allows numbers.</p>\n"
+        }
+        if (precio.trim() != "" && precio <= 0) {
+            validaciones += "<p>The price field only allows numbers over 0.</p>\n"
+        }
+
+        if (nombre.trim() != null && descripcion.length >= 12 && precio > 0 &&
+            document.getElementById("product-main-image").style.backgroundImage == "") {
+
+            validaciones += "<p>You must pick at least one picture for the product.</p>\n"
+            setTimeout(function () {
+                document.getElementById("PImg1").click();
+            }, 1000);
+        }
+
+
+        if (validaciones != "") {
+            divtext.innerHTML = validaciones;
+            $('#validacion').modal('show');
+            validaciones = "";
+
+            window.clearTimeout(timer);
+            timer = setTimeout(function () {
+                $("#cerrar-validacion").click();
+            }, 5000); // <-- time in milliseconds
+
+            return false;
+        } else {
+            return true;
+        }
+
+
+    }
+
+    function Botones() {
+        var e = document.getElementById("selector-productos");
+        var strUser = e.options[e.selectedIndex].text;
+        if (strUser == "Choose") {
+            document.getElementById("boton-editar").style.display = "none";
+            document.getElementById("ResetBtn").click();
+            document.getElementById("ResetBtn").style.display = "none";
+
+        }
+        else {
+            document.getElementById("boton-editar").style.display = "inline";
+            document.getElementById("ResetBtn").style.display = "inline";
+        }
+    }
 
     $("#ResetBtn").click(function () {
         $('.ProductoImgPrincipal').css('background-image', '');

@@ -4,19 +4,85 @@
 }
 
 <div class="LoginForm">
-    <form method="post" name="LoginForm">
+    <form method="post" name="LoginForm" autocomplete="off">
         <p>INICIO DE SESIÓN</p>
         <h4 id="EtiquetaNombre">Nombre de Usuario</h4>
-        <input type="text" class="CampoNombre" name="Nombre" />
+        @Html.TextBox("user_name", "", new { id = "username", @class = "CampoNombre", @value = "", required = "required" })
         <h4 id="EtiquetaContraseña">Contraseña</h4>
-        <input type="password" class="CampoContraseña" name="Contraseña" />
-        <button id="BtnIngresar">INGRESAR</button>
+        @Html.Password("user_password", "", new { id = "pass", @class = "CampoContraseña", @value = "", required = "required" })
+        <button onclick="return Login();" id="BtnIngresar">INGRESAR</button>
         <button type="reset" id="BtnBorrar">BORRAR</button>
         <a href="recuperarcontraseña">Olvide mi contraseña</a>
     </form>
 </div>
 
+<div id="validacion" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button id="cerrar-validacion" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">x</span>
+                </button>
+            </div>
+            <div id="validaciones-contenido" class="modal-body">
+                
+                
+            </div>
+            <div class="modal-footer">
+               
+            </div>
+        </div>
+    </div>
+</div>
+
 <script type="text/javascript">
+    var timer = null;
+
+    function Login() {
+       
+        var user = document.getElementById("username").value;
+        var password = document.getElementById("pass").value;
+        var divtext = document.getElementById("validaciones-contenido");
+        var validaciones = "";
+        var reuser = new RegExp("^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$");
+
+        if (user.trim() == "" || user == null) {
+            validaciones += "<p>Debe escribir un nombre.</p>\n"
+        }
+        if (user.trim() != "" && reuser.test(user) == false) {
+            validaciones += "<p>El campo nombre solo acepta caracteres alfanumericos</p>\n"
+        }
+        if (user.trim() != "" && user.length < 3) {
+            validaciones += "<p>El nombre debe contener minimo 3 caracteres.</p>\n"
+        }
+        if (password.trim() == "" || password == null) {
+            validaciones += "<p>Debe escribir una contraseña.</p>\n"
+        }
+        if (password.trim() != "" && password.length < 12) {
+            validaciones += "<p>La contraseña debe tener un minimo de 12 caracteres.</p>\n"
+        }
+        var re = new RegExp("\S*(\S*([a-zA-Z]\S*[0-9])|([0-9]\S*[a-zA-Z]))\S*");
+        if (password.trim() != "" && password.length >= 12 && re.test(password) == false) {
+            validaciones += "<p>La contraseña debe contener letras y números.</p>\n"
+        }
+       
+
+        if (validaciones != "") {
+            divtext.innerHTML = validaciones;
+            $('#validacion').modal('show');
+            validaciones = "";
+
+            window.clearTimeout(timer);
+            timer = setTimeout(function () {
+                $("#cerrar-validacion").click();
+            }, 5000); // <-- time in milliseconds
+            return false;
+        } else {
+            return true;
+        }
+       
+       
+    }
 
     $(function () {
         $("#Español").click(function () {

@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace Telecon.Controllers
 {
+
+
     public class ProductsController : Controller
     {
         // GET: Products
@@ -25,7 +28,7 @@ namespace Telecon.Controllers
         {
             return View("Products");
         }
-
+        
         public ActionResult Agregar()
         {
             return View("NuevoProducto");

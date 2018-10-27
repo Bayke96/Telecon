@@ -37,20 +37,27 @@
                 </tr>
             </table>
             <div class="FormularioAProducto">
+                <p>Seleccionar producto</p>
+                <select id="selector-productos" onchange="Botones();">
+                    <option>Seleccionar</option>
+                    
+                </select>
                 <p>Nombre</p>
-                <p class="product-info">Caja de lapices</p>
-                
+                <p class="product-info" hidden>Caja de lapices</p>
+
                 <p>Descripción</p>
-                <p class="product-info">Caja de lapices mongol N° 2, forradas en madera con goma de borrador,
-                marca fabel castle, fabricados en Valencia, Venezuela.</p>
+                <p class="product-info" hidden>
+                    Caja de lapices mongol N° 2, forradas en madera con goma de borrador,
+                    marca fabel castle, fabricados en Valencia, Venezuela.
+                </p>
                 <p>Precio</p>
-                <p class="product-info">2575.80 BsS</p>
-              
+                <p class="product-info" hidden>2575.80 BsS</p>
+
             </div>
 
-            <p id="parrafo-confirmacion">¿Esta seguro de que desea eliminar este producto?</p>
-            <button type="button">Si</button>
-            <button id="ResetBtn" type="reset" onclick="Retornar();" >No</button>
+            <p id="parrafo-confirmacion" hidden>¿Esta seguro de que desea eliminar este producto?</p>
+            <button type="button" id="boton-eliminar" hidden>Si</button>
+            <button id="ResetBtn" type="reset" onclick="Retornar();" hidden>No</button>
 
 
         </form>
@@ -61,6 +68,23 @@
 
 
 <script type="text/javascript">
+
+    function Botones() {
+        var e = document.getElementById("selector-productos");
+        var strUser = e.options[e.selectedIndex].text;
+        if (strUser == "Seleccionar") {
+            document.getElementById("boton-eliminar").style.display = "none";
+            document.getElementById("parrafo-confirmacion").style.display = "none";
+            document.getElementById("ResetBtn").style.display = "none";
+            $('.product-info').css("display", "none");
+        }
+        else {
+            document.getElementById("boton-eliminar").style.display = "inline";
+            document.getElementById("parrafo-confirmacion").style.display = "inline-block";
+            document.getElementById("ResetBtn").style.display = "inline";
+            $('.product-info').css("display", "inline");
+        }
+    }
    
     function Retornar() {
         window.location.href = '/es/productos';

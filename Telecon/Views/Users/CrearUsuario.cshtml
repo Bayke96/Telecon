@@ -7,27 +7,27 @@
 
 
 <div class="PanelCrear">
-    <form method="post" name="CrearUsuario">
+    <form method="post" name="CrearUsuario" autocomplete="off">
         <h4 id="TituloNombreUsuario">Nombre de Usuario</h4>
-        <input id="CampoNombreUsuario" type="text" name="NombreUsuario" />
+        @Html.TextBox("nombre_usuario", "", new { id = "CampoNombreUsuario", @value = "", maxlength="24", required = "required" })
         <h4 id="TituloNombre">Nombres</h4>
-        <input id="CampoNombre" type="text" name="Nombres" />
+        @Html.TextBox("nombres", "", new { id = "CampoNombre", @value = "", maxlength = "50", required = "required" })
         <h4 id="TituloApellidos">Apellidos</h4>
-        <input id="CampoApellidos" type="text" name="Apellidos" />
+        @Html.TextBox("apellidos", "", new { id = "CampoApellidos", @value = "", maxlength = "50", required = "required" })
         <h4 id="TituloCorreo">Correo</h4>
-        <input id="CampoCorreo" type="text" name="Correo" />
+        @Html.TextBox("correo", "", new { id = "CampoCorreo", @value = "", maxlength = "50", required = "required" })
         <h4 id="TituloEdad">Edad</h4>
-        <input id="CampoEdad" type="text" name="Edad" />
+        @Html.TextBox("edad", "", new { id = "CampoEdad", @value = "", maxlength = "2", required = "required" })
         <h4 id="TituloDireccion">Dirección</h4>
-        <input id="CampoDireccion" type="text" name="Direccion" />
+        @Html.TextBox("direccion", "", new { id = "CampoDireccion", @value = "", maxlength = "128", required = "required" })
         <h4 id="TituloTelefono">Teléfono</h4>
-        <input id="CampoTelefono" type="text" name="Telefono" />
+        @Html.TextBox("telefono", "", new { id = "CampoTelefono", maxlength = "50", @value = ""})
         <h4 id="TituloAdmin">Privilegios de Administrador</h4>
         <label id="PAdmin" class="switch">
             <input type="checkbox">
             <span class="slider round"></span>
         </label>
-        <button type="button">CREAR</button>
+        <button type="button" onclick="return CreateUser();">CREAR</button>
         <button id="BotonBorrar" type="reset">BORRAR</button>
     </form>
 
@@ -37,7 +37,134 @@
     <input id="files" accept="image/*" style="visibility:hidden;" type="file" name="myFileSelect">
 </div>
 
+<div id="validacion" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button id="cerrar-validacion" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">x</span>
+                </button>
+            </div>
+            <div id="validaciones-contenido" class="modal-body">
+
+
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+
 <script type="text/javascript">
+
+    var timer = null;
+
+    function CreateUser() {
+
+        // Datos del usuario
+        var usuario = document.getElementById("CampoNombreUsuario").value,
+            nombres = document.getElementById("CampoNombre").value,
+            apellidos = document.getElementById("CampoApellidos").value,
+            correo = document.getElementById("CampoCorreo").value,
+            edad = document.getElementById("CampoEdad").value,
+            direccion = document.getElementById("CampoDireccion").value,
+            telefono = document.getElementById("CampoTelefono").value;
+
+
+
+        
+        var divtext = document.getElementById("validaciones-contenido");
+        var validaciones = "";
+        var reuser = new RegExp("^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$");
+        var numeros = new RegExp("^[0-9]+$");
+        var letras = new RegExp("^[-+0-9\\s]+$");
+
+        var renames = new RegExp("^[a-zA-Z\\s]+$");
+
+        if (usuario.trim() == "" || usuario == null) {
+            validaciones += "<p>Debe escribir un nombre de usuario.</p>\n"
+        }
+        if (usuario.trim() != "" && reuser.test(usuario) == false) {
+            validaciones += "<p>El campo nombre de usuario solo acepta caracteres alfanumericos</p>\n"
+        }
+        if (usuario.trim() != "" && usuario.length < 3) {
+            validaciones += "<p>El nombre de usuario debe contener minimo 3 caracteres.</p>\n"
+        }
+
+        if (nombres.trim() == "" || nombres == null) {
+            validaciones += "<p>Debe escribir un nombre.</p>\n"
+        }
+        if (nombres.trim() != "" && renames.test(nombres) == false) {
+            validaciones += "<p>El campo nombres solo acepta letras y espacios.</p>\n"
+        }
+        if (nombres.trim() != "" && nombres.length < 3) {
+            validaciones += "<p>El nombre debe contener minimo 3 caracteres.</p>\n"
+        }
+
+        if (apellidos.trim() == "" || apellidos == null) {
+            validaciones += "<p>Debe escribir un apellido.</p>\n"
+        }
+        if (apellidos.trim() != "" && renames.test(apellidos) == false) {
+            validaciones += "<p>El campo apellidos solo acepta letras y espacios.</p>\n"
+        }
+        if (apellidos.trim() != "" && apellidos.length < 2) {
+            validaciones += "<p>El apellido debe contener minimo 2 caracteres.</p>\n"
+        }
+
+        if (correo.trim() == "" || correo == null) {
+            validaciones += "<p>Debe escribir un correo.</p>\n"
+        }
+        if (correo.trim() != "" && !correo.includes("@@")) {
+            validaciones += "<p>El correo debe incluir un &#64;</p>\n"
+        }
+        if (correo.trim() != "" && correo.length < 6) {
+            validaciones += "<p>El correo debe contener minimo 6 caracteres.</p>\n"
+        }
+
+        if (edad.trim() == "" || edad == null) {
+            validaciones += "<p>Debe escribir la edad del usuario.</p>\n"
+        }
+        if (edad.trim() != "" && numeros.test(edad) == false) {
+            validaciones += "<p>El campo edad solo acepta números.</p>\n"
+            document.getElementById("CampoEdad").value = "";
+        }
+        if (edad.trim() != "" && edad < 15) {
+            validaciones += "<p>El usuario debe tener un minimo de 15 años para tener una cuenta.</p>\n"
+        }
+
+        if (direccion.trim() == "" || direccion == null) {
+            validaciones += "<p>Debe escribir la dirección del usuario.</p>\n"
+        }
+        if (direccion.trim() != "" && direccion.length < 4) {
+            validaciones += "<p>El campo dirección debe tener un minimo de 4 caracteres.</p>\n"
+        }
+
+        if (telefono.trim() != "" && letras.test(telefono) == false){
+            validaciones += "<p>El campo telefono solo acepta números y simbolos + -</p>\n"
+        }
+       
+
+
+        if (validaciones != "") {
+            divtext.innerHTML = validaciones;
+            $('#validacion').modal('show');
+            validaciones = "";
+
+            window.clearTimeout(timer);
+            timer = setTimeout(function () {
+                $("#cerrar-validacion").click();
+            }, 5000); // <-- time in milliseconds
+            return false;
+        } else {
+            return true;
+        }
+
+
+    }
+
+
+
     $('#files').change(function () {
         var file = this.files[0];
         var reader = new FileReader();

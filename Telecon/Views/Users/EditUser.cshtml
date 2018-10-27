@@ -5,7 +5,7 @@
 
 <h2 id="EditTitle">EDIT USER - CRISTIAN GONZÁLEZ </h2>
 
-<form name="EditarUsuario" method="post">
+<form name="EditarUsuario" method="post" autocomplete="off">
 
     <div class="EditarFoto">
         <h2>PROFILE AVATAR</h2>
@@ -31,32 +31,32 @@
             </tr>
             <tr>
                 <td class="EditarCell"><p>USERNAME</p></td>
-                <td><input class="form-control" type="text" name="NombreUsuario" /></td>
+                <td> @Html.TextBox("nombre_usuario", "", new { @id = "username-text", @class = "form-control", @value = "", maxlength = "24", required = "required" })</td>
             </tr>
             <tr>
                 <td class="EditarCell"><p>NAMES</p></td>
-                <td><input class="form-control" type="text" name="Nombres" /></td>
+                <td> @Html.TextBox("nombres", "", new { @id = "firstnames-text", @class = "form-control", @value = "", maxlength = "50", required = "required" })</td>
             </tr>
             <tr>
                 <td class="EditarCell"><p>LASTNAMES</p></td>
-                <td><input class="form-control" type="text" name="Apellidos" /></td>
+                <td> @Html.TextBox("apellidos", "", new { @id = "lastnames-text", @class = "form-control", @value = "", maxlength = "50", required = "required" })</td>
             </tr>
             <tr>
                 <td class="EditarCell"><p>AGE</p></td>
-                <td><input class="form-control" type="text" name="Edad" /></td>
+                <td> @Html.TextBox("edad", "", new { @id = "age-text", @class = "form-control", @value = "", maxlength = "2", required = "required" })</td>
             </tr>
             <tr>
                 <td class="EditarCell"><p>E-MAIL</p></td>
-                <td><input class="form-control" type="text" name="Correo" /></td>
+                <td> @Html.TextBox("correo", "", new { @id = "email-text", @class = "form-control", @value = "", maxlength = "50", required = "required" })</td>
             </tr>
             <tr>
                 <td class="EditarCell"><p>PHONE</p></td>
-                <td><input class="form-control" type="text" name="Telefono" /></td>
+                <td>@Html.TextBox("telefono", "", new { @id = "phone-text", @class = "form-control", @value = "", maxlength = "50" })</td>
             </tr>
             <tr></tr>
         </table>
 
-        <button type="button">UPDATE</button>
+        <button onclick="return EditUser();" type="button">UPDATE</button>
         <button type="button" id="BtnRegresar">RETURN</button>
     </div>
 
@@ -64,9 +64,124 @@
 
 </form>
 
+<div id="validacion" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button id="cerrar-validacion" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">x</span>
+                </button>
+            </div>
+            <div id="validaciones-contenido" class="modal-body">
 
+
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
 
 <script type="text/javascript">
+
+    var timer = null;
+
+    function EditUser() {
+
+        // Datos del usuario
+        var usuario = document.getElementById("username-text").value,
+            nombres = document.getElementById("firstnames-text").value,
+            apellidos = document.getElementById("lastnames-text").value,
+            correo = document.getElementById("email-text").value,
+            edad = document.getElementById("age-text").value,
+            telefono = document.getElementById("phone-text").value;
+
+
+
+
+        var divtext = document.getElementById("validaciones-contenido");
+        var validaciones = "";
+        var reuser = new RegExp("^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$");
+        var numeros = new RegExp("^[0-9]+$");
+        var letras = new RegExp("^[-+0-9\\s]+$");
+
+        var renames = new RegExp("^[a-zA-Z\\s]+$");
+
+        if (usuario.trim() == "" || usuario == null) {
+            validaciones += "<p>You must type an username.</p>\n"
+        }
+        if (usuario.trim() != "" && reuser.test(usuario) == false) {
+            validaciones += "<p>The username field only allows alphanumeric characters.</p>\n"
+        }
+        if (usuario.trim() != "" && usuario.length < 3) {
+            validaciones += "<p>The username must contain at least 3 characters.</p>\n"
+        }
+
+        if (nombres.trim() == "" || nombres == null) {
+            validaciones += "<p>You must type a firstname.</p>\n"
+        }
+        if (nombres.trim() != "" && renames.test(nombres) == false) {
+            validaciones += "<p>The firstname field only allows letters and spaces.</p>\n"
+        }
+        if (nombres.trim() != "" && nombres.length < 3) {
+            validaciones += "<p>The firstname must contain at least 3 characters.</p>\n"
+        }
+
+        if (apellidos.trim() == "" || apellidos == null) {
+            validaciones += "<p>You must type a lastname.</p>\n"
+        }
+        if (apellidos.trim() != "" && renames.test(apellidos) == false) {
+            validaciones += "<p>The lastname field only allows letters and spaces.</p>\n"
+        }
+        if (apellidos.trim() != "" && apellidos.length < 2) {
+            validaciones += "<p>The lastname must contain at least 2 characters.</p>\n"
+        }
+
+        if (edad.trim() == "" || edad == null) {
+            validaciones += "<p>You must type the user's age.</p>\n"
+        }
+        if (edad.trim() != "" && numeros.test(edad) == false) {
+            validaciones += "<p>The age field only allows numbers.</p>\n"
+            document.getElementById("age-text").value = "";
+        }
+        if (edad.trim() != "" && edad < 15) {
+            validaciones += "<p>The user must be at least 15 years old.</p>\n"
+        }
+
+        if (correo.trim() == "" || correo == null) {
+            validaciones += "<p>You must type an e-mail.</p>\n"
+        }
+        if (correo.trim() != "" && !correo.includes("@@")) {
+            validaciones += "<p>The e-mail must contain the &#64; symbol.</p>\n"
+        }
+        if (correo.trim() != "" && correo.length < 6) {
+            validaciones += "<p>The e-mail must contain at least 6 characters.</p>\n"
+        }
+
+        if (telefono.trim() != "" && letras.test(telefono) == false) {
+            validaciones += "<p>The phone field only allows numbers and the + - symbols.</p>\n"
+        }
+
+
+
+        if (validaciones != "") {
+            divtext.innerHTML = validaciones;
+            $('#validacion').modal('show');
+            validaciones = "";
+
+            window.clearTimeout(timer);
+            timer = setTimeout(function () {
+                $("#cerrar-validacion").click();
+            }, 5000); // <-- time in milliseconds
+            return false;
+        } else {
+            return true;
+        }
+
+
+    }
+
     $(document).ready(function () {
         $('.AdminButton').css('visibility', 'visible');
 

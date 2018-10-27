@@ -4,21 +4,105 @@
 }
 
 <div class="CambioContraseña">
-    <form method="post">
+    <form method="post" autocomplete="off">
         <h2>ACTUALIZAR CONTRASEÑA - CRISTIAN GONZÁLEZ</h2>
         <hr />
         <p>Vieja contraseña</p>
-        <input type="password" name="ViejaContraseña" class="form-control" />
+        @Html.Password("vieja_contraseña", "", new { id = "vieja_contraseña", @class = "form-control", @value = "", required = "required" })
         <p>Nueva contraseña</p>
-        <input type="password" name="NuevaContraseña" class="form-control" />
+        @Html.Password("nueva_contraseña", "", new { id = "nueva_contraseña", @class = "form-control", @value = "", required = "required" })
         <p>Repita nueva contraseña</p>
-        <input type="password" name="RepetirContraseña" class="form-control" />
-        <button type="button">ACEPTAR</button>
+        @Html.Password("repetir_contraseña", "", new { id = "repetir_contraseña", @class = "form-control", @value = "", required = "required" })
+        <button type="button" onclick="return ChangePassword();">ACEPTAR</button>
         <button type="reset">BORRAR</button>
     </form>
 </div>
 
+<div id="validacion" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button id="cerrar-validacion" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">x</span>
+                </button>
+            </div>
+            <div id="validaciones-contenido" class="modal-body">
+
+
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+
 <script type="text/javascript">
+
+    var timer = null;
+
+    function ChangePassword() {
+
+        var oldpass = document.getElementById("vieja_contraseña").value;
+        var newpass = document.getElementById("nueva_contraseña").value;
+        var repeat = document.getElementById("repetir_contraseña").value;
+        var divtext = document.getElementById("validaciones-contenido");
+        var validaciones = "";
+
+        var re = new RegExp("\S*(\S*([a-zA-Z]\S*[0-9])|([0-9]\S*[a-zA-Z]))\S*");
+
+    
+        if (oldpass.trim() == "" || oldpass == null) {
+            validaciones += "<p>Debe escribir su antigua contraseña.</p>\n"
+        }
+        if (oldpass.trim() != "" && oldpass.length < 12) {
+            validaciones += "<p>La contraseña antigua debe tener un minimo de 12 caracteres.</p>\n"
+        }
+        if (oldpass.trim() != "" && oldpass.length >= 12 && re.test(oldpass) == false) {
+            validaciones += "<p>La contraseña antigua debe contener letras y números.</p>\n"
+        }
+
+        if (newpass.trim() == "" || newpass == null) {
+            validaciones += "<p>Debe escribir su nueva contraseña.</p>\n"
+        }
+        if (newpass.trim() != "" && newpass.length < 12) {
+            validaciones += "<p>La contraseña nueva debe tener un minimo de 12 caracteres.</p>\n"
+        }
+        if (newpass.trim() != "" && newpass.length >= 12 && re.test(newpass) == false) {
+            validaciones += "<p>La contraseña nueva debe contener letras y números.</p>\n"
+        }
+        if (newpass.trim() == oldpass.trim() && newpass.trim() != "" || newpass.trim() == oldpass.trim() && oldpass.trim() != "") {
+            validaciones += "<p>La contraseña nueva y la vieja no pueden ser identicas.</p>\n"
+        }
+
+        if (repeat.trim() == "" && newpass.trim() != "" || repeat == null && newpass.trim() != null) {
+            validaciones += "<p>Debe repetir su nueva contraseña.</p>\n"
+        }
+        if (repeat.trim() != newpass.trim()) {
+            validaciones += "<p>La contraseña en el campo repetir debe ser identica a la nueva contraseña.</p>\n"
+        }
+        
+
+
+
+        if (validaciones != "") {
+            divtext.innerHTML = validaciones;
+            $('#validacion').modal('show');
+            validaciones = "";
+
+            window.clearTimeout(timer);
+            timer = setTimeout(function () {
+                $("#cerrar-validacion").click();
+            }, 6500); // <-- time in milliseconds
+            return false;
+        } else {
+            return true;
+        }
+
+
+    }
+
+
      $(function () {
         $("#Español").click(function () {
             window.location.href = "/es/perfil/cambiarcontraseña";

@@ -10,5 +10,13 @@
   {
     "outputFile": "Style/Style.css",
     "inputFile": "Style/Style.scss"
+  },
+  {
+    "outputFile": "Style/CSS-English.css",
+    "inputFile": "Style/CSS-English.scss"
+  },
+  {
+    "outputFile": "Style/CSS-Español.css",
+    "inputFile": "Style/CSS-Español.scss"
   }
 ]

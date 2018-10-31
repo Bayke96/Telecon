@@ -1,12 +1,13 @@
-﻿@{
+﻿@model Telecon.Models.User
+@{
     Layout = "~/Views/Estructura/_Forma.cshtml";
     Page.Title = "Telecon Erickson C.A - Editar Usuario";
 }
 
 <h2 id="EditTitle">EDITAR USUARIO - CRISTIAN GONZÁLEZ </h2>
-
-<form name="EditarUsuario" method="post" autocomplete="off">
-
+@using (@Html.BeginForm("", "", FormMethod.Post, new { autocomplete = "off" }))
+{
+    @Html.AntiForgeryToken()
     <div class="EditarFoto">
         <h2>FOTO DE PERFIL</h2>
         <hr />
@@ -32,27 +33,27 @@
             <tr>
                 <td class="EditarCell"><p>NOMBRE DE USUARIO</p></td>
 
-                <td> @Html.TextBox("nombre_usuario", "", new { @id="username-text", @class = "form-control", @value = "", maxlength = "24", required = "required" })</td>
+                <td> @Html.TextBoxFor(m => m.firstnames, new { @id = "username-text", @class = "form-control", @value = "", maxlength = "24", required = "required" })</td>
             </tr>
             <tr>
                 <td class="EditarCell"><p>NOMBRES</p></td>
-                <td> @Html.TextBox("nombres", "", new { @id="firstnames-text", @class = "form-control", @value = "", maxlength = "50", required = "required" })</td>
+                <td> @Html.TextBoxFor(m => m.firstnames, new { @id = "firstnames-text", @class = "form-control", @value = "", maxlength = "50", required = "required" })</td>
             </tr>
             <tr>
                 <td class="EditarCell"><p>APELLIDOS</p></td>
-                <td> @Html.TextBox("apellidos", "", new { @id="lastnames-text", @class = "form-control", @value = "", maxlength = "50", required = "required" })</td>
+                <td> @Html.TextBoxFor(m => m.lastnames, new { @id = "lastnames-text", @class = "form-control", @value = "", maxlength = "50", required = "required" })</td>
             </tr>
             <tr>
                 <td class="EditarCell"><p>EDAD</p></td>
-                <td> @Html.TextBox("edad", "", new { @id = "age-text", @class = "form-control", @value = "", maxlength = "2", required = "required" })</td>
+                <td> @Html.TextBoxFor(m => m.age, new { @id = "age-text", @class = "form-control", @value = "", maxlength = "2", required = "required" })</td>
             </tr>
             <tr>
                 <td class="EditarCell"><p>CORREO</p></td>
-                <td> @Html.TextBox("correo", "", new { @id = "email-text", @class = "form-control", @value = "", maxlength = "50", required = "required" })</td>
+                <td> @Html.TextBoxFor(m => m.email, new { @id = "email-text", @class = "form-control", @value = "", maxlength = "50", required = "required" })</td>
             </tr>
             <tr>
                 <td class="EditarCell"><p>TELÉFONO</p></td>
-                <td>@Html.TextBox("telefono", "", new { @id = "phone-text", @class = "form-control", @value = "", maxlength = "50" })</td>
+                <td>@Html.TextBoxFor(m => m.number, new { @id = "phone-text", @class = "form-control", @value = "", maxlength = "50" })</td>
             </tr>
 
         </table>
@@ -62,8 +63,8 @@
     </div>
 
 
-
-</form>
+}
+<
 
 <div id="validacion" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -157,7 +158,7 @@
             validaciones += "<p>Debe escribir un correo.</p>\n"
         }
         if (correo.trim() != "" && !correo.includes("@@")) {
-            validaciones += "<p>El correo debe incluir un &#64;</p>\n"
+            validaciones += "<p>El correo debe incluir un &#64;.</p>\n"
         }
         if (correo.trim() != "" && correo.length < 6) {
             validaciones += "<p>El correo debe contener minimo 6 caracteres.</p>\n"

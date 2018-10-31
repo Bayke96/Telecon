@@ -9,7 +9,9 @@
 <body>
 
     <div class="PanelAgregarProducto">
-        <form method="post">
+        @using (@Html.BeginForm("", "", FormMethod.Post, new { autocomplete = "off" }))
+        {
+            @Html.AntiForgeryToken()
             <h2>Editar producto</h2><hr />
 
             <div class="ProductoImgPrincipal">
@@ -38,6 +40,7 @@
                 <p>Seleccionar producto</p>
                 <select id="selector-productos" onchange="Botones();">
                     <option value="seleccionar">Seleccionar</option>
+                    
                 </select>
                 <p>Nombre</p>
                 @Html.TextBox("nombre_producto", "", new { @id = "nombre_producto", @class = "form-control", @value = "", maxlength = "128" })
@@ -51,9 +54,8 @@
 
             <button type="button" id="boton-editar" hidden onclick="return UpdateProduct();">Editar</button>
             <button id="ResetBtn" type="reset" hidden>Borrar</button>
-
-
-        </form>
+        }
+       
     </div>
 
     <div id="validacion" class="modal fade" tabindex="-1" role="dialog">

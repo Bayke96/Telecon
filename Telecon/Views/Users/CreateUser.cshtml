@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Telecon.Models.User
+@{
     Layout = "~/Views/Estructura/_Layout.cshtml";
     Page.Title = "Telecon Erickson C.A - Create User";
 }
@@ -7,21 +8,23 @@
 
 
 <div class="PanelCrear">
-    <form method="post" name="CrearUsuario" autocomplete="off">
+    @using (@Html.BeginForm("", "", FormMethod.Post, new { autocomplete = "off" }))
+    {
+        @Html.AntiForgeryToken()
         <h4 id="TituloNombreUsuario">Username</h4>
-        @Html.TextBox("nombre_usuario", "", new { id = "CampoNombreUsuario", @value = "", maxlength = "24", required = "required" })
+        @Html.TextBoxFor(m => m.username, new { id = "CampoNombreUsuario", @value = "", maxlength = "24", required = "required" })
         <h4 id="TituloNombre">Names</h4>
-        @Html.TextBox("nombres", "", new { id = "CampoNombre", @value = "", maxlength = "50", required = "required" })
+        @Html.TextBoxFor(m => m.firstnames, new { id = "CampoNombre", @value = "", maxlength = "50", required = "required" })
         <h4 id="TituloApellidos">Lastnames</h4>
-        @Html.TextBox("apellidos", "", new { id = "CampoApellidos", @value = "", maxlength = "50", required = "required" })
+        @Html.TextBoxFor(m => m.lastnames, new { id = "CampoApellidos", @value = "", maxlength = "50", required = "required" })
         <h4 id="TituloCorreo">E-mail</h4>
-        @Html.TextBox("correo", "", new { id = "CampoCorreo", @value = "", maxlength = "50", required = "required" })
+        @Html.TextBoxFor(m => m.email, new { id = "CampoCorreo", @value = "", maxlength = "50", required = "required" })
         <h4 id="TituloEdad">Age</h4>
-        @Html.TextBox("edad", "", new { id = "CampoEdad", @value = "", maxlength = "2", required = "required" })
+        @Html.TextBoxFor(m => m.age, new { id = "CampoEdad", @value = "", maxlength = "2", required = "required" })
         <h4 id="TituloDireccion">Address</h4>
-        @Html.TextBox("direccion", "", new { id = "CampoDireccion", @value = "", maxlength = "128", required = "required" })
+        @Html.TextBoxFor(m => m.address, new { id = "CampoDireccion", @value = "", maxlength = "128", required = "required" })
         <h4 id="TituloTelefono">Phone Number</h4>
-        @Html.TextBox("telefono", "", new { id = "CampoTelefono", maxlength = "50", @value = "" })
+        @Html.TextBoxFor(m => m.number, new { id = "CampoTelefono", maxlength = "50", @value = "" })
         <h4 id="TituloAdmin">Admin Privileges</h4>
         <label id="PAdmin" class="switch">
             <input type="checkbox">
@@ -29,7 +32,8 @@
         </label>
         <button type="button" onclick="return CreateUser();">CREATE</button>
         <button id="BotonBorrar" type="reset">RESET</button>
-    </form>
+    }
+    
 
     <div class="AvatarImg"></div>
 

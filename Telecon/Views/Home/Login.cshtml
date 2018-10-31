@@ -1,19 +1,24 @@
-﻿@{
+﻿@model Telecon.Models.User
+@{
     Layout = "~/Views/Estructura/_Forma.cshtml";
     Page.Title = "Telecon Erickson C.A - Inicio de sesión";
 }
 
 <div class="LoginForm">
-    <form method="post" name="LoginForm" autocomplete="off">
+
+    @using (@Html.BeginForm("", "", FormMethod.Post, new { autocomplete = "off" }))
+    {
+        @Html.AntiForgeryToken()
         <p>INICIO DE SESIÓN</p>
         <h4 id="EtiquetaNombre">Nombre de Usuario</h4>
-        @Html.TextBox("user_name", "", new { id = "username", @class = "CampoNombre", @value = "", required = "required" })
+        @Html.TextBoxFor(m => m.username, new { id = "username", @class = "CampoNombre", @value = "", required = "required" })
         <h4 id="EtiquetaContraseña">Contraseña</h4>
-        @Html.Password("user_password", "", new { id = "pass", @class = "CampoContraseña", @value = "", required = "required" })
+        @Html.PasswordFor(m => m.password, new { id = "pass", @class = "CampoContraseña", @value = "", required = "required" })
         <button onclick="return Login();" id="BtnIngresar">INGRESAR</button>
         <button type="reset" id="BtnBorrar">BORRAR</button>
         <a href="recuperarcontraseña">Olvide mi contraseña</a>
-    </form>
+    }
+   
 </div>
 
 <div id="validacion" class="modal fade" tabindex="-1" role="dialog">

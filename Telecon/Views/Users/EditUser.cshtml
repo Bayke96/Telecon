@@ -1,12 +1,13 @@
-﻿@{
+﻿@model Telecon.Models.User
+@{
     Layout = "~/Views/Estructura/_Layout.cshtml";
     Page.Title = "Telecon Erickson C.A - Edit User";
 }
 
 <h2 id="EditTitle">EDIT USER - CRISTIAN GONZÁLEZ </h2>
-
-<form name="EditarUsuario" method="post" autocomplete="off">
-
+@using (@Html.BeginForm("", "", FormMethod.Post, new { autocomplete = "off" }))
+{
+    @Html.AntiForgeryToken()
     <div class="EditarFoto">
         <h2>PROFILE AVATAR</h2>
         <hr />
@@ -20,7 +21,7 @@
         <h2><b>PRIVILEGES</b></h2>
         <hr />
         <input id="RankCheck" type="checkbox" class="checkbox" name="Administrador" value="Admin">
-        
+
         <p>ADMIN</p>
     </div>
 
@@ -31,27 +32,27 @@
             </tr>
             <tr>
                 <td class="EditarCell"><p>USERNAME</p></td>
-                <td> @Html.TextBox("nombre_usuario", "", new { @id = "username-text", @class = "form-control", @value = "", maxlength = "24", required = "required" })</td>
+                <td> @Html.TextBoxFor(m => m.username, new { @id = "username-text", @class = "form-control", @value = "", maxlength = "24", required = "required" })</td>
             </tr>
             <tr>
                 <td class="EditarCell"><p>NAMES</p></td>
-                <td> @Html.TextBox("nombres", "", new { @id = "firstnames-text", @class = "form-control", @value = "", maxlength = "50", required = "required" })</td>
+                <td> @Html.TextBoxFor(m => m.firstnames, new { @id = "firstnames-text", @class = "form-control", @value = "", maxlength = "50", required = "required" })</td>
             </tr>
             <tr>
                 <td class="EditarCell"><p>LASTNAMES</p></td>
-                <td> @Html.TextBox("apellidos", "", new { @id = "lastnames-text", @class = "form-control", @value = "", maxlength = "50", required = "required" })</td>
+                <td> @Html.TextBoxFor(m => m.lastnames, new { @id = "lastnames-text", @class = "form-control", @value = "", maxlength = "50", required = "required" })</td>
             </tr>
             <tr>
                 <td class="EditarCell"><p>AGE</p></td>
-                <td> @Html.TextBox("edad", "", new { @id = "age-text", @class = "form-control", @value = "", maxlength = "2", required = "required" })</td>
+                <td> @Html.TextBoxFor(m => m.age, new { @id = "age-text", @class = "form-control", @value = "", maxlength = "2", required = "required" })</td>
             </tr>
             <tr>
                 <td class="EditarCell"><p>E-MAIL</p></td>
-                <td> @Html.TextBox("correo", "", new { @id = "email-text", @class = "form-control", @value = "", maxlength = "50", required = "required" })</td>
+                <td> @Html.TextBoxFor(m => m.email, new { @id = "email-text", @class = "form-control", @value = "", maxlength = "50", required = "required" })</td>
             </tr>
             <tr>
                 <td class="EditarCell"><p>PHONE</p></td>
-                <td>@Html.TextBox("telefono", "", new { @id = "phone-text", @class = "form-control", @value = "", maxlength = "50" })</td>
+                <td>@Html.TextBoxFor(m => m.number, new { @id = "phone-text", @class = "form-control", @value = "", maxlength = "50" })</td>
             </tr>
             <tr></tr>
         </table>
@@ -59,10 +60,8 @@
         <button onclick="return EditUser();" type="button">UPDATE</button>
         <button type="button" id="BtnRegresar">RETURN</button>
     </div>
+}
 
-
-
-</form>
 
 <div id="validacion" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -191,7 +190,7 @@
         var file = this.files[0];
         var reader = new FileReader();
         reader.onloadend = function () {
-            $('#EditImage').attr('src', ''+ reader.result + '');
+            $('#EditImage').attr('src', '' + reader.result + '');
         }
         if (file) {
             reader.readAsDataURL(file);

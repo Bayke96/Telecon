@@ -1,20 +1,23 @@
-﻿@{
+﻿@model Telecon.Models.User
+@{
     Layout = "~/Views/Estructura/_Layout.cshtml";
     Page.Title = "Telecon Erickson C.A - Users";
 }
 
 <div class="PanelBusqueda">
-    <form method="post" name="FormaBuscar" autocomplete="off">
+    @using (@Html.BeginForm("", "", FormMethod.Post, new { autocomplete = "off" }))
+    {
+        @Html.AntiForgeryToken()
         <p><span class="glyphicon glyphicon-user"></span>   SEARCH</p>
         <hr /><br />
         <h5>User Code</h5>
-        @Html.TextBox("Codigo", "", new { id = "buscar_codigo", oninput = "return Validacion();", @value = "" })
+        @Html.TextBoxFor(m => m.ID, new { id = "buscar_codigo", oninput = "return Validacion();", @value = "" })
         <h5>Names & Lastnames</h5>
-        @Html.TextBox("Nombre", "", new { @value = "" })
+        @Html.TextBoxFor(m => m.firstnames, new { @value = "" })
         <h5>E-mail</h5>
-        @Html.TextBox("Correo", "", new { oninput = "return Validacion();", @value = "" })
+        @Html.TextBoxFor(m => m.email, new { oninput = "return Validacion();", @value = "" })
         <h5>Phone</h5>
-        @Html.TextBox("Telefono", "", new { @value = "" })
+        @Html.TextBoxFor(m => m.number, new { @value = "" })
         <div class="btn-group dropup SearchMenu">
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                 Sort by
@@ -28,7 +31,8 @@
             </ul>
         </div>
         <button type="reset" class="BtnBorrar">RESET</button>
-    </form>
+    }
+    
 </div>
 
 <div id="validacion" class="modal fade" tabindex="-1" role="dialog">

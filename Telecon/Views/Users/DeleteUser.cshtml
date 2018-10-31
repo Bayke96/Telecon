@@ -4,9 +4,9 @@
 }
 
 <h2 id="DeleteTitle">DELETE USER - CRISTIAN GONZÁLEZ </h2>
-
-<form name="EliminarUsuario" method="post">
-
+@using (@Html.BeginForm("", "", FormMethod.Post, new { autocomplete = "off" }))
+{
+    @Html.AntiForgeryToken()
     <div class="EditarFoto">
         <h2>PROFILE AVATAR</h2>
         <hr />
@@ -52,11 +52,11 @@
         </table>
 
         <p id="MsgConfirmacion">¿ Are you sure you wish to delete this user ?</p>
-        <button type="button" id="BtnSi">YES</button>
+        <button type="submit" id="BtnSi">YES</button>
         <button type="button" id="BtnNo">NO</button>
     </div>
+}
 
-</form>
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -64,7 +64,7 @@
 
     });
 
-   
+
 
     $(function () {
         $("#BtnNo").click(function () {

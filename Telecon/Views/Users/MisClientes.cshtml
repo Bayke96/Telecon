@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Telecon.Models.Customer
+@{
     Layout = "~/Views/Estructura/_Forma.cshtml";
     Page.Title = "Telecon Erickson C.A - Mis Clientes";
 }
@@ -14,33 +15,36 @@
 </div>
 
 
-<form method="post">
+@using (@Html.BeginForm("", "", FormMethod.Post, new { autocomplete = "off" }))
+{
+    @Html.AntiForgeryToken()
     <div id="VAgregarC" class="VentanaAgregarC">
         <div>
             <span class="pull-right glyphicon glyphicon-off" id="CerrarVentanaAgregarC"></span>
             <h2>Agregar Nuevo Cliente</h2>
             <hr />
             <p>Razón Social</p>
-            <input type="text" name="razonsocial" />
+            @Html.TextBoxFor(model => model.razonsocial, new { @value = "", maxlength="128", required = "required" })
             <p>Nombres</p>
-            <input type="text" name="nombres" />
+            @Html.TextBoxFor(model => model.nombres, new { minlength="3", @value = "" , maxlength="72", onkeypress = "validatenames(event)" })
             <p>Apellidos</p>
-            <input type="text" name="apellidos" />
+            @Html.TextBoxFor(model => model.apellidos, new { minlength = "2", @value = "", maxlength="72", onkeypress = "validatenames(event)" })
             <p>Teléfono</p>
-            <input type="text" name="telefono" />
+            @Html.TextBoxFor(model => model.telefono, new { @value = "", maxlength = "50", required = "required", onkeypress = "validatenum(event)" })
             <p>Dirección</p>
-            <input type="text" name="direccion" />
+            @Html.TextBoxFor(model => model.direccion, new { @value = "", maxlength = "128", required = "required" })
             <p>Comentarios</p>
-            <textarea rows="2" cols="50" name="comentarios"></textarea>
-            <button type="button">Agregar</button>
+            @Html.TextAreaFor(model => model.comentarios, new { @value = "", maxlength = "128" })
+            <button type="submit">Agregar</button>
             <button type="reset">Borrar</button>
 
         </div>
     </div>
-</form>
+}
 
-
-<form method="post">
+@using (@Html.BeginForm("", "", FormMethod.Post, new { autocomplete = "off" }))
+{
+    @Html.AntiForgeryToken()
     <div id="VModificarC" class="VentanaModificarC">
         <div>
             <span class="pull-right glyphicon glyphicon-off" id="CerrarVentanaModificarC"></span>
@@ -54,27 +58,27 @@
                 <option value="D">Carnicería Bolivar</option>
             </select>
             <p>Razón Social</p>
-            <input type="text" name="razorsocial" />
+            @Html.TextBoxFor(model => model.razonsocial, new { @value = "", maxlength = "128", required = "required" })
             <p>Nombres</p>
-            <input type="text" name="nombres" />
+            @Html.TextBoxFor(model => model.nombres, new { @value = "", maxlength = "72", onkeypress = "validatenames(event)" })
             <p>Apellidos</p>
-            <input type="text" name="apellidos" />
+            @Html.TextBoxFor(model => model.apellidos, new { @value = "", maxlength = "72", onkeypress = "validatenames(event)" })
             <p>Teléfono</p>
-            <input type="text" name="telefono" />
+            @Html.TextBoxFor(model => model.telefono, new { @value = "", maxlength = "50", required = "required", onkeypress = "validatenum(event)" })
             <p>Dirección</p>
-            <input type="text" name="direccion" />
+            @Html.TextBoxFor(model => model.direccion, new { @value = "", maxlength = "128", required = "required" })
             <p>Comentarios</p>
-            <textarea rows="2" cols="50" name="comentarios"></textarea>
-            <button type="button">Actualizar</button>
+            @Html.TextAreaFor(model => model.comentarios, new { @value = "", maxlength = "128" })
+            <button type="submit">Actualizar</button>
             <button type="reset">Borrar</button>
 
         </div>
     </div>
-</form>
+}
 
-
-
-<form method="post">
+@using (@Html.BeginForm("", "", FormMethod.Post, new { autocomplete = "off" }))
+{
+    @Html.AntiForgeryToken()
     <div id="VEliminarC" class="VentanaEliminarC">
         <div>
             <span class="pull-right glyphicon glyphicon-off" id="CerrarVentanaEliminarC"></span>
@@ -90,52 +94,36 @@
                         <td>Razón Social</td>
                         <td>Dirección</td>
                     </tr>
-                    <tr>
-                        <td>Telecon Erickson C.A</td>
-                        <td>El Roble, San Félix</td>
-                    </tr>
-                    <tr>
-                        <td>Cristian González</td>
-                        <td>Los Mangos, Puerto Ordaz</td>
-                    </tr>
-                    <tr>
-                        <td>Kevin Reinbold</td>
-                        <td>Rottweil, Alemania</td>
-                    </tr>
-                    <tr>
-                        <td>Johnny Cage</td>
-                        <td>Chicago, Estados Unidos</td>
-                    </tr>
-                    <tr>
-                        <td>Vasquez, Lenny</td>
-                        <td>Rio de Janeiro, Brasil</td>
-                    </tr>
-                    <tr>
-                        <td>Stefan Georgiev</td>
-                        <td>Sofia, Bulgaria</td>
-                    </tr>
-                    <tr>
-                        <td>Istvan Gati</td>
-                        <td>Budapest, Hungría</td>
-                    </tr>
-                    <tr>
-                        <td>Alessando Sadcunt</td>
-                        <td>Italia</td>
-                    </tr>
-                    <tr>
-                        <td>Haris Kahrimanovic</td>
-                        <td>Amsterdam, Holanda</td>
-                    </tr>
+                    
                 </table>
             </div>
-            
-            <button type="button">Si</button>
+
+            <button type="submit">Si</button>
             <button type="button" id="NoEliminarCliente">No</button>
 
         </div>
     </div>
-</form>
+}
 
+
+    <div id="validacion" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button id="cerrar-validacion" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">x</span>
+                    </button>
+                </div>
+                <div id="validaciones-contenido" class="modal-body">
+
+
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -150,37 +138,46 @@
         <th>Teléfono</th>
         <th>Dirección</th>
     </tr>
-    <tr>
-        <td><input type="checkbox" /></td>
-        <td>1</td>
-        <td>Telecon Erickson C.A</td>
-        <td>Cristian David</td>
-        <td>González Lugo</td>
-        <td>0416-6860677</td>
-        <td>Los Mangos, Puerto Ordaz</td>
-    </tr>
-    <tr>
-        <td><input type="checkbox" value="1" /></td>
-        <td>2</td>
-        <td>Telecon Erickson C.A</td>
-        <td>Cristian David</td>
-        <td>González Lugo</td>
-        <td>0416-6860677</td>
-        <td>Los Mangos, Puerto Ordaz</td>
-    </tr>
-    <tr>
-        <td><input type="checkbox" /></td>
-        <td>3</td>
-        <td>Telecon Erickson C.A</td>
-        <td>Cristian David</td>
-        <td>González Lugo</td>
-        <td>0416-6860677</td>
-        <td>Los Mangos, Puerto Ordaz</td>
-    </tr>
+   
 </table>
 
 <script type="text/javascript">
 
+    function validatenames(evt) {
+        var theEvent = evt || window.event;
+
+        // Handle paste
+        if (theEvent.type === 'paste') {
+            key = event.clipboardData.getData('text/plain');
+        } else {
+            // Handle key press
+            var key = theEvent.keyCode || theEvent.which;
+            key = String.fromCharCode(key);
+        }
+        var regex = /[a-zA-Z\s]|\./;
+        if (!regex.test(key)) {
+            theEvent.returnValue = false;
+            if (theEvent.preventDefault) theEvent.preventDefault();
+        }
+    }
+
+    function validatenum(evt) {
+        var theEvent = evt || window.event;
+
+        // Handle paste
+        if (theEvent.type === 'paste') {
+            key = event.clipboardData.getData('text/plain');
+        } else {
+            // Handle key press
+            var key = theEvent.keyCode || theEvent.which;
+            key = String.fromCharCode(key);
+        }
+        var regex = /[-+0-9\s]|\./;
+        if (!regex.test(key)) {
+            theEvent.returnValue = false;
+            if (theEvent.preventDefault) theEvent.preventDefault();
+        }
+    }
 
     $(function () {
         $("#AgregarCB").click(function () {

@@ -4,9 +4,9 @@
 }
 
 <p id="ProductsTitle">TELECON ERICKSON C.A - ADMINISTRACIÓN DE PRODUCTOS</p>
-
-<form method="post" name="ControlProductos">
-
+@using (@Html.BeginForm("", "", FormMethod.Post, new { autocomplete = "off" }))
+{
+    @Html.AntiForgeryToken()
     <div class="AdministracionProductos">
         <table class="TablaEditar" border="1">
             <tr>
@@ -54,12 +54,12 @@
             </tr>
         </table>
 
-        <button type="button" id="ProductosAceptar" onclick="return ProductSettings();">ACEPTAR</button>
+        <button type="submit" id="ProductosAceptar" onclick="return ProductSettings();">ACEPTAR</button>
         <button type="button" id="ProductosRegresar">REGRESAR</button>
         <button type="reset" id="ProductosBorrar">VALORES PREDETERMINADOS</button>
     </div>
+}
 
-</form>
 
 <div id="validacion" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -85,7 +85,7 @@
 
     var timer = null;
 
-   
+
 
     function ProductSettings() {
 
@@ -107,6 +107,10 @@
             validaciones += "<p>El campo incremento solo acepta números enteros.</p>\n"
             document.getElementById("incremento").value = "";
         }
+        if (incremento != "" && incremento <= 0) {
+            validaciones += "<p>El campo incremento solo acepta números enteros mayores a 0.</p>\n"
+            document.getElementById("incremento").value = "";
+        }
 
         if (maximo != "" && isNaN(maximo) == true) {
             validaciones += "<p>El campo máximo solo acepta números.</p>\n"
@@ -125,8 +129,8 @@
             validaciones += "<p>El campo minimo no acepta valores negativos.</p>\n"
             document.getElementById("minimo").value = "";
         }
-       
-        
+
+
 
 
         if (validaciones != "") {

@@ -10,7 +10,7 @@
         <p class="Msg-Enviado">Yeah, i guess you could say that.</p>
     </div>
     <div class="Contenedor">
-        <input type="text" name="Mensaje" maxlength="128" />
+        @Html.TextBox("Mensaje", "", new { @value = "", maxlength = "128" })
         <button type="button"><span class="glyphicon glyphicon-envelope"></span></button>
     </div>
     <div class="PanelUsuarios">

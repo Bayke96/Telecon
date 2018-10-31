@@ -8,7 +8,9 @@
 <body>
 
     <div class="PanelAgregarProducto">
-        <form method="post">
+        @using (@Html.BeginForm("", "", FormMethod.Post, new { autocomplete = "off" }))
+        {
+            @Html.AntiForgeryToken()
             <h2>Edit product</h2><hr />
 
             <div class="ProductoImgPrincipal">
@@ -51,9 +53,8 @@
 
             <button type="button" id="boton-editar" hidden onclick="return UpdateProduct();">Edit</button>
             <button id="ResetBtn" type="reset" hidden>Reset</button>
-
-
-        </form>
+        }
+       
     </div>
 
 

@@ -4,9 +4,9 @@
 }
 
 <p id="ProductsTitle">TELECON ERICKSON C.A - PRODUCTS ADMINISTRATION</p>
-
-<form method="post" name="ControlProductos">
-
+@using (@Html.BeginForm("", "", FormMethod.Post, new { autocomplete = "off" }))
+{
+    @Html.AntiForgeryToken()
     <div class="AdministracionProductos">
         <table class="TablaEditar" border="1">
             <tr>
@@ -26,10 +26,11 @@
             </tr>
             <tr>
                 <td>ADD PRODUCTS</td>
-                <td><label class="switch">
+                <td>
+                    <label class="switch">
                         <input type="checkbox" checked>
                         <span class="slider round"></span>
-                        </label>
+                    </label>
                 </td>
             </tr>
             <tr>
@@ -52,12 +53,16 @@
             </tr>
         </table>
 
-        <button type="button" id="ProductosAceptar" onclick="return ProductSettings();">ACCEPT</button>
+        <button type="submit" id="ProductosAceptar" onclick="return ProductSettings();">ACCEPT</button>
         <button type="button" id="ProductosRegresar">RETURN</button>
         <button type="reset" id="ProductosBorrar">DEFAULT VALUES</button>
     </div>
+}
 
-</form>
+
+
+
+    
 
 <div id="validacion" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -101,25 +106,29 @@
         if (minimo != "" && isNaN(parseFloat(minimo)) == false) document.getElementById("minimo").value = parseFloat(minimo).toFixed(2);
 
         if (incremento != "" && numeros.test(incremento) == false) {
-            validaciones += "<p>El campo incremento solo acepta números enteros.</p>\n"
+            validaciones += "<p>The increasing prices field only allows numbers.</p>\n"
+            document.getElementById("incremento").value = "";
+        }
+        if (incremento != "" && incremento <= 0) {
+            validaciones += "<p>The increasing prices field only allows numbers over 0.</p>\n"
             document.getElementById("incremento").value = "";
         }
 
         if (maximo != "" && isNaN(maximo) == true) {
-            validaciones += "<p>El campo máximo solo acepta números.</p>\n"
+            validaciones += "<p>The maximum field only allows numbers.</p>\n"
             document.getElementById("maximo").value = "";
         }
         if (maximo != "" && maximo < 0) {
-            validaciones += "<p>El campo máximo no acepta valores negativos.</p>\n"
+            validaciones += "<p>The maximum field does not allow negative numbers.</p>\n"
             document.getElementById("maximo").value = "";
         }
 
         if (minimo != "" && isNaN(minimo) == true) {
-            validaciones += "<p>El campo minimo solo acepta números.</p>\n"
+            validaciones += "<p>The minimum field only allows numbers.</p>\n"
             document.getElementById("minimo").value = "";
         }
         if (minimo != "" && minimo < 0) {
-            validaciones += "<p>El campo minimo no acepta valores negativos.</p>\n"
+            validaciones += "<p>The minimum field does not allow negative numbers.</p>\n"
             document.getElementById("minimo").value = "";
         }
 

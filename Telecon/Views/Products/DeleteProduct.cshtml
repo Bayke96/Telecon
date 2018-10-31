@@ -10,7 +10,9 @@
 
 
     <div class="PanelAgregarProducto">
-        <form method="post">
+        @using (@Html.BeginForm("", "", FormMethod.Post, new { autocomplete = "off" }))
+        {
+            @Html.AntiForgeryToken()
             <h2>Delete product</h2><hr />
 
             <div class="ProductoImgPrincipal">
@@ -39,10 +41,10 @@
                 <p>Choose product</p>
                 <select id="selector-productos" onchange="Botones();">
                     <option>Choose</option>
-                   
+                 
                 </select>
                 <p>Name</p>
-               
+
                 <p class="product-info" hidden>Caja de lapices</p>
 
                 <p>Description</p>
@@ -56,11 +58,13 @@
             </div>
 
             <p id="parrafo-confirmacion" hidden>¿Are you sure you wish to delete this product?</p>
-            <button type="button" id="boton-eliminar" hidden>Yes</button>
+            <button type="submit" id="boton-eliminar" hidden>Yes</button>
             <button id="ResetBtn" type="reset" onclick="Retornar();" hidden>No</button>
+        }
 
 
-        </form>
+
+
     </div>
 
 

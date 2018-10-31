@@ -54422,6 +54422,36 @@ button:focus {
         background-repeat: repeat-y;
     }
 
+    .modal-header {
+        background-color: red;
+        border-radius: 2px;
+        fill-opacity: 1.0;
+        flood-opacity: 1.0;
+        opacity: 1.0;
+        stop-opacity: 1.0;
+        stroke-opacity: 1.0;
+    }
+
+    #cerrar-validacion {
+        display: none;
+    }
+
+    .modal-header span {
+        color: black !important;
+        opacity: 1 !important;
+        fill-opacity: 1;
+    }
+
+    .modal-body p {
+        font-weight: bold;
+        font-size: 90%;
+    }
+
+    .modal-footer {
+        background-color: red;
+        border-radius: 2px;
+    }
+
     .ContenedorProductos {
         display: inline-block;
     }

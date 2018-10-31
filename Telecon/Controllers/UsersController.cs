@@ -1,61 +1,68 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Telecon.Models;
+using Telecon.Data_Formatting;
+using Telecon.Encryption;
 
 
 namespace Telecon.Controllers
-{
-   
+{   
     public class UsersController : Controller
     {
+        DataFormats df = new DataFormats();
+        Security sec = new Security();
+
         // GET: Users
-        
+
+        [HttpGet]
         public ActionResult Crear()
         {
-            return View("CrearUsuario", new User());
+            return View("CrearUsuario");
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult FormCrear(User modelo)
+        public ActionResult Crear(User modelo, bool IsAdmin = false)
         {
 
-          
+            TextInfo cultInfo = new CultureInfo("en-US", false).TextInfo;
 
-            string usuario = modelo.username;
-            string nombres = modelo.firstnames;
-            string apellidos = modelo.lastnames;
-            string correo = modelo.email;
-            int edad = modelo.age;
-            string direccion = modelo.address;
-            string telefono = modelo.number;
-
-
-            using (var context = new DataContext())
-            {
-                var user = new User
-                {
-                    username = usuario,
-                    password = "holajohnnycageyolo",
-                    firstnames = nombres,
-                    lastnames = apellidos,
-                    email = correo,
-                    age = edad,
-                    address = direccion,
-                    number = telefono,
-                    admin = true
-                };
-
-                context.Usuarios.Add(user);
-                context.SaveChanges();
-
-            }
-
-            return RedirectToAction("perfil", "users");
+            var usuario = char.ToUpper(modelo.username.First()) + modelo.username.Substring(1).ToLower().Trim();
+            var contraseña = df.GenerateString(12);
+            var nombres = cultInfo.ToTitleCase(modelo.firstnames).Trim();
+            var apellidos = cultInfo.ToTitleCase(modelo.lastnames).Trim();
+            var direccion = df.AddressCorrector(modelo.address).Trim();
+            var correo = modelo.email.ToLower().Trim();
+            var edad = modelo.age;
+            var telefono = modelo.number.Trim();
             
+            using (var context = new DataContext())
+                {
+                    var empleado = new User
+                    {
+                        username = usuario,
+                        password = sec.EncryptPassword(contraseña),
+                        firstnames = nombres,
+                        lastnames = apellidos,
+                        address = direccion,
+                        age = edad,
+                        email = correo,
+                        number = telefono,
+                        admin = IsAdmin
+                    };
+
+                    context.Usuarios.Add(empleado);
+                    context.SaveChanges();
+
+                }
+
+            ModelState.Clear();
+            return View("CrearUsuario");            
         }
 
         [HttpGet]
@@ -175,4 +182,9 @@ namespace Telecon.Controllers
         }
 
     }
+
+
+
+
+    
 }

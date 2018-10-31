@@ -7,10 +7,8 @@
 }
 
 
-
-
 <div class="PanelCrear">
-    @using (@Html.BeginForm("FormCrear", "Users", FormMethod.Post, new { @name = "test" }))
+    @using (@Html.BeginForm("Crear", "Users", FormMethod.Post, new { autocomplete = "off" }))
     {
         @Html.AntiForgeryToken()
         <h4 id="TituloNombreUsuario">Nombre de Usuario</h4>
@@ -29,7 +27,7 @@
         @Html.TextBoxFor(m => m.number, new { id = "CampoTelefono", maxlength = "50", @value = "" })
         <h4 id="TituloAdmin">Privilegios de Administrador</h4>
         <label id="PAdmin" class="switch">
-            <input type="checkbox">
+            <input type="checkbox" name="IsAdmin" value="true">
             <span class="slider round"></span>
         </label>
         <button type="submit" onclick="return CreateUser();">CREAR</button>
@@ -163,7 +161,7 @@
             }, 5000); // <-- time in milliseconds
             return false;
         } else {
-            return document.test.submit();
+            return true;
         }
 
 

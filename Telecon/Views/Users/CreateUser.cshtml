@@ -8,7 +8,7 @@
 
 
 <div class="PanelCrear">
-    @using (@Html.BeginForm("", "", FormMethod.Post, new { autocomplete = "off" }))
+    @using (@Html.BeginForm("Crear", "Users", FormMethod.Post, new { autocomplete = "off" }))
     {
         @Html.AntiForgeryToken()
         <h4 id="TituloNombreUsuario">Username</h4>
@@ -27,13 +27,13 @@
         @Html.TextBoxFor(m => m.number, new { id = "CampoTelefono", maxlength = "50", @value = "" })
         <h4 id="TituloAdmin">Admin Privileges</h4>
         <label id="PAdmin" class="switch">
-            <input type="checkbox">
+            <input type="checkbox" name="IsAdmin" value="true">
             <span class="slider round"></span>
         </label>
         <button type="button" onclick="return CreateUser();">CREATE</button>
         <button id="BotonBorrar" type="reset">RESET</button>
     }
-    
+
 
     <div class="AvatarImg"></div>
 

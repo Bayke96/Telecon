@@ -15,15 +15,13 @@
     <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="~/Style/CSS-Español.css" />
 
-
     <script src="~/Scripts/jquery-3.3.1.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
-
-
-
+    <script src="~/Scripts/AFT.js"></script>
 
 </head>
 <body>
+    <form id="__AjaxAntiForgeryForm" action="#" method="post">@Html.AntiForgeryToken()</form>
     <div>
         @RenderPage("_Menu.cshtml")
         @RenderBody()

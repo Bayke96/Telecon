@@ -821,14 +821,17 @@ button:focus {
     #BtnCrear:hover {
       background-color: rgba(0, 0, 179, 0.5); }
     #EditTitle {
-      color: white;
-      letter-spacing: 0.3em;
-      font-family: 'Rubik', sans-serif;
-      font-size: 90%;
-      bottom: 3.8em;
-      position: relative;
-      left: 25.5%;
-      width: 70%; }
+        color: white;
+        letter-spacing: 0.3em;
+        font-family: 'Rubik', sans-serif;
+        font-size: 90%;
+        bottom: 3.8em;
+        position: relative;
+        
+        right: 0 !important;
+        text-align: center;
+        width: 100% !important;
+    }
     .PanelEditar {
       margin-bottom: -100px;
       color: white;
@@ -43951,9 +43954,10 @@ button:focus {
     font-family: 'Rubik', sans-serif;
     font-size: 90%;
     bottom: 3.8em;
+    text-align: center !important;
     position: relative;
-    left: 25.5%;
-    width: 70%; }
+    left: auto !important;
+    width: 100% !important; }
   .PanelEditar {
     margin-bottom: -100px;
     color: white;

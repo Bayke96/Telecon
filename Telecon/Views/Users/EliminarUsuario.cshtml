@@ -1,22 +1,47 @@
-﻿@{
+﻿@model Telecon.Models.User
+@{
     Layout = "~/Views/Estructura/_Forma.cshtml";
     Page.Title = "Telecon Erickson C.A - Eliminar Usuario";
+
+    string rango = "";
+    var UserID = Url.RequestContext.RouteData.Values["id"];
+    string username = Model.username;
+    username = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(username.ToLower());
+    var path = Model.picturePath;
+    var name = Path.GetFileName(path);
+    var picpath = "";
+
+    if (Model.admin == true) {
+        rango = "Administrador";
+    }
+    if (Model.admin == false) {
+        rango = "Usuario";
+    }
+
+    if (path.Length < 5)
+    {
+        picpath = "UsuarioPre.png";
+    }
+    if (path.Length > 5)
+    {
+        picpath = "User_Images/" + name;
+    }
 }
 
-<h2 id="DeleteTitle">ELIMINAR USUARIO - CRISTIAN GONZÁLEZ </h2>
-@using (@Html.BeginForm("", "", FormMethod.Post, new { autocomplete = "off" }))
+<h2 id="DeleteTitle">ELIMINAR USUARIO - @username </h2>
+@using (@Html.BeginForm("Delete", "Users", FormMethod.Post, new { autocomplete = "off" }))
 {
     @Html.AntiForgeryToken()
     <div class="EditarFoto">
         <h2>FOTO DE PERFIL</h2>
         <hr />
-        <img id="DeleteImage" class="img-responsive img-thumbnail" src="~/Style/Media/UsuarioPre.png" />
+        <img id="DeleteImage" class="img-responsive img-thumbnail" src="~/Style/Media/@picpath" />
     </div>
 
     <div class="EliminarCargo">
         <h2><b>PRIVILEGIOS</b></h2>
         <hr />
-        <p>USUARIO</p>
+        <p>@rango</p>
     </div>
 
     <div class="PanelEliminar">
@@ -26,27 +51,27 @@
             </tr>
             <tr>
                 <td class="EditarCell">NOMBRE DE USUARIO</td>
-                <td><p>Bayke</p></td>
+                <td><p>@username</p></td>
             </tr>
             <tr>
                 <td class="EditarCell">NOMBRES</td>
-                <td><p>Cristian David</p></td>
+                <td><p>@Model.firstnames</p></td>
             </tr>
             <tr>
                 <td class="EditarCell">APELLIDOS</td>
-                <td><p>González Lugo</p></td>
+                <td><p>@Model.lastnames</p></td>
             </tr>
             <tr>
                 <td class="EditarCell">EDAD</td>
-                <td><p>21 años</p></td>
+                <td><p>@Model.age años</p></td>
             </tr>
             <tr>
                 <td class="EditarCell">CORREO</td>
-                <td><p>cdgl1996@gmail.com</p></td>
+                <td><p>@Model.email</p></td>
             </tr>
             <tr>
                 <td class="EditarCell">TELÉFONO</td>
-                <td><p>0416-6860677</p></td>
+                <td><p>@Model.number</p></td>
             </tr>
             <tr></tr>
         </table>
@@ -74,12 +99,12 @@
 
     $(function () {
         $("#Español").click(function () {
-            window.location.href = "/es/admin/usuarios/eliminarusuario";
+            window.location.href = "/es/admin/usuarios/eliminarusuario/@UserID";
         });
     });
     $(function () {
         $("#English").click(function () {
-            window.location.href = "/en/admin/users/deleteuser";
+            window.location.href = "/en/admin/users/deleteuser/@UserID";
         });
     });
 

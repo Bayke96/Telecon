@@ -6,15 +6,16 @@ using System.Web;
 using System.Web.Mvc;
 using Telecon.Models;
 using Telecon.Data_Formatting;
-using Telecon.Encryption;
-
+using Telecon.Model_Operations;
+using System.Threading.Tasks;
+using System.IO;
 
 namespace Telecon.Controllers
 {   
     public class UsersController : Controller
     {
         DataFormats df = new DataFormats();
-        Security sec = new Security();
+        UserCRUD operations = new UserCRUD();
 
         // GET: Users
 
@@ -24,12 +25,10 @@ namespace Telecon.Controllers
             return View("CrearUsuario");
         }
 
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Crear(User modelo, bool IsAdmin = false)
+        public ActionResult Crear(User modelo, HttpPostedFileBase file, bool IsAdmin = false)
         {
-
             TextInfo cultInfo = new CultureInfo("en-US", false).TextInfo;
 
             var usuario = char.ToUpper(modelo.username.First()) + modelo.username.Substring(1).ToLower().Trim();
@@ -40,29 +39,25 @@ namespace Telecon.Controllers
             var correo = modelo.email.ToLower().Trim();
             var edad = modelo.age;
             var telefono = modelo.number.Trim();
-            
-            using (var context = new DataContext())
+            string path = "";
+
+            if (file != null)
+            {
+                string pic = Path.GetFileName(file.FileName);
+                path = Path.Combine(
+                                       Server.MapPath("~/Style/Media/User_Images"), pic);
+                file.SaveAs(path);
+                using (MemoryStream ms = new MemoryStream())
                 {
-                    var empleado = new User
-                    {
-                        username = usuario,
-                        password = sec.EncryptPassword(contraseña),
-                        firstnames = nombres,
-                        lastnames = apellidos,
-                        address = direccion,
-                        age = edad,
-                        email = correo,
-                        number = telefono,
-                        admin = IsAdmin
-                    };
-
-                    context.Usuarios.Add(empleado);
-                    context.SaveChanges();
-
+                    file.InputStream.CopyTo(ms);
+                    byte[] array = ms.GetBuffer();
                 }
+            }
 
+            operations.AddUser(usuario, contraseña, nombres, apellidos, direccion, edad, correo, telefono, IsAdmin, path);
             ModelState.Clear();
-            return View("CrearUsuario");            
+
+            return View("CrearUsuario");              
         }
 
         [HttpGet]
@@ -72,15 +67,63 @@ namespace Telecon.Controllers
         }
 
         [HttpGet]
-        public ActionResult Editar()
+        public ActionResult Editar(int id)
         {
-            return View("EditarUsuario");
+            using(var context = new DataContext())
+            {
+                var search = (from s in context.Usuarios where s.ID == id select s).SingleOrDefault();
+                return View("EditarUsuario", search);
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Editar(User modelo, HttpPostedFileBase uploadFile, bool IsAdmin = false)
+        {
+            TextInfo cultInfo = new CultureInfo("en-US", false).TextInfo;
+
+            int id = modelo.ID;
+            var usuario = char.ToUpper(modelo.username.First()) + modelo.username.Substring(1).ToLower().Trim();
+            var nombres = cultInfo.ToTitleCase(modelo.firstnames).Trim();
+            var apellidos = cultInfo.ToTitleCase(modelo.lastnames).Trim();
+            var correo = modelo.email.ToLower().Trim();
+            var edad = modelo.age;
+            var telefono = modelo.number.Trim();
+            string path = "";
+
+           
+
+            if (uploadFile != null)
+            {
+                string pic = Path.GetFileName(uploadFile.FileName);
+                path = Path.Combine(
+                                       Server.MapPath("~/Style/Media/User_Images"), pic);
+                uploadFile.SaveAs(path);
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    uploadFile.InputStream.CopyTo(ms);
+                    byte[] array = ms.GetBuffer();
+                }
+            }
+
+            if (uploadFile == null) operations.UpdateUser(id, usuario, nombres, apellidos, edad, correo, telefono, IsAdmin);
+            if (uploadFile != null) operations.UpdateUser(id, usuario, nombres, apellidos, edad, correo, telefono, IsAdmin, path);
+
+            using (var context = new DataContext())
+            {
+                var search = (from s in context.Usuarios where s.ID == id select s).FirstOrDefault();
+                return View("EditarUsuario", search);
+            }
         }
 
         [HttpGet]
-        public ActionResult Eliminar()
+        public ActionResult Eliminar(int id)
         {
-            return View("EliminarUsuario");
+            using (var context = new DataContext())
+            {
+                var search = (from s in context.Usuarios where s.ID == id select s).SingleOrDefault();
+                return View("EliminarUsuario", search);
+            }
         }
 
         [HttpGet]
@@ -127,6 +170,43 @@ namespace Telecon.Controllers
             return View("CreateUser");
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(User modelo, HttpPostedFileBase file, bool IsAdmin = false)
+        {
+            TextInfo cultInfo = new CultureInfo("en-US", false).TextInfo;
+
+            var usuario = char.ToUpper(modelo.username.First()) + modelo.username.Substring(1).ToLower().Trim();
+            var contraseña = df.GenerateString(12);
+            var nombres = cultInfo.ToTitleCase(modelo.firstnames).Trim();
+            var apellidos = cultInfo.ToTitleCase(modelo.lastnames).Trim();
+            var direccion = df.AddressCorrector(modelo.address).Trim();
+            var correo = modelo.email.ToLower().Trim();
+            var edad = modelo.age;
+            var telefono = modelo.number.Trim();
+            string path = "";
+
+            if (file != null)
+            {
+                string pic = Path.GetFileName(file.FileName);
+                path = Path.Combine(
+                                       Server.MapPath("~/Style/Media/User_Images"), pic);
+                file.SaveAs(path);
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    file.InputStream.CopyTo(ms);
+                    byte[] array = ms.GetBuffer();
+                }
+            }
+
+            operations.AddUser(usuario, contraseña, nombres, apellidos, direccion, edad, correo, telefono, IsAdmin, path);
+            ModelState.Clear();
+
+            return View("CreateUser");
+        }
+
+
+
         [HttpGet]
         public ActionResult ViewUsers()
         {
@@ -134,15 +214,61 @@ namespace Telecon.Controllers
         }
 
         [HttpGet]
-        public ActionResult Edit()
+        public ActionResult Edit(int id)
         {
-            return View("EditUser");
+            using (var context = new DataContext())
+            {
+                var search = (from s in context.Usuarios where s.ID == id select s).SingleOrDefault();
+                return View("EditUser", search);
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(User modelo, HttpPostedFileBase uploadFile, bool IsAdmin = false)
+        {
+            TextInfo cultInfo = new CultureInfo("en-US", false).TextInfo;
+
+            int id = modelo.ID;
+            var usuario = char.ToUpper(modelo.username.First()) + modelo.username.Substring(1).ToLower().Trim();
+            var nombres = cultInfo.ToTitleCase(modelo.firstnames).Trim();
+            var apellidos = cultInfo.ToTitleCase(modelo.lastnames).Trim();
+            var correo = modelo.email.ToLower().Trim();
+            var edad = modelo.age;
+            var telefono = modelo.number.Trim();
+            string path = "";
+            
+            if (uploadFile != null)
+            {
+                string pic = Path.GetFileName(uploadFile.FileName);
+                path = Path.Combine(
+                                       Server.MapPath("~/Style/Media/User_Images"), pic);
+                uploadFile.SaveAs(path);
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    uploadFile.InputStream.CopyTo(ms);
+                    byte[] array = ms.GetBuffer();
+                }
+            }
+
+            if (uploadFile == null) operations.UpdateUser(id, usuario, nombres, apellidos, edad, correo, telefono, IsAdmin);
+            if (uploadFile != null) operations.UpdateUser(id, usuario, nombres, apellidos, edad, correo, telefono, IsAdmin, path);
+
+            using (var context = new DataContext())
+            {
+                var search = (from s in context.Usuarios where s.ID == id select s).FirstOrDefault();
+                return View("EditUser", search);
+            }
         }
 
         [HttpGet]
-        public ActionResult Delete()
+        public ActionResult Delete(int id)
         {
-            return View("DeleteUser");
+            using (var context = new DataContext())
+            {
+                var search = (from s in context.Usuarios where s.ID == id select s).SingleOrDefault();
+                return View("DeleteUser", search);
+            }
         }
 
         [HttpGet]
@@ -180,11 +306,7 @@ namespace Telecon.Controllers
         {
             return View();
         }
-
+        
     }
-
-
-
-
     
 }

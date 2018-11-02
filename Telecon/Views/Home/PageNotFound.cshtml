@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+
+    <link rel="icon"
+          type="image/png"
+          href="~/Style/icono-telecon.png" />
+
+    <title>Page Not Found 404 - Telecon Erickson C.A</title>
+
+    <style type="text/css">
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        h2 {
+            color: gray !important;
+            text-align: center;
+            margin-top: 5%;
+        }
+
+        .content-404 {
+            position: absolute;
+            text-align: center;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        button {
+            margin-top: 2%;
+            font-weight: bold !important;
+            color: dodgerblue !important;
+            border-color: dodgerblue !important;
+            letter-spacing: 0.05em;
+            outline: 0px;
+            outline: none !important;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="jumbotron" style="background-color: dodgerblue;">
+        <div class="container">
+           
+        </div>
+    </div>
+
+    <dlv class="container">
+        <img src="~/Style/Media/404image.png" class="img-responsive center-block" />
+        <h2 class="h2">PAGINA NO ENCONTRADA - PAGE NOT FOUND</h2>
+        <button class="btn btn-default center-block" onclick="HomePage();">INICIO / HOMEPAGE</button>
+    </dlv>
+   
+
+    <div class="navbar navbar-default navbar-fixed-bottom" style="background-color: dodgerblue;">
+        <div class="container">
+           
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+    function HomePage() {
+        window.location.href = "/es/inicio";
+    }
+</script>

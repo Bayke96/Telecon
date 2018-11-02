@@ -16,7 +16,7 @@ namespace Telecon
             routes.MapRoute(
                 name: "Default",
                 url: "",
-                defaults: new { controller = "Users", action = "Crear" }
+                defaults: new { controller = "Users", action = "Eliminar", id = 10 }
             );
 
             routes.MapRoute(
@@ -51,14 +51,14 @@ namespace Telecon
 
             routes.MapRoute(
              name: "EditarUsuario",
-             url: "es/admin/usuarios/editarusuario",
-             defaults: new { controller = "Users", action = "Editar" }
+             url: "es/admin/usuarios/editarusuario/{id}",
+             defaults: new { controller = "Users", action = "Editar", id = @"[0-9+]" }
             );
 
             routes.MapRoute(
             name: "EliminarUsuario",
-            url: "es/admin/usuarios/eliminarusuario",
-            defaults: new { controller = "Users", action = "Eliminar" }
+            url: "es/admin/usuarios/eliminarusuario/{id}",
+            defaults: new { controller = "Users", action = "Eliminar", id = @"[0-9+]" }
             );
 
             routes.MapRoute(
@@ -181,9 +181,6 @@ namespace Telecon
             defaults: new { controller = "Users", action = "Chat" }
             );
 
-
-
-
             /* ENGLISH VERSION */
 
             routes.MapRoute(
@@ -198,11 +195,11 @@ namespace Telecon
                  defaults: new { controller = "Home", action = "UserLogin" }
              );
 
-                routes.MapRoute(
-              name: "CreateUser",
-              url: "en/admin/users/createuser",
-              defaults: new { controller = "Users", action = "Create" }
-            );
+            routes.MapRoute(
+          name: "CreateUser",
+          url: "en/admin/users/createuser",
+          defaults: new { controller = "Users", action = "Create" }
+        );
 
             routes.MapRoute(
               name: "PAdmin",
@@ -219,14 +216,14 @@ namespace Telecon
 
             routes.MapRoute(
             name: "EditUser",
-            url: "en/admin/users/edituser",
-            defaults: new { controller = "Users", action = "Edit" }
+            url: "en/admin/users/edituser/{id}",
+            defaults: new { controller = "Users", action = "Edit", id = @"[0-9+]" }
             );
 
             routes.MapRoute(
               name: "DeleteUser",
-              url: "en/admin/users/deleteuser",
-              defaults: new { controller = "Users", action = "Delete" }
+              url: "en/admin/users/deleteuser/{id}",
+              defaults: new { controller = "Users", action = "Delete", id = @"[0-9+]" }
             );
 
 
@@ -351,6 +348,23 @@ namespace Telecon
             defaults: new { controller = "Users", action = "OnlineChat" }
             );
 
+            routes.MapRoute(
+             name: "UsernameJSON",
+             url: "json/username",
+             defaults: new { controller = "JSON", action = "UserExists" }
+            );
+
+            routes.MapRoute(
+             name: "idJSON",
+             url: "json/id",
+             defaults: new { controller = "JSON", action = "UserID" }
+            );
+
+            routes.MapRoute(
+            "404-PageNotFound",
+            "{*url}",
+            new { controller = "Home", action = "PageNotFound" }
+            );
 
         }
 

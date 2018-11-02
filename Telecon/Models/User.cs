@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Telecon.Models
 {
@@ -12,7 +12,7 @@ namespace Telecon.Models
     {
         [Key]
         public int ID { get; set; }
-        [Column("u_username"), Required(ErrorMessage = "You must type an username."), ConcurrencyCheck, MinLength(3), MaxLength(128)]
+        [Index(IsUnique = true), Column("u_username"), Required(ErrorMessage = "You must type an username."), ConcurrencyCheck, MinLength(3), StringLength(128)]
         public string username { get; set; }
         [Column("u_password"), Required(ErrorMessage = "You must type a password."), MinLength(12), MaxLength(128), DataType(DataType.Password)]
         public string password { get; set; }
@@ -30,5 +30,7 @@ namespace Telecon.Models
         public string number { get; set; }
         [Column("u_admin"), Required(ErrorMessage = "You must choose the user's privileges.")]
         public bool admin { get; set; }
+        [Column("u_picture"), MaxLength(256)]
+        public string picturePath { get; set; }
     }
 }

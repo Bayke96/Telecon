@@ -202,6 +202,7 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
+    <Content Include="Scripts\AFT.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\bootstrap\affix.js" />
@@ -224,6 +225,13 @@
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Style\CSS-English.css">
       <DependentUpon>CSS-English.scss</DependentUpon>
     </Content>
@@ -237,6 +245,7 @@
       <DependentUpon>CSS-Español.css</DependentUpon>
     </Content>
     <Content Include="Style\icono-telecon.png" />
+    <Content Include="Style\Media\404image.png" />
     <Content Include="Style\Media\AgregarCliente.jpg" />
     <Content Include="Style\Media\AgregarCliente.png" />
     <Content Include="Style\Media\articulos-papeleria.jpg" />
@@ -297,13 +306,15 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JSONController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
-    <Compile Include="Data-Formatting\DataFormats.cs" />
+    <Compile Include="Data_Formatting\DataFormats.cs" />
     <Compile Include="Encryption\Security.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="CRUD_Operations\UserCRUD.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\DataContext.cs" />
     <Compile Include="Models\User.cs" />
@@ -374,6 +385,7 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
     <Content Include="Style\CSS-Español.scss" />
     <Content Include="Style\CSS-English.scss" />
+    <Content Include="Views\Home\PageNotFound.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -383,6 +395,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Style\Media\User_Images\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

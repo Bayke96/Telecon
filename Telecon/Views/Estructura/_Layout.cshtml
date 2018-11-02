@@ -12,6 +12,7 @@
 
     <script src="~/Scripts/jquery-3.3.1.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/AFT.js"></script>
 
     <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
     <link rel="icon"
@@ -19,6 +20,7 @@
           href="~/Style/icono-telecon.png" />
 </head>
 <body>
+    <form id="__AjaxAntiForgeryForm" action="#" method="post">@Html.AntiForgeryToken()</form>
     <div>
         @RenderPage("_EMenu.cshtml")
         @RenderBody()

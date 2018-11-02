@@ -1065,9 +1065,10 @@ button:focus {
             font-family: 'Rubik', sans-serif;
             font-size: 90%;
             bottom: 3.8em;
+
             position: relative;
-            left: 29.5%;
-            width: 70%;
+            left: 0 !important;
+            width: 100%;
         }
 
         .PanelEditar {
@@ -55439,8 +55440,9 @@ button:focus {
         font-size: 90%;
         bottom: 3.8em;
         position: relative;
-        left: 29%;
-        width: 70%;
+        text-align: center !important;
+        left: 0 !important;
+        width: 100% !important;
     }
 
     .PanelEditar {

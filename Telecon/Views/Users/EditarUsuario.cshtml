@@ -2,25 +2,41 @@
 @{
     Layout = "~/Views/Estructura/_Forma.cshtml";
     Page.Title = "Telecon Erickson C.A - Editar Usuario";
+
+    var UserID = Url.RequestContext.RouteData.Values["id"];
+    string username = Model.username;
+    username = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(username.ToLower());
+    var path = Model.picturePath;
+    var name = Path.GetFileName(path);
+    var picpath = "";
+
+    if (path.Length < 5) {
+        picpath = "UsuarioPre.png";
+    }
+    if (path.Length > 5)
+    {
+        picpath = "User_Images/" + name;
+    }
+
 }
 
-<h2 id="EditTitle">EDITAR USUARIO - CRISTIAN GONZÁLEZ </h2>
-@using (@Html.BeginForm("", "", FormMethod.Post, new { autocomplete = "off" }))
+<h2 id="EditTitle" class="center-block">EDITAR USUARIO - @username </h2>
+@using (@Html.BeginForm("Editar", "Users", FormMethod.Post, new { @id= "edit-user-form" , autocomplete = "off", enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     <div class="EditarFoto">
         <h2>FOTO DE PERFIL</h2>
         <hr />
-        <img id="EditImage" class="img-responsive img-thumbnail" src="~/Style/Media/UsuarioPre.png" />
+        <img id="EditImage" class="img-responsive img-thumbnail" src="~/Style/Media/@picpath" />
 
-        <label id="EditarImagen" for="archivos" class="btn btn-primary">Buscar Imagen</label>
-        <input id="archivos" accept="image/*" style="visibility:hidden;" type="file" name="myImagenSelect">
+        <label id="EditarImagen" for="file" class="btn btn-primary">Buscar Imagen</label>
+        <input id="file" accept="image/*" style="visibility:hidden;" type="file" name="uploadFile">
     </div>
 
     <div class="EditarCargo">
         <h2><b>PRIVILEGIOS</b></h2>
         <hr />
-        <input id="RankCheck" type="checkbox" class="checkbox" name="Administrador" value="Admin">
+        <input id="RankCheck" type="checkbox" class="checkbox" name="IsAdmin" value="true" checked="@Model.admin">
 
         <p>Administrador</p>
     </div>
@@ -33,7 +49,7 @@
             <tr>
                 <td class="EditarCell"><p>NOMBRE DE USUARIO</p></td>
 
-                <td> @Html.TextBoxFor(m => m.firstnames, new { @id = "username-text", @class = "form-control", @value = "", maxlength = "24", required = "required" })</td>
+                <td> @Html.TextBoxFor(m => m.username, new { @id = "username-text", @class = "form-control", @value = "", maxlength = "24", required = "required" })</td>
             </tr>
             <tr>
                 <td class="EditarCell"><p>NOMBRES</p></td>
@@ -58,7 +74,7 @@
 
         </table>
 
-        <button onclick="return EditUser();" type="button">ACTUALIZAR</button>
+        <button onclick="return EditUser();" type="submit">ACTUALIZAR</button>
         <button type="button" id="BtnRegresar">REGRESAR</button>
     </div>
 
@@ -89,7 +105,71 @@
 
 <script type="text/javascript">
 
+
     var timer = null;
+
+    function VerifyUser() {
+
+        var user_id = document.getElementById("username-text").value;
+        var divtext = document.getElementById("validaciones-contenido");
+
+        $.ajax({
+
+            type: "POST",
+            url: "json/username",
+            dataType: "json",
+            data: AddAntiForgeryToken({ userName: user_id }),
+            success: function (data) {
+                if (data == true) {
+                    
+                    VerifyID();
+                    return true
+                }
+                if (data == false) {
+                    document.getElementById("edit-user-form").submit();
+                    return true;
+                }
+            },
+            error: function (data) {
+                alert("failure");
+                return false;
+            }
+        });
+        return false;
+    }
+
+    function VerifyID() {
+        var user_id = document.getElementById("username-text").value;
+        var divtext = document.getElementById("validaciones-contenido");
+
+        $.ajax({
+
+            type: "POST",
+            url: "json/id",
+            dataType: "json",
+            data: AddAntiForgeryToken({ userName: user_id }),
+            success: function (data) {
+                if (data != @Model.ID) {
+                    divtext.innerHTML = "<p>Este nombre de usuario ya se encuentra registrado.</p>\n";
+                    $('#validacion').modal('show');
+                    window.clearTimeout(timer);
+                    timer = setTimeout(function () {
+                        $("#cerrar-validacion").click();
+                    }, 5000); // <-- time in milliseconds
+                    return false
+                }
+                if (data == @Model.ID) {
+                    document.getElementById("edit-user-form").submit();
+                    return true;
+                }
+            },
+            error: function (data) {
+                alert("failure");
+                return false;
+            }
+        });
+        return false;
+    }
 
     function EditUser() {
 
@@ -102,15 +182,13 @@
             telefono = document.getElementById("phone-text").value;
 
 
-
-
         var divtext = document.getElementById("validaciones-contenido");
         var validaciones = "";
         var reuser = new RegExp("^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$");
         var numeros = new RegExp("^[0-9]+$");
         var letras = new RegExp("^[-+0-9\\s]+$");
-
         var renames = new RegExp("^[a-zA-Z\\s]+$");
+
 
         if (usuario.trim() == "" || usuario == null) {
             validaciones += "<p>Debe escribir un nombre de usuario.</p>\n"
@@ -167,9 +245,7 @@
         if (telefono.trim() != "" && letras.test(telefono) == false) {
             validaciones += "<p>El campo telefono solo acepta números y simbolos + -</p>\n"
         }
-
-
-
+        
         if (validaciones != "") {
             divtext.innerHTML = validaciones;
             $('#validacion').modal('show');
@@ -181,19 +257,16 @@
             }, 5000); // <-- time in milliseconds
             return false;
         } else {
-            return true;
+            return VerifyUser();
         }
-
-
+        
     }
-
 
     $(document).ready(function () {
         $('.AdminButton').css('visibility', 'visible');
-
     });
 
-    $('#archivos').change(function () {
+    $('#file').change(function () {
         var file = this.files[0];
         var reader = new FileReader();
         reader.onloadend = function () {
@@ -206,21 +279,21 @@
     });
 
     $(function () {
-        $("#BtnRegresar").click(function () {
-            window.location.href = "/es/admin/usuarios";
-        });
+    $("#BtnRegresar").click(function () {
+    window.location.href="/es/admin/usuarios" ;
+    });
     });
 
     $(function () {
         $("#Español").click(function () {
-            window.location.href = "/es/admin/usuarios/editarusuario";
+            window.location.href = "/es/admin/usuarios/editarusuario/" + @UserID;
         });
     });
     $(function () {
         $("#English").click(function () {
-            window.location.href = "/en/admin/users/edituser";
+            window.location.href = "/en/admin/users/edituser/" + @UserID;
         });
     });
 
-
 </script>
+

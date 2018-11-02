@@ -8,7 +8,7 @@
 
 
 <div class="PanelCrear">
-    @using (@Html.BeginForm("Crear", "Users", FormMethod.Post, new { autocomplete = "off" }))
+    @using (@Html.BeginForm("Create", "Users", FormMethod.Post, new { role = "form", @id = "add-user-f", autocomplete = "off" }))
     {
         @Html.AntiForgeryToken()
         <h4 id="TituloNombreUsuario">Username</h4>
@@ -30,17 +30,21 @@
             <input type="checkbox" name="IsAdmin" value="true">
             <span class="slider round"></span>
         </label>
-        <button type="button" onclick="return CreateUser();">CREATE</button>
+
+        <button type="submit" onclick="return CreateUser();">CREATE</button>
         <button id="BotonBorrar" type="reset">RESET</button>
+
+        <input id="files" accept="image/*" style="visibility:hidden;" type="file" name="file">
     }
 
 
     <div class="AvatarImg"></div>
-
     <label id="BuscarImagen" for="files" class="btn btn-primary">Choose Image</label>
-    <input id="files" accept="image/*" style="visibility:hidden;" type="file" name="myFileSelect">
-</div>
 
+
+
+</div>
+    
 <div id="validacion" class="modal fade" tabindex="-1" role="dialog">
 <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -64,6 +68,40 @@
 
     var timer = null;
 
+    function VerifyUser() {
+
+        var user_id = document.getElementById("CampoNombreUsuario").value;
+        var divtext = document.getElementById("validaciones-contenido");
+
+        $.ajax({
+
+            type: "POST",
+            url: "json/username",
+            dataType: "json",
+            data: AddAntiForgeryToken({ userName: user_id }),
+            success: function (data) {
+                if (data == true) {
+                    divtext.innerHTML = "<p>This username is already registered.</p>\n";
+                    $('#validacion').modal('show');
+                    window.clearTimeout(timer);
+                    timer = setTimeout(function () {
+                        $("#cerrar-validacion").click();
+                    }, 5000); // <-- time in milliseconds
+                    return false
+                }
+                if (data == false) {
+                    document.getElementById("add-user-f").submit();
+                    return true;
+                }
+            },
+            error: function (data) {
+                alert("failure");
+                return false;
+            }
+        });
+        return false;
+    }
+
     function CreateUser() {
 
         // Datos del usuario
@@ -74,9 +112,6 @@
             edad = document.getElementById("CampoEdad").value,
             direccion = document.getElementById("CampoDireccion").value,
             telefono = document.getElementById("CampoTelefono").value;
-
-
-
 
         var divtext = document.getElementById("validaciones-contenido");
         var validaciones = "";
@@ -161,7 +196,7 @@
             }, 5000); // <-- time in milliseconds
             return false;
         } else {
-            return true;
+            return VerifyUser();
         }
 
 

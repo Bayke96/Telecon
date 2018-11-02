@@ -3,12 +3,15 @@
     Layout = "~/Views/Estructura/_Forma.cshtml";
     Page.Title = "Telecon Erickson C.A - Crear Usuario";
 
-    
+
 }
 
 
 <div class="PanelCrear">
-    @using (@Html.BeginForm("Crear", "Users", FormMethod.Post, new { autocomplete = "off" }))
+
+    @using (@Html.BeginForm("Crear", "Users", FormMethod.Post, new { role = "form", @id = "add-user-form", autocomplete = "off",
+        enctype = "multipart/form-data"
+    }))
     {
         @Html.AntiForgeryToken()
         <h4 id="TituloNombreUsuario">Nombre de Usuario</h4>
@@ -30,176 +33,210 @@
             <input type="checkbox" name="IsAdmin" value="true">
             <span class="slider round"></span>
         </label>
+
         <button type="submit" onclick="return CreateUser();">CREAR</button>
         <button id="BotonBorrar" type="reset">BORRAR</button>
+
+
+        <input id="files" accept="image/*" style="visibility:hidden;" type="file" name="file">
+
     }
-   
 
     <div class="AvatarImg"></div>
-
     <label id="BuscarImagen" for="files" class="btn btn-primary">Buscar Imagen</label>
-    <input id="files" accept="image/*" style="visibility:hidden;" type="file" name="myFileSelect">
+
+
+
 </div>
 
-<div id="validacion" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button id="cerrar-validacion" type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">x</span>
-                </button>
-            </div>
-            <div id="validaciones-contenido" class="modal-body">
+    <div id="validacion" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button id="cerrar-validacion" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">x</span>
+                    </button>
+                </div>
+                <div id="validaciones-contenido" class="modal-body">
 
 
-            </div>
-            <div class="modal-footer">
+                </div>
+                <div class="modal-footer">
 
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<script type="text/javascript">
+    <script type="text/javascript">
 
-    var timer = null;
+        var timer = null;
 
-    function CreateUser() {
+        function VerifyUser() {
 
-        // Datos del usuario
-        var usuario = document.getElementById("CampoNombreUsuario").value,
-            nombres = document.getElementById("CampoNombre").value,
-            apellidos = document.getElementById("CampoApellidos").value,
-            correo = document.getElementById("CampoCorreo").value,
-            edad = document.getElementById("CampoEdad").value,
-            direccion = document.getElementById("CampoDireccion").value,
-            telefono = document.getElementById("CampoTelefono").value;
+            var user_id = document.getElementById("CampoNombreUsuario").value;
+            var divtext = document.getElementById("validaciones-contenido");
+           
+            $.ajax({
 
-
-
-        
-        var divtext = document.getElementById("validaciones-contenido");
-        var validaciones = "";
-        var reuser = new RegExp("^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$");
-        var numeros = new RegExp("^[0-9]+$");
-        var letras = new RegExp("^[-+0-9\\s]+$");
-
-        var renames = new RegExp("^[a-zA-Z\\s]+$");
-
-        if (usuario.trim() == "" || usuario == null) {
-            validaciones += "<p>Debe escribir un nombre de usuario.</p>\n"
-        }
-        if (usuario.trim() != "" && reuser.test(usuario) == false) {
-            validaciones += "<p>El campo nombre de usuario solo acepta caracteres alfanumericos</p>\n"
-        }
-        if (usuario.trim() != "" && usuario.length < 3) {
-            validaciones += "<p>El nombre de usuario debe contener minimo 3 caracteres.</p>\n"
-        }
-
-        if (nombres.trim() == "" || nombres == null) {
-            validaciones += "<p>Debe escribir un nombre.</p>\n"
-        }
-        if (nombres.trim() != "" && renames.test(nombres) == false) {
-            validaciones += "<p>El campo nombres solo acepta letras y espacios.</p>\n"
-        }
-        if (nombres.trim() != "" && nombres.length < 3) {
-            validaciones += "<p>El nombre debe contener minimo 3 caracteres.</p>\n"
-        }
-
-        if (apellidos.trim() == "" || apellidos == null) {
-            validaciones += "<p>Debe escribir un apellido.</p>\n"
-        }
-        if (apellidos.trim() != "" && renames.test(apellidos) == false) {
-            validaciones += "<p>El campo apellidos solo acepta letras y espacios.</p>\n"
-        }
-        if (apellidos.trim() != "" && apellidos.length < 2) {
-            validaciones += "<p>El apellido debe contener minimo 2 caracteres.</p>\n"
-        }
-
-        if (correo.trim() == "" || correo == null) {
-            validaciones += "<p>Debe escribir un correo.</p>\n"
-        }
-        if (correo.trim() != "" && !correo.includes("@@")) {
-            validaciones += "<p>El correo debe incluir un &#64;</p>\n"
-        }
-        if (correo.trim() != "" && correo.length < 6) {
-            validaciones += "<p>El correo debe contener minimo 6 caracteres.</p>\n"
-        }
-
-        if (edad.trim() == "" || edad == null) {
-            validaciones += "<p>Debe escribir la edad del usuario.</p>\n"
-        }
-        if (edad.trim() != "" && numeros.test(edad) == false) {
-            validaciones += "<p>El campo edad solo acepta números.</p>\n"
-            document.getElementById("CampoEdad").value = "";
-        }
-        if (edad.trim() != "" && edad < 15) {
-            validaciones += "<p>El usuario debe tener un minimo de 15 años para tener una cuenta.</p>\n"
-        }
-
-        if (direccion.trim() == "" || direccion == null) {
-            validaciones += "<p>Debe escribir la dirección del usuario.</p>\n"
-        }
-        if (direccion.trim() != "" && direccion.length < 4) {
-            validaciones += "<p>El campo dirección debe tener un minimo de 4 caracteres.</p>\n"
-        }
-
-        if (telefono.trim() != "" && letras.test(telefono) == false){
-            validaciones += "<p>El campo telefono solo acepta números y simbolos + -</p>\n"
+                type: "POST",
+                url: "json/username",
+                dataType: "json",   
+                data: AddAntiForgeryToken({ userName : user_id }),
+                success: function (data) {
+                    if (data == true) {
+                        divtext.innerHTML = "<p>Este nombre de usuario ya se encuentra registrado.</p>\n";
+                        $('#validacion').modal('show');
+                        window.clearTimeout(timer);
+                        timer = setTimeout(function () {
+                            $("#cerrar-validacion").click();
+                        }, 5000); // <-- time in milliseconds
+                        return false
+                    }
+                    if (data == false) {
+                        document.getElementById("add-user-form").submit();
+                        return true;
+                    }
+                },
+                 error: function (data) {
+                    alert("failure");
+                    return false;
+                }
+            });
+            return false;
         }
        
+        function CreateUser() {
 
+            // Datos del usuario
+            var usuario = document.getElementById("CampoNombreUsuario").value,
+                nombres = document.getElementById("CampoNombre").value,
+                apellidos = document.getElementById("CampoApellidos").value,
+                correo = document.getElementById("CampoCorreo").value,
+                edad = document.getElementById("CampoEdad").value,
+                direccion = document.getElementById("CampoDireccion").value,
+                telefono = document.getElementById("CampoTelefono").value;
 
-        if (validaciones != "") {
-            divtext.innerHTML = validaciones;
-            $('#validacion').modal('show');
-            validaciones = "";
+            
+            var divtext = document.getElementById("validaciones-contenido");
+            var validaciones = "";
+            var reuser = new RegExp("^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$");
+            var numeros = new RegExp("^[0-9]+$");
+            var letras = new RegExp("^[-+0-9\\s]+$");
 
-            window.clearTimeout(timer);
-            timer = setTimeout(function () {
-                $("#cerrar-validacion").click();
-            }, 5000); // <-- time in milliseconds
-            return false;
-        } else {
-            return true;
+            var renames = new RegExp("^[a-zA-Z\\s]+$");
+
+            if (usuario.trim() == "" || usuario == null) {
+                validaciones += "<p>Debe escribir un nombre de usuario.</p>\n"
+            }
+            if (usuario.trim() != "" && reuser.test(usuario) == false) {
+                validaciones += "<p>El campo nombre de usuario solo acepta caracteres alfanumericos</p>\n"
+            }
+            if (usuario.trim() != "" && usuario.length < 3) {
+                validaciones += "<p>El nombre de usuario debe contener minimo 3 caracteres.</p>\n"
+            }
+
+            if (nombres.trim() == "" || nombres == null) {
+                validaciones += "<p>Debe escribir un nombre.</p>\n"
+            }
+            if (nombres.trim() != "" && renames.test(nombres) == false) {
+                validaciones += "<p>El campo nombres solo acepta letras y espacios.</p>\n"
+            }
+            if (nombres.trim() != "" && nombres.length < 3) {
+                validaciones += "<p>El nombre debe contener minimo 3 caracteres.</p>\n"
+            }
+
+            if (apellidos.trim() == "" || apellidos == null) {
+                validaciones += "<p>Debe escribir un apellido.</p>\n"
+            }
+            if (apellidos.trim() != "" && renames.test(apellidos) == false) {
+                validaciones += "<p>El campo apellidos solo acepta letras y espacios.</p>\n"
+            }
+            if (apellidos.trim() != "" && apellidos.length < 2) {
+                validaciones += "<p>El apellido debe contener minimo 2 caracteres.</p>\n"
+            }
+
+            if (correo.trim() == "" || correo == null) {
+                validaciones += "<p>Debe escribir un correo.</p>\n"
+            }
+            if (correo.trim() != "" && !correo.includes("@@")) {
+                validaciones += "<p>El correo debe incluir un &#64;.</p>\n"
+            }
+            if (correo.trim() != "" && correo.length < 6) {
+                validaciones += "<p>El correo debe contener minimo 6 caracteres.</p>\n"
+            }
+
+            if (edad.trim() == "" || edad == null) {
+                validaciones += "<p>Debe escribir la edad del usuario.</p>\n"
+            }
+            if (edad.trim() != "" && numeros.test(edad) == false) {
+                validaciones += "<p>El campo edad solo acepta números.</p>\n"
+                document.getElementById("CampoEdad").value = "";
+            }
+            if (edad.trim() != "" && edad < 15) {
+                validaciones += "<p>El usuario debe tener un minimo de 15 años para tener una cuenta.</p>\n"
+            }
+
+            if (direccion.trim() == "" || direccion == null) {
+                validaciones += "<p>Debe escribir la dirección del usuario.</p>\n"
+            }
+            if (direccion.trim() != "" && direccion.length < 4) {
+                validaciones += "<p>El campo dirección debe tener un minimo de 4 caracteres.</p>\n"
+            }
+
+            if (telefono.trim() != "" && letras.test(telefono) == false) {
+                validaciones += "<p>El campo telefono solo acepta números y simbolos + -</p>\n"
+            }
+
+            if (validaciones != "") {
+                divtext.innerHTML = validaciones;
+                $('#validacion').modal('show');
+                validaciones = "";
+
+                window.clearTimeout(timer);
+                timer = setTimeout(function () {
+                    $("#cerrar-validacion").click();
+                }, 5000); // <-- time in milliseconds
+                return false;
+            } else {
+                return VerifyUser();
+            }
+            
         }
 
 
-    }
 
-
-
-    $('#files').change(function () {
-        var file = this.files[0];
-        var reader = new FileReader();
-        reader.onloadend = function () {
-            $('.AvatarImg').css('background-image', 'url("' + reader.result + '")');
-        }
-        if (file) {
-            reader.readAsDataURL(file);
-        } else {
-        }
-    });
-
-    
-    $("#BotonBorrar").click(function () {
-        $('.AvatarImg').css('background-image', 'url("/Style/Media/UsuarioPre.png")');
-    }
-    );
-
-    $(document).ready(function () {
-        $('.AdminButton').css('visibility', 'visible');
-    });
-
-    $(function () {
-        $("#Español").click(function () {
-            window.location.href = "/es/admin/usuarios/crearusuario";
+        $('#files').change(function () {
+            var file = this.files[0];
+            var reader = new FileReader();
+            reader.onloadend = function () {
+                $('.AvatarImg').css('background-image', 'url("' + reader.result + '")');
+            }
+            if (file) {
+                reader.readAsDataURL(file);
+            } else {
+            }
         });
-    });
-    $(function () {
-        $("#English").click(function () {
-            window.location.href = "/en/admin/users/createuser";
-        });
-    });
 
-</script>
+
+        $("#BotonBorrar").click(function () {
+            $('.AvatarImg').css('background-image', 'url("/Style/Media/UsuarioPre.png")');
+        }
+        );
+
+        $(document).ready(function () {
+            $('.AdminButton').css('visibility', 'visible');
+        });
+
+        $(function () {
+            $("#Español").click(function () {
+                window.location.href = "/es/admin/usuarios/crearusuario";
+            });
+        });
+        $(function () {
+            $("#English").click(function () {
+                window.location.href = "/en/admin/users/createuser";
+            });
+        });
+
+    </script>

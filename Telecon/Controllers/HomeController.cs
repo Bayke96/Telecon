@@ -142,7 +142,10 @@ namespace Telecon.Controllers
             return View("Phone-Exchange");
         }
             
-
+        public ActionResult PageNotFound()
+        {
+            return View();
+        }
 
     }
 }

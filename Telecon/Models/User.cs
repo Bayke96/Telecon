@@ -32,5 +32,8 @@ namespace Telecon.Models
         public bool admin { get; set; }
         [Column("u_picture"), MaxLength(256)]
         public string picturePath { get; set; }
+
+        [NotMapped]
+        public IEnumerable<User> usersList { get; set; }
     }
 }

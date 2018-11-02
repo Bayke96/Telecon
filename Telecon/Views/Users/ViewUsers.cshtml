@@ -1,4 +1,4 @@
-﻿@model Telecon.Models.User
+﻿@model IEnumerable<Telecon.Models.User>
 @{
     Layout = "~/Views/Estructura/_Layout.cshtml";
     Page.Title = "Telecon Erickson C.A - Users";
@@ -11,13 +11,13 @@
         <p><span class="glyphicon glyphicon-user"></span>   SEARCH</p>
         <hr /><br />
         <h5>User Code</h5>
-        @Html.TextBoxFor(m => m.ID, new { id = "buscar_codigo", oninput = "return Validacion();", @value = "" })
+        @Html.TextBox("searchID", "", new { id = "buscar_codigo", oninput = "return Validacion();", @value = "" })
         <h5>Names & Lastnames</h5>
-        @Html.TextBoxFor(m => m.firstnames, new { @value = "" })
+        @Html.TextBox("searchNames", "", new { @value = "" })
         <h5>E-mail</h5>
-        @Html.TextBoxFor(m => m.email, new { oninput = "return Validacion();", @value = "" })
+        @Html.TextBox("searchEmail", "", new { @value = "", oninput = "return Validacion();" })
         <h5>Phone</h5>
-        @Html.TextBoxFor(m => m.number, new { @value = "" })
+        @Html.TextBox("searchNumber", "", new { @value = "" })
         <div class="btn-group dropup SearchMenu">
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                 Sort by
@@ -32,7 +32,7 @@
         </div>
         <button type="reset" class="BtnBorrar">RESET</button>
     }
-    
+
 </div>
 
 <div id="validacion" class="modal fade" tabindex="-1" role="dialog">
@@ -56,7 +56,7 @@
 
 <h2 id="UsersTitle">TELECON ERICKSON C.A - USERS LIST</h2>
 
-<table class="TablaUsuarios">
+<table class="TablaUsuarios" border="0">
     <tr>
         <td>ID</td>
         <td>Username</td>
@@ -64,42 +64,33 @@
         <td>Lastnames</td>
         <td style="border-bottom-style: solid; width: 15%; padding-top: 1em; padding-bottom: 0.5em; padding-left: 0;">E-mail</td>
         <td style="padding-bottom: 0.5em; border-bottom-style: solid; border-top-style: none;">Phone</td>
+        <th colspan="2" style="text-align: center;"><button id="BtnCrear" type="button">CREATE USER</button></th>
     </tr>
+    @foreach (var item in Model)
+    {
     <tr>
-        <td>1</td>
-        <td>Bayke</td>
-        <td>Cristian David</td>
-        <td>González Lugo</td>
-        <td>cdgl1996@gmail.com</td>
-        <td>0416-6860677</td>
-        <td><button type="button">Edit</button></td>
-        <td><button type="button">Delete</button></td>
+        <td>@item.ID</td>
+        <td>@item.username</td>
+        <td>@item.firstnames</td>
+        <td>@item.lastnames</td>
+        <td>@item.email</td>
+        <td>@item.number</td>
+        <td><button type="button" value="@item.ID" onclick="EditUser(this);">Edit</button></td>
+        <td><button type="button" value="@item.ID" onclick="DeleteUser(this);">Delete</button></td>
     </tr>
-    <tr>
-        <td>2</td>
-        <td>KKaY</td>
-        <td>Kevin</td>
-        <td>Reinbold</td>
-        <td>Kevin@gmail.com</td>
-        <td>04249258444</td>
-        <td><button type="button">Edit</button></td>
-        <td><button type="button">Delete</button></td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td>LowaG</td>
-        <td>Istvan</td>
-        <td>Gati</td>
-        <td>Gatillo@gmail.com</td>
-        <td>04161234567</td>
-        <td><button type="button">Edit</button></td>
-        <td><button type="button">Delete</button></td>
-    </tr>
+    }
 </table>
 
-<button id="BtnCrear" type="button">CREATE USER</button>
+
 
 <script type="text/javascript">
+
+    function EditUser(buttonID) {
+        window.location.href = "/en/admin/users/edituser/" + buttonID.value;
+    }
+    function DeleteUser(buttonID) {
+        window.location.href = "/en/admin/users/deleteuser/" + buttonID.value;
+    }
 
     function Validacion() {
         var e = document.getElementById('buscar_codigo').value;
@@ -114,13 +105,13 @@
         if (re.test(e) == false && e.trim() != "") {
             validaciones += "<p>The user code field only accepts numbers.</p>";
         }
-       
+
         if (validaciones != "") {
             divtext.innerHTML = validaciones;
-           
+
             $('#validacion').modal('show');
             validaciones = "";
-            
+
             window.clearTimeout(timer);
             timer = setTimeout(function () {
                 $("#cerrar-validacion").click();
@@ -134,7 +125,7 @@
     }
 
 
-    $(document).ready(function(){
+    $(document).ready(function () {
         $('.AdminButton').css('visibility', 'visible');
 
     });

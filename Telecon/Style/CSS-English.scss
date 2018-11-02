@@ -5,7 +5,6 @@ button:focus {
     outline: none !important;
 }
 
-
 @-moz-document url-prefix() {
     /* MOZILLA FIREFOX */
     @media (min-width: 640px) {
@@ -698,7 +697,7 @@ button:focus {
         .AvatarImg {
             background: transparent;
             position: relative;
-            bottom: 28.6em !important;
+            bottom: 30.2em !important;
             height: 43%;
             width: 25%;
             margin-bottom: -300px;
@@ -706,14 +705,14 @@ button:focus {
             background-position: center center;
             background-image: url("Media/UsuarioPre.png");
             background-repeat: no-repeat;
-            background-size: cover;
+            background-size: 100% 100% !important;
             margin-bottom: -300px;
         }
 
         #BuscarImagen {
             position: relative;
             left: 37.5%;
-            bottom: 9.1em !important;
+            bottom: 11.1em !important;
             font-size: 70%;
         }
 
@@ -1041,9 +1040,10 @@ button:focus {
             border-color: white;
             text-align: center;
             position: relative;
-            left: 87.7%;
-            bottom: 38.3em;
-            width: 10%;
+            margin-left: 5% !important;
+            left: 0 !important;
+            bottom: 0 !important;
+            width: 12em !important;
             height: 7%;
             padding-top: 0.5em;
             padding-bottom: 0.5em;
@@ -1065,7 +1065,6 @@ button:focus {
             font-family: 'Rubik', sans-serif;
             font-size: 90%;
             bottom: 3.8em;
-
             position: relative;
             left: 0 !important;
             width: 100%;
@@ -4602,8 +4601,8 @@ button:focus {
         .AvatarImg {
             background: transparent;
             position: relative;
-            bottom: 28.8em !important;
-            height: 48%;
+            bottom: 30.2em !important;
+            height: 49.5%;
             width: 25%;
             margin-bottom: -300px;
             left: 74.7%;
@@ -4617,7 +4616,7 @@ button:focus {
         #BuscarImagen {
             position: relative;
             left: 37%;
-            bottom: 9.5em !important;
+            bottom: 11.5em !important;
             font-size: 70%;
         }
 
@@ -4945,9 +4944,10 @@ button:focus {
             border-color: white;
             text-align: center;
             position: relative;
-            left: 88%;
-            bottom: 32.5em;
-            width: 10%;
+            margin-left: 5% !important;
+            left: 0 !important;
+            bottom: 0 !important;
+            width: 12em !important;
             height: 7%;
             padding-top: 0.5em;
             padding-bottom: 0.5em;
@@ -8348,9 +8348,9 @@ button:focus {
         .AvatarImg {
             background: transparent;
             position: relative;
-            bottom: 28.8em !important;
+            bottom: 30.2em !important;
             height: 48%;
-            width: 25%;
+            width: 25% !important;
             margin-bottom: -300px;
             left: 74.7%;
             background-position: center center;
@@ -8363,7 +8363,7 @@ button:focus {
         #BuscarImagen {
             position: relative;
             left: 37%;
-            bottom: 8.5em !important;
+            bottom: 10em !important;
             font-size: 70%;
         }
 
@@ -12732,7 +12732,7 @@ button:focus {
         .AvatarImg {
             background: transparent;
             position: relative;
-            bottom: 28.9em !important;
+            bottom: 30.5em !important;
             height: 50%;
             width: 20%;
             margin-bottom: -300px;
@@ -12747,7 +12747,7 @@ button:focus {
         #BuscarImagen {
             position: relative;
             left: 40%;
-            bottom: 8.5em !important;
+            bottom: 10.5em !important;
             font-size: 80%;
         }
 
@@ -17110,7 +17110,7 @@ button:focus {
         .AvatarImg {
             background: transparent;
             position: relative;
-            bottom: 28.8em;
+            bottom: 30.4em !important;
             height: 50%;
             width: 20%;
             margin-bottom: -300px;
@@ -20404,7 +20404,7 @@ button:focus {
         .AvatarImg {
             background: transparent;
             position: relative;
-            bottom: 28.6em;
+            bottom: 30.2em !important;
             height: 50%;
             width: 20%;
             margin-bottom: -300px;
@@ -25919,7 +25919,7 @@ button:focus {
         .AvatarImg {
             background: transparent;
             position: relative;
-            bottom: 35.7em !important;
+            bottom: 37.2em !important;
             height: 50%;
             width: 20%;
             margin-bottom: -300px;
@@ -25933,7 +25933,7 @@ button:focus {
         #BuscarImagen {
             position: relative;
             left: 40%;
-            bottom: 13.5em !important;
+            bottom: 14.5em !important;
             font-size: 100%;
         }
 
@@ -43790,7 +43790,7 @@ button:focus {
         .AvatarImg {
             background: transparent;
             position: relative;
-            bottom: 36em !important;
+            bottom: 37.6em !important;
             height: 50%;
             width: 15%;
             margin-bottom: -300px;
@@ -47587,7 +47587,7 @@ button:focus {
         .AvatarImg {
             background: transparent;
             position: relative;
-            bottom: 39.8em !important;
+            bottom: 41em !important;
             height: 50%;
             width: 15%;
             margin-bottom: -300px;
@@ -54413,6 +54413,7 @@ button:focus {
         }
     }
 }
+
 /* END MOZILLA */
 /* GOOGLE CHROME */
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) and (min-width: 640px) {
@@ -55061,7 +55062,7 @@ button:focus {
     .AvatarImg {
         background: transparent;
         position: relative;
-        bottom: 107.5%;
+        bottom: 112.5% !important;
         height: 43%;
         width: 25%;
         margin-bottom: -300px;
@@ -55069,14 +55070,14 @@ button:focus {
         background-position: center center;
         background-image: url("Media/UsuarioPre.png");
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: 100% 100% !important;
         margin-bottom: -300px;
     }
 
     #BuscarImagen {
         position: relative;
         left: 37.5%;
-        bottom: 8.1em;
+        bottom: 10.1em !important;
         font-size: 70%;
     }
 
@@ -55361,7 +55362,7 @@ button:focus {
     }
 
     .TablaUsuarios td:nth-child(7) {
-        padding-left: 0.5em;
+        text-align: center !important;
         padding-bottom: 0.8em;
         border-bottom-style: none;
     }
@@ -55369,6 +55370,7 @@ button:focus {
     .TablaUsuarios td:nth-child(7) button {
         background-color: transparent;
         letter-spacing: 0.1em;
+        margin: 0 !important;
         color: white;
         border-style: solid;
         border-color: white;
@@ -55385,7 +55387,7 @@ button:focus {
     }
 
     .TablaUsuarios td:nth-child(8) {
-        padding-left: 1em;
+        text-align: left !important;
         padding-bottom: 0.8em;
         border-bottom-style: none;
     }
@@ -55415,9 +55417,10 @@ button:focus {
         border-color: white;
         text-align: center;
         position: relative;
-        left: 86.5%;
-        bottom: 38em;
-        width: 12%;
+        margin-left: 5% !important;
+        left: 0 !important;
+        bottom: 0 !important;
+        width: 8em !important;
         height: 7%;
         padding-top: 0.5em;
         padding-bottom: 0.5em;
@@ -58703,7 +58706,7 @@ button:focus {
     #BuscarImagen {
         position: relative;
         left: 37%;
-        bottom: 8.5em;
+        bottom: 8.5em !important;
         font-size: 70%;
     }
 
@@ -66797,7 +66800,7 @@ button:focus {
         position: relative;
         left: 24%;
         bottom: 9em;
-        width: 68%;
+        width: 72% !important;
     }
 
     .TablaUsuarios td {
@@ -66902,9 +66905,10 @@ button:focus {
         border-color: white;
         text-align: center;
         position: relative;
-        left: 82%;
-        bottom: 33em;
-        width: 10%;
+        margin-left: 12% !important;
+        left: 0 !important;
+        bottom: 0 !important;
+        width: 14em !important;
         height: 7%;
         padding-top: 0.5em;
         padding-bottom: 0.5em;
@@ -79433,7 +79437,7 @@ button:focus {
     .AvatarImg {
         background: transparent;
         position: relative;
-        bottom: 35em;
+        bottom: 36.8em !important;
         height: 50%;
         width: 20%;
         margin-bottom: -300px;
@@ -79447,7 +79451,7 @@ button:focus {
     #BuscarImagen {
         position: relative;
         left: 40%;
-        bottom: 13em;
+        bottom: 14.5em !important;
         font-size: 100%;
     }
 
@@ -100478,7 +100482,7 @@ button:focus {
     .AvatarImg {
         background: transparent;
         position: relative;
-        bottom: 39.8em;
+        bottom: 40.5em !important;
         height: 50%;
         width: 15%;
         margin-bottom: -300px;
@@ -100492,7 +100496,7 @@ button:focus {
     #BuscarImagen {
         position: relative;
         left: 42.4%;
-        bottom: 13.5em;
+        bottom: 13.5em !important;
         font-size: 130%;
     }
 
@@ -104027,7 +104031,7 @@ button:focus {
     .AvatarImg {
         background: transparent;
         position: relative;
-        bottom: 52.8em;
+        bottom: 53.8em !important;
         height: 55%;
         width: 20%;
         margin-bottom: -300px;
@@ -104041,7 +104045,7 @@ button:focus {
     #BuscarImagen {
         position: relative;
         left: 39.8%;
-        bottom: 16em;
+        bottom: 16em !important;
         font-size: 190%;
     }
 

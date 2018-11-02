@@ -61,12 +61,6 @@ namespace Telecon.Controllers
         }
 
         [HttpGet]
-        public ActionResult Visualizar()
-        {
-            return View("VisualizarUsuarios");
-        }
-
-        [HttpGet]
         public ActionResult Editar(int id)
         {
             using(var context = new DataContext())
@@ -123,6 +117,28 @@ namespace Telecon.Controllers
             {
                 var search = (from s in context.Usuarios where s.ID == id select s).SingleOrDefault();
                 return View("EliminarUsuario", search);
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Eliminar(User modelo)
+        {
+            operations.DeleteUser(modelo.ID);
+            using (var context = new DataContext())
+            {
+                var search = (from s in context.Usuarios select s).ToList();
+                return View("VisualizarUsuarios", search);
+            }
+        }
+
+        [HttpGet]
+        public ActionResult Visualizar()
+        {
+            using (var context = new DataContext())
+            {
+                var search = (from s in context.Usuarios select s).ToList();
+                return View("VisualizarUsuarios", search);
             }
         }
 
@@ -205,14 +221,6 @@ namespace Telecon.Controllers
             return View("CreateUser");
         }
 
-
-
-        [HttpGet]
-        public ActionResult ViewUsers()
-        {
-            return View();
-        }
-
         [HttpGet]
         public ActionResult Edit(int id)
         {
@@ -268,6 +276,28 @@ namespace Telecon.Controllers
             {
                 var search = (from s in context.Usuarios where s.ID == id select s).SingleOrDefault();
                 return View("DeleteUser", search);
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(User modelo)
+        {
+            operations.DeleteUser(modelo.ID);
+            using (var context = new DataContext())
+            {
+                var search = (from s in context.Usuarios select s).ToList();
+                return View("ViewUsers", search);
+            }
+        }
+
+        [HttpGet]
+        public ActionResult ViewUsers()
+        {
+            using (var context = new DataContext())
+            {
+                var search = (from s in context.Usuarios select s).ToList();
+                return View(search);
             }
         }
 

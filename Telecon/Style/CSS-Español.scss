@@ -696,7 +696,7 @@ button:focus {
         .AvatarImg {
             background: transparent;
             position: relative;
-            top: -28.6em;
+            top: -30.2em !important;
             height: 43%;
             width: 25%;
             margin-bottom: -300px;
@@ -704,14 +704,14 @@ button:focus {
             background-position: center center;
             background-image: url("Media/UsuarioPre.png");
             background-repeat: no-repeat;
-            background-size: cover;
+            background-size: 100% 100% !important;
             margin-bottom: -300px;
         }
 
         #BuscarImagen {
             position: relative;
             left: 37.5%;
-            top: -9.1em;
+            top: -11.1em !important;
             font-size: 70%;
         }
 
@@ -1038,11 +1038,11 @@ button:focus {
             border-style: solid;
             border-color: white;
             text-align: center;
-            position: relative;
-            left: 85.5%;
-            bottom: 38.7em;
-            width: 12%;
-            height: 7%;
+            margin-left: 5% !important;
+            left: 0 !important;
+            bottom: 0 !important;
+            width: 10em !important;
+            height: 5% !important;
             padding-top: 0.5em;
             padding-bottom: 0.5em;
             padding-left: 2em;
@@ -1064,7 +1064,6 @@ button:focus {
             font-size: 90%;
             bottom: 3.8em;
             position: relative;
-            left: 0 !important;
             right: 0 !important;
             text-align: center;
             width: 100% !important;
@@ -4942,8 +4941,9 @@ button:focus {
             border-color: white;
             text-align: center;
             position: relative;
-            left: 86.5%;
-            bottom: 32.5em;
+            margin-left: 6% !important;
+            left: 0% !important;
+            bottom: 0 !important;
             width: 12%;
             height: 7%;
             padding-top: 0.5em;
@@ -8351,14 +8351,14 @@ button:focus {
             background-position: center center;
             background-image: url("Media/UsuarioPre.png");
             background-repeat: no-repeat;
-            background-size: cover;
+            background-size: 100% 100% !important;
             margin-bottom: -300px;
         }
 
         #BuscarImagen {
             position: relative;
             left: 37%;
-            top: -8.5em !important;
+            top: -10.5em !important;
             font-size: 70%;
         }
 
@@ -8689,8 +8689,9 @@ button:focus {
             border-color: white;
             text-align: center;
             position: relative;
-            left: 84.5%;
-            bottom: 67.5em;
+            margin-left: 6% !important;
+            left: 0% !important;
+            bottom: 0 !important;
             width: 12%;
             height: 7%;
             padding-top: 0.5em;
@@ -13702,7 +13703,7 @@ button:focus {
         .AvatarImg {
             background: transparent;
             position: relative;
-            bottom: 28.9em;
+            bottom: 29.2em !important;
             height: 50%;
             width: 20%;
             margin-bottom: -300px;
@@ -13717,7 +13718,7 @@ button:focus {
         #BuscarImagen {
             position: relative;
             left: 40%;
-            top: -8.2em !important;
+            top: -10.2em !important;
             font-size: 80%;
         }
 
@@ -13940,7 +13941,7 @@ button:focus {
             position: relative;
             left: 24%;
             bottom: 9em;
-            width: 68%;
+            width: 73% !important;
         }
 
         .TablaUsuarios td {
@@ -14045,9 +14046,10 @@ button:focus {
             border-color: white;
             text-align: center;
             position: relative;
-            left: 81%;
-            bottom: 33.5em;
-            width: 12%;
+            margin-left: 12% !important;
+            left: 0% !important;
+            bottom: 0 !important;
+            width: 14em !important;
             height: 7%;
             padding-top: 0.5em;
             padding-bottom: 0.5em;
@@ -26560,7 +26562,7 @@ button:focus {
         .AvatarImg {
             background: transparent;
             position: relative;
-            top: -35.7em !important;
+            top: -37.2em !important;
             height: 50%;
             width: 20%;
             margin-bottom: -300px;
@@ -26574,7 +26576,7 @@ button:focus {
         #BuscarImagen {
             position: relative;
             left: 40%;
-            top: -13.5em !important;
+            top: -15em !important;
             font-size: 100%;
         }
 
@@ -48246,7 +48248,7 @@ button:focus {
         .AvatarImg {
             background: transparent;
             position: relative;
-            top: -39.8em !important;
+            top: -40.8em !important;
             height: 50%;
             width: 15%;
             margin-bottom: -300px;
@@ -48260,7 +48262,7 @@ button:focus {
         #BuscarImagen {
             position: relative;
             left: 42.4%;
-            bottom: 13.5em;
+            top: -14.5em !important;
             font-size: 130%;
         }
 
@@ -52041,7 +52043,7 @@ button:focus {
         .AvatarImg {
             background: transparent;
             position: relative;
-            top: -53.8em !important;
+            top: -54.8em !important;
             height: 55%;
             width: 20%;
             margin-bottom: -300px;
@@ -52055,7 +52057,7 @@ button:focus {
         #BuscarImagen {
             position: relative;
             left: 39.8%;
-            top: -16em !important;
+            top: -17em !important;
             font-size: 190%;
         }
 
@@ -55693,7 +55695,7 @@ button:focus {
     .AvatarImg {
         background: transparent;
         position: relative;
-        bottom: 107.5%;
+        bottom: 113% !important;
         height: 43%;
         width: 25%;
         margin-bottom: -300px;
@@ -55701,14 +55703,14 @@ button:focus {
         background-position: center center;
         background-image: url("Media/UsuarioPre.png");
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: 100% 100% !important;
         margin-bottom: -300px;
     }
 
     #BuscarImagen {
         position: relative;
         left: 37.5%;
-        bottom: 8.1em;
+        bottom: 10.1em !important;
         font-size: 70%;
     }
 
@@ -56036,9 +56038,10 @@ button:focus {
         border-color: white;
         text-align: center;
         position: relative;
-        left: 85.5%;
-        bottom: 38em;
-        width: 12%;
+        margin-left: 5% !important;
+        left: 0 !important;
+        bottom: 0 !important;
+        width: 10em !important;
         height: 7%;
         padding-top: 0.5em;
         padding-bottom: 0.5em;
@@ -59322,7 +59325,7 @@ button:focus {
     #BuscarImagen {
         position: relative;
         left: 37%;
-        bottom: 8.5em;
+        bottom: 9.5em !important;
         font-size: 70%;
     }
 
@@ -67422,7 +67425,7 @@ button:focus {
         position: relative;
         left: 24%;
         bottom: 9em;
-        width: 68%;
+        width: 72% !important;
     }
 
     .TablaUsuarios td {
@@ -67529,7 +67532,8 @@ button:focus {
         position: relative;
         left: 81%;
         bottom: 33.5em;
-        width: 12%;
+        margin-left: 12% !important;
+        width: 14em !important;
         height: 7%;
         padding-top: 0.5em;
         padding-bottom: 0.5em;
@@ -80058,7 +80062,7 @@ button:focus {
     .AvatarImg {
         background: transparent;
         position: relative;
-        bottom: 35em;
+        bottom: 36.7em !important;
         height: 50%;
         width: 20%;
         margin-bottom: -300px;
@@ -80072,7 +80076,7 @@ button:focus {
     #BuscarImagen {
         position: relative;
         left: 40%;
-        bottom: 13em;
+        bottom: 14em !important;
         font-size: 100%;
     }
 
@@ -101085,7 +101089,7 @@ button:focus {
     .AvatarImg {
         background: transparent;
         position: relative;
-        bottom: 39.8em;
+        bottom: 41em !important;
         height: 50%;
         width: 15%;
         margin-bottom: -300px;
@@ -104633,7 +104637,7 @@ button:focus {
     .AvatarImg {
         background: transparent;
         position: relative;
-        bottom: 52.8em;
+        bottom: 53.8em !important;
         height: 55%;
         width: 20%;
         margin-bottom: -300px;
@@ -104647,7 +104651,7 @@ button:focus {
     #BuscarImagen {
         position: relative;
         left: 39.8%;
-        bottom: 16em;
+        bottom: 16em !important;
         font-size: 190%;
     }
 

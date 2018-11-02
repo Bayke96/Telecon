@@ -61,8 +61,6 @@ namespace Telecon.Model_Operations
         public void UpdateUser(int id, string usuario, string nombres, string apellidos, int edad,
             string correo, string telefono, bool IsAdmin, string imagen = null)
         {
-            Security sec = new Security();
-
             using (var context = new DataContext())
             {
                 var search = (from s in context.Usuarios where s.ID == id select s).FirstOrDefault();
@@ -79,7 +77,18 @@ namespace Telecon.Model_Operations
                 if(imagen != null) search.picturePath = imagen;
 
                 context.SaveChanges();
+            }
+        }
 
+        // Deletes an user from database - Eliminar usuarios de la base de datos
+
+        public void DeleteUser(int id)
+        {
+            using (var context = new DataContext())
+            {
+                var search = (from s in context.Usuarios where s.ID == id select s).SingleOrDefault();
+                context.Usuarios.Remove(search);
+                context.SaveChanges();
             }
         }
 

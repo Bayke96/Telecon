@@ -1,4 +1,4 @@
-﻿@model Telecon.Models.User
+﻿@model IEnumerable<Telecon.Models.User>
 @{
     Layout = "~/Views/Estructura/_Forma.cshtml";
     Page.Title = "Telecon Erickson C.A - Usuarios";
@@ -11,13 +11,13 @@
         <p><span class="glyphicon glyphicon-user"></span>   BUSCAR</p>
         <hr /><br />
         <h5>Código de Usuario</h5>
-        @Html.TextBoxFor(m => m.ID, new { id = "buscar_codigo", oninput = "return Validacion();", @value = "" })
+        @Html.TextBox("searchID", "", new { id = "buscar_codigo", oninput = "return Validacion();", @value = "" })
         <h5>Nombres y Apellidos</h5>
-        @Html.TextBoxFor(m => m.firstnames, new { @value = "" })
+        @Html.TextBox("searchNames", "", new { @value = "" })
         <h5>Correo</h5>
-        @Html.TextBoxFor(m => m.email, new { @value = "" })
+        @Html.TextBox("searchEmail", "", new { @value = "", oninput = "return Validacion();" })
         <h5>Teléfono</h5>
-        @Html.TextBoxFor(m => m.number, new { @value = "" })
+        @Html.TextBox("searchNumber", "", new { @value = "" })
         <div class="btn-group dropup SearchMenu">
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                 Ordenar por
@@ -65,43 +65,33 @@
         <td>Apellidos</td>
         <td style="border-bottom-style: solid; width: 15%; padding-top: 1em; padding-bottom: 0.5em; padding-left: 0;">Correo</td>
         <td style="padding-bottom: 0.5em; border-bottom-style: solid; border-top-style: none;">Teléfono</td>
+        <th colspan="2" style="text-align: center;"><button id="BtnCrear" type="button">CREAR USUARIO</button></th>
     </tr>
+    @foreach(var item in Model)
+    {
     <tr>
-        <td>1</td>
-        <td>Bayke</td>
-        <td>Cristian David</td>
-        <td>González Lugo</td>
-        <td>cdgl1996@gmail.com</td>
-        <td>0416-6860677</td>
-        <td><button type="button">Editar</button></td>
-        <td><button type="button">Borrar</button></td>
+        <td>@item.ID</td>
+        <td>@item.username</td>
+        <td>@item.firstnames</td>
+        <td>@item.lastnames</td>
+        <td>@item.email</td>
+        <td>@item.number</td>
+        <td><button type="button" value="@item.ID" onclick="EditUser(this);">Editar</button></td>
+        <td><button type="button" value="@item.ID" onclick="DeleteUser(this);">Borrar</button></td>
     </tr>
-    <tr>
-        <td>2</td>
-        <td>KKaY</td>
-        <td>Kevin</td>
-        <td>Reinbold</td>
-        <td>Kevin@gmail.com</td>
-        <td>04249258444</td>
-        <td><button type="button">Editar</button></td>
-        <td><button type="button">Borrar</button></td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td>LowaG</td>
-        <td>Istvan</td>
-        <td>Gati</td>
-        <td>Gatillo@gmail.com</td>
-        <td>04161234567</td>
-        <td><button type="button">Editar</button></td>
-        <td><button type="button">Borrar</button></td>
-    </tr>
+    }
 </table>
 
-<button id="BtnCrear" type="button">CREAR USUARIO</button>
+
 
 <script type="text/javascript">
 
+    function EditUser(buttonID) {
+        window.location.href = "/es/admin/usuarios/editarusuario/" + buttonID.value;
+    }
+    function DeleteUser(buttonID) {
+        window.location.href = "/es/admin/usuarios/eliminarusuario/" + buttonID.value;
+    }
 
     function Validacion() {
         var e = document.getElementById('buscar_codigo').value;

@@ -36,7 +36,14 @@
     <div class="EditarCargo">
         <h2><b>PRIVILEGIOS</b></h2>
         <hr />
-        <input id="RankCheck" type="checkbox" class="checkbox" name="IsAdmin" value="true" checked="@Model.admin">
+        @if (Model.admin == true)
+        {
+            <input id="RankCheck" type="checkbox" class="checkbox" name="IsAdmin" value="true" checked>
+        }
+        @if (Model.admin == false)
+        {
+            <input id="RankCheck" type="checkbox" class="checkbox" name="IsAdmin" value="true">
+        }
 
         <p>Administrador</p>
     </div>
@@ -114,24 +121,20 @@
         var divtext = document.getElementById("validaciones-contenido");
 
         $.ajax({
-
             type: "POST",
-            url: "json/username",
+            url: "/json/username",
             dataType: "json",
             data: AddAntiForgeryToken({ userName: user_id }),
             success: function (data) {
                 if (data == true) {
-                    
                     VerifyID();
                     return true
                 }
                 if (data == false) {
-                    document.getElementById("edit-user-form").submit();
-                    return true;
+                    return VerifyMail();
                 }
             },
-            error: function (data) {
-                alert("failure");
+            error: function (jsonData, xhr, status) {
                 return false;
             }
         });
@@ -145,7 +148,7 @@
         $.ajax({
 
             type: "POST",
-            url: "json/id",
+            url: "/json/id",
             dataType: "json",
             data: AddAntiForgeryToken({ userName: user_id }),
             success: function (data) {
@@ -159,18 +162,63 @@
                     return false
                 }
                 if (data == @Model.ID) {
-                    document.getElementById("edit-user-form").submit();
-                    return true;
+                    return VerifyMail();
                 }
             },
-            error: function (data) {
-                alert("failure");
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(errorThrown);
                 return false;
             }
         });
         return false;
     }
 
+    function VerifyMail() {
+
+        var correo = document.getElementById("email-text").value;
+        var divtext = document.getElementById("validaciones-contenido");
+
+        $.ajax({
+
+            type: "POST",
+            url: "/json/email",
+            dataType: "json",
+            data: AddAntiForgeryToken({ email: correo }),
+            success: function (data) {
+                
+                if (data.emailname != null && data.emailid != @Model.ID) {
+                    divtext.innerHTML = "<p>Este correo electronico ya se encuentra asociado a una cuenta.</p>\n";
+                    $('#validacion').modal('show');
+                    window.clearTimeout(timer);
+                    timer = setTimeout(function () {
+                        $("#cerrar-validacion").click();
+                    }, 5000); // <-- time in milliseconds
+                    return false
+                }
+                else {
+                    divtext.innerHTML = "<p>La cuenta de usuario ha sido actualizada exitosamente.</p>\n";
+                    $('.modal-header').css('background-color', 'blue');
+                    $('.modal-footer').css('background-color', 'blue');
+                    $('#validacion').modal('show');
+                    window.clearTimeout(timer);
+                    timer = setTimeout(function () {
+                        $("#cerrar-validacion").click();
+                        document.getElementById("edit-user-form").submit();
+                    }, 2000); // <-- time in milliseconds
+                    return true;
+                }
+               
+                
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(errorThrown);
+                return false;
+            }
+        });
+        return false;
+    }
+
+   
     function EditUser() {
 
         // Datos del usuario
@@ -245,7 +293,7 @@
         if (telefono.trim() != "" && letras.test(telefono) == false) {
             validaciones += "<p>El campo telefono solo acepta números y simbolos + -</p>\n"
         }
-        
+
         if (validaciones != "") {
             divtext.innerHTML = validaciones;
             $('#validacion').modal('show');
@@ -259,7 +307,7 @@
         } else {
             return VerifyUser();
         }
-        
+
     }
 
     $(document).ready(function () {

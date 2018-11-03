@@ -1,17 +1,5 @@
 ﻿[
   {
-    "outputFile": "Style/Styling.css",
-    "inputFile": "Style/Styling.scss"
-  },
-  {
-    "outputFile": "Style/Estilo.css",
-    "inputFile": "Style/Estilo.scss"
-  },
-  {
-    "outputFile": "Style/Style.css",
-    "inputFile": "Style/Style.scss"
-  },
-  {
     "outputFile": "Style/CSS-English.css",
     "inputFile": "Style/CSS-English.scss"
   },

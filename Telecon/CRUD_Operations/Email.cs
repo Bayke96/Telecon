@@ -16,7 +16,7 @@ namespace Telecon.CRUD_Operations
             try
             {
                 msg.Subject = "Telecon Erickson C.A. - Registro de Usuario / User Registration";
-                msg.Body = "<html><center><h1>TELECON ERICKSON C.A - REGISTRO DE USUARIO / USER REGISTRATION</h1><br /><br />" +
+                msg.Body = "<html><center><h1>TELECON ERICKSON C.A. - REGISTRO DE USUARIO / USER REGISTRATION</h1><br /><br />" +
                      "<b>Credenciales de Inicio / User Credentials</b><br /><br />" +
                     "<table border='1'>" +
                     "<tr bgcolor='cyan'>" +

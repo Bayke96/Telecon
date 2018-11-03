@@ -20,7 +20,7 @@ namespace Telecon.Models
         public string firstnames { get; set; }
         [Column("u_lastnames"), Required(ErrorMessage = "You must type a lastname."), MinLength(2), MaxLength(72)]
         public string lastnames { get; set; }
-        [Column("u_email"), Required(ErrorMessage = "You must type an email."), MaxLength(50), DataType(DataType.EmailAddress)]
+        [Index(IsUnique = true), Column("u_email"), Required(ErrorMessage = "You must type an email."), MaxLength(50), DataType(DataType.EmailAddress)]
         public string email { get; set; }
         [Column("u_age"), Required(ErrorMessage = "You must type an age between 15 - 100 years old."), Range(15, 100)]
         public int age { get; set; }

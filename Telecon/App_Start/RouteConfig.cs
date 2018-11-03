@@ -16,7 +16,7 @@ namespace Telecon
             routes.MapRoute(
                 name: "Default",
                 url: "",
-                defaults: new { controller = "Users", action = "Create" }
+                defaults: new { controller = "Users", action = "Visualizar" }
             );
 
             routes.MapRoute(
@@ -352,6 +352,12 @@ namespace Telecon
              name: "UsernameJSON",
              url: "json/username",
              defaults: new { controller = "JSON", action = "UserExists" }
+            );
+
+            routes.MapRoute(
+             name: "EmailJSON",
+             url: "json/email",
+             defaults: new { controller = "JSON", action = "EmailRegistered" }
             );
 
             routes.MapRoute(

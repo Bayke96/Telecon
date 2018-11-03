@@ -80,7 +80,7 @@
             $.ajax({
 
                 type: "POST",
-                url: "json/username",
+                url: "/json/username",
                 dataType: "json",   
                 data: AddAntiForgeryToken({ userName : user_id }),
                 success: function (data) {
@@ -91,14 +91,56 @@
                         timer = setTimeout(function () {
                             $("#cerrar-validacion").click();
                         }, 5000); // <-- time in milliseconds
-                        return false
+                        return false;
                     }
                     if (data == false) {
+                        VerifyMail();
+                    }
+                },
+                 error: function (data) {
+                    alert("failure");
+                    return false;
+                }
+            });
+            return false;
+        }
+
+        function VerifyMail() {
+
+            var correo = document.getElementById("CampoCorreo").value;
+            var divtext = document.getElementById("validaciones-contenido");
+
+            $.ajax({
+
+                type: "POST",
+                url: "/json/email",
+                dataType: "json",
+                data: AddAntiForgeryToken({ email: correo }),
+                success: function (data) {
+                    if (data.emailname != null) {
+                        divtext.innerHTML = "<p>Este correo electronico ya se encuentra asociado a una cuenta.</p>\n";
+                        $('#validacion').modal('show');
+                        window.clearTimeout(timer);
+                        timer = setTimeout(function () {
+                            $("#cerrar-validacion").click();
+                        }, 5000); // <-- time in milliseconds
+                        return false
+                    }
+                    if (data.emailname == null) {
+                        divtext.innerHTML = "<p>Usuario registrado exitosamente.</p>\n";
+                        divtext.innerHTML = "<p>Un correo ha sido enviado al e-mail suministrado con las credenciales de usuario.</p>\n";
+                        $('.modal-header').css('background-color', 'blue');
+                        $('.modal-footer').css('background-color', 'blue');
+                        $('#validacion').modal('show');
+                        window.clearTimeout(timer);
+                        timer = setTimeout(function () {
+                            $("#cerrar-validacion").click();
+                        }, 4000); // <-- time in milliseconds
                         document.getElementById("add-user-form").submit();
                         return true;
                     }
                 },
-                 error: function (data) {
+                error: function (data) {
                     alert("failure");
                     return false;
                 }

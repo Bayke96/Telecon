@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using Telecon.Models;
 using Telecon.Encryption;
 using Telecon.Data_Formatting;
-using System.IO;
+using System.Globalization;
+using Telecon.CRUD_Operations;
 
 namespace Telecon.Model_Operations
 {
     public class UserCRUD
     {
+        Email email = new Email();
 
         // Search for an user's ID - Busca el ID de un usuario
 
@@ -29,11 +28,22 @@ namespace Telecon.Model_Operations
        
         // Agregar un nuevo usuario al sitio web - Adds a new user to the website.
 
-        public void AddUser(string usuario, string contraseña, string nombres, string apellidos, string direccion, int edad, 
-            string correo, string telefono, bool IsAdmin, string imagen)
+        public void AddUser(User modelo, bool isAdmin = false, string path = null)
         {
             Security sec = new Security();
+            DataFormats df = new DataFormats();
 
+            TextInfo cultInfo = new CultureInfo("en-US", false).TextInfo;
+
+            var usuario = char.ToUpper(modelo.username.First()) + modelo.username.Substring(1).ToLower().Trim();
+            var contraseña = df.GenerateString(12);
+            var nombres = cultInfo.ToTitleCase(modelo.firstnames).Trim();
+            var apellidos = cultInfo.ToTitleCase(modelo.lastnames).Trim();
+            var direccion = df.AddressCorrector(modelo.address).Trim();
+            var correo = modelo.email.ToLower().Trim();
+            var edad = modelo.age;
+            var telefono = modelo.number.Trim();
+           
             using (var context = new DataContext())
             {
                 var empleado = new User
@@ -46,21 +56,30 @@ namespace Telecon.Model_Operations
                     age = edad,
                     email = correo,
                     number = telefono,
-                    admin = IsAdmin,
-                    picturePath = imagen,
+                    admin = isAdmin,
+                    picturePath = path,
                 };
 
                 context.Usuarios.Add(empleado);
                 context.SaveChanges();
-
-            }  
+            }
+            email.SendPasswordEmail(correo, usuario, contraseña);
         }
 
         // Update an user - Actualizar usuario
 
-        public void UpdateUser(int id, string usuario, string nombres, string apellidos, int edad,
-            string correo, string telefono, bool IsAdmin, string imagen = null)
+        public void UpdateUser(User modelo, bool isAdmin = false, string path = null)
         {
+            TextInfo cultInfo = new CultureInfo("en-US", false).TextInfo;
+
+            int id = modelo.ID;
+            var usuario = char.ToUpper(modelo.username.First()) + modelo.username.Substring(1).ToLower().Trim();
+            var nombres = cultInfo.ToTitleCase(modelo.firstnames).Trim();
+            var apellidos = cultInfo.ToTitleCase(modelo.lastnames).Trim();
+            var correo = modelo.email.ToLower().Trim();
+            var edad = modelo.age;
+            var telefono = modelo.number.Trim();
+          
             using (var context = new DataContext())
             {
                 var search = (from s in context.Usuarios where s.ID == id select s).FirstOrDefault();
@@ -73,8 +92,8 @@ namespace Telecon.Model_Operations
                 search.age = edad;
                 search.email = correo;
                 search.number = telefono;
-                search.admin = IsAdmin;
-                if(imagen != null) search.picturePath = imagen;
+                search.admin = isAdmin;
+                if(path != null) search.picturePath = path;
 
                 context.SaveChanges();
             }

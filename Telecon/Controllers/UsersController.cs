@@ -1,22 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Telecon.Models;
-using Telecon.Data_Formatting;
 using Telecon.Model_Operations;
-using System.Threading.Tasks;
 using System.IO;
 
 namespace Telecon.Controllers
 {   
     public class UsersController : Controller
     {
-        DataFormats df = new DataFormats();
         UserCRUD operations = new UserCRUD();
-
+       
         // GET: Users
 
         [HttpGet]
@@ -30,15 +25,6 @@ namespace Telecon.Controllers
         public ActionResult Crear(User modelo, HttpPostedFileBase file, bool IsAdmin = false)
         {
             TextInfo cultInfo = new CultureInfo("en-US", false).TextInfo;
-
-            var usuario = char.ToUpper(modelo.username.First()) + modelo.username.Substring(1).ToLower().Trim();
-            var contraseña = df.GenerateString(12);
-            var nombres = cultInfo.ToTitleCase(modelo.firstnames).Trim();
-            var apellidos = cultInfo.ToTitleCase(modelo.lastnames).Trim();
-            var direccion = df.AddressCorrector(modelo.address).Trim();
-            var correo = modelo.email.ToLower().Trim();
-            var edad = modelo.age;
-            var telefono = modelo.number.Trim();
             string path = "";
 
             if (file != null)
@@ -53,8 +39,7 @@ namespace Telecon.Controllers
                     byte[] array = ms.GetBuffer();
                 }
             }
-
-            operations.AddUser(usuario, contraseña, nombres, apellidos, direccion, edad, correo, telefono, IsAdmin, path);
+            operations.AddUser(modelo, IsAdmin, path);
             ModelState.Clear();
 
             return View("CrearUsuario");              
@@ -74,18 +59,8 @@ namespace Telecon.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Editar(User modelo, HttpPostedFileBase uploadFile, bool IsAdmin = false)
         {
-            TextInfo cultInfo = new CultureInfo("en-US", false).TextInfo;
-
             int id = modelo.ID;
-            var usuario = char.ToUpper(modelo.username.First()) + modelo.username.Substring(1).ToLower().Trim();
-            var nombres = cultInfo.ToTitleCase(modelo.firstnames).Trim();
-            var apellidos = cultInfo.ToTitleCase(modelo.lastnames).Trim();
-            var correo = modelo.email.ToLower().Trim();
-            var edad = modelo.age;
-            var telefono = modelo.number.Trim();
             string path = "";
-
-           
 
             if (uploadFile != null)
             {
@@ -100,8 +75,8 @@ namespace Telecon.Controllers
                 }
             }
 
-            if (uploadFile == null) operations.UpdateUser(id, usuario, nombres, apellidos, edad, correo, telefono, IsAdmin);
-            if (uploadFile != null) operations.UpdateUser(id, usuario, nombres, apellidos, edad, correo, telefono, IsAdmin, path);
+            if (uploadFile == null) operations.UpdateUser(modelo, IsAdmin);
+            if (uploadFile != null) operations.UpdateUser(modelo, IsAdmin, path);
 
             using (var context = new DataContext())
             {
@@ -191,15 +166,6 @@ namespace Telecon.Controllers
         public ActionResult Create(User modelo, HttpPostedFileBase file, bool IsAdmin = false)
         {
             TextInfo cultInfo = new CultureInfo("en-US", false).TextInfo;
-
-            var usuario = char.ToUpper(modelo.username.First()) + modelo.username.Substring(1).ToLower().Trim();
-            var contraseña = df.GenerateString(12);
-            var nombres = cultInfo.ToTitleCase(modelo.firstnames).Trim();
-            var apellidos = cultInfo.ToTitleCase(modelo.lastnames).Trim();
-            var direccion = df.AddressCorrector(modelo.address).Trim();
-            var correo = modelo.email.ToLower().Trim();
-            var edad = modelo.age;
-            var telefono = modelo.number.Trim();
             string path = "";
 
             if (file != null)
@@ -214,8 +180,7 @@ namespace Telecon.Controllers
                     byte[] array = ms.GetBuffer();
                 }
             }
-
-            operations.AddUser(usuario, contraseña, nombres, apellidos, direccion, edad, correo, telefono, IsAdmin, path);
+            operations.AddUser(modelo, IsAdmin, path);
             ModelState.Clear();
 
             return View("CreateUser");
@@ -235,17 +200,9 @@ namespace Telecon.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(User modelo, HttpPostedFileBase uploadFile, bool IsAdmin = false)
         {
-            TextInfo cultInfo = new CultureInfo("en-US", false).TextInfo;
-
             int id = modelo.ID;
-            var usuario = char.ToUpper(modelo.username.First()) + modelo.username.Substring(1).ToLower().Trim();
-            var nombres = cultInfo.ToTitleCase(modelo.firstnames).Trim();
-            var apellidos = cultInfo.ToTitleCase(modelo.lastnames).Trim();
-            var correo = modelo.email.ToLower().Trim();
-            var edad = modelo.age;
-            var telefono = modelo.number.Trim();
             string path = "";
-            
+
             if (uploadFile != null)
             {
                 string pic = Path.GetFileName(uploadFile.FileName);
@@ -259,8 +216,8 @@ namespace Telecon.Controllers
                 }
             }
 
-            if (uploadFile == null) operations.UpdateUser(id, usuario, nombres, apellidos, edad, correo, telefono, IsAdmin);
-            if (uploadFile != null) operations.UpdateUser(id, usuario, nombres, apellidos, edad, correo, telefono, IsAdmin, path);
+            if (uploadFile == null) operations.UpdateUser(modelo, IsAdmin);
+            if (uploadFile != null) operations.UpdateUser(modelo, IsAdmin, path);
 
             using (var context = new DataContext())
             {

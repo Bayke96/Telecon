@@ -4,11 +4,9 @@
     Page.Title = "Telecon Erickson C.A - Create User";
 }
 
-
-
-
 <div class="PanelCrear">
-    @using (@Html.BeginForm("Create", "Users", FormMethod.Post, new { role = "form", @id = "add-user-f", autocomplete = "off" }))
+    @using (@Html.BeginForm("Create", "Users", FormMethod.Post, new { role = "form", @id = "add-user-f", autocomplete = "off",
+        enctype = "multipart/form-data"    }))
     {
         @Html.AntiForgeryToken()
         <h4 id="TituloNombreUsuario">Username</h4>
@@ -37,11 +35,8 @@
         <input id="files" accept="image/*" style="visibility:hidden;" type="file" name="file">
     }
 
-
     <div class="AvatarImg"></div>
     <label id="BuscarImagen" for="files" class="btn btn-primary">Choose Image</label>
-
-
 
 </div>
     
@@ -182,8 +177,7 @@
         if (telefono.trim() != "" && letras.test(telefono) == false) {
             validaciones += "<p>The phone number field only allows numbers and the symbols + -</p>\n"
         }
-
-
+        
 
         if (validaciones != "") {
             divtext.innerHTML = validaciones;
@@ -198,8 +192,7 @@
         } else {
             return VerifyUser();
         }
-
-
+        
     }
 
 
@@ -214,8 +207,7 @@
         } else {
         }
     });
-
-
+    
     $("#BotonBorrar").click(function () {
         $('.AvatarImg').css('background-image', 'url("/Style/Media/UsuarioPre.png")');
     }
@@ -225,8 +217,7 @@
         $('.AdminButton').css('visibility', 'visible');
     });
 
-
-
+    
     $(function () {
         $("#Español").click(function () {
             window.location.href = "/es/admin/usuarios/crearusuario";
@@ -237,7 +228,5 @@
             window.location.href = "/en/admin/users/createuser";
         });
     });
-
-
-
+    
 </script>

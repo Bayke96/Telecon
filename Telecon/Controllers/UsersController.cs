@@ -5,13 +5,15 @@ using System.Web.Mvc;
 using Telecon.Models;
 using Telecon.Model_Operations;
 using System.IO;
+using System.Net;
 
 namespace Telecon.Controllers
 {   
+    
     public class UsersController : Controller
     {
         UserCRUD operations = new UserCRUD();
-       
+        
         // GET: Users
 
         [HttpGet]
@@ -110,6 +112,7 @@ namespace Telecon.Controllers
         [HttpGet]
         public ActionResult Visualizar()
         {
+           
             using (var context = new DataContext())
             {
                 var search = (from s in context.Usuarios select s).ToList();

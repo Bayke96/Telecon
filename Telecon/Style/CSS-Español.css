@@ -43179,6 +43179,10 @@ button:focus {
     padding: 0;
     background-image: url("/Style/Media/BG.jpg");
     background-repeat: repeat-y; }
+  .ContenedorProductos {
+    display: inline-block; }
+  .contenedor-productos-full {
+    display: none; }
   .modal-header {
     background-color: red;
     border-radius: 2px;
@@ -45926,7 +45930,232 @@ button:focus {
   .ProductosDivB button:hover {
     background-color: white;
     color: rgba(7, 183, 154, 0.7);
-    font-weight: bold; } }
+    font-weight: bold; }
+  .PanelAgregarProducto {
+    width: 85%;
+    height: 35em;
+    position: relative;
+    background-color: rgba(0, 204, 255, 0.5);
+    left: 7%;
+    border-top-width: 3em;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-bottom-width: 1em;
+    border-color: white;
+    padding: 0;
+    margin: 0;
+    text-align: center; }
+  .PanelAgregarProducto h2 {
+    color: white;
+    font-size: 90%;
+    letter-spacing: 0.1em;
+    font-family: 'Rubik', sans-serif;
+    width: 100%;
+    margin: 0;
+    padding: 1em;
+    text-align: center; }
+  .PanelAgregarProducto hr {
+    margin: 0;
+    padding: 0;
+    width: 1px;
+    width: 85%;
+    margin-left: 6.8%;
+    margin-bottom: 1em; }
+  .ProductoImgPrincipal {
+    position: relative;
+    margin: 0.5em;
+    padding: 0;
+    background-color: white;
+    width: 52%;
+    height: 15em;
+    background-size: 99% 99%;
+    background-position: center center;
+    background-color: rgba(255, 255, 255, 0.8);
+    background-repeat: no-repeat; }
+  .TablaImagenes {
+    position: relative;
+    margin: 0.5em;
+    color: white;
+    width: 52%;
+    height: 6em; }
+  .TablaImagenes td {
+    padding: 0.3em; }
+  .FormularioAProducto select {
+    margin-bottom: 0.5em;
+    font-size: 90%;
+    width: 60%;
+    text-align: right;
+    padding-right: 3%; }
+  #AgClasificacion {
+    position: relative;
+    width: 7%;
+    height: 1.5em;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    margin-left: -2em;
+    float: right;
+    right: 20%; }
+  #AgClasificacion span {
+    margin: 0;
+    padding: 0; }
+  .TablaImagenes td div {
+    position: relative;
+    width: 100%;
+    height: 6em;
+    background-size: 99% 99%;
+    background-position: center center;
+    background-color: rgba(255, 255, 255, 0.8); }
+  .FormularioAProducto {
+    background-color: transparent;
+    position: relative;
+    width: 45%;
+    height: 21.8em;
+    float: right;
+    bottom: 22.6em;
+    margin: 0;
+    padding: 0;
+    margin-right: 0.8%;
+    margin-bottom: -200px; }
+  .FormularioAProducto select {
+    margin-bottom: 0.5em;
+    font-size: 90%;
+    width: 60%;
+    text-align: right !important;
+    padding-right: 3%;
+    text-align-last: right; }
+  .FormularioAProducto p {
+    float: right;
+    text-align: center;
+    font-size: 90%;
+    width: 100%;
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik', sans-serif;
+    padding-bottom: 0.5em; }
+  .FormularioAProducto input[type="text"] {
+    position: relative;
+    height: 8%;
+    width: 70%;
+    left: 6%;
+    text-align: center;
+    font-size: 80%;
+    font-weight: bold;
+    margin-left: 8%;
+    margin-bottom: 1em; }
+  .FormularioAProducto textarea {
+    font-size: 80%;
+    width: 70%;
+    height: 30%;
+    margin-bottom: 1em; }
+  .PanelAgregarProducto button {
+    position: relative;
+    color: white;
+    width: 20%;
+    height: 2.5em;
+    font-family: 'Rubik', sans-serif;
+    font-size: 85%;
+    background-color: rgba(7, 183, 154, 0.7);
+    border-style: none;
+    border-radius: 2px;
+    transition: all 500ms ease; }
+  .PanelAgregarProducto button:hover {
+    color: #07b79a;
+    background-color: white; }
+  .ImageProduct {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.0; }
+  #parrafo-confirmacion {
+    color: white;
+    font-size: 80%;
+    text-align: center; }
+  .FormularioAProducto .product-info {
+    font-weight: bold;
+    color: whitesmoke; }
+  .product-detail {
+    width: 90%;
+    height: 35em;
+    background-color: rgba(0, 204, 255, 0.5);
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-top-width: 3em;
+    border-bottom-width: 1em;
+    border-color: white;
+    position: relative;
+    /* or absolute */
+    left: 4.5%;
+    margin: 0;
+    padding: 0;
+    margin-top: 1%; }
+  #main-image {
+    background-color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    margin: 1%;
+    width: 50%;
+    height: 23.75em;
+    background-size: 98% 98%; }
+  #secondary-images-block {
+    background-color: transparent;
+    width: 50%;
+    height: 6em;
+    margin: 1%; }
+  .secondary-image {
+    background-color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    display: inline-block;
+    background-size: 98% 98%;
+    height: 100%;
+    width: 32.3%; }
+  #product-data {
+    position: relative;
+    background-color: transparent;
+    width: 47%;
+    height: 18em;
+    bottom: 85%;
+    float: right;
+    margin: 1%;
+    margin-bottom: -250px; }
+  #product-data h2 {
+    position: relative;
+    bottom: 20%;
+    color: white;
+    font-size: 130%;
+    font-family: 'Rubik', sans-serif;
+    text-align: center; }
+  #product-data #product-title {
+    font-size: 140%;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 15%; }
+  #product-data #product-description {
+    font-style: italic;
+    max-height: 40%;
+    font-size: 95%; }
+  #return-button {
+    position: relative;
+    border-style: none;
+    border-radius: 2px;
+    color: white;
+    font-size: 90%;
+    background-color: dodgerblue;
+    width: 40%;
+    text-align: center;
+    height: 12%;
+    font-weight: bold;
+    left: 31%;
+    top: 25%;
+    transition: all 500ms ease; }
+  #return-button:hover {
+    background-color: white;
+    color: dodgerblue; } }
 
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) and (min-width: 670px) {
   .RecuperarContraseña button {
@@ -48795,7 +49024,209 @@ button:focus {
   .ProductosDivB button:hover {
     background-color: white;
     color: rgba(7, 183, 154, 0.7);
-    font-weight: bold; } }
+    font-weight: bold; }
+  .PanelAgregarProducto {
+    width: 75%;
+    height: 35em;
+    position: relative;
+    background-color: rgba(0, 204, 255, 0.5);
+    left: 12.2%;
+    border-top-width: 3em;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-bottom-width: 1em;
+    border-color: white;
+    padding: 0;
+    margin: 0;
+    text-align: center; }
+  .PanelAgregarProducto h2 {
+    color: white;
+    font-size: 90%;
+    letter-spacing: 0.1em;
+    font-family: 'Rubik', sans-serif;
+    width: 100%;
+    margin: 0;
+    padding: 1em;
+    text-align: center; }
+  .PanelAgregarProducto hr {
+    margin: 0;
+    padding: 0;
+    width: 1px;
+    width: 85%;
+    margin-left: 6.8%;
+    margin-bottom: 1em; }
+  .ProductoImgPrincipal {
+    position: relative;
+    margin: 0.5em;
+    padding: 0;
+    background-color: white;
+    width: 52%;
+    height: 15em;
+    background-size: 99% 99%;
+    background-position: center center;
+    background-color: rgba(255, 255, 255, 0.8);
+    background-repeat: no-repeat; }
+  .TablaImagenes {
+    position: relative;
+    margin: 0.5em;
+    color: white;
+    width: 52%;
+    height: 6em; }
+  .TablaImagenes td {
+    padding: 0.3em; }
+  .FormularioAProducto select {
+    margin-bottom: 0.5em;
+    font-size: 90%;
+    width: 60%;
+    text-align: right; }
+  #AgClasificacion {
+    position: relative;
+    width: 7%;
+    height: 1.5em;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    margin-left: -2em;
+    float: right;
+    right: 20%; }
+  #AgClasificacion span {
+    margin: 0;
+    padding: 0; }
+  .TablaImagenes td div {
+    position: relative;
+    width: 100%;
+    height: 6em;
+    background-size: 99% 99%;
+    background-position: center center;
+    background-color: rgba(255, 255, 255, 0.8); }
+  .FormularioAProducto {
+    background-color: transparent;
+    position: relative;
+    width: 45%;
+    height: 21.8em;
+    float: right;
+    bottom: 22.6em;
+    margin: 0;
+    padding: 0;
+    margin-right: 0.8%;
+    margin-bottom: -200px; }
+  .FormularioAProducto p {
+    float: right;
+    text-align: center;
+    font-size: 90%;
+    width: 100%;
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik', sans-serif;
+    padding-bottom: 0.5em; }
+  .FormularioAProducto input[type="text"] {
+    position: relative;
+    height: 8%;
+    width: 60%;
+    text-align: center;
+    font-size: 80%;
+    font-weight: bold;
+    margin-left: 8%;
+    margin-bottom: 1em;
+    left: 12%; }
+  .FormularioAProducto textarea {
+    font-size: 80%;
+    width: 70%;
+    height: 30%;
+    margin-bottom: 1em; }
+  .PanelAgregarProducto button {
+    position: relative;
+    color: white;
+    width: 20%;
+    height: 2.5em;
+    font-family: 'Rubik', sans-serif;
+    font-size: 85%;
+    background-color: rgba(7, 183, 154, 0.7);
+    border-style: none;
+    border-radius: 2px;
+    transition: all 500ms ease; }
+  .PanelAgregarProducto button:hover {
+    color: #07b79a;
+    background-color: white; }
+  .product-detail {
+    width: 90%;
+    height: 35em;
+    background-color: rgba(0, 204, 255, 0.5);
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-top-width: 3em;
+    border-bottom-width: 1em;
+    border-color: white;
+    position: relative;
+    /* or absolute */
+    left: 4.5%;
+    margin: 0;
+    padding: 0;
+    margin-top: 1%; }
+  #main-image {
+    background-color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    margin: 1%;
+    width: 49.5%;
+    height: 76.5%;
+    background-size: 98% 98%; }
+  #secondary-images-block {
+    position: relative;
+    background-color: transparent;
+    width: 50%;
+    height: 6em;
+    margin-top: -0.3%; }
+  .secondary-image {
+    background-color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    display: inline-block;
+    background-size: 98% 98%;
+    height: 100%;
+    width: 32.3%; }
+  #product-data {
+    position: relative;
+    background-color: transparent;
+    width: 47%;
+    height: 18em;
+    bottom: 85%;
+    float: right;
+    margin: 1%;
+    margin-bottom: -250px; }
+  #product-data h2 {
+    color: white;
+    position: relative;
+    bottom: 20%;
+    font-size: 130%;
+    font-family: 'Rubik', sans-serif;
+    text-align: center; }
+  #product-data #product-title {
+    font-size: 140%;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 15%; }
+  #product-data #product-description {
+    font-style: italic;
+    max-height: 40%;
+    font-size: 95%; }
+  #return-button {
+    position: relative;
+    border-style: none;
+    border-radius: 2px;
+    color: white;
+    font-size: 90%;
+    background-color: dodgerblue;
+    width: 40%;
+    text-align: center;
+    height: 12%;
+    font-weight: bold;
+    left: 31%;
+    top: 25%;
+    transition: all 500ms ease; }
+  #return-button:hover {
+    background-color: white;
+    color: dodgerblue; } }
 
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) and (width: 768px) and (height: 1024px) {
   .MenuP {
@@ -51309,7 +51740,22 @@ button:focus {
     letter-spacing: 0.1em;
     padding-right: 2em; }
   .PanelUsuarios table td span {
-    margin-left: 1em; } }
+    margin-left: 1em; }
+  .PanelAgregarProducto {
+    width: 75%;
+    height: 33em;
+    position: relative;
+    background-color: rgba(0, 204, 255, 0.5);
+    left: 12%;
+    border-top-width: 3em;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-bottom-width: 1em;
+    border-color: white;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    top: 8em; } }
 
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) and (min-width: 790px) {
   #EditTitle {
@@ -54973,7 +55419,209 @@ button:focus {
   .ProductosDivB button:hover {
     background-color: white;
     color: rgba(7, 183, 154, 0.7);
-    font-weight: bold; } }
+    font-weight: bold; }
+  .PanelAgregarProducto {
+    width: 65%;
+    height: 35em;
+    position: relative;
+    background-color: rgba(0, 204, 255, 0.5);
+    left: 18.5%;
+    border-top-width: 3em;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-bottom-width: 1em;
+    border-color: white;
+    padding: 0;
+    margin: 0;
+    text-align: center; }
+  .PanelAgregarProducto h2 {
+    color: white;
+    font-size: 90%;
+    letter-spacing: 0.1em;
+    font-family: 'Rubik', sans-serif;
+    width: 100%;
+    margin: 0;
+    padding: 1em;
+    text-align: center; }
+  .PanelAgregarProducto hr {
+    margin: 0;
+    padding: 0;
+    width: 1px;
+    width: 85%;
+    margin-left: 6.8%;
+    margin-bottom: 1em; }
+  .ProductoImgPrincipal {
+    position: relative;
+    margin: 0.5em;
+    padding: 0;
+    background-color: white;
+    width: 52%;
+    height: 15em;
+    background-size: 99% 99%;
+    background-position: center center;
+    background-color: rgba(255, 255, 255, 0.8);
+    background-repeat: no-repeat; }
+  .TablaImagenes {
+    position: relative;
+    margin: 0.5em;
+    color: white;
+    width: 52%;
+    height: 6em; }
+  .TablaImagenes td {
+    padding: 0.3em; }
+  .FormularioAProducto select {
+    margin-bottom: 0.5em;
+    font-size: 90%;
+    width: 60%;
+    text-align: right; }
+  #AgClasificacion {
+    position: relative;
+    width: 7%;
+    height: 1.5em;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    margin-left: -2em;
+    float: right;
+    right: 20%; }
+  #AgClasificacion span {
+    margin: 0;
+    padding: 0; }
+  .TablaImagenes td div {
+    position: relative;
+    width: 100%;
+    height: 6em;
+    background-size: 99% 99%;
+    background-position: center center;
+    background-color: rgba(255, 255, 255, 0.8); }
+  .FormularioAProducto {
+    background-color: transparent;
+    position: relative;
+    width: 45%;
+    height: 21.8em;
+    float: right;
+    bottom: 22.6em;
+    margin: 0;
+    padding: 0;
+    margin-right: 0.8%;
+    margin-bottom: -200px; }
+  .FormularioAProducto p {
+    float: right;
+    text-align: center;
+    font-size: 90%;
+    width: 100%;
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik', sans-serif;
+    padding-bottom: 0.5em; }
+  .FormularioAProducto input[type="text"] {
+    position: relative;
+    height: 8%;
+    width: 60%;
+    text-align: center;
+    font-size: 80%;
+    font-weight: bold;
+    margin-left: 8%;
+    margin-bottom: 1em;
+    left: 12%; }
+  .FormularioAProducto textarea {
+    font-size: 80%;
+    width: 70%;
+    height: 30%;
+    margin-bottom: 1em; }
+  .PanelAgregarProducto button {
+    position: relative;
+    color: white;
+    width: 20%;
+    height: 2.5em;
+    font-family: 'Rubik', sans-serif;
+    font-size: 85%;
+    background-color: rgba(7, 183, 154, 0.7);
+    border-style: none;
+    border-radius: 2px;
+    transition: all 500ms ease; }
+  .PanelAgregarProducto button:hover {
+    color: #07b79a;
+    background-color: white; }
+  .product-detail {
+    width: 70%;
+    height: 35em;
+    background-color: rgba(0, 204, 255, 0.5);
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-top-width: 3em;
+    border-bottom-width: 1em;
+    border-color: white;
+    position: relative;
+    /* or absolute */
+    left: 16.5%;
+    margin: 0;
+    padding: 0;
+    margin-top: 2%; }
+  #main-image {
+    background-color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    margin: 1%;
+    width: 49.5%;
+    height: 76.5%;
+    background-size: 98% 98%; }
+  #secondary-images-block {
+    position: relative;
+    background-color: transparent;
+    width: 50%;
+    height: 6em;
+    margin-top: -0.3%; }
+  .secondary-image {
+    background-color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    display: inline-block;
+    background-size: 98% 98%;
+    height: 100%;
+    width: 32.3%; }
+  #product-data {
+    position: relative;
+    background-color: transparent;
+    width: 47%;
+    height: 18em;
+    bottom: 85%;
+    float: right;
+    margin: 1%;
+    margin-bottom: -250px; }
+  #product-data h2 {
+    color: white;
+    position: relative;
+    bottom: 20%;
+    font-size: 130%;
+    font-family: 'Rubik', sans-serif;
+    text-align: center; }
+  #product-data #product-title {
+    font-size: 140%;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 15%; }
+  #product-data #product-description {
+    font-style: italic;
+    max-height: 40%;
+    font-size: 95%; }
+  #return-button {
+    position: relative;
+    border-style: none;
+    border-radius: 2px;
+    color: white;
+    font-size: 90%;
+    background-color: dodgerblue;
+    width: 40%;
+    text-align: center;
+    height: 12%;
+    font-weight: bold;
+    left: 31%;
+    top: 25%;
+    transition: all 500ms ease; }
+  #return-button:hover {
+    background-color: white;
+    color: dodgerblue; } }
 
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) and (min-width: 1011px) {
   .LoginForm {
@@ -61950,6 +62598,8 @@ button:focus {
     background-color: white;
     color: rgba(7, 183, 154, 0.7);
     font-weight: bold; }
+  .ContenedorProductos {
+    display: none; }
   .contenedor-productos-full {
     position: relative;
     height: 90em;
@@ -61967,7 +62617,209 @@ button:focus {
     color: white;
     table-layout: fixed; }
   .contenedor-productos-full td {
-    width: 25%; } }
+    width: 25%; }
+  .PanelAgregarProducto {
+    width: 55%;
+    height: 35em;
+    position: relative;
+    background-color: rgba(0, 204, 255, 0.5);
+    left: 22.8%;
+    border-top-width: 3em;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-bottom-width: 1em;
+    border-color: white;
+    padding: 0;
+    margin: 0;
+    text-align: center; }
+  .PanelAgregarProducto h2 {
+    color: white;
+    font-size: 90%;
+    letter-spacing: 0.1em;
+    font-family: 'Rubik', sans-serif;
+    width: 100%;
+    margin: 0;
+    padding: 1em;
+    text-align: center; }
+  .PanelAgregarProducto hr {
+    margin: 0;
+    padding: 0;
+    width: 1px;
+    width: 85%;
+    margin-left: 6.8%;
+    margin-bottom: 1em; }
+  .ProductoImgPrincipal {
+    position: relative;
+    margin: 0.5em;
+    padding: 0;
+    background-color: white;
+    width: 52%;
+    height: 15em;
+    background-size: 99% 99%;
+    background-position: center center;
+    background-color: rgba(255, 255, 255, 0.8);
+    background-repeat: no-repeat; }
+  .TablaImagenes {
+    position: relative;
+    margin: 0.5em;
+    color: white;
+    width: 52%;
+    height: 6em; }
+  .TablaImagenes td {
+    padding: 0.3em; }
+  .FormularioAProducto select {
+    margin-bottom: 0.5em;
+    font-size: 90%;
+    width: 60%;
+    text-align: right; }
+  #AgClasificacion {
+    position: relative;
+    width: 7%;
+    height: 1.5em;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    margin-left: -2em;
+    float: right;
+    right: 20%; }
+  #AgClasificacion span {
+    margin: 0;
+    padding: 0; }
+  .TablaImagenes td div {
+    position: relative;
+    width: 100%;
+    height: 6em;
+    background-size: 99% 99%;
+    background-position: center center;
+    background-color: rgba(255, 255, 255, 0.8); }
+  .FormularioAProducto {
+    background-color: transparent;
+    position: relative;
+    width: 45%;
+    height: 21.8em;
+    float: right;
+    bottom: 22.6em;
+    margin: 0;
+    padding: 0;
+    margin-right: 0.8%;
+    margin-bottom: -200px; }
+  .FormularioAProducto p {
+    float: right;
+    text-align: center;
+    font-size: 90%;
+    width: 100%;
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik', sans-serif;
+    padding-bottom: 0.5em; }
+  .FormularioAProducto input[type="text"] {
+    position: relative;
+    height: 8%;
+    width: 60%;
+    text-align: center;
+    font-size: 80%;
+    font-weight: bold;
+    margin-left: 8%;
+    margin-bottom: 1em;
+    left: 12%; }
+  .FormularioAProducto textarea {
+    font-size: 80%;
+    width: 70%;
+    height: 30%;
+    margin-bottom: 1em; }
+  .PanelAgregarProducto button {
+    position: relative;
+    color: white;
+    width: 20%;
+    height: 2.5em;
+    font-family: 'Rubik', sans-serif;
+    font-size: 85%;
+    background-color: rgba(7, 183, 154, 0.7);
+    border-style: none;
+    border-radius: 2px;
+    transition: all 500ms ease; }
+  .PanelAgregarProducto button:hover {
+    color: #07b79a;
+    background-color: white; }
+  .product-detail {
+    width: 70%;
+    height: 35em;
+    background-color: rgba(0, 204, 255, 0.5);
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-top-width: 3em;
+    border-bottom-width: 1em;
+    border-color: white;
+    position: relative;
+    /* or absolute */
+    left: 15.5%;
+    margin: 0;
+    padding: 0;
+    margin-top: 2%; }
+  #main-image {
+    background-color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    margin: 1%;
+    width: 49.5%;
+    height: 76.5%;
+    background-size: 98% 98%; }
+  #secondary-images-block {
+    position: relative;
+    background-color: transparent;
+    width: 50%;
+    height: 6em;
+    margin-top: -0.3%; }
+  .secondary-image {
+    background-color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    display: inline-block;
+    background-size: 98% 98%;
+    height: 100%;
+    width: 32.3%; }
+  #product-data {
+    position: relative;
+    background-color: transparent;
+    width: 47%;
+    height: 18em;
+    bottom: 85%;
+    float: right;
+    margin: 1%;
+    margin-bottom: -250px; }
+  #product-data h2 {
+    color: white;
+    position: relative;
+    bottom: 20%;
+    font-size: 130%;
+    font-family: 'Rubik', sans-serif;
+    text-align: center; }
+  #product-data #product-title {
+    font-size: 140%;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 15%; }
+  #product-data #product-description {
+    font-style: italic;
+    max-height: 40%;
+    font-size: 95%; }
+  #return-button {
+    position: relative;
+    border-style: none;
+    border-radius: 2px;
+    color: white;
+    font-size: 90%;
+    background-color: dodgerblue;
+    width: 40%;
+    text-align: center;
+    height: 12%;
+    font-weight: bold;
+    left: 31%;
+    top: 25%;
+    transition: all 500ms ease; }
+  #return-button:hover {
+    background-color: white;
+    color: dodgerblue; } }
 
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) and (min-width: 1180px) {
   #AdminText {
@@ -64797,7 +65649,132 @@ button:focus {
     letter-spacing: 0.1em;
     padding-right: 2em; }
   .PanelUsuarios table td span {
-    margin-left: 1em; } }
+    margin-left: 1em; }
+  .PanelAgregarProducto {
+    width: 45%;
+    height: 35em;
+    position: relative;
+    background-color: rgba(0, 204, 255, 0.5);
+    left: 27.8%;
+    border-top-width: 3em;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-bottom-width: 1em;
+    border-color: white;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    top: 2em; }
+  .PanelAgregarProducto h2 {
+    color: white;
+    font-size: 90%;
+    letter-spacing: 0.1em;
+    font-family: 'Rubik', sans-serif;
+    width: 100%;
+    margin: 0;
+    padding: 1em;
+    text-align: center; }
+  .PanelAgregarProducto hr {
+    margin: 0;
+    padding: 0;
+    width: 1px;
+    width: 85%;
+    margin-left: 6.8%;
+    margin-bottom: 1em; }
+  .ProductoImgPrincipal {
+    position: relative;
+    margin: 0.5em;
+    padding: 0;
+    background-color: white;
+    width: 52%;
+    height: 15em;
+    background-size: 99% 99%;
+    background-position: center center;
+    background-color: rgba(255, 255, 255, 0.8);
+    background-repeat: no-repeat; }
+  .TablaImagenes {
+    position: relative;
+    margin: 0.5em;
+    color: white;
+    width: 52%;
+    height: 6em; }
+  .TablaImagenes td {
+    padding: 0.3em; }
+  .FormularioAProducto select {
+    margin-bottom: 0.5em;
+    font-size: 90%;
+    width: 60%;
+    text-align: right; }
+  #AgClasificacion {
+    position: relative;
+    width: 7%;
+    height: 1.5em;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    margin-left: -2em;
+    float: right;
+    right: 20%; }
+  #AgClasificacion span {
+    margin: 0;
+    padding: 0; }
+  .TablaImagenes td div {
+    position: relative;
+    width: 100%;
+    height: 6em;
+    background-size: 99% 99%;
+    background-position: center center;
+    background-color: rgba(255, 255, 255, 0.8); }
+  .FormularioAProducto {
+    background-color: transparent;
+    position: relative;
+    width: 45%;
+    height: 21.8em;
+    float: right;
+    bottom: 22.6em;
+    margin: 0;
+    padding: 0;
+    margin-right: 0.8%;
+    margin-bottom: -200px; }
+  .FormularioAProducto p {
+    float: right;
+    text-align: center;
+    font-size: 90%;
+    width: 100%;
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik', sans-serif;
+    padding-bottom: 0.5em; }
+  .FormularioAProducto input[type="text"] {
+    position: relative;
+    height: 8%;
+    width: 60%;
+    text-align: center;
+    font-size: 80%;
+    font-weight: bold;
+    margin-left: 8%;
+    margin-bottom: 1em;
+    left: 12%; }
+  .FormularioAProducto textarea {
+    font-size: 80%;
+    width: 70%;
+    height: 30%;
+    margin-bottom: 1em; }
+  .PanelAgregarProducto button {
+    position: relative;
+    color: white;
+    width: 20%;
+    height: 2.5em;
+    font-family: 'Rubik', sans-serif;
+    font-size: 85%;
+    background-color: rgba(7, 183, 154, 0.7);
+    border-style: none;
+    border-radius: 2px;
+    transition: all 500ms ease; }
+  .PanelAgregarProducto button:hover {
+    color: #07b79a;
+    background-color: white; } }
 
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) and (min-width: 1310px) {
   .RecuperarContraseña button {
@@ -73134,7 +74111,210 @@ button:focus {
     color: white;
     table-layout: fixed; }
   .contenedor-productos-full td {
-    width: 25%; } }
+    width: 25%; }
+  .PanelAgregarProducto {
+    width: 35%;
+    height: 35em;
+    position: relative;
+    background-color: rgba(0, 204, 255, 0.5);
+    left: 31.5%;
+    border-top-width: 3em;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-bottom-width: 1em;
+    border-color: white;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    top: 4em; }
+  .PanelAgregarProducto h2 {
+    color: white;
+    font-size: 90%;
+    letter-spacing: 0.1em;
+    font-family: 'Rubik', sans-serif;
+    width: 100%;
+    margin: 0;
+    padding: 1em;
+    text-align: center; }
+  .PanelAgregarProducto hr {
+    margin: 0;
+    padding: 0;
+    width: 1px;
+    width: 85%;
+    margin-left: 6.8%;
+    margin-bottom: 1em; }
+  .ProductoImgPrincipal {
+    position: relative;
+    margin: 0.5em;
+    padding: 0;
+    background-color: white;
+    width: 52%;
+    height: 15em;
+    background-size: 99% 99%;
+    background-position: center center;
+    background-color: rgba(255, 255, 255, 0.8);
+    background-repeat: no-repeat; }
+  .TablaImagenes {
+    position: relative;
+    margin: 0.5em;
+    color: white;
+    width: 52%;
+    height: 6em; }
+  .TablaImagenes td {
+    padding: 0.3em; }
+  .FormularioAProducto select {
+    margin-bottom: 0.5em;
+    font-size: 90%;
+    width: 60%;
+    text-align: right; }
+  #AgClasificacion {
+    position: relative;
+    width: 7%;
+    height: 1.5em;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    margin-left: -2em;
+    float: right;
+    right: 20%; }
+  #AgClasificacion span {
+    margin: 0;
+    padding: 0; }
+  .TablaImagenes td div {
+    position: relative;
+    width: 100%;
+    height: 6em;
+    background-size: 99% 99%;
+    background-position: center center;
+    background-color: rgba(255, 255, 255, 0.8); }
+  .FormularioAProducto {
+    background-color: transparent;
+    position: relative;
+    width: 45%;
+    height: 21.8em;
+    float: right;
+    bottom: 22.6em;
+    margin: 0;
+    padding: 0;
+    margin-right: 0.8%;
+    margin-bottom: -200px; }
+  .FormularioAProducto p {
+    float: right;
+    text-align: center;
+    font-size: 90%;
+    width: 100%;
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik', sans-serif;
+    padding-bottom: 0.5em; }
+  .FormularioAProducto input[type="text"] {
+    position: relative;
+    height: 8%;
+    width: 60%;
+    text-align: center;
+    font-size: 80%;
+    font-weight: bold;
+    margin-left: 8%;
+    margin-bottom: 1em;
+    left: 12%; }
+  .FormularioAProducto textarea {
+    font-size: 80%;
+    width: 70%;
+    height: 30%;
+    margin-bottom: 1em; }
+  .PanelAgregarProducto button {
+    position: relative;
+    color: white;
+    width: 20%;
+    height: 2.5em;
+    font-family: 'Rubik', sans-serif;
+    font-size: 85%;
+    background-color: rgba(7, 183, 154, 0.7);
+    border-style: none;
+    border-radius: 2px;
+    transition: all 500ms ease; }
+  .PanelAgregarProducto button:hover {
+    color: #07b79a;
+    background-color: white; }
+  .product-detail {
+    width: 55%;
+    height: 35em;
+    background-color: rgba(0, 204, 255, 0.5);
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-top-width: 3em;
+    border-bottom-width: 1em;
+    border-color: white;
+    position: relative;
+    /* or absolute */
+    left: 22.3%;
+    margin: 0;
+    padding: 0;
+    margin-top: 4%; }
+  #main-image {
+    background-color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    margin: 1%;
+    width: 49.5%;
+    height: 76.5%;
+    background-size: 98% 98%; }
+  #secondary-images-block {
+    position: relative;
+    background-color: transparent;
+    width: 50%;
+    height: 6em;
+    margin-top: -0.3%; }
+  .secondary-image {
+    background-color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    display: inline-block;
+    background-size: 98% 98%;
+    height: 100%;
+    width: 32.3%; }
+  #product-data {
+    position: relative;
+    background-color: transparent;
+    width: 47%;
+    height: 18em;
+    bottom: 85%;
+    float: right;
+    margin: 1%;
+    margin-bottom: -250px; }
+  #product-data h2 {
+    color: white;
+    position: relative;
+    bottom: 20%;
+    font-size: 130%;
+    font-family: 'Rubik', sans-serif;
+    text-align: center; }
+  #product-data #product-title {
+    font-size: 140%;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 15%; }
+  #product-data #product-description {
+    font-style: italic;
+    max-height: 40%;
+    font-size: 95%; }
+  #return-button {
+    position: relative;
+    border-style: none;
+    border-radius: 2px;
+    color: white;
+    font-size: 90%;
+    background-color: dodgerblue;
+    width: 30%;
+    text-align: center;
+    height: 12%;
+    font-weight: bold;
+    left: 36%;
+    top: 25%;
+    transition: all 500ms ease; }
+  #return-button:hover {
+    background-color: white;
+    color: dodgerblue; } }
 
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) and (min-width: 1700px) {
   .RecuperarContraseña input[type="text"] {
@@ -75979,7 +77159,212 @@ button:focus {
   .TablaOrdenar th {
     font-size: 150%; }
   .TablaOrdenarDesc th {
-    font-size: 150%; } }
+    font-size: 150%; }
+  .PanelAgregarProducto {
+    width: 50em;
+    height: 35em;
+    position: relative;
+    background-color: rgba(0, 204, 255, 0.5);
+    left: 31%;
+    border-top-width: 3em;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-bottom-width: 1em;
+    border-color: white;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    margin-top: 3%; }
+  .PanelAgregarProducto h2 {
+    color: white;
+    font-size: 110%;
+    letter-spacing: 0.1em;
+    font-family: 'Rubik', sans-serif;
+    width: 100%;
+    margin: 0;
+    padding: 1em;
+    text-align: center; }
+  .PanelAgregarProducto hr {
+    margin: 0;
+    padding: 0;
+    width: 1px;
+    width: 85%;
+    margin-left: 6.8%;
+    margin-bottom: 1em; }
+  .ProductoImgPrincipal {
+    position: relative;
+    margin: 0.5em;
+    padding: 0;
+    background-color: white;
+    width: 52%;
+    height: 15em;
+    background-size: 99% 99%;
+    background-position: center center;
+    background-color: rgba(255, 255, 255, 0.8);
+    background-repeat: no-repeat; }
+  .TablaImagenes {
+    position: relative;
+    margin: 0.5em;
+    color: white;
+    width: 52%;
+    height: 6em; }
+  .TablaImagenes td {
+    padding: 0.3em; }
+  .FormularioAProducto select {
+    margin-bottom: 0.5em;
+    font-size: 90%;
+    width: 60%;
+    text-align: right; }
+  #AgClasificacion {
+    position: relative;
+    width: 7%;
+    height: 1.5em;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    margin-left: -2em;
+    float: right;
+    right: 20%; }
+  #AgClasificacion span {
+    margin: 0;
+    padding: 0; }
+  .TablaImagenes td div {
+    position: relative;
+    width: 100%;
+    height: 6em;
+    background-size: 99% 99%;
+    background-position: center center;
+    background-color: rgba(255, 255, 255, 0.8); }
+  .FormularioAProducto {
+    background-color: transparent;
+    position: relative;
+    width: 45%;
+    height: 21.8em;
+    float: right;
+    bottom: 22.6em;
+    margin: 0;
+    padding: 0;
+    margin-right: 0.8%;
+    margin-bottom: -200px; }
+  .FormularioAProducto p {
+    float: right;
+    text-align: center;
+    font-size: 90%;
+    width: 100%;
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik', sans-serif;
+    padding-bottom: 0.5em; }
+  .FormularioAProducto input[type="text"] {
+    position: relative;
+    height: 8%;
+    width: 60%;
+    text-align: center;
+    font-size: 80%;
+    font-weight: bold;
+    margin-left: 8%;
+    margin-bottom: 1em;
+    left: 12%; }
+  .FormularioAProducto textarea {
+    font-size: 80%;
+    width: 70%;
+    height: 30%;
+    margin-bottom: 1em; }
+  .PanelAgregarProducto button {
+    position: relative;
+    color: white;
+    width: 20%;
+    height: 2.5em;
+    font-family: 'Rubik', sans-serif;
+    font-size: 85%;
+    background-color: rgba(7, 183, 154, 0.7);
+    border-style: none;
+    border-radius: 2px;
+    transition: all 500ms ease; }
+  .PanelAgregarProducto button:hover {
+    color: #07b79a;
+    background-color: white; }
+  .product-detail {
+    width: 45%;
+    height: 35em;
+    background-color: rgba(0, 204, 255, 0.5);
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-top-width: 3em;
+    border-bottom-width: 1em;
+    border-color: white;
+    position: relative;
+    /* or absolute */
+    left: 27%;
+    margin: 0;
+    padding: 0;
+    margin-top: 7%; }
+  #main-image {
+    background-color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    margin-top: 0.5%;
+    margin-left: 0.5%;
+    width: 49.5%;
+    height: 76.5%;
+    background-size: 98% 98%; }
+  #secondary-images-block {
+    position: relative;
+    background-color: transparent;
+    width: 50%;
+    height: 6em;
+    margin-top: -0.3%;
+    margin-left: 0.5%; }
+  .secondary-image {
+    background-color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    display: inline-block;
+    background-size: 98% 98%;
+    height: 100%;
+    width: 32.3%; }
+  #product-data {
+    position: relative;
+    background-color: transparent;
+    width: 47%;
+    height: 18em;
+    bottom: 85%;
+    float: right;
+    margin: 1%;
+    margin-bottom: -250px; }
+  #product-data h2 {
+    color: white;
+    position: relative;
+    bottom: 20%;
+    font-size: 150%;
+    font-family: 'Rubik', sans-serif;
+    text-align: center; }
+  #product-data #product-title {
+    font-size: 150%;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 15%; }
+  #product-data #product-description {
+    font-style: italic;
+    max-height: 40%;
+    font-size: 105%; }
+  #return-button {
+    position: relative;
+    border-style: none;
+    border-radius: 2px;
+    color: white;
+    font-size: 90%;
+    background-color: dodgerblue;
+    width: 30%;
+    text-align: center;
+    height: 12%;
+    font-weight: bold;
+    left: 36%;
+    top: 25%;
+    transition: all 500ms ease; }
+  #return-button:hover {
+    background-color: white;
+    color: dodgerblue; } }
 
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) and (min-width: 2000px) {
   #ContactTitle {
@@ -78785,7 +80170,357 @@ button:focus {
   .TablaOrdenar th {
     font-size: 150%; }
   .TablaOrdenarDesc th {
-    font-size: 150%; } }
+    font-size: 150%; }
+  .ProductosDiv {
+    width: 100%;
+    background-color: transparent;
+    text-align: center; }
+  .ProductosDiv button {
+    color: white;
+    background-color: rgba(7, 183, 154, 0.7);
+    font-size: 90%;
+    width: 17em;
+    position: relative;
+    height: 4em;
+    padding: 0;
+    margin: 0;
+    border-style: none;
+    border-radius: 2px;
+    font-family: 'Rubik', sans-serif;
+    top: 15.5em;
+    left: 0.2%;
+    transition: all 500ms ease; }
+  .ProductosDiv button span {
+    font-size: 180%;
+    padding-bottom: 3%; }
+  .ProductosDiv button:hover {
+    background-color: white;
+    color: rgba(7, 183, 154, 0.7);
+    font-weight: bold; }
+  #ItemsTitle {
+    width: 90%;
+    text-align: center;
+    color: white;
+    font-size: 180%;
+    font-family: 'Rubik', sans-serif;
+    letter-spacing: 0.2em;
+    position: relative;
+    left: 5%;
+    top: 9.5em;
+    margin: 0;
+    padding: 0;
+    z-index: -1; }
+  .ContenedorProductos {
+    display: none; }
+  .contenedor-productos-full {
+    position: relative;
+    height: 90em;
+    width: 90%;
+    background-color: transparent;
+    left: 4.1%;
+    margin: 0;
+    padding: 0;
+    top: 25em;
+    display: inline-block; }
+  .contenedor-productos-full table {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    color: white;
+    table-layout: fixed; }
+  .contenedor-productos-full td {
+    width: 25%; }
+  .ProductoF {
+    border-left: none;
+    border-right: none;
+    position: relative;
+    height: 20.5em;
+    width: 35%;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-top-color: white;
+    border-bottom-color: white;
+    border-top-width: 2em;
+    border-bottom-width: 1em;
+    background-color: rgba(0, 204, 255, 0.5);
+    cursor: pointer; }
+  .ImagenProducto {
+    border-style: none;
+    background-color: white;
+    padding: 0;
+    margin: 0.5em;
+    background-size: 98% 98%;
+    background-position: center center;
+    position: relative;
+    border-color: white;
+    border-width: 1em;
+    height: 57%;
+    width: 93%;
+    border-radius: 2px;
+    background-repeat: no-repeat;
+    background-image: url("Media/UnknownProduct.png");
+    transition: all 500ms ease; }
+  .ImagenProducto:hover {
+    background-size: 125% 125%; }
+  .ProductoF p {
+    position: relative;
+    text-align: center;
+    top: 5%;
+    width: 100%;
+    max-width: 100%;
+    font-size: 90%;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    color: white;
+    font-family: 'Rubik', sans-serif; }
+  #DivProdB {
+    position: relative;
+    top: 33.5em;
+    z-index: 2; }
+  #OrdenarProductoB {
+    position: relative;
+    color: white;
+    font-size: 110%;
+    float: left;
+    top: 2.2em;
+    left: 30%; }
+  .ProductosDivB {
+    width: 100%;
+    background-color: transparent;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    top: 37.5em; }
+  .ProductosDivB button {
+    color: white;
+    background-color: rgba(7, 183, 154, 0.7);
+    font-size: 90%;
+    width: 17em;
+    position: relative;
+    height: 4em;
+    padding: 0;
+    margin: 0;
+    border-style: none;
+    border-radius: 2px;
+    font-family: 'Rubik', sans-serif;
+    top: 6em;
+    transition: all 500ms ease;
+    left: -0.6%;
+    margin-bottom: 20px; }
+  .ProductosDivB button span {
+    font-size: 180%;
+    padding-bottom: 3%; }
+  .ProductosDivB button:hover {
+    background-color: white;
+    color: rgba(7, 183, 154, 0.7);
+    font-weight: bold; }
+  .PanelAgregarProducto {
+    width: 50em;
+    height: 37em;
+    position: relative;
+    background-color: rgba(0, 204, 255, 0.5);
+    left: 34.35%;
+    border-top-width: 3em;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-bottom-width: 1em;
+    border-color: white;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    top: 13em; }
+  .PanelAgregarProducto h2 {
+    color: white;
+    font-size: 110%;
+    letter-spacing: 0.1em;
+    font-family: 'Rubik', sans-serif;
+    width: 100%;
+    margin: 0;
+    padding: 1em;
+    text-align: center; }
+  .PanelAgregarProducto hr {
+    margin: 0;
+    padding: 0;
+    width: 1px;
+    width: 85%;
+    margin-left: 6.8%;
+    margin-bottom: 1em; }
+  .ProductoImgPrincipal {
+    position: relative;
+    margin: 0.5em;
+    padding: 0;
+    background-color: white;
+    width: 52%;
+    height: 15em;
+    background-size: 99% 99%;
+    background-position: center center;
+    background-color: rgba(255, 255, 255, 0.8);
+    background-repeat: no-repeat; }
+  .TablaImagenes {
+    position: relative;
+    margin: 0.5em;
+    color: white;
+    width: 52%;
+    height: 6em; }
+  .TablaImagenes td {
+    padding: 0.3em; }
+  .FormularioAProducto select {
+    margin-bottom: 0.5em;
+    font-size: 110%;
+    width: 60%;
+    text-align: right;
+    padding-right: 3%; }
+  #AgClasificacion {
+    position: relative;
+    width: 7%;
+    height: 1.5em;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    margin-left: -2em;
+    float: right;
+    right: 20%; }
+  #AgClasificacion span {
+    margin: 0;
+    padding: 0; }
+  .TablaImagenes td div {
+    position: relative;
+    width: 100%;
+    height: 6em;
+    background-size: 99% 99%;
+    background-position: center center;
+    background-color: rgba(255, 255, 255, 0.8); }
+  .FormularioAProducto {
+    background-color: transparent;
+    position: relative;
+    width: 45%;
+    height: 21.8em;
+    float: right;
+    bottom: 22.6em;
+    margin: 0;
+    padding: 0;
+    margin-right: 0.8%;
+    margin-bottom: -200px; }
+  .FormularioAProducto p {
+    float: right;
+    text-align: center;
+    font-size: 110%;
+    width: 100%;
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik', sans-serif;
+    padding-bottom: 0.5em; }
+  .FormularioAProducto input[type="text"] {
+    position: relative;
+    height: 8%;
+    width: 60%;
+    text-align: center;
+    font-size: 100%;
+    font-weight: bold;
+    margin-left: 8%;
+    margin-bottom: 1em;
+    left: 12%; }
+  .FormularioAProducto textarea {
+    font-size: 80%;
+    width: 70%;
+    height: 30%;
+    margin-bottom: 1em; }
+  .PanelAgregarProducto button {
+    position: relative;
+    color: white;
+    width: 20%;
+    height: 2.5em;
+    font-family: 'Rubik', sans-serif;
+    font-size: 105%;
+    background-color: rgba(7, 183, 154, 0.7);
+    border-style: none;
+    border-radius: 2px;
+    transition: all 500ms ease; }
+  .PanelAgregarProducto button:hover {
+    color: #07b79a;
+    background-color: white; }
+  .product-detail {
+    width: 35%;
+    height: 35em;
+    background-color: rgba(0, 204, 255, 0.5);
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-top-width: 3em;
+    border-bottom-width: 1em;
+    border-color: white;
+    position: relative;
+    /* or absolute */
+    left: 31%;
+    margin: 0;
+    padding: 0;
+    margin-top: 6%; }
+  #main-image {
+    background-color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    margin-top: 0.5%;
+    margin-left: 0.5%;
+    width: 49.5%;
+    height: 76.5%;
+    background-size: 98% 98%; }
+  #secondary-images-block {
+    position: relative;
+    background-color: transparent;
+    width: 50%;
+    height: 6em;
+    margin-top: -0.3%;
+    margin-left: 0.5%; }
+  .secondary-image {
+    background-color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    display: inline-block;
+    background-size: 98% 98%;
+    height: 100%;
+    width: 32.3%; }
+  #product-data {
+    position: relative;
+    background-color: transparent;
+    width: 47%;
+    height: 18em;
+    bottom: 85%;
+    float: right;
+    margin: 1%;
+    margin-bottom: -250px; }
+  #product-data h2 {
+    color: white;
+    position: relative;
+    bottom: 20%;
+    font-size: 150%;
+    font-family: 'Rubik', sans-serif;
+    text-align: center; }
+  #product-data #product-title {
+    font-size: 150%;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 15%; }
+  #product-data #product-description {
+    font-style: italic;
+    max-height: 40%;
+    font-size: 105%; }
+  #return-button {
+    position: relative;
+    border-style: none;
+    border-radius: 2px;
+    color: white;
+    font-size: 90%;
+    background-color: dodgerblue;
+    width: 30%;
+    text-align: center;
+    height: 12%;
+    font-weight: bold;
+    left: 36%;
+    top: 25%;
+    transition: all 500ms ease; }
+  #return-button:hover {
+    background-color: white;
+    color: dodgerblue; } }
 
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) and (min-width: 3440px) {
   .MenuP {
@@ -81571,7 +83306,213 @@ button:focus {
   .TablaOrdenar th {
     font-size: 210%; }
   .TablaOrdenarDesc th {
-    font-size: 210%; } }
+    font-size: 210%; }
+  .PanelAgregarProducto {
+    width: 60em;
+    height: 45em;
+    position: relative;
+    background-color: rgba(0, 204, 255, 0.5);
+    left: 34%;
+    border-top-width: 3em;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-bottom-width: 1em;
+    border-color: white;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    margin-top: 3%; }
+  .PanelAgregarProducto h2 {
+    color: white;
+    font-size: 150%;
+    letter-spacing: 0.1em;
+    font-family: 'Rubik', sans-serif;
+    width: 100%;
+    margin: 0;
+    padding: 1em;
+    text-align: center; }
+  .PanelAgregarProducto hr {
+    margin: 0;
+    padding: 0;
+    width: 1px;
+    width: 85%;
+    margin-left: 6.8%;
+    margin-bottom: 1em; }
+  .ProductoImgPrincipal {
+    position: relative;
+    margin: 0.5em;
+    padding: 0;
+    background-color: white;
+    width: 52%;
+    height: 15em;
+    background-size: 99% 99%;
+    background-position: center center;
+    background-color: rgba(255, 255, 255, 0.8);
+    background-repeat: no-repeat; }
+  .TablaImagenes {
+    position: relative;
+    margin: 0.5em;
+    color: white;
+    width: 52%;
+    height: 6em; }
+  .TablaImagenes td {
+    padding: 0.3em; }
+  .FormularioAProducto select {
+    margin-bottom: 0.5em;
+    font-size: 130%;
+    width: 60%;
+    text-align: right;
+    padding-right: 3%; }
+  #AgClasificacion {
+    position: relative;
+    width: 7%;
+    height: 1.2em;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    margin-left: -10%;
+    float: right;
+    right: 20%; }
+  #AgClasificacion span {
+    margin: 0;
+    padding: 0; }
+  .TablaImagenes td div {
+    position: relative;
+    width: 100%;
+    height: 6em;
+    background-size: 99% 99%;
+    background-position: center center;
+    background-color: rgba(255, 255, 255, 0.8); }
+  .FormularioAProducto {
+    background-color: transparent;
+    position: relative;
+    width: 45%;
+    height: 21.8em;
+    float: right;
+    bottom: 22.6em;
+    margin: 0;
+    padding: 0;
+    margin-right: 0.8%;
+    margin-bottom: -200px; }
+  .FormularioAProducto p {
+    float: right;
+    text-align: center;
+    font-size: 150%;
+    width: 100%;
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik', sans-serif;
+    padding-bottom: 0.5em; }
+  .FormularioAProducto input[type="text"] {
+    position: relative;
+    height: 12%;
+    width: 60%;
+    text-align: center;
+    font-size: 110%;
+    font-weight: bold;
+    margin-left: 8%;
+    margin-bottom: 1em;
+    left: 12%; }
+  .FormularioAProducto textarea {
+    font-size: 80%;
+    width: 70%;
+    height: 30%;
+    margin-bottom: 1em; }
+  .PanelAgregarProducto button {
+    position: relative;
+    color: white;
+    width: 20%;
+    height: 2.5em;
+    font-family: 'Rubik', sans-serif;
+    font-size: 115%;
+    background-color: rgba(7, 183, 154, 0.7);
+    border-style: none;
+    border-radius: 2px;
+    transition: all 500ms ease; }
+  .PanelAgregarProducto button:hover {
+    color: #07b79a;
+    background-color: white; }
+  .product-detail {
+    width: 30%;
+    height: 35em;
+    background-color: rgba(0, 204, 255, 0.5);
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-top-width: 3em;
+    border-bottom-width: 1em;
+    border-color: white;
+    position: relative;
+    /* or absolute */
+    left: 31%;
+    margin: 0;
+    padding: 0;
+    margin-top: 6%; }
+  #main-image {
+    background-color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    margin-top: 0.5%;
+    margin-left: 0.5%;
+    width: 49.5%;
+    height: 76.5%;
+    background-size: 98% 98%; }
+  #secondary-images-block {
+    position: relative;
+    background-color: transparent;
+    width: 50%;
+    height: 6em;
+    margin-top: -0.3%;
+    margin-left: 0.5%; }
+  .secondary-image {
+    background-color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    display: inline-block;
+    background-size: 98% 98%;
+    height: 100%;
+    width: 32.3%; }
+  #product-data {
+    position: relative;
+    background-color: transparent;
+    width: 47%;
+    height: 18em;
+    bottom: 85%;
+    float: right;
+    margin: 1%;
+    margin-bottom: -250px; }
+  #product-data h2 {
+    color: white;
+    position: relative;
+    bottom: 20%;
+    font-size: 150%;
+    font-family: 'Rubik', sans-serif;
+    text-align: center; }
+  #product-data #product-title {
+    font-size: 150%;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 15%; }
+  #product-data #product-description {
+    font-style: italic;
+    max-height: 40%;
+    font-size: 105%; }
+  #return-button {
+    position: relative;
+    border-style: none;
+    border-radius: 2px;
+    color: white;
+    font-size: 90%;
+    background-color: dodgerblue;
+    width: 30%;
+    text-align: center;
+    height: 12%;
+    font-weight: bold;
+    left: 36%;
+    top: 25%;
+    transition: all 500ms ease; }
+  #return-button:hover {
+    background-color: white;
+    color: dodgerblue; } }
 
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) and (min-width: 3840px) {
   .MenuP {
@@ -84096,28 +86037,26 @@ button:focus {
     margin: 0;
     width: 100%;
     height: 1em;
-    top: 1em;
+    top: 13em;
     display: inline-block;
-    color: white;
-    margin-top: 7%; }
+    color: white; }
   #OrdenarProducto {
     position: relative;
     color: white;
-    font-size: 190%;
+    font-size: 110%;
     float: left;
-    left: 33%;
-    top: 1em; }
+    left: 32%; }
   .OrdenarPor {
     position: relative;
-    width: 35em;
+    width: 25em;
     height: 1.5em;
     background-color: transparent;
     float: left;
-    left: 36%;
+    left: 37.8%;
     bottom: 155%; }
   .TablaOrdenar {
     position: relative;
-    width: 60%;
+    width: 15em;
     padding-right: 0.5em;
     margin: 0;
     background-color: transparent;
@@ -84129,7 +86068,7 @@ button:focus {
     position: relative;
     text-align: right;
     font-family: 'Rubik', sans-serif;
-    font-size: 205%;
+    font-size: 125%;
     color: white;
     padding-right: 15%;
     margin: 0;
@@ -84162,7 +86101,7 @@ button:focus {
     color: deepskyblue; }
   .TablaOrdenarDesc {
     position: relative;
-    width: 60%;
+    width: 15em;
     padding-right: 0.5em;
     margin: 0;
     background-color: transparent;
@@ -84170,13 +86109,13 @@ button:focus {
     color: white;
     border-radius: 5px;
     border-style: none;
-    left: 78%;
-    bottom: 14.5em; }
+    left: 121%;
+    bottom: 9.2em; }
   .TablaOrdenarDesc td {
     position: relative;
     text-align: right;
     font-family: 'Rubik', sans-serif;
-    font-size: 205%;
+    font-size: 110%;
     color: white;
     padding-right: 15%;
     margin: 0;
@@ -84212,18 +86151,18 @@ button:focus {
   .ProductosDiv button {
     color: white;
     background-color: rgba(7, 183, 154, 0.7);
-    font-size: 140%;
-    width: 15em;
+    font-size: 90%;
+    width: 17em;
     position: relative;
-    height: 5em;
+    height: 4em;
     padding: 0;
     margin: 0;
     border-style: none;
     border-radius: 2px;
     font-family: 'Rubik', sans-serif;
-    top: 11.5em;
-    transition: all 500ms ease;
-    left: -1.61%; }
+    top: 25.5em;
+    left: -1.5%;
+    transition: all 500ms ease; }
   .ProductosDiv button span {
     font-size: 180%;
     padding-bottom: 3%; }
@@ -84235,33 +86174,42 @@ button:focus {
     width: 90%;
     text-align: center;
     color: white;
-    font-size: 310%;
+    font-size: 240%;
     font-family: 'Rubik', sans-serif;
     letter-spacing: 0.2em;
     position: relative;
-    left: 3.5%;
-    top: 6.5em;
+    left: 4%;
+    top: 10.5em;
     margin: 0;
     padding: 0;
-    z-index: -1; }
+    z-index: -1;
+    margin-bottom: 1%; }
   .ContenedorProductos {
-    position: relative;
-    top: 13em;
-    background-color: transparent;
-    border-style: none;
-    width: 93%;
-    height: 90em;
-    padding: 0;
-    margin: 0;
-    left: 3.3%;
-    margin-bottom: 150px;
     display: none; }
+  .contenedor-productos-full {
+    position: relative;
+    height: 90em;
+    width: 90%;
+    background-color: transparent;
+    left: 4.1%;
+    margin: 0;
+    padding: 0;
+    top: 31em;
+    display: inline-block; }
+  .contenedor-productos-full table {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    color: white;
+    table-layout: fixed; }
+  .contenedor-productos-full td {
+    width: 25%; }
   .ProductoF {
     border-left: none;
     border-right: none;
     position: relative;
     height: 20.5em;
-    width: 30%;
+    width: 25%;
     border-top-style: solid;
     border-bottom-style: solid;
     border-top-color: white;
@@ -84294,7 +86242,7 @@ button:focus {
     top: 5%;
     width: 100%;
     max-width: 100%;
-    font-size: 95%;
+    font-size: 90%;
     background-color: transparent;
     padding: 0;
     margin: 0;
@@ -84302,38 +86250,39 @@ button:focus {
     font-family: 'Rubik', sans-serif; }
   #DivProdB {
     position: relative;
-    top: 29.5em;
+    top: 36.5em;
     z-index: 2; }
   #OrdenarProductoB {
     position: relative;
     color: white;
-    font-size: 190%;
+    font-size: 110%;
     float: left;
-    top: 1.9em;
-    left: 30%; }
+    top: 2.9em;
+    left: 32%; }
   .ProductosDivB {
     width: 100%;
     background-color: transparent;
     text-align: center;
     display: inline-block;
     position: relative;
-    top: 20.5em; }
+    top: 40em; }
   .ProductosDivB button {
     color: white;
-    background-color: rgba(7, 183, 154, 0.7);
-    font-size: 140%;
-    width: 15em;
+    background-color: lightseagreen;
+    font-size: 90%;
+    width: 17em;
     position: relative;
-    height: 5em;
+    height: 4em;
     padding: 0;
     margin: 0;
     border-style: none;
     border-radius: 2px;
     font-family: 'Rubik', sans-serif;
-    top: 17em;
+    top: 6em;
     transition: all 500ms ease;
-    margin-bottom: 20px;
-    left: -1.61%; }
+    left: -1.5%;
+    margin-top: 2em !important;
+    margin-bottom: 20px !important; }
   .ProductosDivB button span {
     font-size: 180%;
     padding-bottom: 3%; }
@@ -84341,28 +86290,100 @@ button:focus {
     background-color: white;
     color: rgba(7, 183, 154, 0.7);
     font-weight: bold; }
-  .contenedor-productos-full {
+  .PanelAgregarProducto {
+    width: 60em;
+    height: 45em;
     position: relative;
-    height: 90em;
-    width: 90%;
-    background-color: transparent;
-    left: 4.1%;
+    background-color: rgba(0, 204, 255, 0.5);
+    left: 35.3%;
+    border-top-width: 3em;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-bottom-width: 1em;
+    border-color: white;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    margin-top: 3%; }
+  .product-detail {
+    width: 25%;
+    height: 35em;
+    background-color: rgba(0, 204, 255, 0.5);
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-top-width: 3em;
+    border-bottom-width: 1em;
+    border-color: white;
+    position: relative;
+    /* or absolute */
+    left: 33.5%;
     margin: 0;
     padding: 0;
-    top: 18em;
-    display: inline-block;
-    margin-top: 5%; }
-  .contenedor-productos-full table {
-    width: 100%;
-    height: 100%;
+    margin-top: 6%; }
+  #main-image {
+    background-color: rgba(255, 255, 255, 0.8);
     position: relative;
+    margin-top: 0.5%;
+    margin-left: 0.5%;
+    width: 49.5%;
+    height: 76.5%;
+    background-size: 98% 98%; }
+  #secondary-images-block {
+    position: relative;
+    background-color: transparent;
+    width: 50%;
+    height: 6em;
+    margin-top: -0.3%;
+    margin-left: 0.5%; }
+  .secondary-image {
+    background-color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    display: inline-block;
+    background-size: 98% 98%;
+    height: 100%;
+    width: 32.3%; }
+  #product-data {
+    position: relative;
+    background-color: transparent;
+    width: 47%;
+    height: 18em;
+    bottom: 85%;
+    float: right;
+    margin: 1%;
+    margin-bottom: -250px; }
+  #product-data h2 {
     color: white;
-    table-layout: fixed; }
-  .contenedor-productos-full td {
-    width: 25%; }
-  .TablaOrdenar th {
-    font-size: 210%; }
-  .TablaOrdenarDesc th {
-    font-size: 210%; } }
+    position: relative;
+    bottom: 20%;
+    font-size: 150%;
+    font-family: 'Rubik', sans-serif;
+    text-align: center; }
+  #product-data #product-title {
+    font-size: 150%;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 15%; }
+  #product-data #product-description {
+    font-style: italic;
+    max-height: 40%;
+    font-size: 105%; }
+  #return-button {
+    position: relative;
+    border-style: none;
+    border-radius: 2px;
+    color: white;
+    font-size: 90%;
+    background-color: dodgerblue;
+    width: 30%;
+    text-align: center;
+    height: 12%;
+    font-weight: bold;
+    left: 36%;
+    top: 25%;
+    transition: all 500ms ease; }
+  #return-button:hover {
+    background-color: white;
+    color: dodgerblue; } }
 
 /* GOOGLE CHROME END*/

@@ -21,9 +21,8 @@ namespace Telecon.Controllers
                 var search = (from s in context.Usuarios where s.username == user select s.username).FirstOrDefault();
                 if (search == null) found = false;
                 if (search != null) found = true;
-                return Json(found, JsonRequestBehavior.AllowGet);
             }
-            
+            return Json(found, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]

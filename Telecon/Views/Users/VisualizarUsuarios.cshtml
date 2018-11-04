@@ -95,18 +95,21 @@
 
     function Validacion() {
         var e = document.getElementById('buscar_codigo').value;
+
         var divtext = document.getElementById("validaciones-contenido");
         var timer = null;
         e.onpropertychange = e.oninput; // for IE8
         var re = new RegExp("^[0-9]+$");
         var validaciones = "";
-        
+
 
         if (re.test(e) == false && e.trim() != "") {
-            validaciones += "<p>El campo código solo acepta números sin espacios.</p>";
+            validaciones += "<p>El código solo puede contener números enteros.</p>";
         }
+
         if (validaciones != "") {
             divtext.innerHTML = validaciones;
+
             $('#validacion').modal('show');
             validaciones = "";
 

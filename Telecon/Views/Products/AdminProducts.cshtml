@@ -1,6 +1,6 @@
 ﻿@{
     Layout = "~/Views/Estructura/_Layout.cshtml";
-    Page.Title = "Telecon Erickson C.A - PRODUCTS ADMIN";
+    Page.Title = "Telecon Erickson C.A - Products Administration";
 }
 
 <p id="ProductsTitle">TELECON ERICKSON C.A - PRODUCTS ADMINISTRATION</p>
@@ -54,7 +54,7 @@
         </table>
 
         <button type="submit" id="ProductosAceptar" onclick="return ProductSettings();">ACCEPT</button>
-        <button type="button" id="ProductosRegresar">RETURN</button>
+        <button type="button" id="ProductosRegresar" onclick="Return();">RETURN</button>
         <button type="reset" id="ProductosBorrar">DEFAULT VALUES</button>
     </div>
 }
@@ -153,27 +153,19 @@
     }
 
 
-    $(document).ready(function () {
-        $('.AdminButton').css('visibility', 'visible');
+    document.getElementById("main-admin-button").style.visibility = "visible";
 
-    });
+    function Return() {
+        window.location.href = "/en/admin";
+    }
 
-    $(function () {
-        $("#ProductosRegresar").click(function () {
-            window.location.href = "/en/admin";
-        });
-    });
+    function Español() {
+        window.location.href = "/es/admin/productos";
+    }
 
-    $(function () {
-        $("#Español").click(function () {
-            window.location.href = "/es/admin/productos";
-        });
-    });
-    $(function () {
-        $("#English").click(function () {
-            window.location.href = "/en/admin/products";
-        });
-    });
+    function English() {
+        window.location.href = "/en/admin/products";
+    }
 
 </script>
 

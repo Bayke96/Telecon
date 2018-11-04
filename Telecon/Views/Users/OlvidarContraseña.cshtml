@@ -69,16 +69,13 @@
 
     }
 
-    $(function () {
-        $("#Español").click(function () {
-            window.location.href = "/es/recuperarcontraseña";
-        });
-    });
-    $(function () {
-        $("#English").click(function () {
-            window.location.href = "/en/forgotpassword";
-        });
-    });
+    function Español() {
+        window.location.href = "/es/recuperarcontraseña";
+    }
+
+    function English() {
+        window.location.href = "/en/forgotpassword";
+    }
 </script>
 
 

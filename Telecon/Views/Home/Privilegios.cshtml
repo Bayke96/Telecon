@@ -49,34 +49,27 @@
         </table>
 
         <button type="submit">ACEPTAR</button>
-        <button type="button" id="ReturnButton">REGRESAR</button>
+        <button type="button" id="ReturnButton" onclick="Return();">REGRESAR</button>
     }
 
 
 </div>
 
 <script type="text/javascript">
-     $(document).ready(function () {
-        $('.AdminButton').css('visibility', 'visible');
+    document.getElementById("main-admin-button").style.visibility = "visible";
 
-    });
+    function Return() {
+        window.location.href = "/es/admin";
+    }
 
-    $(function () {
-        $("#ReturnButton").click(function () {
-            window.location.href = "/es/admin";
-        });
-    });
+    function Español() {
+        window.location.href = "/es/admin/privilegios";
+    }
 
-    $(function () {
-        $("#Español").click(function () {
-            window.location.href = "/es/admin/privilegios";
-        });
-    });
-    $(function () {
-        $("#English").click(function () {
-            window.location.href = "/en/admin/privileges";
-        });
-    });
+    function English() {
+        window.location.href = "/en/admin/privileges";
+    }
+    
 </script>
 
 

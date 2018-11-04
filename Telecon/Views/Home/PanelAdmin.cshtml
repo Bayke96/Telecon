@@ -6,51 +6,41 @@
 <div class="AdminPanel">
     <h2>PANEL DE ADMINISTRACIÓN</h2>
     <hr />
-    <div class="PUsuarios"><p>USUARIOS</p>
+    <div class="PUsuarios" onclick="Users();"><p>USUARIOS</p>
     <div></div>
     </div>
     <hr />
-    <div class="PProductos"><p>PRODUCTOS</p>
+    <div class="PProductos" onclick="Products();"><p>PRODUCTOS</p>
     <div></div>
     </div>
     <hr />
-    <div class="PPrivilegios"><p>PRIVILEGIOS</p>
+    <div class="PPrivilegios" onclick="Privileges();"><p>PRIVILEGIOS</p>
     <div></div>
     </div>
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function(){
-        $('.AdminButton').css('visibility', 'visible');
-    });
 
-    $(function () {
-        $(".PUsuarios").click(function () {
-            window.location.href = "/es/admin/usuarios";
-        });
-    });
+    document.getElementById("main-admin-button").style.visibility = "visible";
 
-    $(function () {
-        $(".PProductos").click(function () {
-            window.location.href = "/es/admin/productos";
-        });
-    });
+    function Users() {
+        window.location.href = "/es/admin/usuarios";
+    }
 
-    $(function () {
-        $(".PPrivilegios").click(function () {
-            window.location.href = "/es/admin/privilegios";
-        });
-    });
+    function Products() {
+        window.location.href = "/es/admin/productos";
+    }
 
-    $(function () {
-        $("#Español").click(function () {
-            window.location.href = "/es/admin";
-        });
-    });
-    $(function () {
-        $("#English").click(function () {
-            window.location.href = "/en/admin";
-        });
-    });
+    function Privileges() {
+        window.location.href = "/es/admin/privilegios";
+    }
+
+    function Español() {
+        window.location.href = "/es/admin";
+    }
+
+    function English() {
+        window.location.href = "/en/admin";
+    }
 
 </script>

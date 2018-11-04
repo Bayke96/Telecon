@@ -1,6 +1,6 @@
 ﻿@{
     Layout = "~/Views/Estructura/_Layout.cshtml";
-    Page.Title = "Telecon Erickson C.A - Administration Privileges";
+    Page.Title = "Telecon Erickson C.A - Privileges Administration";
 }
 
 <div class="PanelPrivilegios">
@@ -49,34 +49,28 @@
         </table>
 
         <button type="submit">ACCEPT</button>
-        <button type="button" id="ReturnButton">RETURN</button>
+        <button type="button" id="ReturnButton" onclick="Retornar();">RETURN</button>
     }
 
 
 </div>
 
 <script type="text/javascript">
-     $(document).ready(function () {
-        $('.AdminButton').css('visibility', 'visible');
 
-    });
+    document.getElementById("main-admin-button").style.visibility = "visible";
 
-    $(function () {
-        $("#ReturnButton").click(function () {
-            window.location.href = "/en/admin";
-        });
-    });
+    function Retornar() {
+        window.location.href = "/en/admin";
+    }
 
-    $(function () {
-        $("#Español").click(function () {
-            window.location.href = "/es/admin/privilegios";
-        });
-    });
-    $(function () {
-        $("#English").click(function () {
-            window.location.href = "/en/admin/privileges";
-        });
-    });
+    function Español() {
+        window.location.href = "/es/admin/privilegios";
+    }
+
+    function English() {
+        window.location.href = "/en/admin/privileges";
+    }
+
 </script>
 
 

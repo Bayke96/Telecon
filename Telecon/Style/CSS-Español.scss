@@ -55428,6 +55428,51 @@ button:focus {
         border-radius: 2px;
     }
 
+
+    .Card4 {
+        display: none;
+    }
+
+    .Card5 {
+        display: none;
+    }
+
+    .product-image {
+        position: relative;
+        background-color: transparent;
+        height: 55%;
+        width: 97.6%;
+        margin: 1%;
+        margin-top: 1.5%;
+        padding: 0;
+        border-style: solid;
+        border-color: white;
+        border-width: 1px;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-image: url("Media/UnknownProduct.png");
+        cursor: pointer;
+    }
+
+    .latest-info {
+        margin: 1%;
+        padding: 0;
+        background-color: transparent;
+        position: relative;
+        width: 98.2%;
+        height: 42%;
+        padding-top: 12%;
+    }
+
+    .latest-info p {
+        color: white;
+        text-align: center;
+        font-size: 100%;
+        font-weight: bold;
+        padding: 0;
+        margin: 0;
+    }
+
     .LoginForm {
         color: white;
         font-family: 'Rubik', sans-serif;
@@ -70633,7 +70678,6 @@ button:focus {
         font-weight: bold;
     }
 
-
     .PanelAgregarProducto {
         width: 65%;
         height: 35em;
@@ -80552,6 +80596,15 @@ button:focus {
         background-size: cover;
     }
 
+    .latest-info p {
+        color: white;
+        text-align: center;
+        font-size: 130%;
+        font-weight: bold;
+        padding: 0;
+        margin: 0;
+    }
+
     .MenuP {
         width: 100%;
         height: 8em;
@@ -83695,7 +83748,6 @@ button:focus {
     .PanelUsuarios table td span {
         margin-left: 1em;
     }
-
 
     .PanelAgregarProducto {
         width: 45%;
@@ -91279,6 +91331,7 @@ button:focus {
 
     .Card4 {
         background-color: rgba(0, 204, 255, 0.9);
+        display: block;
         width: 17%;
         height: 25em;
         position: relative;
@@ -95157,6 +95210,7 @@ button:focus {
 
     .Card5 {
         background-color: rgba(0, 204, 255, 0.9);
+        display: block;
         width: 15%;
         height: 25em;
         position: relative;
@@ -98367,7 +98421,6 @@ button:focus {
         font-size: 150%;
     }
 
-
     .PanelAgregarProducto {
         width: 50em;
         height: 35em;
@@ -98659,6 +98712,15 @@ button:focus {
 
     .MenuGroup {
         width: 90%;
+    }
+
+    .latest-info p {
+        color: white;
+        text-align: center;
+        font-size: 140%;
+        font-weight: bold;
+        padding: 0;
+        margin: 0;
     }
 
     .MenuGroup button {
@@ -106187,11 +106249,6 @@ button:focus {
         font-size: 210%;
     }
 
-
-
-
-
-
     .PanelAgregarProducto {
         width: 60em;
         height: 45em;
@@ -106459,6 +106516,15 @@ button:focus {
 
     .MenuGroup {
         width: 90%;
+    }
+
+    .latest-info p {
+        color: white;
+        text-align: center;
+        font-size: 180%;
+        font-weight: bold;
+        padding: 0;
+        margin: 0;
     }
 
     .MenuGroup button {
@@ -106770,6 +106836,7 @@ button:focus {
         border-top-color: white;
         border-top-width: 3em;
         border-bottom-width: 1em;
+        margin-bottom: -1800px;
         border-radius: 2px;
     }
 
@@ -106778,7 +106845,7 @@ button:focus {
         width: 12%;
         height: 45em;
         position: relative;
-        top: -88.3em;
+        top: 18.7em;
         left: 65%;
         margin-bottom: -300px;
         border-color: white;
@@ -106800,7 +106867,7 @@ button:focus {
         width: 12%;
         height: 45em;
         position: relative;
-        top: -111.9em;
+        top: -4.7em;
         left: 86%;
         margin-bottom: -300px;
         border-color: white;

@@ -64,7 +64,7 @@
         <td>Lastnames</td>
         <td style="border-bottom-style: solid; width: 15%; padding-top: 1em; padding-bottom: 0.5em; padding-left: 0;">E-mail</td>
         <td style="padding-bottom: 0.5em; border-bottom-style: solid; border-top-style: none;">Phone</td>
-        <th colspan="2" style="text-align: center;"><button id="BtnCrear" type="button">CREATE USER</button></th>
+        <th colspan="2" style="text-align: center;"><button id="BtnCrear" type="button" onclick="Create();">CREATE USER</button></th>
     </tr>
     @foreach (var item in Model)
     {
@@ -123,29 +123,20 @@
         }
 
     }
+    
+    document.getElementById("main-admin-button").style.visibility = "visible";
 
+    function Create() {
+        window.location.href = "/en/admin/users/createuser";
+    }
 
-    $(document).ready(function () {
-        $('.AdminButton').css('visibility', 'visible');
+    function Español() {
+        window.location.href = "/es/admin/usuarios";
+    }
 
-    });
-
-    $(function () {
-        $("#BtnCrear").click(function () {
-            window.location.href = "/en/admin/users/createuser";
-        });
-    });
-
-    $(function () {
-        $("#Español").click(function () {
-            window.location.href = "/es/admin/usuarios";
-        });
-    });
-    $(function () {
-        $("#English").click(function () {
-            window.location.href = "/en/admin/users";
-        });
-    });
+    function English() {
+        window.location.href = "/en/admin/users";
+    }
 
 </script>
 

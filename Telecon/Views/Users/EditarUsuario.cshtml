@@ -82,7 +82,7 @@
         </table>
 
         <button onclick="return EditUser();" type="submit">ACTUALIZAR</button>
-        <button type="button" id="BtnRegresar">REGRESAR</button>
+        <button type="button" id="BtnRegresar" onclick="Regresar();">REGRESAR</button>
     </div>
 
 
@@ -310,10 +310,6 @@
 
     }
 
-    $(document).ready(function () {
-        $('.AdminButton').css('visibility', 'visible');
-    });
-
     $('#file').change(function () {
         var file = this.files[0];
         var reader = new FileReader();
@@ -326,22 +322,19 @@
         }
     });
 
-    $(function () {
-    $("#BtnRegresar").click(function () {
-    window.location.href="/es/admin/usuarios" ;
-    });
-    });
+    document.getElementById("main-admin-button").style.visibility = "visible";
 
-    $(function () {
-        $("#Español").click(function () {
-            window.location.href = "/es/admin/usuarios/editarusuario/" + @UserID;
-        });
-    });
-    $(function () {
-        $("#English").click(function () {
-            window.location.href = "/en/admin/users/edituser/" + @UserID;
-        });
-    });
+    function Regresar() {
+        window.location.href = "/es/admin/usuarios";
+    }
+ 
+    function Español() {
+        window.location.href = "/es/admin/usuarios/editarusuario/" + @UserID;
+    }
+
+    function English() {
+        window.location.href = "/en/admin/users/edituser/" + @UserID;
+    }
 
 </script>
 

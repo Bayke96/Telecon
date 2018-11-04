@@ -99,8 +99,7 @@
 
 
     function imageslide() {
-
-
+        
         $('#carousel-bg').fadeOut(1500, function () {
             $('#carousel-bg').attr('src', images[currentPos]).fadeIn();
             if (currentPos == 0) document.getElementById("carousel-text").innerHTML = "SECURITY";
@@ -117,16 +116,13 @@
 
     setInterval(imageslide, 9000);
 
+    function Español() {
+        window.location.href = "/es/inicio";
+    }
 
-    $(function () {
-        $("#Español").click(function () {
-            window.location.href = "/es/inicio";
-        });
-    });
-    $(function () {
-        $("#English").click(function () {
-            window.location.href = "/en/home";
-        });
-    });
+    function English() {
+        window.location.href = "/en/home";
+    }
+
 </script>
 

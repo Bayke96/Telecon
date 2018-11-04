@@ -255,20 +255,14 @@
     }
     );
 
-    $(document).ready(function () {
-        $('.AdminButton').css('visibility', 'visible');
-    });
+    document.getElementById("main-admin-button").style.visibility = "visible";
 
-    
-    $(function () {
-        $("#Español").click(function () {
-            window.location.href = "/es/admin/usuarios/crearusuario";
-        });
-    });
-    $(function () {
-        $("#English").click(function () {
-            window.location.href = "/en/admin/users/createuser";
-        });
-    });
+    function Español() {
+        window.location.href = "/es/admin/usuarios/crearusuario";
+    }
+
+    function English() {
+        window.location.href = "/en/admin/users/createuser";
+    }
     
 </script>

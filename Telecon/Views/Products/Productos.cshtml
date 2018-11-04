@@ -3,20 +3,6 @@
     Page.Title = "Telecon Erickson C.A - Productos Disponibles";
 }
 
-
-
-<script type="text/javascript">
-    function NuevoProducto() {
-        window.location.href = '/es/productos/agregar';
-    }
-    function ModificarProducto() {
-        window.location.href = '/es/productos/modificar';
-    }
-    function EliminarProducto() {
-        window.location.href = '/es/productos/eliminar';
-    }
-</script>
-
 <body>
 
 
@@ -506,24 +492,24 @@
 
 <script type="text/javascript">
 
+    function NuevoProducto() {
+        window.location.href = '/es/productos/agregar';
+    }
+    function ModificarProducto() {
+        window.location.href = '/es/productos/modificar';
+    }
+    function EliminarProducto() {
+        window.location.href = '/es/productos/eliminar';
+    }
+
+    function Español() {
+        window.location.href = "/es/productos";
+    }
+
+    function English() {
+        window.location.href = "/en/products";
+    }
   
-
-   
-
-
-
-  
-    $(function () {
-        $("#Español").click(function () {
-            window.location.href = "/es/productos";
-        });
-    });
-    $(function () {
-        $("#English").click(function () {
-            window.location.href = "/en/products";
-        });
-    });
-
 </script>
 
 

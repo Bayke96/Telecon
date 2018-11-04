@@ -3,18 +3,6 @@
     Page.Title = "Telecon Erickson C.A - Available Items";
 }
 
-<script type="text/javascript">
-    function AddProduct() {
-        window.location.href = '/en/products/add';
-    }
-    function EditProduct() {
-        window.location.href = '/en/products/edit';
-    }
-    function DeleteProduct() {
-        window.location.href = '/en/products/delete';
-    }
-</script>
-
 <body>
 
 
@@ -491,18 +479,24 @@
 </body>
 
 <script type="text/javascript">
-   
 
-    $(function () {
-        $("#Español").click(function () {
-            window.location.href = "/es/productos";
-        });
-    });
-    $(function () {
-        $("#English").click(function () {
-            window.location.href = "/en/products";
-        });
-    });
+    function AddProduct() {
+        window.location.href = '/en/products/add';
+    }
+    function EditProduct() {
+        window.location.href = '/en/products/edit';
+    }
+    function DeleteProduct() {
+        window.location.href = '/en/products/delete';
+    }
+
+    function Español() {
+        window.location.href = "/es/productos";
+    }
+
+    function English() {
+        window.location.href = "/en/products";
+    }
 
 </script>
 

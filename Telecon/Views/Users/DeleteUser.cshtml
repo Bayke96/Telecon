@@ -80,37 +80,27 @@
 
         <p id="MsgConfirmacion">¿ Are you sure you wish to delete this user ?</p>
         <button type="submit" id="BtnSi">YES</button>
-        <button type="button" id="BtnNo">NO</button>
+        <button type="button" id="BtnNo" onclick="No();">NO</button>
     </div>
 }
 
 
 <script type="text/javascript">
-    $(document).ready(function () {
-        $('.AdminButton').css('visibility', 'visible');
+    
+    document.getElementById("main-admin-button").style.visibility = "visible";
 
-    });
+    function No() {
+        window.location.href = "/en/admin/users";
+    }
+    
+    function Español() {
+         window.location.href = "/es/admin/usuarios/eliminarusuario/@UserID";
+    }
 
-
-
-    $(function () {
-        $("#BtnNo").click(function () {
-            window.location.href = "/en/admin/users";
-        });
-    });
-
-
-    $(function () {
-        $("#Español").click(function () {
-            window.location.href = "/es/admin/usuarios/eliminarusuario/@UserID";
-        });
-    });
-    $(function () {
-        $("#English").click(function () {
-            window.location.href = "/en/admin/users/deleteuser/@UserID";
-        });
-    });
-
+    function English() {
+        window.location.href = "/en/admin/users/deleteuser/@UserID";
+    }
+    
 </script>
 
 

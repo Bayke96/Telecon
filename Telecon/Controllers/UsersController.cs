@@ -112,7 +112,6 @@ namespace Telecon.Controllers
         [HttpGet]
         public ActionResult Visualizar()
         {
-           
             using (var context = new DataContext())
             {
                 var search = (from s in context.Usuarios select s).ToList();

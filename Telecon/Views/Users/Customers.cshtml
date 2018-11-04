@@ -9,9 +9,9 @@
 
 
 <div class="ClientsBlock">
-    <button type="button" id="AgregarCB">Add Customer<div id="AgregarC"></div></button>
-    <button type="button" id="ModificarCB">Edit Customer<div id="ModificarC"></div></button>
-    <button type="button" id="EliminarCB">Delete Customer<div id="EliminarC"></div></button>
+    <button type="button" id="AgregarCB" onclick="AddCB();">Add Customer<div id="AgregarC"></div></button>
+    <button type="button" id="ModificarCB" onclick="EditCB();">Edit Customer<div id="ModificarC"></div></button>
+    <button type="button" id="EliminarCB" onclick="DeleteCB();">Delete Customer<div id="EliminarC"></div></button>
 </div>
 
 @using (@Html.BeginForm("", "", FormMethod.Post, new { autocomplete = "off" }))
@@ -19,7 +19,7 @@
     @Html.AntiForgeryToken()
     <div id="VAgregarC" class="VentanaAgregarC">
         <div>
-            <span class="pull-right glyphicon glyphicon-off" id="CerrarVentanaAgregarC"></span>
+            <span class="pull-right glyphicon glyphicon-off" id="CerrarVentanaAgregarC" onclick="CloseWindow();"></span>
             <h2>Add New Customer</h2>
             <hr />
             <p>Company's Name</p>
@@ -46,7 +46,7 @@
     @Html.AntiForgeryToken()
     <div id="VModificarC" class="VentanaModificarC">
         <div>
-            <span class="pull-right glyphicon glyphicon-off" id="CerrarVentanaModificarC"></span>
+            <span class="pull-right glyphicon glyphicon-off" id="CerrarVentanaModificarC" onclick="CloseWindow();"></span>
             <h2>Edit Customer</h2>
             <hr />
             <p id="NombreCliente">Customer</p>
@@ -80,7 +80,7 @@
     @Html.AntiForgeryToken()
     <div id="VEliminarC" class="VentanaEliminarC">
         <div>
-            <span class="pull-right glyphicon glyphicon-off" id="CerrarVentanaEliminarC"></span>
+            <span class="pull-right glyphicon glyphicon-off" id="CerrarVentanaEliminarC" onclick="CloseWindow();"></span>
             <h2>Delete Customer(s)</h2>
             <hr /><br />
             <p>¿Are you sure you wish to delete the following users from your list?</p>
@@ -98,7 +98,7 @@
             </div>
 
             <button type="submit">Yes</button>
-            <button type="button" id="NoEliminarCliente">No</button>
+            <button type="button" id="NoEliminarCliente" onclick="CloseWindow();">No</button>
 
         </div>
     </div>
@@ -180,57 +180,28 @@
         }
     }
 
-    $(function () {
-        $("#AgregarCB").click(function () {
-            window.location.href = "#VAgregarC";
-        });
-    });
-    $(function () {
-        $("#CerrarVentanaAgregarC").click(function () {
-            window.location.href = "customers";
-        });
-    });
+    function AddCB() {
+        window.location.href = "#VAgregarC";
+    }
 
-    $(function () {
-        $("#ModificarCB").click(function () {
-            window.location.href = "#VModificarC";
-        });
-    });
-    $(function () {
-        $("#CerrarVentanaModificarC").click(function () {
-            window.location.href = "customers";
-        });
-    });
+    function EditCB() {
+        window.location.href = "#VModificarC";
+    }
 
+    function DeleteCB() {
+        window.location.href = "#VEliminarC";
+    }
 
+    function CloseWindow() {
+        window.location.href = "customers";
+    }
 
-    $(function () {
-        $("#EliminarCB").click(function () {
-            window.location.href = "#VEliminarC";
-        });
-    });
-    $(function () {
-        $("#CerrarVentanaEliminarC").click(function () {
-            window.location.href = "customers";
-        });
-    });
-    $(function () {
-        $("#NoEliminarCliente").click(function () {
-            window.location.href = "customers";
-        });
-    });
+    function Español() {
+        window.location.href = "/es/perfil/clientes";
+    }
 
-
-    $(function () {
-        $("#Español").click(function () {
-            window.location.href = "/es/perfil/clientes";
-        });
-    });
-    $(function () {
-        $("#English").click(function () {
-            window.location.href = "/en/profile/customers";
-        });
-    });
-
+    function English() {
+        window.location.href = "/en/profile/customers";
+    }
 
 </script>

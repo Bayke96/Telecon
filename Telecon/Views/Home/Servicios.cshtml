@@ -6,19 +6,19 @@
 <div class="PanelServicios">
     <h2>SERVICIOS DISPONIBLES</h2>
     <hr />
-    <div class="CercosElectricos">
+    <div class="CercosElectricos" onclick="Cercos();">
         <p>CERCOS ELECTRICOS</p>
         <div></div>
     </div>
-    <div class="AccesoAutorizado">
+    <div class="AccesoAutorizado" onclick="Acceso();">
         <p>EQUIPOS DE ACCESO AUTORIZADO</p>
         <div></div>
     </div>
-    <div class="PortonesAutomatizados">
+    <div class="PortonesAutomatizados" onclick="Portones();">
         <p>PORTONES AUTOMATIZADOS</p>
         <div></div>
     </div>
-    <div class="CentralesTelefonicas">
+    <div class="CentralesTelefonicas" onclick="Centrales();">
         <p>CENTRALES TELEFONICAS</p>
         <div></div>
     </div>
@@ -26,38 +26,30 @@
 
 
 <script type="text/javascript">
-    $(function () {
-        $(".CercosElectricos").click(function () {
-            window.location.href = "cercoselectricos";
-        });
-    });
-    $(function () {
-        $(".AccesoAutorizado").click(function () {
-            window.location.href = "accesoautorizado";
-        });
-    });
-    $(function () {
-        $(".PortonesAutomatizados").click(function () {
-            window.location.href = "portones";
-        });
-    });
-    $(function () {
-        $(".CentralesTelefonicas").click(function () {
-            window.location.href = "centralestelefonicas";
-        });
-    });
 
+    function Cercos() {
+        window.location.href = "cercoselectricos";
+    }
+
+    function Acceso() {
+        window.location.href = "accesoautorizado";
+    }
+
+    function Portones() {
+        window.location.href = "portones";
+    }
+
+    function Centrales() {
+        window.location.href = "centralestelefonicas";
+    }
    
-        $(function () {
-            $("#Español").click(function () {
-                window.location.href = "/es/servicios";
-            });
-        });
-    $(function () {
-            $("#English").click(function () {
-                window.location.href = "/en/services";
-            });
-        });
+    function Español() {
+        window.location.href = "/es/servicios";
+    }
+
+    function English() {
+        window.location.href = "/en/services";
+    }
 
 
 

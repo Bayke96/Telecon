@@ -94,16 +94,13 @@
         window.location.href = '/en/products';
     }
 
-    $(function () {
-        $("#Español").click(function () {
-            window.location.href = "/es/productos/eliminar";
-        });
-    });
-    $(function () {
-        $("#English").click(function () {
-            window.location.href = "/en/products/delete";
-        });
-    });
+    function Español() {
+        window.location.href = "/es/productos/eliminar";
+    }
+
+    function English() {
+        window.location.href = "/en/products/delete";
+    }
 
 </script>
 

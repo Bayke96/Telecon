@@ -55,7 +55,7 @@
         </table>
 
         <button type="submit" id="ProductosAceptar" onclick="return ProductSettings();">ACEPTAR</button>
-        <button type="button" id="ProductosRegresar">REGRESAR</button>
+        <button type="button" id="ProductosRegresar" onclick="Regresar();">REGRESAR</button>
         <button type="reset" id="ProductosBorrar">VALORES PREDETERMINADOS</button>
     </div>
 }
@@ -151,27 +151,19 @@
     }
 
 
-    $(document).ready(function () {
-        $('.AdminButton').css('visibility', 'visible');
+    document.getElementById("main-admin-button").style.visibility = "visible";
 
-    });
+    function Regresar() {
+        window.location.href = "/es/admin";
+    }
 
-    $(function () {
-        $("#ProductosRegresar").click(function () {
-            window.location.href = "/es/admin";
-        });
-    });
+    function Español() {
+        window.location.href = "/es/admin/productos";
+    }
 
-    $(function () {
-        $("#Español").click(function () {
-            window.location.href = "/es/admin/productos";
-        });
-    });
-    $(function () {
-        $("#English").click(function () {
-            window.location.href = "/en/admin/products";
-        });
-    });
+    function English() {
+        window.location.href = "/en/admin/products";
+    }
 
 </script>
 

@@ -116,14 +116,12 @@
 
     setInterval(imageslide, 7000);
 
-    $(function () {
-        $("#Español").click(function () {
-            window.location.href = "/es/inicio";
-        });
-    });
-    $(function () {
-        $("#English").click(function () {
-            window.location.href = "/en/home";
-        });
-    });
+    function Español() {
+        window.location.href = "/es/inicio";
+    }
+
+    function English() {
+        window.location.href = "/en/home";
+    }
+
 </script>

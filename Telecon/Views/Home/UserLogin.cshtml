@@ -1,7 +1,7 @@
 ﻿@model Telecon.Models.User
 @{
     Layout = "~/Views/Estructura/_Layout.cshtml";
-    Page.Title = "Telecon Erickson C.A - Login";
+    Page.Title = "Telecon Erickson C.A - User Login";
 }
 
 <div class="LoginForm">
@@ -89,16 +89,13 @@
 
     }
 
-    $(function () {
-        $("#Español").click(function () {
-            window.location.href = "/es/conectar";
-        });
-    });
-    $(function () {
-        $("#English").click(function () {
-            window.location.href = "/en/login";
-        });
-    });
+    function Español() {
+        window.location.href = "/es/conectar";
+    }
+
+    function English() {
+        window.location.href = "/en/login";
+    }
 
 </script>
 

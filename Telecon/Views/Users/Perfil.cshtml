@@ -8,10 +8,10 @@
     <h2>OPCIONES</h2>
     <hr />
 
-    <button type="button" id="UpdateProfile">Actualizar perfil<div id="PImg1"></div></button>
-    <button type="button" id="ChangePassword">Cambiar contraseña<div id="PImg2"></div></button>
-    <button type="button" id="MyCustomers">Mis clientes<div id="PImg3"></div></button>
-    <button type="button" id="Chat">Chat en línea<div id="PImg4"></div></button>
+    <button type="button" id="UpdateProfile" onclick="ActualizarPerfil();">Actualizar perfil<div id="PImg1"></div></button>
+    <button type="button" id="ChangePassword" onclick="CambiarContraseña();">Cambiar contraseña<div id="PImg2"></div></button>
+    <button type="button" id="MyCustomers" onclick="Clientes();">Mis clientes<div id="PImg3"></div></button>
+    <button type="button" id="Chat" onclick="Chat();">Chat en línea<div id="PImg4"></div></button>
     <button type="button">Cerrar sesión<div id="PImg5"></div></button>
 </div>
 
@@ -53,40 +53,28 @@
         }
     });
 
+    function ActualizarPerfil() {
+        window.location.href = "/es/perfil/actualizarperfil";
+    }
 
-    $(function () {
-        $("#UpdateProfile").click(function () {
-            window.location.href = "/es/perfil/actualizarperfil";
-        });
-    });
+    function CambiarContraseña() {
+        window.location.href = "/es/perfil/cambiarcontraseña";
+    }
 
-    $(function () {
-        $("#ChangePassword").click(function () {
-            window.location.href = "/es/perfil/cambiarcontraseña";
-        });
-    });
+    function Clientes() {
+        window.location.href = "/es/perfil/clientes";
+    }
 
-    $(function () {
-        $("#MyCustomers").click(function () {
-            window.location.href = "/es/perfil/clientes";
-        });
-    });
+    function Chat() {
+        window.location.href = "/es/chat";
+    }
 
-    $(function () {
-        $("#Chat").click(function () {
-            window.location.href = "/es/chat";
-        });
-    });
+    function Español() {
+        window.location.href = "/es/perfil";
+    }
 
-    $(function () {
-        $("#Español").click(function () {
-            window.location.href = "/es/perfil";
-        });
-    });
-    $(function () {
-        $("#English").click(function () {
-            window.location.href = "/en/profile";
-        });
-    });
+    function English() {
+        window.location.href = "/en/profile";
+    }
 
 </script>

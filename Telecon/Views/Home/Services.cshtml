@@ -6,19 +6,19 @@
 <div class="PanelServicios">
     <h2>AVAILABLE SERVICES</h2>
     <hr />
-    <div class="CercosElectricos">
+    <div class="CercosElectricos" onclick="Fences();">
         <p>ELECTRIC FENCES</p>
         <div></div>
     </div>
-    <div class="AccesoAutorizado">
+    <div class="AccesoAutorizado" onclick="CCTV();">
         <p>CCTV INSTALLATION</p>
         <div></div>
     </div>
-    <div class="PortonesAutomatizados">
+    <div class="PortonesAutomatizados" onclick="Gates();">
         <p>SLIDING GATES KITS</p>
         <div></div>
     </div>
-    <div class="CentralesTelefonicas">
+    <div class="CentralesTelefonicas" onclick="Telephone();">
         <p>TELEPHONE EXCHANGES</p>
         <div></div>
     </div>
@@ -26,35 +26,30 @@
 
 
 <script type="text/javascript">
-    $(function () {
-        $(".CercosElectricos").click(function () {
-            window.location.href = "electricfences";
-        });
-    });
-    $(function () {
-        $(".AccesoAutorizado").click(function () {
-            window.location.href = "cctv";
-        });
-    });
-    $(function () {
-        $(".PortonesAutomatizados").click(function () {
-            window.location.href = "sliding-gates";
-        });
-    });
-    $(function () {
-        $(".CentralesTelefonicas").click(function () {
-            window.location.href = "telephone-exchange";
-        });
-    });
-    $(function () {
-        $("#Español").click(function () {
-            window.location.href = "/es/servicios";
-        });
-    });
-    $(function () {
-        $("#English").click(function () {
-            window.location.href = "/en/services";
-        });
-    });
+
+    function Fences() {
+        window.location.href = "electricfences";
+    }
+
+    function CCTV() {
+        window.location.href = "cctv";
+    }
+
+    function Gates() {
+        window.location.href = "sliding-gates";
+    }
+
+    function Telephone() {
+        window.location.href = "telephone-exchange";
+    }
+
+    function Español() {
+        window.location.href = "/es/servicios";
+    }
+
+    function English() {
+        window.location.href = "/en/services";
+    }
+
 </script>
 

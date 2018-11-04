@@ -9,9 +9,9 @@
 
 
 <div class="ClientsBlock">
-    <button type="button" id="AgregarCB">Agregar Cliente<div id="AgregarC"></div></button>
-    <button type="button" id="ModificarCB">Modificar Cliente<div id="ModificarC"></div></button>
-    <button type="button" id="EliminarCB">Eliminar Cliente<div id="EliminarC"></div></button>
+    <button type="button" id="AgregarCB" onclick="AgregarCB();">Agregar Cliente<div id="AgregarC"></div></button>
+    <button type="button" id="ModificarCB" onclick="ModificarCB();">Modificar Cliente<div id="ModificarC"></div></button>
+    <button type="button" id="EliminarCB" onclick="EliminarCB();">Eliminar Cliente<div id="EliminarC"></div></button>
 </div>
 
 
@@ -20,7 +20,7 @@
     @Html.AntiForgeryToken()
     <div id="VAgregarC" class="VentanaAgregarC">
         <div>
-            <span class="pull-right glyphicon glyphicon-off" id="CerrarVentanaAgregarC"></span>
+            <span class="pull-right glyphicon glyphicon-off" id="CerrarVentanaAgregarC" onclick="CerrarVentana();"></span>
             <h2>Agregar Nuevo Cliente</h2>
             <hr />
             <p>Razón Social</p>
@@ -47,7 +47,7 @@
     @Html.AntiForgeryToken()
     <div id="VModificarC" class="VentanaModificarC">
         <div>
-            <span class="pull-right glyphicon glyphicon-off" id="CerrarVentanaModificarC"></span>
+            <span class="pull-right glyphicon glyphicon-off" id="CerrarVentanaModificarC" onclick="CerrarVentana();"></span>
             <h2>Modificar Cliente Existente</h2>
             <hr />
             <p id="NombreCliente">Cliente</p>
@@ -81,7 +81,7 @@
     @Html.AntiForgeryToken()
     <div id="VEliminarC" class="VentanaEliminarC">
         <div>
-            <span class="pull-right glyphicon glyphicon-off" id="CerrarVentanaEliminarC"></span>
+            <span class="pull-right glyphicon glyphicon-off" id="CerrarVentanaEliminarC" onclick="CerrarVentana();"></span>
             <h2>Eliminar Clientes</h2>
             <hr /><br />
             <p>¿Está seguro de que desea eliminar a los siguientes clientes de su lista?</p>
@@ -99,7 +99,7 @@
             </div>
 
             <button type="submit">Si</button>
-            <button type="button" id="NoEliminarCliente">No</button>
+            <button type="button" id="NoEliminarCliente" onclick="CerrarVentana();">No</button>
 
         </div>
     </div>
@@ -179,56 +179,28 @@
         }
     }
 
-    $(function () {
-        $("#AgregarCB").click(function () {
-            window.location.href = "#VAgregarC";
-        });
-    });
-    $(function () {
-        $("#CerrarVentanaAgregarC").click(function () {
-            window.location.href = "clientes";
-        });
-    });
+    function AgregarCB() {
+        window.location.href = "#VAgregarC";
+    }
 
-    $(function () {
-        $("#ModificarCB").click(function () {
-            window.location.href = "#VModificarC";
-        });
-    });
-    $(function () {
-        $("#CerrarVentanaModificarC").click(function () {
-            window.location.href = "clientes";
-        });
-    });
+    function ModificarCB() {
+        window.location.href = "#VModificarC";
+    }
 
+    function EliminarCB() {
+        window.location.href = "#VEliminarC";
+    }
 
+    function CerrarVentana() {
+        window.location.href = "clientes";
+    }
+ 
+    function Español() {
+        window.location.href = "/es/perfil/clientes";
+    }
 
-    $(function () {
-        $("#EliminarCB").click(function () {
-            window.location.href = "#VEliminarC";
-        });
-    });
-    $(function () {
-        $("#CerrarVentanaEliminarC").click(function () {
-            window.location.href = "clientes";
-        });
-    });
-    $(function () {
-        $("#NoEliminarCliente").click(function () {
-            window.location.href = "clientes";
-        });
-    });
-
-
-    $(function () {
-        $("#Español").click(function () {
-            window.location.href = "/es/perfil/clientes";
-        });
-    });
-    $(function () {
-        $("#English").click(function () {
-            window.location.href = "/en/profile/customers";
-        });
-    });
+    function English() {
+        window.location.href = "/en/profile/customers";
+    }
 
 </script>

@@ -217,16 +217,13 @@
         }
     });
   
-    $(function () {
-        $("#Español").click(function () {
-            window.location.href = "/es/productos/agregar";
-        });
-    });
-    $(function () {
-        $("#English").click(function () {
-            window.location.href = "/en/products/add";
-        });
-    });
+    function Español() {
+        window.location.href = "/es/productos/agregar";
+    }
+
+    function English() {
+        window.location.href = "/en/products/add";
+    }
 
 </script>
 

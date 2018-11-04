@@ -8,10 +8,10 @@
     <h2>OPTIONS</h2>
     <hr />
 
-    <button type="button" id="UpdateProfile">Update profile<div id="PImg1"></div></button>
-    <button type="button" id="ChangePassword">Change password<div id="PImg2"></div></button>
-    <button type="button" id="MyCustomers">My customers<div id="PImg3"></div></button>
-    <button type="button" id="Chat">Online chat<div id="PImg4"></div></button>
+    <button type="button" id="UpdateProfile" onclick="UpdateProfile();">Update profile<div id="PImg1"></div></button>
+    <button type="button" id="ChangePassword" onclick="ChangePassword();">Change password<div id="PImg2"></div></button>
+    <button type="button" id="MyCustomers" onclick="Customers();">My customers<div id="PImg3"></div></button>
+    <button type="button" id="Chat" onclick="Chat();">Online chat<div id="PImg4"></div></button>
     <button type="button">Log out<div id="PImg5"></div></button>
 </div>
 
@@ -53,41 +53,29 @@
         }
     });
 
+    function UpdateProfile() {
+        window.location.href = "/en/profile/update";
+    }
 
-    $(function () {
-        $("#UpdateProfile").click(function () {
-            window.location.href = "/en/profile/update";
-        });
-    });
+    function ChangePassword() {
+        window.location.href = "/en/profile/changepassword";
+    }
 
-    $(function () {
-        $("#ChangePassword").click(function () {
-            window.location.href = "/en/profile/changepassword";
-        });
-    });
+    function Customers() {
+        window.location.href = "/en/profile/customers";
+    }
+   
+    function Chat() {
+        window.location.href = "/en/chat";
+    }
 
-    $(function () {
-        $("#MyCustomers").click(function () {
-            window.location.href = "/en/profile/customers";
-        });
-    });
+    function Español() {
+        window.location.href = "/es/perfil";
+    }
 
-    $(function () {
-        $("#Chat").click(function () {
-            window.location.href = "/en/chat";
-        });
-    });
-
-    $(function () {
-        $("#Español").click(function () {
-            window.location.href = "/es/perfil";
-        });
-    });
-    $(function () {
-        $("#English").click(function () {
-            window.location.href = "/en/profile";
-        });
-    });
+    function English() {
+        window.location.href = "/en/profile";
+    }
 
 
 </script>

@@ -13,24 +13,24 @@
         <h5>User Code</h5>
         @Html.TextBox("searchID", "", new { id = "buscar_codigo", oninput = "return Validacion();", @value = "" })
         <h5>Names & Lastnames</h5>
-        @Html.TextBox("searchNames", "", new { @value = "" })
+        @Html.TextBox("searchNames", "", new { id = "buscar_nombre", oninput = "return Validacion();", @value = "" })
         <h5>E-mail</h5>
-        @Html.TextBox("searchEmail", "", new { @value = "", oninput = "return Validacion();" })
+        @Html.TextBox("searchEmail", "", new { id = "buscar_correo", oninput = "return Validacion();", @value = "" })
         <h5>Phone</h5>
-        @Html.TextBox("searchNumber", "", new { @value = "" })
+        @Html.TextBox("searchNumber", "", new { id = "buscar_numero", oninput = "return Validacion();", @value = "" })
         <div class="btn-group dropup SearchMenu">
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                 Sort by
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu">
-                <li><a href="#"><span class="glyphicon glyphicon-barcode"></span><b>&ensp;ID</b></a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span><b>&ensp;Name</b></a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-envelope"></span><b>&ensp;E-mail</b></a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-phone"></span><b>&ensp;Phone</b></a></li>
+                <li><a href="#" onclick="OrderUsers(this);"><span class="glyphicon glyphicon-barcode"></span><b>&ensp;ID</b></a></li>
+                <li><a href="#" onclick="OrderUsers(this);"><span class="glyphicon glyphicon-user"></span><b>&ensp;Name</b></a></li>
+                <li><a href="#" onclick="OrderUsers(this);"><span class="glyphicon glyphicon-envelope"></span><b>&ensp;E-mail</b></a></li>
+                <li><a href="#" onclick="OrderUsers(this);"><span class="glyphicon glyphicon-phone"></span><b>&ensp;Phone</b></a></li>
             </ul>
         </div>
-        <button type="reset" class="BtnBorrar">RESET</button>
+        <button type="reset" class="BtnBorrar" onclick="AllUsers();">RESET</button>
     }
 
 </div>
@@ -56,7 +56,7 @@
 
 <h2 id="UsersTitle">TELECON ERICKSON C.A - USERS LIST</h2>
 
-<table class="TablaUsuarios" border="0">
+<table class="TablaUsuarios" id="table-users-list" border="0">
     <tr>
         <td>ID</td>
         <td>Username</td>
@@ -94,16 +94,24 @@
 
     function Validacion() {
         var e = document.getElementById('buscar_codigo').value;
+        var name = document.getElementById('buscar_nombre').value;
+        var userEmail = document.getElementById('buscar_correo').value.trim();
+        var phoneNumber = document.getElementById('buscar_numero').value;
 
         var divtext = document.getElementById("validaciones-contenido");
         var timer = null;
         e.onpropertychange = e.oninput; // for IE8
         var re = new RegExp("^[0-9]+$");
+        var letters = new RegExp("^[a-zA-Z ]*$");
         var validaciones = "";
 
 
         if (re.test(e) == false && e.trim() != "") {
             validaciones += "<p>The user code field only allows integers.</p>";
+        }
+        if (letters.test(name) == false && name.trim() != "") {
+            validaciones += "<p>Los nombres y apellidos solo pueden contener letras y espacios.</p>";
+            document.getElementById('buscar_nombre').value = "";
         }
 
         if (validaciones != "") {
@@ -119,7 +127,10 @@
             document.getElementById('buscar_codigo').value = "";
             return false;
         } else {
-            return true;
+            if (e.trim() != "") return SearchUserByID();
+            if (name.trim() != "") return SearchUserByNames();
+            if (userEmail != "") return SearchUserByEmail();
+            if (phoneNumber != "") return SearchUserByNumber();
         }
 
     }

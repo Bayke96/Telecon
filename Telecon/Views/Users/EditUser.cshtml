@@ -85,7 +85,6 @@
     </div>
 }
 
-
 <div id="validacion" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -206,7 +205,7 @@
                 
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert(errorThrown);
+               
                 return false;
             }
         });
@@ -216,15 +215,13 @@
     function EditUser() {
 
         // Datos del usuario
+
         var usuario = document.getElementById("username-text").value,
             nombres = document.getElementById("firstnames-text").value,
             apellidos = document.getElementById("lastnames-text").value,
             correo = document.getElementById("email-text").value,
             edad = document.getElementById("age-text").value,
             telefono = document.getElementById("phone-text").value;
-
-
-
 
         var divtext = document.getElementById("validaciones-contenido");
         var validaciones = "";
@@ -331,6 +328,5 @@
     function English() {
         window.location.href = "/en/admin/users/edituser/" + @UserID;
     }
-
 
 </script>

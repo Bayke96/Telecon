@@ -78,7 +78,7 @@
 
         <p id="MsgConfirmacion">¿ Esta seguro de que desea eliminar este usuario ?</p>
         <button type="submit" id="BtnSi">SI</button>
-        <button type="button" id="BtnNo">NO</button>
+        <button type="button" id="BtnNo" onclick="No();">NO</button>
     </div>
 }
 
@@ -87,7 +87,7 @@
    document.getElementById("main-admin-button").style.visibility = "visible";
 
     function No() {
-        window.location.href = "/en/admin/users";
+        window.location.href = "/es/admin/usuarios";
     }
     
     function Español() {

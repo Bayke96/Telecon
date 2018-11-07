@@ -369,6 +369,36 @@ namespace Telecon
             );
 
             routes.MapRoute(
+            name: "OrderUsersJSON",
+            url: "json/sort/orderusersby",
+            defaults: new { controller = "JSON", action = "OrderUsers" }
+           );
+
+            routes.MapRoute(
+             name: "SortUsersIDJSON",
+             url: "json/sort/userid",
+             defaults: new { controller = "JSON", action = "SearchUserByID" }
+            );
+
+            routes.MapRoute(
+             name: "SortUsersNamesJSON",
+             url: "json/sort/usernames",
+             defaults: new { controller = "JSON", action = "SearchUserByNames" }
+            );
+
+            routes.MapRoute(
+            name: "SortEmailsJSON",
+            url: "json/sort/email",
+            defaults: new { controller = "JSON", action = "SearchUserByEmail" }
+           );
+
+            routes.MapRoute(
+           name: "SortPhonesJSON",
+           url: "json/sort/phone",
+           defaults: new { controller = "JSON", action = "SearchUserByPhone" }
+          );
+
+            routes.MapRoute(
             "404-PageNotFound",
             "{*url}",
             new { controller = "Home", action = "PageNotFound" }

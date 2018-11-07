@@ -311,6 +311,7 @@
     <Compile Include="Controllers\JSONController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="CRUD_Operations\AppSettings.cs" />
     <Compile Include="CRUD_Operations\Email.cs" />
     <Compile Include="Data_Formatting\DataFormats.cs" />
     <Compile Include="Encryption\Security.cs" />
@@ -320,6 +321,7 @@
     <Compile Include="CRUD_Operations\UserCRUD.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\DataContext.cs" />
+    <Compile Include="Models\Settings.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

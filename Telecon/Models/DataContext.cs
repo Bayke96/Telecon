@@ -15,6 +15,7 @@ namespace Telecon.Models
 
         public virtual DbSet<User> Usuarios { get; set; }
         public virtual DbSet<Customer> Clientes { get; set; }
+        public virtual DbSet<Settings> appSettings { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

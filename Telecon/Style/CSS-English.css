@@ -2966,7 +2966,8 @@ button:focus {
       margin: 1%;
       width: 50%;
       height: 23.75em;
-      background-size: 98% 98%; }
+      background-size: 98% 98%;
+      cursor: grab !important; }
     #secondary-images-block {
       background-color: transparent;
       width: 50%;
@@ -2978,7 +2979,8 @@ button:focus {
       display: inline-block;
       background-size: 98% 98%;
       height: 100%;
-      width: 32.3%; }
+      width: 32.3%;
+      cursor: grab !important; }
     #product-data {
       position: relative;
       background-color: transparent;
@@ -45635,7 +45637,8 @@ button:focus {
     margin: 1%;
     width: 50%;
     height: 23.75em;
-    background-size: 98% 98%; }
+    background-size: 98% 98%;
+    cursor: grab !important; }
   #secondary-images-block {
     background-color: transparent;
     width: 50%;
@@ -45647,7 +45650,8 @@ button:focus {
     display: inline-block;
     background-size: 98% 98%;
     height: 100%;
-    width: 32.3%; }
+    width: 32.3%;
+    cursor: grab !important; }
   #product-data {
     position: relative;
     background-color: transparent;

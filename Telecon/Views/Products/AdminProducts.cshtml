@@ -1,10 +1,11 @@
-﻿@{
+﻿@model Telecon.Models.Settings
+@{
     Layout = "~/Views/Estructura/_Layout.cshtml";
     Page.Title = "Telecon Erickson C.A - Products Administration";
 }
 
 <p id="ProductsTitle">TELECON ERICKSON C.A - PRODUCTS ADMINISTRATION</p>
-@using (@Html.BeginForm("", "", FormMethod.Post, new { autocomplete = "off" }))
+@using (@Html.BeginForm("Admin", "Products", FormMethod.Post, new { id = "product-settings-form", autocomplete = "off" }))
 {
     @Html.AntiForgeryToken()
     <div class="AdministracionProductos">
@@ -18,17 +19,24 @@
             </tr>
             <tr>
                 <td>MAXIMUM PRICE</td>
-                <td>@Html.TextBox("maximo", "", new { @id = "maximo", @class = "form-control", @value = "" })</td>
+                <td>@Html.TextBoxFor(m => m.precioMaximo, new { @id = "maximo", @class = "form-control", @value = "" })</td>
             </tr>
             <tr>
                 <td>MINIMUM PRICE</td>
-                <td>@Html.TextBox("minimo", "", new { @id = "minimo", @class = "form-control", @value = "" })</td>
+                <td>@Html.TextBoxFor(m => m.precioMinimo, new { @id = "minimo", @class = "form-control", @value = "" })</td>
             </tr>
             <tr>
                 <td>ADD PRODUCTS</td>
                 <td>
                     <label class="switch">
-                        <input type="checkbox" checked>
+                        @if (Model == null || Model.adicionProductos == true)
+                        {
+                            <input type="checkbox" value="true" name="add" checked>
+                        }
+                        @if (Model != null && Model.adicionProductos == false)
+                        {
+                            <input type="checkbox" value="true" name="add">
+                        }
                         <span class="slider round"></span>
                     </label>
                 </td>
@@ -37,7 +45,14 @@
                 <td>EDIT PRODUCTS</td>
                 <td>
                     <label class="switch">
-                        <input type="checkbox" checked>
+                        @if (Model == null || Model.modificacionProductos == true)
+                        {
+                            <input type="checkbox" value="true" name="edit" checked>
+                        }
+                        @if (Model != null && Model.modificacionProductos == false)
+                        {
+                            <input type="checkbox" value="true" name="edit">
+                        }
                         <span class="slider round"></span>
                     </label>
                 </td>
@@ -46,7 +61,14 @@
                 <td>DELETE PRODUCTS</td>
                 <td>
                     <label class="switch">
-                        <input type="checkbox" checked>
+                        @if (Model == null || Model.eliminarProductos == true)
+                        {
+                            <input type="checkbox" value="true" name="delete" checked>
+                        }
+                        @if (Model != null && Model.eliminarProductos == false)
+                        {
+                            <input type="checkbox" value="true" name="delete">
+                        }
                         <span class="slider round"></span>
                     </label>
                 </td>
@@ -55,7 +77,7 @@
 
         <button type="submit" id="ProductosAceptar" onclick="return ProductSettings();">ACCEPT</button>
         <button type="button" id="ProductosRegresar" onclick="Return();">RETURN</button>
-        <button type="reset" id="ProductosBorrar">DEFAULT VALUES</button>
+        <button type="button" id="ProductosBorrar" onclick="DefaultValues();">DEFAULT VALUES</button>
     </div>
 }
 
@@ -152,6 +174,17 @@
 
     }
 
+    function DefaultValues() {
+        document.getElementById("minimo").value = null;
+        document.getElementById("maximo").value = null;
+        var x = document.getElementsByTagName("input");
+        for (i = 0; i < x.length; i++) {
+            if (x[i].type == "checkbox") {
+                x[i].checked = true;
+            }
+        }
+        document.getElementById("product-settings-form").submit();
+    }
 
     document.getElementById("main-admin-button").style.visibility = "visible";
 

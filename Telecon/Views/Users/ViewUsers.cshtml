@@ -99,7 +99,7 @@
         var phoneNumber = document.getElementById('buscar_numero').value;
 
         var divtext = document.getElementById("validaciones-contenido");
-        var timer = null;
+        var timer = null, searchtimer = null;
         e.onpropertychange = e.oninput; // for IE8
         var re = new RegExp("^[0-9]+$");
         var letters = new RegExp("^[a-zA-Z ]*$");
@@ -127,10 +127,13 @@
             document.getElementById('buscar_codigo').value = "";
             return false;
         } else {
-            if (e.trim() != "") return SearchUserByID();
-            if (name.trim() != "") return SearchUserByNames();
-            if (userEmail != "") return SearchUserByEmail();
-            if (phoneNumber != "") return SearchUserByNumber();
+            window.clearTimeout(searchtimer);
+            searchtimer = setTimeout(function () {
+                if (e.trim() != "") return SearchUserByID();
+                if (name.trim() != "") return SearchUserByNames();
+                if (userEmail != "") return SearchUserByEmail();
+                if (phoneNumber != "") return SearchUserByNumber();
+            }, 300); // <-- time in milliseconds
         }
 
     }

@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Telecon.Models;
+using Telecon.CRUD_Operations;
 
 namespace Telecon.Controllers
 {
     public class HomeController : Controller
     {
+
+        AppSettings settings = new AppSettings();
         // GET: Home
         public ActionResult Redireccion()
         {
@@ -48,9 +52,28 @@ namespace Telecon.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult Privilegios()
         {
-            return View();
+            using (var context = new DataContext())
+            {
+                var selection = (from s in context.appSettings where s.ID == 1 select s).FirstOrDefault();
+                return View(selection);
+            }
+          
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Privilegios(bool profilePics = false, bool passwordChange = false, bool emailChange = false,
+            bool userAccess = false)
+        {
+            settings.UpdateAccountSettings(profilePics, passwordChange, emailChange, userAccess);
+            using (var context = new DataContext())
+            {
+                var selection = (from s in context.appSettings where s.ID == 1 select s).FirstOrDefault();
+                return View(selection);
+            }
         }
 
         [OutputCache(Duration = 1200)]
@@ -112,10 +135,27 @@ namespace Telecon.Controllers
             return View();
         }
 
-
+        [HttpGet]
         public ActionResult Privileges()
         {
-            return View("AdminPrivileges");
+            using (var context = new DataContext())
+            {
+                var selection = (from s in context.appSettings where s.ID == 1 select s).FirstOrDefault();
+                return View("AdminPrivileges", selection);
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Privileges(bool profilePics = false, bool passwordChange = false, bool emailChange = false,
+            bool userAccess = false)
+        {
+            settings.UpdateAccountSettings(profilePics, passwordChange, emailChange, userAccess);
+            using (var context = new DataContext())
+            {
+                var selection = (from s in context.appSettings where s.ID == 1 select s).FirstOrDefault();
+                return View("AdminPrivileges", selection);
+            }
         }
 
         [OutputCache(Duration = 1200)]

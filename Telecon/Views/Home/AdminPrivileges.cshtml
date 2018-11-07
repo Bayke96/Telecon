@@ -1,10 +1,11 @@
-﻿@{
+﻿@model Telecon.Models.Settings
+@{
     Layout = "~/Views/Estructura/_Layout.cshtml";
     Page.Title = "Telecon Erickson C.A - Privileges Administration";
 }
 
 <div class="PanelPrivilegios">
-    @using (@Html.BeginForm("", "", FormMethod.Post))
+    @using (@Html.BeginForm("Privileges", "Home", FormMethod.Post))
     {
         @Html.AntiForgeryToken()
         <h2>PRIVILEGES MANAGEMENT</h2>
@@ -14,7 +15,14 @@
                 <td>PROFILE PICS</td>
                 <td>
                     <label class="switch">
-                        <input type="checkbox" checked>
+                        @if (Model == null || Model.fotosPerfil == true)
+                        {
+                            <input type="checkbox" value="true" name="profilePics" checked>
+                        }
+                        @if (Model != null && Model.fotosPerfil == false)
+                        {
+                            <input type="checkbox" value="true" name="profilePics">
+                        }
                         <span class="slider round"></span>
                     </label>
                 </td>
@@ -23,7 +31,14 @@
                 <td>ALLOW PASSWORD CHANGE</td>
                 <td>
                     <label class="switch">
-                        <input type="checkbox" checked>
+                        @if (Model == null || Model.cambioContraseña == true)
+                        {
+                            <input type="checkbox" value="true" name="passwordChange" checked>
+                        }
+                        @if (Model != null && Model.cambioContraseña == false)
+                        {
+                            <input type="checkbox" value="true" name="passwordChange">
+                        }
                         <span class="slider round"></span>
                     </label>
                 </td>
@@ -32,7 +47,14 @@
                 <td>ALLOW EMAIL CHANGE</td>
                 <td>
                     <label class="switch">
-                        <input type="checkbox" checked>
+                        @if (Model == null || Model.cambioCorreo == true)
+                        {
+                            <input type="checkbox" value="true" name="emailChange" checked>
+                        }
+                        @if (Model != null && Model.cambioCorreo == false)
+                        {
+                            <input type="checkbox" value="true" name="emailChange">
+                        }
                         <span class="slider round"></span>
                     </label>
                 </td>
@@ -41,7 +63,14 @@
                 <td>ALLOW USER LOGIN</td>
                 <td>
                     <label class="switch">
-                        <input type="checkbox" checked>
+                        @if (Model == null || Model.accesoUsuario == true)
+                        {
+                            <input type="checkbox" value="true" name="userAccess" checked>
+                        }
+                        @if (Model != null && Model.accesoUsuario == false)
+                        {
+                            <input type="checkbox" value="true" name="userAccess">
+                        }
                         <span class="slider round"></span>
                     </label>
                 </td>

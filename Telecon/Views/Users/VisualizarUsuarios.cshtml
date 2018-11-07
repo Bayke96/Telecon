@@ -98,7 +98,7 @@
         var phoneNumber = document.getElementById('buscar_numero').value;
 
         var divtext = document.getElementById("validaciones-contenido");
-        var timer = null;
+        var timer = null, searchtimer = null;
         e.onpropertychange = e.oninput; // for IE8
         var re = new RegExp("^[0-9]+$");
         var letters = new RegExp("^[a-zA-Z ]*$");
@@ -127,10 +127,14 @@
             }, 2000); // <-- time in milliseconds
             return false;
         } else {
-            if (e.trim() != "") return BuscarUsuarioID();
-            if (name.trim() != "") return BuscarUsuarioNombres();
-            if (userEmail != "") return BuscarUsuarioCorreo();
-            if (phoneNumber != "") return BuscarUsuarioTelefono();
+            window.clearTimeout(searchtimer);
+            searchtimer = setTimeout(function () {
+                if (e.trim() != "") return BuscarUsuarioID();
+                if (name.trim() != "") return BuscarUsuarioNombres();
+                if (userEmail != "") return BuscarUsuarioCorreo();
+                if (phoneNumber != "") return BuscarUsuarioTelefono();
+            }, 300); // <-- time in milliseconds
+            
         }
 
     }

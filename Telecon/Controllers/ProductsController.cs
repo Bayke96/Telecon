@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Web.Mvc;
+using Telecon.Models;
 using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Routing;
+using Telecon.CRUD_Operations;
 
 namespace Telecon.Controllers
 {
@@ -11,15 +9,54 @@ namespace Telecon.Controllers
 
     public class ProductsController : Controller
     {
+
+       AppSettings settings = new AppSettings();
         // GET: Products
+       [HttpGet]
        public ActionResult Administrar()
         {
-            return View("AdministrarProductos");
+            using(var context = new DataContext())
+            {
+                var selection = (from s in context.appSettings where s.ID == 1 select s).FirstOrDefault();
+                return View("AdministrarProductos", selection);
+            } 
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Administrar(Settings modelo, bool add = false, bool edit = false, bool delete = false)
+        {
+            settings.UpdateProductSettings(modelo, add, edit, delete);
+            using (var context = new DataContext())
+            {
+                var selection = (from s in context.appSettings where s.ID == 1 select s).FirstOrDefault();
+                return View("AdministrarProductos", selection);
+            }
+        }
+
+        [HttpGet]
         public ActionResult Admin()
         {
-            return View("AdminProducts");
+            using (var context = new DataContext())
+            {
+                var selection = (from s in context.appSettings where s.ID == 1 select s).FirstOrDefault();
+                return View("AdminProducts", selection);
+            }
         }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Admin(Settings modelo, bool add = false, bool edit = false, bool delete = false)
+        {
+            settings.UpdateProductSettings(modelo, add, edit, delete);
+            using (var context = new DataContext())
+            {
+                var selection = (from s in context.appSettings where s.ID == 1 select s).FirstOrDefault();
+                return View("AdminProducts", selection);
+            }
+        }
+
         public ActionResult Main()
         {
             return View("Productos");

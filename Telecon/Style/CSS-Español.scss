@@ -3774,6 +3774,7 @@ button:focus {
             width: 50%;
             height: 23.75em;
             background-size: 98% 98%;
+            cursor: grab;
         }
 
         #secondary-images-block {
@@ -3790,6 +3791,7 @@ button:focus {
             background-size: 98% 98%;
             height: 100%;
             width: 32.3%;
+            cursor: grab;
         }
 
         #product-data {
@@ -58829,6 +58831,7 @@ button:focus {
         width: 50%;
         height: 23.75em;
         background-size: 98% 98%;
+        cursor: grab !important;
     }
 
     #secondary-images-block {
@@ -58845,6 +58848,7 @@ button:focus {
         background-size: 98% 98%;
         height: 100%;
         width: 32.3%;
+        cursor: grab !important;
     }
 
     #product-data {

@@ -88,7 +88,7 @@ function BuscarUsuarioCorreo() {
         dataType: "json",
         data: AddAntiForgeryToken({ email: userEmail }),
         success: function (data) {
-            console.log(data);
+           
             if (data != null) {
                 $("#table-users-list").find("tr:gt(0)").remove();
                 for (var i = 0; i < data.length; i++) {
@@ -128,7 +128,7 @@ function BuscarUsuarioTelefono() {
         dataType: "json",
         data: AddAntiForgeryToken({ phone: userPhone }),
         success: function (data) {
-            console.log(data);
+            
             if (data != null) {
                 $("#table-users-list").find("tr:gt(0)").remove();
                 for (var i = 0; i < data.length; i++) {
@@ -306,7 +306,7 @@ function SearchUserByEmail() {
         dataType: "json",
         data: AddAntiForgeryToken({ email: userEmail }),
         success: function (data) {
-            console.log(data);
+            
             if (data != null) {
                 $("#table-users-list").find("tr:gt(0)").remove();
                 for (var i = 0; i < data.length; i++) {
@@ -346,7 +346,7 @@ function SearchUserByNumber() {
         dataType: "json",
         data: AddAntiForgeryToken({ phone: userPhone }),
         success: function (data) {
-            console.log(data);
+           
             if (data != null) {
                 $("#table-users-list").find("tr:gt(0)").remove();
                 for (var i = 0; i < data.length; i++) {

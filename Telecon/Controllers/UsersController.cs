@@ -26,7 +26,6 @@ namespace Telecon.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Crear(User modelo, HttpPostedFileBase file, bool IsAdmin = false)
         {
-            TextInfo cultInfo = new CultureInfo("en-US", false).TextInfo;
             string path = "";
 
             if (file != null)

@@ -1,14 +1,14 @@
 ﻿    <div class="MenuP">
     <div class="MenuGroup">
-        <button type="button" id="HomeButton">Home</button>
-        <button type="button" id="ProductButton">Available Products</button>
-        <button type="button" id="ServiceButton">Services</button>
-        <button type="button" id="GeneralButton">General Information</button>
-        <button type="button" id="ContactButton">Contact Information</button>
+        <button type="button" id="HomeButton" onclick="Home();">Home</button>
+        <button type="button" id="ProductButton" onclick="Products();">Available Products</button>
+        <button type="button" id="ServiceButton" onclick="Services();">Services</button>
+        <button type="button" id="GeneralButton" onclick="GeneralInfo();">General Information</button>
+        <button type="button" id="ContactButton" onclick="ContactInfo();">Contact Information</button>
     </div>
 
     <div class="MenuSecundario">
-        <button type="button" id="LoginButton">Login</button>
+        <button type="button" id="LoginButton" onclick="Login();">Login</button>
         <div class="btn-group">
             <button type="button" id="LanguageM" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                 Languages
@@ -23,56 +23,40 @@
         </div>
     </div>
 
-    <button type="button" class="AdminButton" id="main-admin-button">Administration Panel</button>
+    <button type="button" class="AdminButton" id="main-admin-button" onclick="AdminPanel();">Administration Panel</button>
 
 </div>
 
 
 
 <script type="text/javascript">
-    $(function () {
-        $("#HomeButton").click(function () {
-            window.location.href = "/en/home";
-        });
-    });
 
-    $(function () {
-        $("#ProductButton").click(function () {
-            window.location.href = "/en/products";
-        });
-    });
+    function Home() {
+        window.location.href = "/en/home";
+    }
 
-    $(function () {
-        $("#ServiceButton").click(function () {
-            window.location.href = "/en/services";
-        });
-    });
+    function Products() {
+        window.location.href = "/en/products/1";
+    }
 
-    $(function () {
-        $("#GeneralButton").click(function () {
-            window.location.href = "/en/info";
-        });
-    });
+    function Services() {
+        window.location.href = "/en/services";
+    }
 
-    $(function () {
-        $("#ContactButton").click(function () {
-            window.location.href = "/en/contact";
-        });
-    });
+    function GeneralInfo() {
+        window.location.href = "/en/info";
+    }
 
-    $(function () {
-        $("#LoginButton").click(function () {
-            window.location.href = "/en/login";
-        });
-    });
+    function ContactInfo() {
+        window.location.href = "/en/contact";
+    }
 
-    $(function () {
-        $(".AdminButton").click(function () {
-            window.location.href = "/en/admin";
-        });
-    });
+    function Login() {
+        window.location.href = "/en/login";
+    }
 
-
-    
+    function AdminPanel() {
+        window.location.href = "/en/admin";
+    }
 
 </script>

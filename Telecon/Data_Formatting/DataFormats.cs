@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 
@@ -22,22 +23,38 @@ namespace Telecon.Data_Formatting
             return new string(chars);
         }
 
-        public String AddressCorrector(String str)
+        public String AddressCorrector(string str)
         {
-            String result = "";
-            String palabra = "";
+            string result = "", palabra = "";
+            TextInfo cultInfo = new CultureInfo("en-US", false).TextInfo;
 
             foreach (string word in str.Split(' '))
             {
-                palabra = char.ToUpper(word.First()) + word.Substring(1).ToLower();
-                if (palabra.Equals("de", StringComparison.InvariantCultureIgnoreCase)) palabra = char.ToLower(word.First()) + word.Substring(1).ToLower();
-                if (palabra.Equals("of", StringComparison.InvariantCultureIgnoreCase)) palabra = char.ToLower(word.First()) + word.Substring(1).ToLower();
-                if (palabra.Equals("y", StringComparison.InvariantCultureIgnoreCase)) palabra = char.ToLower(word.First()) + word.Substring(1).ToLower();
-                if (palabra.Equals("and", StringComparison.InvariantCultureIgnoreCase)) palabra = char.ToLower(word.First()) + word.Substring(1).ToLower();
+                palabra = word.ToLower();
 
+                if (!word.Equals("con", StringComparison.InvariantCultureIgnoreCase) && 
+                    !word.Equals("with", StringComparison.InvariantCultureIgnoreCase) &&
+                    !word.Equals("and", StringComparison.InvariantCultureIgnoreCase) &&
+                    !word.Equals("y", StringComparison.InvariantCultureIgnoreCase) &&
+                    !word.Equals("de", StringComparison.InvariantCultureIgnoreCase) &&
+                    !word.Equals("of", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    palabra = cultInfo.ToTitleCase(palabra);
+                }
                 result += palabra + " ";
             }
             return result;
+        }
+
+        public string FirstLetterToUpper(string str)
+        {
+            if (str == null)
+                return null;
+
+            if (str.Length > 1)
+                return char.ToUpper(str[0]) + str.Substring(1);
+
+            return str.ToUpper();
         }
     }
 }

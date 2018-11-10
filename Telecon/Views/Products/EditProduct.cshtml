@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<Telecon.Models.Product>
+@{
     Layout = "~/Views/Estructura/_Layout.cshtml";
     Page.Title = "Telecon Erickson C.A - Edit Product";
 }
@@ -8,28 +9,28 @@
 <body>
 
     <div class="PanelAgregarProducto">
-        @using (@Html.BeginForm("", "", FormMethod.Post, new { autocomplete = "off" }))
+        @using (@Html.BeginForm("", "", FormMethod.Post, new { id = "edit-product-form", autocomplete = "off", enctype = "multipart/form-data" }))
         {
             @Html.AntiForgeryToken()
             <h2>Edit product</h2><hr />
 
-            <div class="ProductoImgPrincipal">
+            <div id="load-main-img" class="ProductoImgPrincipal">
                 <input id="PImg1" name="PImg1" type="file" style="opacity: 0.0; position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height:100%;" />
             </div>
             <table class="TablaImagenes" border="0">
                 <tr>
                     <td>
-                        <div class="ImgP2">
+                        <div id="load-second-imageA" class="ImgP2">
                             <input id="PImg2" name="PImg2" type="file" style="opacity: 0.0; position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height:100%;" />
                         </div>
                     </td>
                     <td>
-                        <div class="ImgP3">
+                        <div id="load-second-imageB" class="ImgP3">
                             <input id="PImg3" name="PImg3" type="file" style="opacity: 0.0; position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height:100%;" />
                         </div>
                     </td>
                     <td>
-                        <div class="ImgP4">
+                        <div id="load-second-imageC" class="ImgP4">
                             <input id="PImg4" name="PImg4" type="file" style="opacity: 0.0; position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height:100%;" />
                         </div>
                     </td>
@@ -37,9 +38,12 @@
             </table>
             <div class="FormularioAProducto">
                 <p>Choose product</p>
-                <select id="selector-productos" onchange="Botones();">
+                <select id="selector-productos" onchange="CargarProducto(this); Botones();">
                     <option>Choose</option>
-                   
+                    @foreach (var item in Model)
+                    {
+                        <option id="@item.name" value="@item.name">@item.name</option>
+                    }
                 </select>
                 <p>Name</p>
                 @Html.TextBox("nombre_producto", "", new { @id = "nombre_producto", @class = "form-control", @value = "", maxlength = "128" })
@@ -54,7 +58,7 @@
             <button type="button" id="boton-editar" hidden onclick="return UpdateProduct();">Edit</button>
             <button id="ResetBtn" type="reset" hidden>Reset</button>
         }
-       
+
     </div>
 
 
@@ -95,7 +99,7 @@
         var divtext = document.getElementById("validaciones-contenido");
         var validaciones = "";
         var numeros = new RegExp("^[0-9]+$");
-        var decimales = new RegExp("(?<=^| )\d+(\.\d+)?(?=$| )");
+        var decimales = new RegExp("/^(\d+\.?\d*|\.\d+)$/");
 
         if (precio != "" && isNaN(parseFloat(precio)) == false) document.getElementById("precio_producto").value = parseFloat(precio).toFixed(2);
 
@@ -129,7 +133,7 @@
         }
 
         if (nombre.trim() != null && descripcion.length >= 12 && precio > 0 &&
-            document.getElementById("product-main-image").style.backgroundImage == "") {
+            document.getElementById("load-main-img").style.backgroundImage == "") {
 
             validaciones += "<p>You must pick at least one picture for the product.</p>\n"
             setTimeout(function () {
@@ -140,6 +144,8 @@
 
         if (validaciones != "") {
             divtext.innerHTML = validaciones;
+            $('.modal-header').css('background-color', 'red');
+            $('.modal-footer').css('background-color', 'red');
             $('#validacion').modal('show');
             validaciones = "";
 
@@ -150,7 +156,7 @@
 
             return false;
         } else {
-            return true;
+            return ValidateProductEdit();
         }
 
 
@@ -228,11 +234,11 @@
     });
 
     function Español() {
-        window.location.href = "/es/productos/modificar";
+        window.location.href = "/es/producto/modificar";
     }
 
     function English() {
-        window.location.href = "/en/products/edit";
+        window.location.href = "/en/product/edit";
     }
 
 </script>

@@ -233,6 +233,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Products_AJAX\Products-AJAX.js" />
     <Content Include="Scripts\Sorting_Scripts\UsersSorting.js" />
     <Content Include="Style\CSS-English.css">
       <DependentUpon>CSS-English.scss</DependentUpon>
@@ -313,14 +314,22 @@
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="CRUD_Operations\AppSettings.cs" />
     <Compile Include="CRUD_Operations\Email.cs" />
+    <Compile Include="CRUD_Operations\ProductCRUD.cs" />
     <Compile Include="Data_Formatting\DataFormats.cs" />
+    <Compile Include="Data_Formatting\JSONHelper.cs" />
     <Compile Include="Encryption\Security.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="CRUD_Operations\UserCRUD.cs" />
+    <Compile Include="Migrations\201811080201057_InitialCreate.cs" />
+    <Compile Include="Migrations\201811080201057_InitialCreate.Designer.cs">
+      <DependentUpon>201811080201057_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\DataContext.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Settings.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -400,10 +409,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Style\Media\Product_Images\" />
     <Folder Include="Style\Media\User_Images\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201811080201057_InitialCreate.resx">
+      <DependentUpon>201811080201057_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

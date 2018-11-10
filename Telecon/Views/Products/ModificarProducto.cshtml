@@ -1,36 +1,34 @@
-﻿@{
+﻿@model IEnumerable<Telecon.Models.Product>
+@{ 
     Layout = "~/Views/Estructura/_Forma.cshtml";
     Page.Title = "Telecon Erickson C.A - Modificar Producto";
 }
 
-
-
-
 <body>
 
     <div class="PanelAgregarProducto">
-        @using (@Html.BeginForm("", "", FormMethod.Post, new { autocomplete = "off" }))
+        @using (@Html.BeginForm("", "", FormMethod.Post, new { id = "edit-product-form", autocomplete = "off", enctype = "multipart/form-data" }))
         {
             @Html.AntiForgeryToken()
             <h2>Editar producto</h2><hr />
 
-            <div class="ProductoImgPrincipal">
+            <div id="load-main-img" class="ProductoImgPrincipal">
                 <input id="PImg1" name="PImg1" type="file" style="opacity: 0.0; position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height:100%;" />
             </div>
             <table class="TablaImagenes" border="0">
                 <tr>
                     <td>
-                        <div class="ImgP2">
+                        <div id="load-second-imageA" class="ImgP2">
                             <input id="PImg2" name="PImg2" type="file" style="opacity: 0.0; position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height:100%;" />
                         </div>
                     </td>
                     <td>
-                        <div class="ImgP3">
+                        <div id="load-second-imageB" class="ImgP3">
                             <input id="PImg3" name="PImg3" type="file" style="opacity: 0.0; position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height:100%;" />
                         </div>
                     </td>
                     <td>
-                        <div class="ImgP4">
+                        <div id="load-second-imageC" class="ImgP4">
                             <input id="PImg4" name="PImg4" type="file" style="opacity: 0.0; position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height:100%;" />
                         </div>
                     </td>
@@ -38,9 +36,12 @@
             </table>
             <div class="FormularioAProducto">
                 <p>Seleccionar producto</p>
-                <select id="selector-productos" onchange="Botones();">
+                <select id="selector-productos" onchange="CargarProducto(this); Botones();">
                     <option value="seleccionar">Seleccionar</option>
-                    
+                    @foreach (var item in Model)
+                    {
+                        <option id="@item.name" value="@item.name">@item.name</option>
+                    }
                 </select>
                 <p>Nombre</p>
                 @Html.TextBox("nombre_producto", "", new { @id = "nombre_producto", @class = "form-control", @value = "", maxlength = "128" })
@@ -55,7 +56,7 @@
             <button type="button" id="boton-editar" hidden onclick="return UpdateProduct();">Editar</button>
             <button id="ResetBtn" type="reset" hidden>Borrar</button>
         }
-       
+
     </div>
 
     <div id="validacion" class="modal fade" tabindex="-1" role="dialog">
@@ -97,10 +98,8 @@
         var divtext = document.getElementById("validaciones-contenido");
         var validaciones = "";
         var numeros = new RegExp("^[0-9]+$");
-        var decimales = new RegExp("(?<=^| )\d+(\.\d+)?(?=$| )");
-
-
-
+        var decimales = new RegExp("/^(\d+\.?\d*|\.\d+)$/");
+        
         if (precio != "" && isNaN(parseFloat(precio)) == false) document.getElementById("precio_producto").value = parseFloat(precio).toFixed(2);
 
         if (strUser == "Seleccionar") {
@@ -131,7 +130,7 @@
         }
 
         if (nombre.trim() != null && descripcion.length >= 12 && precio > 0 &&
-            document.getElementById("product-main-image").style.backgroundImage == "") {
+            document.getElementById("load-main-img").style.backgroundImage == "") {
 
             validaciones += "<p>Debe elegir al menos una imagen para el producto.</p>\n"
             setTimeout(function () {
@@ -143,6 +142,8 @@
 
         if (validaciones != "") {
             divtext.innerHTML = validaciones;
+            $('.modal-header').css('background-color', 'red');
+            $('.modal-footer').css('background-color', 'red');
             $('#validacion').modal('show');
             validaciones = "";
 
@@ -153,10 +154,9 @@
 
             return false;
         } else {
-            return true;
+            return ValidarEdicionProducto();
         }
-
-
+        
     }
 
     function Botones() {
@@ -173,7 +173,7 @@
             document.getElementById("ResetBtn").style.display = "inline";
         }
     }
-  
+
 
     $("#ResetBtn").click(function () {
         $('.ProductoImgPrincipal').css('background-image', '');
@@ -232,13 +232,13 @@
     });
 
 
-  
+
     function Español() {
-        window.location.href = "/es/productos/modificar";
+        window.location.href = "/es/producto/modificar";
     }
 
     function English() {
-        window.location.href = "/en/products/edit";
+        window.location.href = "/en/product/edit";
     }
 
 </script>

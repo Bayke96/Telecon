@@ -26,6 +26,7 @@ namespace Telecon.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Administrar(Settings modelo, bool add = false, bool edit = false, bool delete = false)
         {
+            if (modelo.aumentarPrecios != null) settings.UpdateProductPrices(modelo.aumentarPrecios);
             settings.UpdateProductSettings(modelo, add, edit, delete);
             using (var context = new DataContext())
             {
@@ -49,6 +50,7 @@ namespace Telecon.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Admin(Settings modelo, bool add = false, bool edit = false, bool delete = false)
         {
+            if (modelo.aumentarPrecios != null) settings.UpdateProductPrices(modelo.aumentarPrecios);
             settings.UpdateProductSettings(modelo, add, edit, delete);
             using (var context = new DataContext())
             {
@@ -66,14 +68,20 @@ namespace Telecon.Controllers
             return View("Products");
         }
         
+        [HttpGet]
         public ActionResult Agregar()
         {
             return View("NuevoProducto");
         }
 
+        [HttpGet]
         public ActionResult Modificar()
         {
-            return View("ModificarProducto");
+            using (var context = new DataContext())
+            {
+                var search = (from s in context.Productos select s).ToList();
+                return View("ModificarProducto", search);
+            }
         }
 
         public ActionResult Eliminar()
@@ -90,7 +98,11 @@ namespace Telecon.Controllers
         }
         public ActionResult Edit()
         {
-            return View("EditProduct");
+            using (var context = new DataContext())
+            {
+                var search = (from s in context.Productos select s).ToList();
+                return View("EditProduct", search);
+            }
         }
         public ActionResult Delete()
         {

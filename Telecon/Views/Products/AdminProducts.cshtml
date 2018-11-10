@@ -15,7 +15,7 @@
             </tr>
             <tr>
                 <td>RAISE PRICES (%)</td>
-                <td> @Html.TextBox("aumentar_precios", "", new { @id = "incremento", @class = "form-control", @value = "", maxlength = "4" })</td>
+                <td> @Html.TextBoxFor(m => m.aumentarPrecios, new { @id = "incremento", @class = "form-control", @value = "", maxlength = "4" })</td>
             </tr>
             <tr>
                 <td>MAXIMUM PRICE</td>
@@ -121,7 +121,7 @@
         var divtext = document.getElementById("validaciones-contenido");
         var validaciones = "";
         var numeros = new RegExp("^[0-9]+$");
-        var decimales = new RegExp("(?<=^| )\d+(\.\d+)?(?=$| )");
+        var decimales = new RegExp("/^(\d+\.?\d*|\.\d+)$/");
 
 
         if (maximo != "" && isNaN(parseFloat(maximo)) == false) document.getElementById("maximo").value = parseFloat(maximo).toFixed(2);
@@ -153,7 +153,9 @@
             validaciones += "<p>The minimum field does not allow negative numbers.</p>\n"
             document.getElementById("minimo").value = "";
         }
-
+        if (minimo != "" && maximo != "" && minimo >= maximo) {
+            validaciones += "<p>The minimum price cannot be over or equal to the maximum price.</p>\n"
+        }
 
 
 
@@ -168,7 +170,16 @@
             }, 5000); // <-- time in milliseconds
             return false;
         } else {
-            return true;
+            divtext.innerHTML = "<p>Product settings updated successfully.</p>\n";
+            if (incremento > 0) divtext.innerHTML += "<p>Prices have been increased by " + incremento + "%</p>\n";
+            $('.modal-header').css('background-color', 'blue');
+            $('.modal-footer').css('background-color', 'blue');
+            $('#validacion').modal('show');
+            setTimeout(function () {
+                $("#cerrar-validacion").click();
+                document.getElementById("product-settings-form").submit();
+            }, 2000); // <-- time in milliseconds
+            return false;
         }
 
 

@@ -89,3 +89,5 @@ C:\Users\Cristian\source\repos\Telecon\Telecon\bin\roslyn\System.Threading.Tasks
 C:\Users\Cristian\source\repos\Telecon\Telecon\bin\BCrypt.Net.dll
 C:\Users\Cristian\source\repos\Telecon\Telecon\bin\BCrypt.Net.xml
 C:\Users\Cristian\source\repos\Telecon\Telecon\obj\Debug\Telecon.csprojAssemblyReference.cache
+C:\Users\Cristian\source\repos\Telecon\Telecon\obj\Debug\Telecon.Migrations.InitialCreate.resources
+C:\Users\Cristian\source\repos\Telecon\Telecon\obj\Debug\Telecon.csproj.GenerateResource.cache

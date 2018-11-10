@@ -8,6 +8,28 @@ namespace Telecon.CRUD_Operations
 {
     public class AppSettings
     {
+        public void UpdateProductPrices(int? percentage = 0)
+        {
+            if (percentage != 0)
+            {
+                using (var context = new DataContext())
+                {
+                    string calc = "";
+                    if (percentage < 10) calc = "0.0" + percentage;
+                    if (percentage >= 10) calc = "0." + percentage;
+                    double calculate = Double.Parse(calc);
+                    var prices = (from s in context.Productos select s).ToList();
+                   
+                    foreach(var item in prices)
+                    {
+                        double result = item.price * calculate;
+                        item.price = Math.Round(item.price + result, 2, MidpointRounding.ToEven);
+                    }
+                    context.SaveChanges();
+                }
+            }
+        }
+
         public void UpdateProductSettings(Settings modelo, bool add = false, bool edit = false, bool delete = false)
         {
             using(var context = new DataContext())

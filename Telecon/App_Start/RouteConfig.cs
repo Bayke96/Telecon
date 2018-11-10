@@ -18,7 +18,7 @@ namespace Telecon
             routes.MapRoute(
                 name: "Default",
                 url: "",
-                defaults: new { controller = "Home", action = "PAdminEsp" }
+                defaults: new { controller = "Products", action = "Modificar" }
             );
 
             routes.MapRoute(
@@ -83,25 +83,25 @@ namespace Telecon
 
             routes.MapRoute(
             name: "ProductosPrincipal",
-            url: "es/productos",
-            defaults: new { controller = "Products", action = "Main" }
+            url: "es/productos/{id}",
+            defaults: new { controller = "Products", action = "Main", id = @"[0-9+]" }
             );
 
             routes.MapRoute(
             name: "AgregarProducto",
-            url: "es/productos/agregar",
+            url: "es/producto/agregar",
             defaults: new { controller = "Products", action = "Agregar" }
             );
 
             routes.MapRoute(
             name: "ModificarProducto",
-            url: "es/productos/modificar",
+            url: "es/producto/modificar",
             defaults: new { controller = "Products", action = "Modificar" }
             );
 
             routes.MapRoute(
             name: "EliminarProducto",
-            url: "es/productos/eliminar",
+            url: "es/producto/eliminar",
             defaults: new { controller = "Products", action = "Eliminar" }
             );
 
@@ -249,25 +249,25 @@ namespace Telecon
 
             routes.MapRoute(
             name: "Products",
-            url: "en/products",
-            defaults: new { controller = "Products", action = "MainPage" }
+            url: "en/products/{id}",
+            defaults: new { controller = "Products", action = "MainPage", id = @"[0-9+]" }
             );
 
             routes.MapRoute(
             name: "AddProduct",
-            url: "en/products/add",
+            url: "en/product/add",
             defaults: new { controller = "Products", action = "Add" }
             );
 
             routes.MapRoute(
             name: "EditProduct",
-            url: "en/products/edit",
+            url: "en/product/edit",
             defaults: new { controller = "Products", action = "Edit" }
             );
 
             routes.MapRoute(
             name: "DeleteProduct",
-            url: "en/products/delete",
+            url: "en/product/delete",
             defaults: new { controller = "Products", action = "Delete" }
             );
 
@@ -397,6 +397,37 @@ namespace Telecon
            url: "json/sort/phone",
            defaults: new { controller = "JSON", action = "SearchUserByPhone" }
           );
+
+            routes.MapRoute(
+         name: "SearchProductJSON",
+         url: "json/verifyproduct",
+         defaults: new { controller = "JSON", action = "ProductValidations" }
+        );
+
+
+            routes.MapRoute(
+         name: "AddProductJSON",
+         url: "json/agregarproducto",
+         defaults: new { controller = "JSON", action = "AgregarProducto" }
+        );
+
+            routes.MapRoute(
+        name: "LoadProductJSON",
+        url: "json/cargarproducto",
+        defaults: new { controller = "JSON", action = "CargarProducto" }
+       );
+
+        routes.MapRoute(
+        name: "EditProductJSON",
+        url: "json/editarproducto",
+        defaults: new { controller = "JSON", action = "EditarProducto" }
+       );
+
+            routes.MapRoute(
+       name: "ProductListJSON",
+       url: "json/listaproductos",
+       defaults: new { controller = "JSON", action = "ListaProductos" }
+      );
 
             routes.MapRoute(
             "404-PageNotFound",

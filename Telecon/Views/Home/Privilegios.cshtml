@@ -5,7 +5,7 @@
 }
 
 <div class="PanelPrivilegios">
-    @using (@Html.BeginForm("Privilegios", "Home", FormMethod.Post))
+    @using (@Html.BeginForm("Privilegios", "Home", FormMethod.Post, new { id = "privileges-form" } ))
     {
         @Html.AntiForgeryToken()
         <h2>CONTROL DE PRIVILEGIOS</h2>
@@ -77,15 +77,48 @@
             </tr>
         </table>
 
-        <button type="submit">ACEPTAR</button>
+        <button type="submit" onclick="return ActualizarPrivilegios();">ACEPTAR</button>
         <button type="button" id="ReturnButton" onclick="Return();">REGRESAR</button>
     }
 
 
 </div>
 
+<div id="validacion" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button id="cerrar-validacion" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">x</span>
+                </button>
+            </div>
+            <div id="validaciones-contenido" class="modal-body">
+
+
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+
 <script type="text/javascript">
     document.getElementById("main-admin-button").style.visibility = "visible";
+
+    var divtext = document.getElementById("validaciones-contenido");
+
+    function ActualizarPrivilegios() {
+        divtext.innerHTML = "<p>Privilegios actualizados exitosamente.</p>\n";
+        $('.modal-header').css('background-color', 'blue');
+        $('.modal-footer').css('background-color', 'blue');
+        $('#validacion').modal('show');
+        setTimeout(function () {
+            $("#cerrar-validacion").click();
+            document.getElementById("privileges-form").submit();
+        }, 2000); // <-- time in milliseconds
+        return false;
+    }
 
     function Return() {
         window.location.href = "/es/admin";

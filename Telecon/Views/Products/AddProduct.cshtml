@@ -1,15 +1,12 @@
-﻿@{
+﻿@model Telecon.Models.Product
+@{
     Layout = "~/Views/Estructura/_Layout.cshtml";
     Page.Title = "Telecon Erickson C.A - Add Product";
 }
 
-
-
 <body>
-
-
     <div class="PanelAgregarProducto">
-        @using (@Html.BeginForm("", "", FormMethod.Post, new { autocomplete = "off" }))
+        @using (@Html.BeginForm("ProductExists", "JSON", FormMethod.Post, new { id = "add-product-form", autocomplete = "off", enctype = "multipart/form-data" }))
         {
             @Html.AntiForgeryToken()
             <h2>Add product</h2><hr />
@@ -38,13 +35,13 @@
             </table>
             <div class="FormularioAProducto">
                 <p>Name</p>
-                @Html.TextBox("nombre_producto", "", new { @id = "nombre_producto", @class = "form-control", @value = "", maxlength = "128" })
+                @Html.TextBoxFor(m => m.name, new { @id = "nombre_producto", @class = "form-control", @value = "", maxlength = "128" })
 
                 <p>Description</p>
-                @Html.TextArea("descripcion_producto", "", new { @id = "descripcion_producto", @value = "", maxlength = "128" })
+                @Html.TextAreaFor(m => m.description, new { @id = "descripcion_producto", @value = "", maxlength = "128" })
 
                 <p>Price</p>
-                @Html.TextBox("precio_producto", "", new { @id = "precio_producto", @class = "form-control", @value = "", maxlength = "15" })
+                @Html.TextBoxFor(m => m.price, new { @id = "precio_producto", @class = "form-control", @value = "", maxlength = "15" })
 
             </div>
 
@@ -96,7 +93,7 @@
         var divtext = document.getElementById("validaciones-contenido");
         var validaciones = "";
         var numeros = new RegExp("^[0-9]+$");
-        var decimales = new RegExp("(?<=^| )\d+(\.\d+)?(?=$| )");
+        var decimales = new RegExp("/^(\d+\.?\d*|\.\d+)$/");
 
 
 
@@ -138,6 +135,8 @@
 
         if (validaciones != "") {
             divtext.innerHTML = validaciones;
+            $('.modal-header').css('background-color', 'red');
+            $('.modal-footer').css('background-color', 'red');
             $('#validacion').modal('show');
             validaciones = "";
 
@@ -148,7 +147,7 @@
 
             return false;
         } else {
-            return true;
+            return RegisterProduct();
         }
 
 
@@ -212,11 +211,11 @@
     });
 
     function Español() {
-        window.location.href = "/es/productos/agregar";
+        window.location.href = "/es/producto/agregar";
     }
 
     function English() {
-        window.location.href = "/en/products/add";
+        window.location.href = "/en/product/add";
     }
 
 </script>

@@ -28,7 +28,7 @@ namespace Telecon.CRUD_Operations
            string imgPath3 = null, string imgPath4 = null)
         {
             string productName = df.AddressCorrector(modelo.name);
-            string pDescription = char.ToUpper(modelo.description.First()) + modelo.description.Substring(1).ToLower().Trim();
+            string pDescription = df.FirstLetterToUpper(modelo.description);
 
             using (var context = new DataContext())
             {    

@@ -1,4 +1,88 @@
-﻿function RegistrarProducto() {
+﻿// ---------------------------------------- CLEAN PRODUCTS LIST / LIMPIAR LISTA DE PRODUCTOS -------------------------- //
+
+function LimpiarListaProductos(id) {
+    var oplist = document.getElementById(id);
+    for (var i = oplist.options.length - 1; i > 0; i--) {
+        oplist.removeChild(oplist.options[i]);
+    }
+}
+
+// ---------------------------------------- UPDATE PRODUCTS LIST / ACTUALIZAR LISTA DE PRODUCTOS -------------------------- //
+
+function UpdateProductList() {
+    $.ajax({
+        type: "GET",
+        url: "/json/listaproductos",
+        success: function (data) {
+            for (var item in data) {
+                var select = document.getElementById('selector-productos');
+                var opt = document.createElement('option');
+                opt.value = data[item];
+                opt.innerHTML = data[item];
+                select.appendChild(opt);
+            }
+        },
+        error: function (xhr, status, error) {
+
+        }
+    });
+}
+
+// -------------------------------------- AJAX CALL LOAD SELECTED ITEM DATA --------------------------------------------- //
+
+function CargarProducto(item) {
+    var product = item.value;
+
+    $.ajax({
+        type: "POST",
+        url: "/json/cargarproducto",
+        data: AddAntiForgeryToken({ productName: product }),
+        success: function (data) {
+
+            var filename = data.mainImage.replace(/^.*[\\\/]/, '');
+
+            document.getElementById("nombre_producto").value = data.name;
+            document.getElementById("descripcion_producto").value = data.description;
+            document.getElementById("precio_producto").value = data.price
+
+            if (data.secondaryImageA != null) var ImageA = data.secondaryImageA.replace(/^.*[\\\/]/, '');
+            if (data.secondaryImageB != null) var ImageB = data.secondaryImageB.replace(/^.*[\\\/]/, '');
+            if (data.secondaryImageC != null) var ImageC = data.secondaryImageC.replace(/^.*[\\\/]/, '');
+
+
+
+            if (data.mainImage != null) {
+                document.getElementById("load-main-img").style.backgroundImage = 'url("../../Style/Media/Product_Images/' + filename + '")';
+            }
+            if (data.secondaryImageA != null) {
+                document.getElementById("load-second-imageA").style.backgroundImage = 'url("../../Style/Media/Product_Images/' + ImageA + '")';
+            }
+            if (data.secondaryImageB != null) {
+                document.getElementById("load-second-imageB").style.backgroundImage = 'url("../../Style/Media/Product_Images/' + ImageB + '")';
+            }
+            if (data.secondaryImageC != null) {
+                document.getElementById("load-second-imageC").style.backgroundImage = 'url("../../Style/Media/Product_Images/' + ImageC + '")';
+            }
+
+            if (data.secondaryImageA == null) {
+                document.getElementById("load-second-imageA").style.backgroundImage = "none";
+            }
+            if (data.secondaryImageB == null) {
+                document.getElementById("load-second-imageB").style.backgroundImage = "none";
+            }
+            if (data.secondaryImageC == null) {
+                document.getElementById("load-second-imageC").style.backgroundImage = "none";
+            }
+        },
+        error: function (request, status, error) {
+            return false;
+        }
+    });
+}
+
+// ----------------------------- VALIDAR REGISTRO DE PRODUCTO --------------------------------------- //
+
+function RegistrarProducto() {
     var product = document.getElementById("nombre_producto").value;
     var divtext = document.getElementById("validaciones-contenido");
     var pPrice = document.getElementById("precio_producto").value;
@@ -56,6 +140,8 @@
     });
     return false;
 }
+
+// --------------------------------- PROCESAR REGISTRO DE PRODUCTO ----------------------------------------------- //
 
 function ProcesarRegistro() {
 
@@ -118,7 +204,141 @@ function ProcesarRegistro() {
 }
 
 
+// ----------------------------------------------------------- VALIDAR EDITAR PRODUCTO ----------------------------- //
+
+function ValidarEdicionProducto() {
+    var product = document.getElementById("nombre_producto").value;
+    var divtext = document.getElementById("validaciones-contenido");
+    var pPrice = document.getElementById("precio_producto").value;
+    var selectedProduct = document.getElementById("selector-productos").value;
+
+    $.ajax({
+        type: "POST",
+        url: "/json/verifyproduct",
+        dataType: "json",
+        data: AddAntiForgeryToken({ productName: product }),
+        success: function (json) {
+            var data = JSON.parse(json)
+            if (data.name == true && selectedProduct.toLowerCase() != product.toLowerCase()) {
+                divtext.innerHTML = "<p>Ya se encuentra registrado un producto con este nombre.</p>\n";
+                $('.modal-header').css('background-color', 'red');
+                $('.modal-footer').css('background-color', 'red');
+                $('#validacion').modal('show');
+                window.clearTimeout(timer);
+                timer = setTimeout(function () {
+                    $("#cerrar-validacion").click();
+                }, 3000); // <-- time in milliseconds
+                return false;
+            }
+            if (pPrice < data.minimo && data.minimo != null && data.minimo != "") {
+                divtext.innerHTML = "<p>El precio introducido se encuentra por debajo del precio minimo.</p>\n";
+                divtext.innerHTML += "<p>Precio minimo: " + data.minimo + " BsS.</p>\n";
+                $('.modal-header').css('background-color', 'red');
+                $('.modal-footer').css('background-color', 'red');
+                $('#validacion').modal('show');
+                window.clearTimeout(timer);
+                timer = setTimeout(function () {
+                    $("#cerrar-validacion").click();
+                }, 3000); // <-- time in milliseconds
+                return false;
+            }
+            if (pPrice > data.maximo && data.maximo != null && data.maximo != "") {
+                divtext.innerHTML = "<p>El precio introducido se encuentra por encima del preximo máximo.</p>\n";
+                divtext.innerHTML += "<p>Precio máximo: " + data.maximo + " BsS.</p>\n";
+                $('.modal-header').css('background-color', 'red');
+                $('.modal-footer').css('background-color', 'red');
+                $('#validacion').modal('show');
+                window.clearTimeout(timer);
+                timer = setTimeout(function () {
+                    $("#cerrar-validacion").click();
+                }, 3000); // <-- time in milliseconds
+                return false;
+            }
+            else {
+                ProcesarModificacionProducto();
+            }
+
+        },
+        error: function (data) {
+            alert("failure");
+            return false;
+        }
+    });
+    return false;
+}
+
+// ---------------------------------------- PROCESAR MODIFICACION PRODUCTO -------------------------------------------- //
+
+
+function ProcesarModificacionProducto() {
+
+    var divtext = document.getElementById("validaciones-contenido");
+
+    var mainImage = null, secondImageA = null, secondImageB = null, secondImageC = null;
+
+    var oldName = document.getElementById("selector-productos").value;
+    var pName = document.getElementById("nombre_producto").value;
+    var pDescription = document.getElementById("descripcion_producto").value;
+    var pPrice = document.getElementById("precio_producto").value;
+    var pValue = parseFloat(pPrice).toFixed(2);
+
+    if (document.getElementById("load-main-img").style.backgroundImage != "none") {
+        mainImage = document.getElementById("load-main-img").style.backgroundImage;
+    }
+    if (document.getElementById("load-second-imageA").style.backgroundImage != "none") {
+        secondImageA = document.getElementById("load-second-imageA").style.backgroundImage;
+    }
+    if (document.getElementById("load-second-imageB").style.backgroundImage != "none") {
+        secondImageB = document.getElementById("load-second-imageB").style.backgroundImage;
+    }
+    if (document.getElementById("load-second-imageC").style.backgroundImage != "none") {
+        secondImageC = document.getElementById("load-second-imageC").style.backgroundImage;
+    }
+
+    var pData = [oldName + "~", pName + "~", pDescription + "~", pValue + "~"];
+
+    var form = $('#edit-product-form');
+    var formData = new FormData(form.get(0)); //add .get(0)
+    formData.append('productData', pData);
+    formData.append('PImg1', mainImage);
+    formData.append('PImg2', secondImageA);
+    formData.append('PImg3', secondImageB);
+    formData.append('PImg4', secondImageC);
+
+    $.ajax({
+        type: "POST",
+        url: "/json/editarproducto",
+        processData: false,
+        contentType: false,
+        data:
+            formData
+        ,
+        success: function (data) {
+            divtext.innerHTML = "<p>Producto actualizado exitosamente.</p>\n";
+            $('.modal-header').css('background-color', 'blue');
+            $('.modal-footer').css('background-color', 'blue');
+            $('#validacion').modal('show');
+            window.clearTimeout(timer);
+            setTimeout(function () {
+                $("#cerrar-validacion").click();
+                document.getElementById("ResetBtn").click();
+                document.getElementById("selector-productos").selectedIndex = 0;
+                UpdateProductList();
+                LimpiarListaProductos("selector-productos");
+            }, 2000); // <-- time in milliseconds
+        },
+        error: function (xhr, status, error) {
+
+        }
+    });
+}
+
+
+
+
 // ---------------------------------------------------- ENGLISH AJAX CALLS ----------------------------------------------- //
+
+// --------------------------------------------- VALIDATE PRODUCT ADDITION ------------------------------------ //
 
 function RegisterProduct() {
     var product = document.getElementById("nombre_producto").value;
@@ -178,6 +398,8 @@ function RegisterProduct() {
     });
     return false;
 }
+
+// --------------------------------------------------- PROCESS PRODUCT ADDITION ------------------------------------------ //
 
 function ProcessAddition() {
 
@@ -239,209 +461,10 @@ function ProcessAddition() {
     });
 }
 
-// ---------------------------------------------- AJAX CALL CARGAR ITEM --------------------------------------------- //
 
-function CargarProducto(item) {
-    var product = item.value;
 
-    $.ajax({
-        type: "POST",
-        url: "/json/cargarproducto",
-        data: AddAntiForgeryToken({ productName: product }),
-        success: function (data) {
-            
-            var filename = data.mainImage.replace(/^.*[\\\/]/, '');
 
-            document.getElementById("nombre_producto").value = data.name;
-            document.getElementById("descripcion_producto").value = data.description;
-            document.getElementById("precio_producto").value = data.price
-
-            if (data.secondaryImageA != null) var ImageA = data.secondaryImageA.replace(/^.*[\\\/]/, '');
-            if (data.secondaryImageB != null) var ImageB = data.secondaryImageB.replace(/^.*[\\\/]/, '');
-            if (data.secondaryImageC != null) var ImageC = data.secondaryImageC.replace(/^.*[\\\/]/, '');
-
-            
-         
-            if (data.mainImage != null) {
-                document.getElementById("load-main-img").style.backgroundImage = 'url("../../Style/Media/Product_Images/' + filename + '")';
-            }
-            if (data.secondaryImageA != null) {
-                document.getElementById("load-second-imageA").style.backgroundImage = 'url("../../Style/Media/Product_Images/' + ImageA + '")';  
-            }
-            if (data.secondaryImageB != null) {
-                document.getElementById("load-second-imageB").style.backgroundImage = 'url("../../Style/Media/Product_Images/' + ImageB + '")';
-            }
-            if (data.secondaryImageC != null) {
-                document.getElementById("load-second-imageC").style.backgroundImage = 'url("../../Style/Media/Product_Images/' + ImageC + '")';
-            }
-
-            if (data.secondaryImageA == null) {
-                document.getElementById("load-second-imageA").style.backgroundImage = "none";
-            }
-            if (data.secondaryImageB == null) {
-                document.getElementById("load-second-imageB").style.backgroundImage = "none";
-            }
-            if (data.secondaryImageC == null) {
-                document.getElementById("load-second-imageC").style.backgroundImage = "none";
-            }
-        },
-        error: function (request, status, error) {
-            return false;
-        }
-    });
-}
-
-// ----------------------------------------------------------- AJAX CALL EDITAR PRODUCTO ----------------------------- //
-
-function ValidarEdicionProducto() {
-    var product = document.getElementById("nombre_producto").value;
-    var divtext = document.getElementById("validaciones-contenido");
-    var pPrice = document.getElementById("precio_producto").value;
-    var selectedProduct = document.getElementById("selector-productos").value;
-
-    $.ajax({
-        type: "POST",
-        url: "/json/verifyproduct",
-        dataType: "json",
-        data: AddAntiForgeryToken({ productName: product }),
-        success: function (json) {
-            var data = JSON.parse(json)
-            if (data.name == true && selectedProduct.toLowerCase() != product.toLowerCase()) {
-                divtext.innerHTML = "<p>Ya se encuentra registrado un producto con este nombre.</p>\n";
-                $('.modal-header').css('background-color', 'red');
-                $('.modal-footer').css('background-color', 'red');
-                $('#validacion').modal('show');
-                window.clearTimeout(timer);
-                timer = setTimeout(function () {
-                    $("#cerrar-validacion").click();
-                }, 3000); // <-- time in milliseconds
-                return false;
-            }
-            if (pPrice < data.minimo && data.minimo != null && data.minimo != "") {
-                divtext.innerHTML = "<p>El precio introducido se encuentra por debajo del precio minimo.</p>\n";
-                divtext.innerHTML += "<p>Precio minimo: " + data.minimo + " BsS.</p>\n";
-                $('.modal-header').css('background-color', 'red');
-                $('.modal-footer').css('background-color', 'red');
-                $('#validacion').modal('show');
-                window.clearTimeout(timer);
-                timer = setTimeout(function () {
-                    $("#cerrar-validacion").click();
-                }, 3000); // <-- time in milliseconds
-                return false;
-            }
-            if (pPrice > data.maximo && data.maximo != null && data.maximo != "") {
-                divtext.innerHTML = "<p>El precio introducido se encuentra por encima del preximo máximo.</p>\n";
-                divtext.innerHTML += "<p>Precio máximo: " + data.maximo + " BsS.</p>\n";
-                $('.modal-header').css('background-color', 'red');
-                $('.modal-footer').css('background-color', 'red');
-                $('#validacion').modal('show');
-                window.clearTimeout(timer);
-                timer = setTimeout(function () {
-                    $("#cerrar-validacion").click();
-                }, 3000); // <-- time in milliseconds
-                return false;
-            }
-            else {
-                ProcesarModificacionProducto();   
-            }
-            
-        },
-        error: function (data) {
-            alert("failure");
-            return false;
-        }
-    });
-    return false;
-}
-
-function ProcesarModificacionProducto() {
-
-    var divtext = document.getElementById("validaciones-contenido");
-
-    var mainImage = null, secondImageA = null, secondImageB = null, secondImageC = null;
-
-    var oldName = document.getElementById("selector-productos").value;
-    var pName = document.getElementById("nombre_producto").value;
-    var pDescription = document.getElementById("descripcion_producto").value;
-    var pPrice = document.getElementById("precio_producto").value;
-    var pValue = parseFloat(pPrice).toFixed(2);
-
-    if (document.getElementById("load-main-img").style.backgroundImage != "none") {
-        mainImage = document.getElementById("load-main-img").style.backgroundImage;
-    }
-    if(document.getElementById("load-second-imageA").style.backgroundImage != "none") {
-        secondImageA = document.getElementById("load-second-imageA").style.backgroundImage;
-    }
-    if(document.getElementById("load-second-imageB").style.backgroundImage != "none") {
-        secondImageB = document.getElementById("load-second-imageB").style.backgroundImage;
-    }
-    if(document.getElementById("load-second-imageC").style.backgroundImage != "none") {
-        secondImageC = document.getElementById("load-second-imageC").style.backgroundImage;
-    }
-
-    var pData = [oldName + "~", pName + "~", pDescription + "~", pValue + "~"];
-
-    var form = $('#edit-product-form');
-    var formData = new FormData(form.get(0)); //add .get(0)
-    formData.append('productData', pData);
-    formData.append('PImg1', mainImage);
-    formData.append('PImg2', secondImageA);
-    formData.append('PImg3', secondImageB);
-    formData.append('PImg4', secondImageC);
-    
-    $.ajax({
-        type: "POST",
-        url: "/json/editarproducto",
-        processData: false,
-        contentType: false,
-        data: 
-            formData
-        ,
-        success: function (data) {
-            divtext.innerHTML = "<p>Producto actualizado exitosamente.</p>\n";
-            $('.modal-header').css('background-color', 'blue');
-            $('.modal-footer').css('background-color', 'blue');
-            $('#validacion').modal('show');
-            window.clearTimeout(timer);
-            setTimeout(function () {
-                $("#cerrar-validacion").click();
-                document.getElementById("ResetBtn").click();
-                document.getElementById("selector-productos").selectedIndex = 0;
-                UpdateProductList();
-                LimpiarListaProductos("selector-productos");
-            }, 2000); // <-- time in milliseconds
-        },
-        error: function (xhr, status, error) {
-          
-        }
-    });
-}
-
-function LimpiarListaProductos(id) {
-    var oplist = document.getElementById(id);
-    for (var i = oplist.options.length - 1; i > 0; i--) {
-        oplist.removeChild(oplist.options[i]);
-    }
-}
-
-function UpdateProductList() {
-    $.ajax({
-        type: "GET",
-        url: "/json/listaproductos",
-        success: function (data) {
-            for (var item in data) {
-                var select = document.getElementById('selector-productos');
-                var opt = document.createElement('option');
-                opt.value = data[item];
-                opt.innerHTML = data[item];
-                select.appendChild(opt);
-            }
-        },
-        error: function (xhr, status, error) {
-
-        }
-    });
-}
+// --------------------------------------------------- VALIDATE PRODUCT EDIT ---------------------------------------- //
 
 function ValidateProductEdit() {
     var product = document.getElementById("nombre_producto").value;
@@ -503,6 +526,8 @@ function ValidateProductEdit() {
     });
     return false;
 }
+
+// --------------------------------------------------- PROCESS PRODUCT EDIT --------------------------------------------- //
 
 function ProcessProductEdit() {
 

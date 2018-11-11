@@ -18,7 +18,7 @@ namespace Telecon
             routes.MapRoute(
                 name: "Default",
                 url: "",
-                defaults: new { controller = "Products", action = "Modificar" }
+                defaults: new { controller = "Products", action = "Eliminar" }
             );
 
             routes.MapRoute(
@@ -107,8 +107,8 @@ namespace Telecon
 
             routes.MapRoute(
             name: "DetallesProducto",
-            url: "es/producto",
-            defaults: new { controller = "Products", action = "Producto" }
+            url: "es/producto/{id}",
+            defaults: new { controller = "Products", action = "Producto", id = @"[0-9+]" }
             );
 
             routes.MapRoute(
@@ -273,8 +273,8 @@ namespace Telecon
 
             routes.MapRoute(
            name: "ProductDetails",
-           url: "en/product",
-           defaults: new { controller = "Products", action = "Product" }
+           url: "en/product/{id}",
+           defaults: new { controller = "Products", action = "Product", id = @"[0-9+]" }
            );
 
             routes.MapRoute(
@@ -421,6 +421,12 @@ namespace Telecon
         name: "EditProductJSON",
         url: "json/editarproducto",
         defaults: new { controller = "JSON", action = "EditarProducto" }
+       );
+
+            routes.MapRoute(
+        name: "DeleteProductJSON",
+        url: "json/eliminarproducto",
+        defaults: new { controller = "JSON", action = "EliminarProducto" }
        );
 
             routes.MapRoute(

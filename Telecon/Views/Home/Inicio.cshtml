@@ -1,84 +1,105 @@
-﻿@{
+﻿@model IEnumerable<Telecon.Models.Product>
+@{
     Layout = "~/Views/Estructura/_Forma.cshtml";
     Page.Title = "Telecon Erickson C.A - Inicio";
 }
 
 <body>
-  
-       <div class="Lista">
-           <img onclick="CarouselLink()" id="carousel-bg" src="~/Style/Media/Security.jpg" />
-           <div class="BloqueTexto">
-               <h2 id="carousel-text"><b>SEGURIDAD</b></h2>
+    <div class="Lista">
+        <img onclick="CarouselLink()" id="carousel-bg" src="~/Style/Media/Security.jpg" />
+        <div class="BloqueTexto">
+            <h2 id="carousel-text"><b>SEGURIDAD</b></h2>
 
-           </div>
+        </div>
 
-       </div>
+    </div>
 
     <p id="Latest">ULTIMOS PRODUCTOS</p>
 
     <div class="Cabecera">
-        <div class="Card1">
-            <div id="product-image-1" class="product-image">
+        @{
+            int counter = 1;
+            string fileName = "";
+            
+            foreach (var item in Model)
+            {
+                fileName = Path.GetFileName(item.mainImage);
+                if (counter == 1)
+                {
+                    <div class="Card1">
+                        <div id="product-image-1" data-value="@item.ID" onclick="ProductInfo(this);" class="product-image" style='background-image: url("../../Style/Media/Product_Images/@fileName");'>
+                         
+                        </div>
+                        <div class="latest-info">
+                            <p>@item.name</p>
+                            <p>@item.price.ToString("#,###.##") BsS</p>
+                        </div>
+                    </div>
+                }
+                if (counter == 2)
+                {
+                    <div class="Card2">
+                        <div id="product-image-2" data-value="@item.ID" onclick="ProductInfo(this);" class="product-image" style='background-image: url("../../Style/Media/Product_Images/@fileName");'>
 
-            </div>
-            <div class="latest-info">
-                <p>Nombre</p>
-                <p>Precio</p>
-            </div>
-        </div>
-        <div class="Card2">
-            <div id="product-image-2" class="product-image">
+                        </div>
+                        <div class="latest-info">
+                            <p>@item.name</p>
+                            <p>@item.price.ToString("#,###.##") BsS</p>
+                        </div>
+                    </div>
+                }
+                if (counter == 3)
+                {
+                    <div class="Card3">
+                        <div id="product-image-3" data-value="@item.ID" onclick="ProductInfo(this);" class="product-image" style='background-image: url("../../Style/Media/Product_Images/@fileName");'>
 
-            </div>
-            <div class="latest-info">
-                <p>Nombre</p>
-                <p>Precio</p>
-            </div>
-        </div>
-        <div class="Card3">
-            <div id="product-image-3" class="product-image">
+                        </div>
+                        <div class="latest-info">
+                            <p>@item.name</p>
+                            <p>@item.price.ToString("#,###.##") BsS</p>
+                        </div>
+                    </div>
+                }
+                if (counter == 4)
+                {
+                    <div class="Card4">
+                        <div id="product-image-4" data-value="@item.ID" onclick="ProductInfo(this);" class="product-image" style='background-image: url("../../Style/Media/Product_Images/@fileName");'>
 
-            </div>
-            <div class="latest-info">
-                <p>Nombre</p>
-                <p>Precio</p>
-            </div>
-        </div>
-        <div class="Card4">
-            <div id="product-image-4" class="product-image">
+                        </div>
+                        <div class="latest-info">
+                            <p>@item.name</p>
+                            <p>@item.price.ToString("#,###.##") BsS</p>
+                        </div>
+                    </div>
+                }
+                if (counter == 5)
+                {
+                    <div class="Card5">
+                        <div id="product-image-5" data-value="@item.ID" onclick="ProductInfo(this);" class="product-image" style='background-image: url("../../Style/Media/Product_Images/@fileName");'>
 
-            </div>
-            <div class="latest-info">
-                <p>Nombre</p>
-                <p>Precio</p>
-            </div>
-        </div>
-        <div class="Card5">
-            <div id="product-image-5" class="product-image">
-
-            </div>
-            <div class="latest-info">
-                <p>Nombre</p>
-                <p>Precio</p>
-            </div>
-        </div>
+                        </div>
+                        <div class="latest-info">
+                            <p>@item.name</p>
+                            <p>@item.price.ToString("#,###.##") BsS</p>
+                        </div>
+                    </div>
+                }
+                counter++;
+            }
+        }
     </div>
-
-       
-      
-   
 </body>
 
 <script type="text/javascript">
     document.getElementById("carousel-text").innerHTML = "SEGURIDAD";
-    
+
     var image = document.getElementById("carousel-bg");
     var currentPos = 0;
     var images = ["/Style/Media/Security.jpg", "/Style/Media/cercos-electricos.png", "/Style/Media/portones-electricos.jpg", "/Style/Media/articulos-papeleria.jpg", "/Style/Media/Contactanos.jpg"];
 
     function CarouselLink() {
         var texto = document.getElementById("carousel-text").innerHTML;
-        
+
         if (texto.toUpperCase() == "SEGURIDAD") {
             window.location.href = "/es/accesoautorizado";
         }
@@ -98,8 +119,7 @@
 
 
     function imageslide() {
-      
-       
+        
         $('#carousel-bg').fadeOut(1500, function () {
             $('#carousel-bg').attr('src', images[currentPos]).fadeIn();
             if (currentPos == 0) document.getElementById("carousel-text").innerHTML = "SEGURIDAD";
@@ -115,6 +135,10 @@
     }
 
     setInterval(imageslide, 7000);
+
+    function ProductInfo(id) {
+        window.location.href = "/es/producto/" + id.getAttribute('data-value');
+    }
 
     function Español() {
         window.location.href = "/es/inicio";

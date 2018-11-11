@@ -3773,8 +3773,10 @@ button:focus {
             margin: 1%;
             width: 50%;
             height: 23.75em;
-            background-size: 98% 98%;
-            cursor: grab;
+            background-size: 100% 100% !important;
+            background-position: center;
+            background-repeat: no-repeat;
+            cursor: grab !important;
         }
 
         #secondary-images-block {
@@ -3788,10 +3790,12 @@ button:focus {
             background-color: rgba(255, 255, 255, 0.8);
             position: relative;
             display: inline-block;
-            background-size: 98% 98%;
+            background-size: 100% 100% !important;
+            background-repeat: no-repeat;
+            background-position: center;
             height: 100%;
             width: 32.3%;
-            cursor: grab;
+            cursor: grab !important;
         }
 
         #product-data {
@@ -58830,7 +58834,9 @@ button:focus {
         margin: 1%;
         width: 50%;
         height: 23.75em;
-        background-size: 98% 98%;
+        background-size: 100% 100% !important;
+        background-repeat: no-repeat;
+        background-position: center;
         cursor: grab !important;
     }
 
@@ -58845,7 +58851,9 @@ button:focus {
         background-color: rgba(255, 255, 255, 0.8);
         position: relative;
         display: inline-block;
-        background-size: 98% 98%;
+        background-size: 100% 100% !important;
+        background-repeat: no-repeat;
+        background-position: center;
         height: 100%;
         width: 32.3%;
         cursor: grab !important;

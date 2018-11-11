@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<Telecon.Models.Product>
+@{
     Layout = "~/Views/Estructura/_Forma.cshtml";
     Page.Title = "Telecon Erickson C.A - Eliminar Producto";
 }
@@ -16,23 +17,23 @@
             @Html.AntiForgeryToken()
             <h2>Eliminar producto</h2><hr />
 
-            <div class="ProductoImgPrincipal">
+            <div id="load-main-img" class="ProductoImgPrincipal">
 
             </div>
             <table class="TablaImagenes" border="0">
                 <tr>
                     <td>
-                        <div class="ImgP2">
+                        <div id="load-second-imageA" class="ImgP2">
 
                         </div>
                     </td>
                     <td>
-                        <div class="ImgP3">
+                        <div id="load-second-imageB" class="ImgP3">
 
                         </div>
                     </td>
                     <td>
-                        <div class="ImgP4">
+                        <div id="load-second-imageC" class="ImgP4">
 
                         </div>
                     </td>
@@ -40,33 +41,49 @@
             </table>
             <div class="FormularioAProducto">
                 <p>Seleccionar producto</p>
-                <select id="selector-productos" onchange="Botones();">
+                <select id="selector-productos" onchange="LoadProductsListDelete(this); Botones();">
                     <option>Seleccionar</option>
-                 
+                    @foreach (var item in Model)
+                    {
+                        <option id="@item.name" value="@item.name">@item.name</option>
+                    }
                 </select>
                 <p>Nombre</p>
-                <p class="product-info" hidden>Caja de lapices</p>
+                <p id="nombre_producto" class="product-info" hidden></p>
 
                 <p>Descripción</p>
-                <p class="product-info" hidden>
-                    Caja de lapices mongol N° 2, forradas en madera con goma de borrador,
-                    marca fabel castle, fabricados en Valencia, Venezuela.
+                <p id="descripcion_producto" class="product-info" hidden>
+
                 </p>
                 <p>Precio</p>
-                <p class="product-info" hidden>2575.80 BsS</p>
+                <p id="precio_producto" class="product-info" hidden></p>
 
             </div>
 
             <p id="parrafo-confirmacion" hidden>¿Esta seguro de que desea eliminar este producto?</p>
-            <button type="submit" id="boton-eliminar" hidden>Si</button>
-            <button id="ResetBtn" type="reset" onclick="Retornar();" hidden>No</button>
+            <button type="button" id="boton-eliminar" onclick="return EliminarProducto();" hidden>Si</button>
+            <button id="ResetBtn" type="reset" onclick="No();" hidden>No</button>
         }
-
-
-
-      
     </div>
 
+    <div id="validacion" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button id="cerrar-validacion" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">x</span>
+                    </button>
+                </div>
+                <div id="validaciones-contenido" class="modal-body">
+
+
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 
@@ -81,6 +98,10 @@
             document.getElementById("parrafo-confirmacion").style.display = "none";
             document.getElementById("ResetBtn").style.display = "none";
             $('.product-info').css("display", "none");
+            document.getElementById("load-main-img").style.backgroundImage = "none";
+            document.getElementById("load-second-imageA").style.backgroundImage = "none";
+            document.getElementById("load-second-imageB").style.backgroundImage = "none";
+            document.getElementById("load-second-imageC").style.backgroundImage = "none";
         }
         else {
             document.getElementById("boton-eliminar").style.display = "inline";
@@ -89,11 +110,19 @@
             $('.product-info').css("display", "inline");
         }
     }
-   
-    function Retornar() {
-        window.location.href = '/es/productos';
+
+    function No() {
+        document.getElementById("ResetBtn").click();
+        document.getElementById("boton-eliminar").style.display = "none";
+        document.getElementById("parrafo-confirmacion").style.display = "none";
+        document.getElementById("ResetBtn").style.display = "none";
+        $('.product-info').css("display", "none");
+        document.getElementById("load-main-img").style.backgroundImage = "none";
+        document.getElementById("load-second-imageA").style.backgroundImage = "none";
+        document.getElementById("load-second-imageB").style.backgroundImage = "none";
+        document.getElementById("load-second-imageC").style.backgroundImage = "none";
     }
-  
+
     function Español() {
         window.location.href = "/es/producto/eliminar";
     }

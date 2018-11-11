@@ -80,6 +80,64 @@ function CargarProducto(item) {
     });
 }
 
+// --------------------------------------- LOAD LIST OF PRODUCTS FOR ELIMINATION ------------------------------- //
+
+function LoadProductsListDelete(item) {
+    var product = item.value;
+
+    $.ajax({
+        type: "POST",
+        url: "/json/cargarproducto",
+        data: AddAntiForgeryToken({ productName: product }),
+        success: function (data) {
+
+            var filename = data.mainImage.replace(/^.*[\\\/]/, '');
+
+            document.getElementById("nombre_producto").textContent = data.name;
+            document.getElementById("nombre_producto").value = data.name;
+            document.getElementById("descripcion_producto").textContent = data.description;
+            var value = data.price.toLocaleString(
+                "en-US", // leave undefined to use the browser's locale,
+                // or use a string like 'en-US' to override it.
+                { minimumFractionDigits: 0, maximumFractionDigits: 2 }
+            );
+            document.getElementById("precio_producto").textContent = value + " BsS.";
+
+            if (data.secondaryImageA != null) var ImageA = data.secondaryImageA.replace(/^.*[\\\/]/, '');
+            if (data.secondaryImageB != null) var ImageB = data.secondaryImageB.replace(/^.*[\\\/]/, '');
+            if (data.secondaryImageC != null) var ImageC = data.secondaryImageC.replace(/^.*[\\\/]/, '');
+
+            if (data.mainImage != null) {
+                document.getElementById("load-main-img").style.backgroundImage = 'url("../../Style/Media/Product_Images/' + filename + '")';
+            }
+            if (data.secondaryImageA != null) {
+                document.getElementById("load-second-imageA").style.backgroundImage = 'url("../../Style/Media/Product_Images/' + ImageA + '")';
+            }
+            if (data.secondaryImageB != null) {
+                document.getElementById("load-second-imageB").style.backgroundImage = 'url("../../Style/Media/Product_Images/' + ImageB + '")';
+            }
+            if (data.secondaryImageC != null) {
+                document.getElementById("load-second-imageC").style.backgroundImage = 'url("../../Style/Media/Product_Images/' + ImageC + '")';
+            }
+
+            if (data.secondaryImageA == null) {
+                document.getElementById("load-second-imageA").style.backgroundImage = "none";
+            }
+            if (data.secondaryImageB == null) {
+                document.getElementById("load-second-imageB").style.backgroundImage = "none";
+            }
+            if (data.secondaryImageC == null) {
+                document.getElementById("load-second-imageC").style.backgroundImage = "none";
+            }
+
+        },
+        error: function (request, status, error) {
+            return false;
+        }
+    });
+}
+
+
 // ----------------------------- VALIDAR REGISTRO DE PRODUCTO --------------------------------------- //
 
 function RegistrarProducto() {
@@ -323,8 +381,10 @@ function ProcesarModificacionProducto() {
                 $("#cerrar-validacion").click();
                 document.getElementById("ResetBtn").click();
                 document.getElementById("selector-productos").selectedIndex = 0;
-                UpdateProductList();
                 LimpiarListaProductos("selector-productos");
+                document.getElementById("boton-editar").style.display = "none";
+                document.getElementById("ResetBtn").style.display = "none";
+                UpdateProductList();
             }, 2000); // <-- time in milliseconds
         },
         error: function (xhr, status, error) {
@@ -333,8 +393,36 @@ function ProcesarModificacionProducto() {
     });
 }
 
+// ------------------------------------------------- ELIMINAR PRODUCTO ---------------------------------------------- //
 
+function EliminarProducto() {
 
+    var divtext = document.getElementById("validaciones-contenido");
+    var timer = null;
+    var pName = document.getElementById("nombre_producto").textContent;
+    
+    $.ajax({
+        type: "POST",
+        url: "/json/eliminarproducto",
+        data: AddAntiForgeryToken({ productName: pName }),
+        success: function (data) {
+            divtext.innerHTML = "<p>Producto eliminado exitosamente.</p>\n";
+            $('.modal-header').css('background-color', 'blue');
+            $('.modal-footer').css('background-color', 'blue');
+            $('#validacion').modal('show');
+            window.clearTimeout(timer);
+            timer = setTimeout(function () {
+                $("#cerrar-validacion").click();
+                document.getElementById("ResetBtn").click();
+                LimpiarListaProductos("selector-productos");
+                UpdateProductList();
+            }, 2000); // <-- time in milliseconds
+        },
+        error: function (xhr, status, error) {
+
+        }
+    });
+}
 
 // ---------------------------------------------------- ENGLISH AJAX CALLS ----------------------------------------------- //
 
@@ -582,8 +670,41 @@ function ProcessProductEdit() {
                 $("#cerrar-validacion").click();
                 document.getElementById("ResetBtn").click();
                 document.getElementById("selector-productos").selectedIndex = 0;
-                UpdateProductList();
                 LimpiarListaProductos("selector-productos");
+                document.getElementById("boton-editar").style.display = "none";
+                document.getElementById("ResetBtn").style.display = "none";
+                UpdateProductList();
+            }, 2000); // <-- time in milliseconds
+        },
+        error: function (xhr, status, error) {
+
+        }
+    });
+}
+
+// ------------------------------------------------- DELETE PRODUCT ---------------------------------------------- //
+
+function DeleteProduct() {
+
+    var divtext = document.getElementById("validaciones-contenido");
+    var timer = null;
+    var pName = document.getElementById("nombre_producto").textContent;
+
+    $.ajax({
+        type: "POST",
+        url: "/json/eliminarproducto",
+        data: AddAntiForgeryToken({ productName: pName }),
+        success: function (data) {
+            divtext.innerHTML = "<p>Product deleted successfully.</p>\n";
+            $('.modal-header').css('background-color', 'blue');
+            $('.modal-footer').css('background-color', 'blue');
+            $('#validacion').modal('show');
+            window.clearTimeout(timer);
+            timer = setTimeout(function () {
+                $("#cerrar-validacion").click();
+                document.getElementById("ResetBtn").click();
+                LimpiarListaProductos("selector-productos");
+                UpdateProductList();
             }, 2000); // <-- time in milliseconds
         },
         error: function (xhr, status, error) {

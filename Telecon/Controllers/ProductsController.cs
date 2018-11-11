@@ -63,11 +63,17 @@ namespace Telecon.Controllers
         {
             return View("Productos");
         }
-        public ActionResult MainPage()
+
+        public ActionResult Producto(int id)
         {
-            return View("Products");
+            using (var context = new DataContext())
+            {
+                var search = (from s in context.Productos where s.ID == id select s).SingleOrDefault();
+                return View(search);
+            }
         }
         
+
         [HttpGet]
         public ActionResult Agregar()
         {
@@ -84,14 +90,29 @@ namespace Telecon.Controllers
             }
         }
 
+        [HttpGet]
         public ActionResult Eliminar()
         {
-            return View("EliminarProducto");
+            using(var context = new DataContext())
+            {
+                var search = (from s in context.Productos select s).ToList();
+                return View("EliminarProducto", search);
+            }
         }
-        public ActionResult Producto()
+
+        public ActionResult MainPage()
         {
-            return View();
+            return View("Products");
         }
+        public ActionResult Product(int id)
+        {
+            using (var context = new DataContext())
+            {
+                var search = (from s in context.Productos where s.ID == id select s).SingleOrDefault();
+                return View(search);
+            }
+        }
+
         public ActionResult Add()
         {
             return View("AddProduct");
@@ -104,13 +125,15 @@ namespace Telecon.Controllers
                 return View("EditProduct", search);
             }
         }
+
+        [HttpGet]
         public ActionResult Delete()
         {
-            return View("DeleteProduct");
-        }
-        public ActionResult Product()
-        {
-            return View();
+            using (var context = new DataContext())
+            {
+                var search = (from s in context.Productos select s).ToList();
+                return View("DeleteProduct", search);
+            }
         }
     }
 }

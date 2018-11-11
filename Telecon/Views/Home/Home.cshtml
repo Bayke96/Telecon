@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<Telecon.Models.Product>
+@{
     Layout = "~/Views/Estructura/_Layout.cshtml";
     Page.Title = "Telecon Erickson C.A - Home";
 }
@@ -15,56 +16,76 @@
     <p id="Latest">LATEST PRODUCTS</p>
 
     <div class="Cabecera">
-        <div class="Card1">
-            <div id="product-image-1" class="product-image">
+        @{
+            int counter = 1;
+            string fileName = "";
+            foreach (var item in Model)
+            {
+                fileName = Path.GetFileName(item.mainImage);
+                if (counter == 1)
+                {
+                    <div class="Card1">
+                        <div id="product-image-1" data-value="@item.ID" onclick="ProductInfo(this);" class="product-image" style='background-image: url("../../Style/Media/Product_Images/@fileName");'>
 
-            </div>
-            <div class="latest-info">
-                <p>Name</p>
-                <p>Price</p>
-            </div>
-        </div>
-        <div class="Card2">
-            <div id="product-image-2" class="product-image">
+                        </div>
+                        <div class="latest-info">
+                            <p>@item.name</p>
+                            <p>@item.price.ToString("#,###.##") BsS</p>
+                        </div>
+                    </div>
+                }
+                if (counter == 2)
+                {
+                    <div class="Card2">
+                        <div id="product-image-2" data-value="@item.ID" onclick="ProductInfo(this);" class="product-image" style='background-image: url("../../Style/Media/Product_Images/@fileName");'>
 
-            </div>
-            <div class="latest-info">
-                <p>Name</p>
-                <p>Price</p>
-            </div>
-        </div>
-        <div class="Card3">
-            <div id="product-image-3" class="product-image">
+                        </div>
+                        <div class="latest-info">
+                            <p>@item.name</p>
+                            <p>@item.price.ToString("#,###.##") BsS</p>
+                        </div>
+                    </div>
+                }
+                if (counter == 3)
+                {
+                    <div class="Card3">
+                        <div id="product-image-3" data-value="@item.ID" onclick="ProductInfo(this);" class="product-image" style='background-image: url("../../Style/Media/Product_Images/@fileName");'>
 
-            </div>
-            <div class="latest-info">
-                <p>Name</p>
-                <p>Price</p>
-            </div>
-        </div>
-        <div class="Card4">
-            <div id="product-image-4" class="product-image">
+                        </div>
+                        <div class="latest-info">
+                            <p>@item.name</p>
+                            <p>@item.price.ToString("#,###.##") BsS</p>
+                        </div>
+                    </div>
+                }
+                if (counter == 4)
+                {
+                    <div class="Card4">
+                        <div id="product-image-4" data-value="@item.ID" onclick="ProductInfo(this);" class="product-image" style='background-image: url("../../Style/Media/Product_Images/@fileName");'>
 
-            </div>
-            <div class="latest-info">
-                <p>Name</p>
-                <p>Price</p>
-            </div>
-        </div>
-        <div class="Card5">
-            <div id="product-image-5" class="product-image">
+                        </div>
+                        <div class="latest-info">
+                            <p>@item.name</p>
+                            <p>@item.price.ToString("#,###.##") BsS</p>
+                        </div>
+                    </div>
+                }
+                if (counter == 5)
+                {
+                    <div class="Card5">
+                        <div id="product-image-5" data-value="@item.ID" onclick="ProductInfo(this);" class="product-image" style='background-image: url("../../Style/Media/Product_Images/@fileName");'>
 
-            </div>
-            <div class="latest-info">
-                <p>Name</p>
-                <p>Price</p>
-            </div>
-        </div>
+                        </div>
+                        <div class="latest-info">
+                            <p>@item.name</p>
+                            <p>@item.price.ToString("#,###.##") BsS</p>
+                        </div>
+                    </div>
+                }
+                counter++;
+            }
+        }
     </div>
-
-
-
-
 </body>
 
 
@@ -99,7 +120,7 @@
 
 
     function imageslide() {
-        
+
         $('#carousel-bg').fadeOut(1500, function () {
             $('#carousel-bg').attr('src', images[currentPos]).fadeIn();
             if (currentPos == 0) document.getElementById("carousel-text").innerHTML = "SECURITY";
@@ -115,6 +136,10 @@
     }
 
     setInterval(imageslide, 9000);
+
+    function ProductInfo(id) {
+        window.location.href = "/en/product/" + id.getAttribute('data-value');
+    }
 
     function Español() {
         window.location.href = "/es/inicio";

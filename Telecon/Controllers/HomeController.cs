@@ -18,9 +18,14 @@ namespace Telecon.Controllers
             return RedirectToAction("Principal");
         }
 
+        [HttpGet]
         public ActionResult Principal()
         {
-            return View("Inicio");
+            using(var context = new DataContext())
+            {
+                var search = (from s in context.Productos orderby s.ID descending select s).Take(5).ToList();
+                return View("Inicio", search);
+            }
         }
 
         public ActionResult Login()
@@ -104,7 +109,11 @@ namespace Telecon.Controllers
 
         public ActionResult MainPage()
         {
-            return View("Home");
+            using (var context = new DataContext())
+            {
+                var search = (from s in context.Productos orderby s.ID descending select s).Take(5).ToList();
+                return View("Home", search);
+            }
         }
         public ActionResult UserLogin()
         {

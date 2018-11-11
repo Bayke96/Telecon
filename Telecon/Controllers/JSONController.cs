@@ -452,5 +452,13 @@ namespace Telecon.Controllers
             }
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public JsonResult EliminarProducto(string productName)
+        {
+            poperations.DeleteProduct(productName);
+            return Json(true);
+        }
+
     }
 }

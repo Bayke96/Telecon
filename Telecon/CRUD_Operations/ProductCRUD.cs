@@ -17,7 +17,7 @@ namespace Telecon.CRUD_Operations
 
         public Product LoadProduct(string productName)
         {
-            using(var context = new DataContext())
+            using (var context = new DataContext())
             {
                 var search = (from s in context.Productos where s.name == productName select s).FirstOrDefault();
                 return search;
@@ -31,7 +31,7 @@ namespace Telecon.CRUD_Operations
             string pDescription = df.FirstLetterToUpper(modelo.description);
 
             using (var context = new DataContext())
-            {    
+            {
                 var producto = new Product
                 {
                     name = productName.Trim(),
@@ -46,13 +46,13 @@ namespace Telecon.CRUD_Operations
                 context.Productos.Add(producto);
                 context.SaveChanges();
             }
-            
+
         }
 
         public void EditProduct(Object[] productData, string imgPath1 = null, string imgPath2 = null,
            string imgPath3 = null, string imgPath4 = null)
         {
-           
+
             string oldName = df.AddressCorrector(productData[0].ToString());
             string productName = df.AddressCorrector(productData[1].ToString());
             string pDescription = df.FirstLetterToUpper(productData[2].ToString());
@@ -93,9 +93,20 @@ namespace Telecon.CRUD_Operations
                         }
                     }
                 }
-                
+
             }
 
+        }
+
+        public void DeleteProduct(string productName)
+        {
+            string pName = df.AddressCorrector(productName);
+            using(var context = new DataContext())
+            {
+                var search = (from s in context.Productos where s.name == pName select s).FirstOrDefault();
+                context.Productos.Remove(search);
+                context.SaveChanges();
+            }
         }
     }
 }

@@ -1,50 +1,69 @@
-﻿@{
+﻿@model Telecon.Models.Product
+@{
     Layout = "~/Views/Estructura/_Layout.cshtml";
-    Page.Title = "Telecon Erickson C.A - Product Information";
+    Page.Title = "Telecon Erickson C.A - " + Model.name;
+    string mainImage = Path.GetFileName(Model.mainImage);
+    string secondaryImageA = Path.GetFileName(Model.secondaryImageA);
+    string secondaryImageB = Path.GetFileName(Model.secondaryImageB);
+    string secondaryImageC = Path.GetFileName(Model.secondaryImageC);
 }
-
-
 
 <body>
 
-
     <div class="product-detail">
 
-        <div id="main-image"></div>
+        <div id="main-image" style='cursor: default !important; background-image: url("../../Style/Media/Product_Images/@mainImage");'></div>
         <div id="secondary-images-block">
-            <div id="image-b" class="secondary-image"></div>
-            <div id="image-c" class="secondary-image"></div>
-            <div id="image-d" class="secondary-image"></div>
+            @if (secondaryImageA != null)
+            {
+                <div id="image-b" class="secondary-image" style='cursor: default !important; background-image: url("../../Style/Media/Product_Images/@secondaryImageA");'></div>
+            }
+            @if (secondaryImageA == null)
+            {
+                <div id="image-b" class="secondary-image" style='cursor: default !important; background-image: none;'></div>
+            }
+            @if (secondaryImageB != null)
+            {
+                <div id="image-c" class="secondary-image" style='cursor: default !important; background-image: url("../../Style/Media/Product_Images/@secondaryImageB");'></div>
+            }
+            @if (secondaryImageB == null)
+            {
+                <div id="image-c" class="secondary-image" style='cursor: default !important; background-image: none;'></div>
+            }
+            @if (secondaryImageC != null)
+            {
+                <div id="image-d" class="secondary-image" style='cursor: default !important; background-image: url("../../Style/Media/Product_Images/@secondaryImageC");'></div>
+            }
+            @if (secondaryImageC == null)
+            {
+                <div id="image-d" class="secondary-image" style='cursor: default !important; background-image: none;'></div>
+            }
         </div>
         <div id="product-data">
-            <h2 id="product-title">Pencils Pack Model Mongol N° 2</h2>
-            <h2 id="product-description">Box containing 24 pencils made of wood and rubber.<br /><br />- Yellow colored.</h2>
-            <h2>12500,75 BsS</h2>
-           
+            <h2 id="product-title">@Model.name</h2>
+            <h2 id="product-description">@Model.description</h2>
+            <h2>@Model.price.ToString("#,###.##") BsS</h2>
+
             <button onclick="Return();" id="return-button" type="button">Return</button>
         </div>
     </div>
 
-
-
-
-
 </body>
 
 <script type="text/javascript">
-    
+
     function Return() {
         window.location.href = "/en/products";
     }
 
     function Español() {
-        window.location.href = "/es/producto";
+        window.location.href = "/es/producto/@Model.ID";
     }
 
     function English() {
-        window.location.href = "/en/product";
+        window.location.href = "/en/product/@Model.ID";
     }
-    
+
 </script>
 
 

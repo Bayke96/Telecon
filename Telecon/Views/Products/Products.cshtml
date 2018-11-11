@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<Telecon.Models.Product>
+@{
     Layout = "~/Views/Estructura/_Layout.cshtml";
     Page.Title = "Telecon Erickson C.A - Available Items";
 }
@@ -115,256 +116,411 @@
     <div class="ContenedorProductos">
         <table class="TablaProductos" border="0">
             <tr>
-                <td>
-                    <div class="ProductoF">
-                        <div class="ImagenProducto"></div>
+                @{
+                    int counter = 1;
+                    string fileName = "";
+                    foreach (var item in Model)
+                    {
+                        fileName = Path.GetFileName(item.mainImage);
+                        if (counter == 1)
+                        {
+                            <td>
+                                <div class="ProductoF" data-value="@item.ID" onclick="ProductInfo(this);">
+                                    <div class="ImagenProducto" style='background-image: url("../../Style/Media/Product_Images/@fileName");'></div>
+                                    <p class="PNombre">@item.name</p>
+                                    <p class="PPrecio">@item.price.ToString("#,###.##") BsS</p>
 
-                        <p class="PNombre">Name</p>
-                        <p class="PPrecio">Price</p>
-                       
-                    </div>
-                </td>
-                <td>
-                    <div class="ProductoF">
-                        <div class="ImagenProducto"></div>
-                        <p class="PNombre">Name</p>
-                        <p class="PPrecio">Price</p>
-                       
-                    </div>
+                                </div>
+                            </td>
+                        }
+                        if (counter == 2)
+                        {
+                            <td>
+                                <div class="ProductoF" data-value="@item.ID" onclick="ProductInfo(this);">
+                                    <div class="ImagenProducto" style='background-image: url("../../Style/Media/Product_Images/@fileName");'></div>
+                                    <p class="PNombre">@item.name</p>
+                                    <p class="PPrecio">@item.price.ToString("#,###.##") BsS</p>
 
-                </td>
-                <td>
-                    <div class="ProductoF">
-                        <div class="ImagenProducto"></div>
-                        <p class="PNombre">Name</p>
-                        <p class="PPrecio">Price</p>
-                       
-                    </div>
+                                </div>
+                            </td>
+                        }
+                        if (counter == 3)
+                        {
+                            <td>
+                                <div class="ProductoF" data-value="@item.ID" onclick="ProductInfo(this);">
+                                    <div class="ImagenProducto" style='background-image: url("../../Style/Media/Product_Images/@fileName");'></div>
+                                    <p class="PNombre">@item.name</p>
+                                    <p class="PPrecio">@item.price.ToString("#,###.##") BsS</p>
 
-                </td>
+                                </div>
+                            </td>
+                        }
+                        counter++;
+                    }
+                }
             </tr>
 
             <tr>
-                <td>
-                    <div class="ProductoF">
-                        <div class="ImagenProducto"></div>
-                        <p class="PNombre">Name</p>
-                        <p class="PPrecio">Price</p>
-                      
-                    </div>
-                </td>
-                <td>
-                    <div class="ProductoF">
-                        <div class="ImagenProducto"></div>
-                        <p class="PNombre">Name</p>
-                        <p class="PPrecio">Price</p>
-                       
-                    </div>
-                </td>
-                <td>
-                    <div class="ProductoF">
-                        <div class="ImagenProducto"></div>
-                        <p class="PNombre">Name</p>
-                        <p class="PPrecio">Price</p>
-                     
-                    </div>
-                </td>
+                @{
+                    counter = 1;
+                    fileName = "";
+                    foreach (var item in Model)
+                    {
+                        fileName = Path.GetFileName(item.mainImage);
+                        if (counter == 4)
+                        {
+                            <td>
+                                <div class="ProductoF" data-value="@item.ID" onclick="ProductInfo(this);">
+                                    <div class="ImagenProducto" style='background-image: url("../../Style/Media/Product_Images/@fileName");'></div>
+                                    <p class="PNombre">@item.name</p>
+                                    <p class="PPrecio">@item.price.ToString("#,###.##") BsS</p>
+
+                                </div>
+                            </td>
+                        }
+                        if (counter == 5)
+                        {
+                            <td>
+                                <div class="ProductoF" data-value="@item.ID" onclick="ProductInfo(this);">
+                                    <div class="ImagenProducto" style='background-image: url("../../Style/Media/Product_Images/@fileName");'></div>
+                                    <p class="PNombre">@item.name</p>
+                                    <p class="PPrecio">@item.price.ToString("#,###.##") BsS</p>
+
+                                </div>
+                            </td>
+                        }
+                        if (counter == 6)
+                        {
+                            <td>
+                                <div class="ProductoF" data-value="@item.ID" onclick="ProductInfo(this);">
+                                    <div class="ImagenProducto" style='background-image: url("../../Style/Media/Product_Images/@fileName");'></div>
+                                    <p class="PNombre">@item.name</p>
+                                    <p class="PPrecio">@item.price.ToString("#,###.##") BsS</p>
+
+                                </div>
+                            </td>
+                        }
+                        counter++;
+                    }
+                }
             </tr>
 
             <tr>
-                <td>
-                    <div class="ProductoF">
-                        <div class="ImagenProducto"></div>
-                        <p class="PNombre">Name</p>
-                        <p class="PPrecio">Price</p>
-                      
-                    </div>
+                @{
+                    counter = 1;
+                    fileName = "";
+                    foreach (var item in Model)
+                    {
+                        fileName = Path.GetFileName(item.mainImage);
+                        if (counter == 7)
+                        {
+                            <td>
+                                <div class="ProductoF" data-value="@item.ID" onclick="ProductInfo(this);">
+                                    <div class="ImagenProducto" style='background-image: url("../../Style/Media/Product_Images/@fileName");'></div>
+                                    <p class="PNombre">@item.name</p>
+                                    <p class="PPrecio">@item.price.ToString("#,###.##") BsS</p>
 
-                </td>
-                <td>
-                    <div class="ProductoF">
-                        <div class="ImagenProducto"></div>
-                        <p class="PNombre">Name</p>
-                        <p class="PPrecio">Price</p>
-                      
-                    </div>
-                </td>
-                <td>
-                    <div class="ProductoF">
-                        <div class="ImagenProducto"></div>
-                        <p class="PNombre">Name</p>
-                        <p class="PPrecio">Price</p>
-                       
-                    </div>
-                </td>
+                                </div>
+                            </td>
+                        }
+                        if (counter == 8)
+                        {
+                            <td>
+                                <div class="ProductoF" data-value="@item.ID" onclick="ProductInfo(this);">
+                                    <div class="ImagenProducto" style='background-image: url("../../Style/Media/Product_Images/@fileName");'></div>
+                                    <p class="PNombre">@item.name</p>
+                                    <p class="PPrecio">@item.price.ToString("#,###.##") BsS</p>
+
+                                </div>
+                            </td>
+                        }
+                        if (counter == 9)
+                        {
+                            <td>
+                                <div class="ProductoF" data-value="@item.ID" onclick="ProductInfo(this);">
+                                    <div class="ImagenProducto" style='background-image: url("../../Style/Media/Product_Images/@fileName");'></div>
+                                    <p class="PNombre">@item.name</p>
+                                    <p class="PPrecio">@item.price.ToString("#,###.##") BsS</p>
+
+                                </div>
+                            </td>
+                        }
+                        counter++;
+                    }
+                }
             </tr>
 
             <tr>
-                <td>
-                    <div class="ProductoF">
-                        <div class="ImagenProducto"></div>
-                        <p class="PNombre">Name</p>
-                        <p class="PPrecio">Price</p>
-                       
-                    </div>
-                </td>
-                <td>
-                    <div class="ProductoF">
-                        <div class="ImagenProducto"></div>
-                        <p class="PNombre">Name</p>
-                        <p class="PPrecio">Price</p>
-                       
-                    </div>
-                </td>
-                <td>
-                    <div class="ProductoF">
-                        <div class="ImagenProducto"></div>
-                        <p class="PNombre">Name</p>
-                        <p class="PPrecio">Price</p>
-                       
-                    </div>
-                </td>
+                @{
+                    counter = 1;
+                    fileName = "";
+                    foreach (var item in Model)
+                    {
+                        fileName = Path.GetFileName(item.mainImage);
+                        if (counter == 10)
+                        {
+                            <td>
+                                <div class="ProductoF" data-value="@item.ID" onclick="ProductInfo(this);">
+                                    <div class="ImagenProducto" style='background-image: url("../../Style/Media/Product_Images/@fileName");'></div>
+                                    <p class="PNombre">@item.name</p>
+                                    <p class="PPrecio">@item.price.ToString("#,###.##") BsS</p>
+
+                                </div>
+                            </td>
+                        }
+                        if (counter == 11)
+                        {
+                            <td>
+                                <div class="ProductoF" data-value="@item.ID" onclick="ProductInfo(this);">
+                                    <div class="ImagenProducto" style='background-image: url("../../Style/Media/Product_Images/@fileName");'></div>
+                                    <p class="PNombre">@item.name</p>
+                                    <p class="PPrecio">@item.price.ToString("#,###.##") BsS</p>
+
+                                </div>
+                            </td>
+                        }
+                        if (counter == 12)
+                        {
+                            <td>
+                                <div class="ProductoF" data-value="@item.ID" onclick="ProductInfo(this);">
+                                    <div class="ImagenProducto" style='background-image: url("../../Style/Media/Product_Images/@fileName");'></div>
+                                    <p class="PNombre">@item.name</p>
+                                    <p class="PPrecio">@item.price.ToString("#,###.##") BsS</p>
+
+                                </div>
+                            </td>
+                        }
+                        counter++;
+                    }
+                }
             </tr>
+
         </table>
+
+
     </div>
 
     <div class="contenedor-productos-full">
         <table class="tabla-productos-full" border="0">
             <tr>
-                <td>
-                    <div class="ProductoF">
-                        <div class="ImagenProducto"></div>
-                        <p class="PNombre">Name</p>
-                        <p class="PPrecio">Price</p>
-                        
-                    </div>
-                </td>
-                <td>
-                    <div class="ProductoF">
-                        <div class="ImagenProducto"></div>
-                        <p class="PNombre">Name</p>
-                        <p class="PPrecio">Price</p>
-                       
-                    </div>
-                </td>
-                <td>
-                    <div class="ProductoF">
-                        <div class="ImagenProducto"></div>
-                        <p class="PNombre">Name</p>
-                        <p class="PPrecio">Price</p>
-                       
-                    </div>
-                </td>
-                <td>
-                    <div class="ProductoF">
-                        <div class="ImagenProducto"></div>
-                        <p class="PNombre">Name</p>
-                        <p class="PPrecio">Price</p>
-                       
-                    </div>
-                </td>
+                @{
+                    counter = 1;
+                    fileName = "";
+                    foreach (var item in Model)
+                    {
+                        fileName = Path.GetFileName(item.mainImage);
+                        if (counter == 1)
+                        {
+                            <td>
+                                <div class="ProductoF" data-value="@item.ID" onclick="ProductInfo(this);">
+                                    <div class="ImagenProducto" style='background-image: url("../../Style/Media/Product_Images/@fileName");'></div>
+                                    <p class="PNombre">@item.name</p>
+                                    <p class="PPrecio">@item.price.ToString("#,###.##") BsS</p>
+
+                                </div>
+                            </td>
+                        }
+                        if (counter == 2)
+                        {
+                            <td>
+                                <div class="ProductoF" data-value="@item.ID" onclick="ProductInfo(this);">
+                                    <div class="ImagenProducto" style='background-image: url("../../Style/Media/Product_Images/@fileName");'></div>
+                                    <p class="PNombre">@item.name</p>
+                                    <p class="PPrecio">@item.price.ToString("#,###.##") BsS</p>
+
+                                </div>
+                            </td>
+                        }
+                        if (counter == 3)
+                        {
+                            <td>
+                                <div class="ProductoF" data-value="@item.ID" onclick="ProductInfo(this);">
+                                    <div class="ImagenProducto" style='background-image: url("../../Style/Media/Product_Images/@fileName");'></div>
+                                    <p class="PNombre">@item.name</p>
+                                    <p class="PPrecio">@item.price.ToString("#,###.##") BsS</p>
+
+                                </div>
+                            </td>
+                        }
+                        if (counter == 4)
+                        {
+                            <td>
+                                <div class="ProductoF" data-value="@item.ID" onclick="ProductInfo(this);">
+                                    <div class="ImagenProducto" style='background-image: url("../../Style/Media/Product_Images/@fileName");'></div>
+                                    <p class="PNombre">@item.name</p>
+                                    <p class="PPrecio">@item.price.ToString("#,###.##") BsS</p>
+
+                                </div>
+                            </td>
+                        }
+                        counter++;
+                    }
+                }
             </tr>
             <tr>
-                <td>
-                    <div class="ProductoF">
-                        <div class="ImagenProducto"></div>
-                        <p class="PNombre">Name</p>
-                        <p class="PPrecio">Price</p>
-                       
-                    </div>
-                </td>
-                <td>
-                    <div class="ProductoF">
-                        <div class="ImagenProducto"></div>
-                        <p class="PNombre">Name</p>
-                        <p class="PPrecio">Price</p>
-                      
-                    </div>
-                </td>
-                <td>
-                    <div class="ProductoF">
-                        <div class="ImagenProducto"></div>
-                        <p class="PNombre">Name</p>
-                        <p class="PPrecio">Price</p>
-                       
-                    </div>
-                </td>
-                <td>
-                    <div class="ProductoF">
-                        <div class="ImagenProducto"></div>
-                        <p class="PNombre">Name</p>
-                        <p class="PPrecio">Price</p>
-                        
-                    </div>
-                </td>
+                @{
+                    counter = 1;
+                    fileName = "";
+                    foreach (var item in Model)
+                    {
+                        fileName = Path.GetFileName(item.mainImage);
+                        if (counter == 5)
+                        {
+                            <td>
+                                <div class="ProductoF" data-value="@item.ID" onclick="ProductInfo(this);">
+                                    <div class="ImagenProducto" style='background-image: url("../../Style/Media/Product_Images/@fileName");'></div>
+                                    <p class="PNombre">@item.name</p>
+                                    <p class="PPrecio">@item.price.ToString("#,###.##") BsS</p>
+
+                                </div>
+                            </td>
+                        }
+                        if (counter == 6)
+                        {
+                            <td>
+                                <div class="ProductoF" data-value="@item.ID" onclick="ProductInfo(this);">
+                                    <div class="ImagenProducto" style='background-image: url("../../Style/Media/Product_Images/@fileName");'></div>
+                                    <p class="PNombre">@item.name</p>
+                                    <p class="PPrecio">@item.price.ToString("#,###.##") BsS</p>
+
+                                </div>
+                            </td>
+                        }
+                        if (counter == 7)
+                        {
+                            <td>
+                                <div class="ProductoF" data-value="@item.ID" onclick="ProductInfo(this);">
+                                    <div class="ImagenProducto" style='background-image: url("../../Style/Media/Product_Images/@fileName");'></div>
+                                    <p class="PNombre">@item.name</p>
+                                    <p class="PPrecio">@item.price.ToString("#,###.##") BsS</p>
+
+                                </div>
+                            </td>
+                        }
+                        if (counter == 8)
+                        {
+                            <td>
+                                <div class="ProductoF" data-value="@item.ID" onclick="ProductInfo(this);">
+                                    <div class="ImagenProducto" style='background-image: url("../../Style/Media/Product_Images/@fileName");'></div>
+                                    <p class="PNombre">@item.name</p>
+                                    <p class="PPrecio">@item.price.ToString("#,###.##") BsS</p>
+
+                                </div>
+                            </td>
+                        }
+                        counter++;
+                    }
+                }
             </tr>
             <tr>
-                <td>
-                    <div class="ProductoF">
-                        <div class="ImagenProducto"></div>
-                        <p class="PNombre">Name</p>
-                        <p class="PPrecio">Price</p>
-                       
-                    </div>
-                </td>
-                <td>
-                    <div class="ProductoF">
-                        <div class="ImagenProducto"></div>
-                        <p class="PNombre">Name</p>
-                        <p class="PPrecio">Price</p>
-                        
-                    </div>
-                </td>
-                <td>
-                    <div class="ProductoF">
-                        <div class="ImagenProducto"></div>
-                        <p class="PNombre">Name</p>
-                        <p class="PPrecio">Price</p>
-                        
-                    </div>
-                </td>
-                <td>
-                    <div class="ProductoF">
-                        <div class="ImagenProducto"></div>
-                        <p class="PNombre">Name</p>
-                        <p class="PPrecio">Price</p>
-                        
-                    </div>
-                </td>
+                @{
+                    counter = 1;
+                    fileName = "";
+                    foreach (var item in Model)
+                    {
+                        fileName = Path.GetFileName(item.mainImage);
+                        if (counter == 9)
+                        {
+                            <td>
+                                <div class="ProductoF" data-value="@item.ID" onclick="ProductInfo(this);">
+                                    <div class="ImagenProducto" style='background-image: url("../../Style/Media/Product_Images/@fileName");'></div>
+                                    <p class="PNombre">@item.name</p>
+                                    <p class="PPrecio">@item.price.ToString("#,###.##") BsS</p>
+
+                                </div>
+                            </td>
+                        }
+                        if (counter == 10)
+                        {
+                            <td>
+                                <div class="ProductoF" data-value="@item.ID" onclick="ProductInfo(this);">
+                                    <div class="ImagenProducto" style='background-image: url("../../Style/Media/Product_Images/@fileName");'></div>
+                                    <p class="PNombre">@item.name</p>
+                                    <p class="PPrecio">@item.price.ToString("#,###.##") BsS</p>
+
+                                </div>
+                            </td>
+                        }
+                        if (counter == 11)
+                        {
+                            <td>
+                                <div class="ProductoF" data-value="@item.ID" onclick="ProductInfo(this);">
+                                    <div class="ImagenProducto" style='background-image: url("../../Style/Media/Product_Images/@fileName");'></div>
+                                    <p class="PNombre">@item.name</p>
+                                    <p class="PPrecio">@item.price.ToString("#,###.##") BsS</p>
+
+                                </div>
+                            </td>
+                        }
+                        if (counter == 12)
+                        {
+                            <td>
+                                <div class="ProductoF" data-value="@item.ID" onclick="ProductInfo(this);">
+                                    <div class="ImagenProducto" style='background-image: url("../../Style/Media/Product_Images/@fileName");'></div>
+                                    <p class="PNombre">@item.name</p>
+                                    <p class="PPrecio">@item.price.ToString("#,###.##") BsS</p>
+
+                                </div>
+                            </td>
+                        }
+                        counter++;
+                    }
+                }
             </tr>
             <tr>
-                <td>
-                    <div class="ProductoF">
-                        <div class="ImagenProducto"></div>
-                        <p class="PNombre">Name</p>
-                        <p class="PPrecio">Price</p>
-                       
-                    </div>
-                </td>
-                <td>
-                    <div class="ProductoF">
-                        <div class="ImagenProducto"></div>
-                        <p class="PNombre">Name</p>
-                        <p class="PPrecio">Price</p>
-                       
-                    </div>
-                </td>
-                <td>
-                    <div class="ProductoF">
-                        <div class="ImagenProducto"></div>
-                        <p class="PNombre">Name</p>
-                        <p class="PPrecio">Price</p>
-                       
-                    </div>
-                </td>
-                <td>
-                    <div class="ProductoF">
-                        <div class="ImagenProducto"></div>
-                        <p class="PNombre">Name</p>
-                        <p class="PPrecio">Price</p>
-                       
-                    </div>
-                </td>
+                @{
+                    counter = 1;
+                    fileName = "";
+                    foreach (var item in Model)
+                    {
+                        fileName = Path.GetFileName(item.mainImage);
+                        if (counter == 13)
+                        {
+                            <td>
+                                <div class="ProductoF" data-value="@item.ID" onclick="ProductInfo(this);">
+                                    <div class="ImagenProducto" style='background-image: url("../../Style/Media/Product_Images/@fileName");'></div>
+                                    <p class="PNombre">@item.name</p>
+                                    <p class="PPrecio">@item.price.ToString("#,###.##") BsS</p>
+
+                                </div>
+                            </td>
+                        }
+                        if (counter == 14)
+                        {
+                            <td>
+                                <div class="ProductoF" data-value="@item.ID" onclick="ProductInfo(this);">
+                                    <div class="ImagenProducto" style='background-image: url("../../Style/Media/Product_Images/@fileName");'></div>
+                                    <p class="PNombre">@item.name</p>
+                                    <p class="PPrecio">@item.price.ToString("#,###.##") BsS</p>
+
+                                </div>
+                            </td>
+                        }
+                        if (counter == 15)
+                        {
+                            <td>
+                                <div class="ProductoF" data-value="@item.ID" onclick="ProductInfo(this);">
+                                    <div class="ImagenProducto" style='background-image: url("../../Style/Media/Product_Images/@fileName");'></div>
+                                    <p class="PNombre">@item.name</p>
+                                    <p class="PPrecio">@item.price.ToString("#,###.##") BsS</p>
+
+                                </div>
+                            </td>
+                        }
+                        if (counter == 16)
+                        {
+                            <td>
+                                <div class="ProductoF" data-value="@item.ID" onclick="ProductInfo(this);">
+                                    <div class="ImagenProducto" style='background-image: url("../../Style/Media/Product_Images/@fileName");'></div>
+                                    <p class="PNombre">@item.name</p>
+                                    <p class="PPrecio">@item.price.ToString("#,###.##") BsS</p>
+
+                                </div>
+                            </td>
+                        }
+                        counter++;
+                    }
+                }
             </tr>
         </table>
     </div>
@@ -479,6 +635,10 @@
 </body>
 
 <script type="text/javascript">
+
+    function ProductInfo(id) {
+        window.location.href = "/en/product/" + id.getAttribute('data-value');
+    }
 
     function AddProduct() {
         window.location.href = '/en/product/add';

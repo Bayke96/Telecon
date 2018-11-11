@@ -59,9 +59,13 @@ namespace Telecon.Controllers
             }
         }
 
-        public ActionResult Main()
+        public ActionResult Main(int id)
         {
-            return View("Productos");
+            using (var context = new DataContext())
+            {
+                var search = (from s in context.Productos orderby s.ID ascending select s).Take(12).ToList();
+                return View("Productos", search);
+            }
         }
 
         public ActionResult Producto(int id)
@@ -102,7 +106,11 @@ namespace Telecon.Controllers
 
         public ActionResult MainPage()
         {
-            return View("Products");
+            using (var context = new DataContext())
+            {
+                var search = (from s in context.Productos orderby s.ID ascending select s).Take(12).ToList();
+                return View("Products", search);
+            }
         }
         public ActionResult Product(int id)
         {

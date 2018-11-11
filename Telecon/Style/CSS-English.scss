@@ -402,6 +402,12 @@ button:focus {
             background-repeat: no-repeat;
             background-image: url("Media/UnknownProduct.png");
             cursor: pointer;
+            background-position: center center;
+            transition: all 500ms ease;
+        }
+
+        .product-image:hover {
+            background-size: 125% 125%;
         }
 
         .latest-info {
@@ -3469,6 +3475,9 @@ button:focus {
             text-align: center;
             padding-top: 2em;
             width: 33.33%;
+            min-height: 25% !important;
+            height: 25% !important;
+            max-height: 25% !important;
         }
 
         .ProductoF {
@@ -24664,6 +24673,9 @@ button:focus {
 
         .contenedor-productos-full td {
             width: 25%;
+            min-height: 25% !important;
+            height: 25% !important;
+            max-height: 25% !important;
         }
 
         .PanelAgregarProducto {
@@ -54816,6 +54828,12 @@ button:focus {
         background-repeat: no-repeat;
         background-image: url("Media/UnknownProduct.png");
         cursor: pointer;
+        background-position: center center;
+        transition: all 500ms ease;
+    }
+
+    .product-image:hover {
+        background-size: 125% 125%;
     }
 
     .latest-info {
@@ -57893,6 +57911,9 @@ button:focus {
         text-align: center;
         padding-top: 2em;
         width: 33.33%;
+        min-height: 25% !important;
+        height: 25% !important;
+        max-height: 25% !important;
     }
 
     .ProductoF {
@@ -57928,6 +57949,11 @@ button:focus {
         border-radius: 2px;
         background-repeat: no-repeat;
         background-image: url("Media/UnknownProduct.png");
+        transition: all 500ms ease;
+    }
+
+    .ImagenProducto:hover {
+        background-size: 125% 125%;
     }
 
     .ProductoF p {
@@ -74352,6 +74378,10 @@ button:focus {
         text-align: center;
         padding-top: 2em;
         width: 33.33%;
+        min-height: 25% !important;
+        height: 25% !important;
+        max-height: 25% !important;
+        
     }
 
     .ProductoF {
@@ -79241,6 +79271,9 @@ button:focus {
 
     .contenedor-productos-full td {
         width: 25%;
+        min-height: 25% !important;
+        height: 25% !important;
+        max-height: 25% !important;
     }
 
     .PanelAgregarProducto {

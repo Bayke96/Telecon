@@ -313,7 +313,11 @@ button:focus {
       background-size: 100% 100%;
       background-repeat: no-repeat;
       background-image: url("Media/UnknownProduct.png");
-      cursor: pointer; }
+      cursor: pointer;
+      background-position: center center;
+      transition: all 500ms ease; }
+    .product-image:hover {
+      background-size: 125% 125%; }
     .latest-info {
       margin: 1%;
       padding: 0;
@@ -2720,7 +2724,10 @@ button:focus {
       border-color: white;
       text-align: center;
       padding-top: 2em;
-      width: 33.33%; }
+      width: 33.33%;
+      min-height: 25% !important;
+      height: 25% !important;
+      max-height: 25% !important; }
     .ProductoF {
       border-left: none;
       border-right: none;
@@ -19338,7 +19345,10 @@ button:focus {
       color: white;
       table-layout: fixed; }
     .contenedor-productos-full td {
-      width: 25%; }
+      width: 25%;
+      min-height: 25% !important;
+      height: 25% !important;
+      max-height: 25% !important; }
     .PanelAgregarProducto {
       width: 55%;
       height: 35em;
@@ -42974,7 +42984,11 @@ button:focus {
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-image: url("Media/UnknownProduct.png");
-    cursor: pointer; }
+    cursor: pointer;
+    background-position: center center;
+    transition: all 500ms ease; }
+  .product-image:hover {
+    background-size: 125% 125%; }
   .latest-info {
     margin: 1%;
     padding: 0;
@@ -45389,7 +45403,10 @@ button:focus {
     border-color: white;
     text-align: center;
     padding-top: 2em;
-    width: 33.33%; }
+    width: 33.33%;
+    min-height: 25% !important;
+    height: 25% !important;
+    max-height: 25% !important; }
   .ProductoF {
     border-left: none;
     border-right: none;
@@ -45420,7 +45437,10 @@ button:focus {
     width: 92%;
     border-radius: 2px;
     background-repeat: no-repeat;
-    background-image: url("Media/UnknownProduct.png"); }
+    background-image: url("Media/UnknownProduct.png");
+    transition: all 500ms ease; }
+  .ImagenProducto:hover {
+    background-size: 125% 125%; }
   .ProductoF p {
     position: relative;
     top: 5%;
@@ -58334,7 +58354,10 @@ button:focus {
     border-color: white;
     text-align: center;
     padding-top: 2em;
-    width: 33.33%; }
+    width: 33.33%;
+    min-height: 25% !important;
+    height: 25% !important;
+    max-height: 25% !important; }
   .ProductoF {
     border-left: none;
     border-right: none;
@@ -62159,7 +62182,10 @@ button:focus {
     color: white;
     table-layout: fixed; }
   .contenedor-productos-full td {
-    width: 25%; }
+    width: 25%;
+    min-height: 25% !important;
+    height: 25% !important;
+    max-height: 25% !important; }
   .PanelAgregarProducto {
     width: 55%;
     height: 35em;

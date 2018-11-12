@@ -18,7 +18,7 @@ namespace Telecon
             routes.MapRoute(
                 name: "Default",
                 url: "",
-                defaults: new { controller = "Products", action = "Eliminar" }
+                defaults: new { controller = "Products", action = "Main", id = 2 }
             );
 
             routes.MapRoute(

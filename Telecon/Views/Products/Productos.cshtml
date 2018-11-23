@@ -105,14 +105,23 @@
         </div>
     </div>
 
-    <div class="ProductosDiv">
-        <button id="NuevoProducto" onclick="return NuevoProducto();" type="submit"><span class="glyphicon glyphicon-plus"></span><br />Nuevo Producto</button>
-        <button id="ModificarProducto" onclick="return ModificarProducto();" type="submit"><span class="glyphicon glyphicon-edit"></span><br />Modificar Producto</button>
-        <button id="EliminarProducto" onclick="return EliminarProducto();" type="submit"><span class="glyphicon glyphicon-remove"></span><br />Eliminar Producto</button>
+    @if (User.Identity.IsAuthenticated == true)
+    {
+        <div class="ProductosDiv">
+            <button id="NuevoProducto" onclick="return NuevoProducto();" type="submit"><span class="glyphicon glyphicon-plus"></span><br />Nuevo Producto</button>
+            <button id="ModificarProducto" onclick="return ModificarProducto();" type="submit"><span class="glyphicon glyphicon-edit"></span><br />Modificar Producto</button>
+            <button id="EliminarProducto" onclick="return EliminarProducto();" type="submit"><span class="glyphicon glyphicon-remove"></span><br />Eliminar Producto</button>
+        </div>
+    }
+
+    <h2 id="ItemsTitle">ITEMS DISPONIBLES</h2>
+
+
+    <div id="paging-div" class="center-block text-center dropdown">
+        <button id="test" type="button" class="center-block products-pagination">75<span class="caret"></span></button>
     </div>
 
 
-    <h2 id="ItemsTitle">ITEMS DISPONIBLES</h2>
 
     <div class="ContenedorProductos">
         <table class="TablaProductos" border="0">
@@ -1036,8 +1045,7 @@
         </table>
     </div>
 
-
-
+    <button type="button" class="center-block products-pagination" id="product-pagination-bottom">75<span class="caret"></span></button>
 
     <div id="DivProdB">
         <p id="OrdenarProductoB">Ordenar por</p>
@@ -1135,11 +1143,15 @@
         </div>
     </div>
 
-    <div class="ProductosDivB">
-        <button id="NuevoProducto" onclick="return NuevoProducto();" type="submit"><span class="glyphicon glyphicon-plus"></span><br />Nuevo Producto</button>
-        <button id="ModificarProducto" onclick="return ModificarProducto();" type="submit"><span class="glyphicon glyphicon-edit"></span><br />Modificar Producto</button>
-        <button id="EliminarProducto" onclick="return EliminarProducto();" type="submit"><span class="glyphicon glyphicon-remove"></span><br />Eliminar Producto</button>
-    </div>
+    @if (User.Identity.IsAuthenticated == true)
+    {
+        <div class="ProductosDivB">
+            <button id="NuevoProducto" onclick="return NuevoProducto();" type="submit"><span class="glyphicon glyphicon-plus"></span><br />Nuevo Producto</button>
+            <button id="ModificarProducto" onclick="return ModificarProducto();" type="submit"><span class="glyphicon glyphicon-edit"></span><br />Modificar Producto</button>
+            <button id="EliminarProducto" onclick="return EliminarProducto();" type="submit"><span class="glyphicon glyphicon-remove"></span><br />Eliminar Producto</button>
+        </div>
+    }
+
 
 </body>
 

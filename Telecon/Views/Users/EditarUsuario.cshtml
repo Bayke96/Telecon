@@ -6,16 +6,16 @@
     var UserID = Url.RequestContext.RouteData.Values["id"];
     string username = Model.username;
     username = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(username.ToLower());
-    var path = Model.picturePath;
-    var name = Path.GetFileName(path);
-    var picpath = "";
+    string picpath = "";
+    var fileName = Path.GetFileName(Model.picturePath);
 
-    if (path.Length < 5) {
+    if (fileName == null)
+    {
         picpath = "UsuarioPre.png";
     }
-    if (path.Length > 5)
+    else
     {
-        picpath = "User_Images/" + name;
+        picpath = "User_Images/" + fileName;
     }
 
 }
@@ -317,6 +317,7 @@
     });
 
     document.getElementById("main-admin-button").style.visibility = "visible";
+    document.getElementById("LoginButton").style.backgroundImage = 'url("/Style/Media/user-profile(1).png")';
 
     function Regresar() {
         window.location.href = "/es/admin/usuarios";

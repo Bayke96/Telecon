@@ -1,7 +1,8 @@
-﻿@model Telecon.Models.Customer
+﻿@model IEnumerable<Telecon.Models.Customer>
 @{
     Layout = "~/Views/Estructura/_Forma.cshtml";
     Page.Title = "Telecon Erickson C.A - Mis Clientes";
+    int counter = 1;
 }
 
 
@@ -15,78 +16,79 @@
 </div>
 
 
-@using (@Html.BeginForm("", "", FormMethod.Post, new { autocomplete = "off" }))
+@using (@Html.BeginForm("", "", FormMethod.Post, new { id = "add-customer-form", autocomplete = "off" }))
 {
     @Html.AntiForgeryToken()
     <div id="VAgregarC" class="VentanaAgregarC">
         <div>
             <span class="pull-right glyphicon glyphicon-off" id="CerrarVentanaAgregarC" onclick="CerrarVentana();"></span>
-            <h2>Agregar Nuevo Cliente</h2>
+            <h2 id="add-customer-title">Agregar Nuevo Cliente</h2>
             <hr />
-            <p>Razón Social</p>
-            @Html.TextBoxFor(model => model.razonsocial, new { @value = "", maxlength="128", required = "required" })
-            <p>Nombres</p>
-            @Html.TextBoxFor(model => model.nombres, new { minlength="3", @value = "" , maxlength="72", onkeypress = "validatenames(event)" })
-            <p>Apellidos</p>
-            @Html.TextBoxFor(model => model.apellidos, new { minlength = "2", @value = "", maxlength="72", onkeypress = "validatenames(event)" })
-            <p>Teléfono</p>
-            @Html.TextBoxFor(model => model.telefono, new { @value = "", maxlength = "50", required = "required", onkeypress = "validatenum(event)" })
-            <p>Dirección</p>
-            @Html.TextBoxFor(model => model.direccion, new { @value = "", maxlength = "128", required = "required" })
+            <p id="p-razon-social">Razón Social</p>
+            @Html.TextBox("a-razon-social", "", new { id = "agregar-razon-social", @value = "", maxlength = "128", required = "required" })
+            <p id="p-nombres">Nombres</p>
+            @Html.TextBox("a-nombres", "", new { id = "agregar-nombres", @value = "", maxlength = "72", onkeypress = "validatenames(event)" })
+            <p id="p-apellidos">Apellidos</p>
+            @Html.TextBox("a-apellidos", "", new { id = "agregar-apellidos", @value = "", maxlength = "72", onkeypress = "validatenames(event)" })
+            <p id="p-telefono">Teléfono</p>
+            @Html.TextBox("a-telefono", "", new { id = "agregar-telefono", @value = "", maxlength = "50", required = "required", onkeypress = "validatenum(event)" })
+            <p id="p-direccion">Dirección</p>
+            @Html.TextBox("a-direccion", "", new { id = "agregar-direccion", @value = "", maxlength = "128", required = "required" })
             <p>Comentarios</p>
-            @Html.TextAreaFor(model => model.comentarios, new { @value = "", maxlength = "128" })
-            <button type="submit">Agregar</button>
-            <button type="reset">Borrar</button>
+            @Html.TextArea("a-comentarios", "", new { id = "agregar-comentarios", @value = "", maxlength = "128" })
+            <button type="submit" onclick="return Validaciones();">Agregar</button>
+            <button type="reset" id="add-reset-button" onclick="ResetAdd();">Borrar</button>
 
         </div>
     </div>
 }
 
-@using (@Html.BeginForm("", "", FormMethod.Post, new { autocomplete = "off" }))
+@using (@Html.BeginForm("", "", FormMethod.Post, new { id = "edit-customer-form", autocomplete = "off" }))
 {
     @Html.AntiForgeryToken()
     <div id="VModificarC" class="VentanaModificarC">
         <div>
             <span class="pull-right glyphicon glyphicon-off" id="CerrarVentanaModificarC" onclick="CerrarVentana();"></span>
-            <h2>Modificar Cliente Existente</h2>
+            <h2 id="edit-customer-title">Modificar Cliente Existente</h2>
             <hr />
             <p id="NombreCliente">Cliente</p>
-            <select id="SeleccionCliente">
-                <option value="A">Cristian González</option>
-                <option value="B">Kevin Reinbold</option>
-                <option value="C">Telecon Erickson C.A</option>
-                <option value="D">Carnicería Bolivar</option>
+            <select id="SeleccionCliente" onchange="CargarCliente(this); CustomerCheck(this);">
+                <option value="Seleccionar">Seleccionar</option>
+                @foreach(var item in Model)
+                {
+                    <option value="@item.ID">@item.razonsocial</option>
+                }
             </select>
-            <p>Razón Social</p>
-            @Html.TextBoxFor(model => model.razonsocial, new { @value = "", maxlength = "128", required = "required" })
-            <p>Nombres</p>
-            @Html.TextBoxFor(model => model.nombres, new { @value = "", maxlength = "72", onkeypress = "validatenames(event)" })
-            <p>Apellidos</p>
-            @Html.TextBoxFor(model => model.apellidos, new { @value = "", maxlength = "72", onkeypress = "validatenames(event)" })
-            <p>Teléfono</p>
-            @Html.TextBoxFor(model => model.telefono, new { @value = "", maxlength = "50", required = "required", onkeypress = "validatenum(event)" })
-            <p>Dirección</p>
-            @Html.TextBoxFor(model => model.direccion, new { @value = "", maxlength = "128", required = "required" })
-            <p>Comentarios</p>
-            @Html.TextAreaFor(model => model.comentarios, new { @value = "", maxlength = "128" })
-            <button type="submit">Actualizar</button>
-            <button type="reset">Borrar</button>
+            <p id="pm-razon-social">Razón Social</p>
+            @Html.TextBox("m-razon-social", "", new { id = "editar-razon-social", @value = "", maxlength = "128", required = "required" })
+            <p id="pm-nombres">Nombres</p>
+            @Html.TextBox("m-nombres", "", new { id = "editar-nombres", @value = "", maxlength = "72", oninput = "validatenames(event)" })
+            <p id="pm-apellidos">Apellidos</p>
+            @Html.TextBox("m-apellidos", "", new { id = "editar-apellidos", @value = "", maxlength = "72", oninput = "validatenames(event)" })
+            <p id="pm-telefono">Teléfono</p>
+            @Html.TextBox("m-telefono", "", new { id = "editar-telefono", @value = "", maxlength = "50", required = "required", onkeydown = "validatenum(event)" })
+            <p id="pm-direccion">Dirección</p>
+            @Html.TextBox("m-direccion", "", new { id = "editar-direccion", @value = "", maxlength = "128", required = "required" })
+            <p id="pm-comentarios">Comentarios</p>
+            @Html.TextArea("m-comentarios", "", new { id = "editar-comentarios", @value = "", maxlength = "128" })
+            <button type="submit" onclick="return ValidacionesM();">Actualizar</button>
+            <button type="reset" onclick="ResetEdit();" id="edit-reset">Borrar</button>
 
         </div>
     </div>
 }
 
-@using (@Html.BeginForm("", "", FormMethod.Post, new { autocomplete = "off" }))
+@using (@Html.BeginForm("EliminarClientes", "Users", FormMethod.Post, new { autocomplete = "off" }))
 {
     @Html.AntiForgeryToken()
     <div id="VEliminarC" class="VentanaEliminarC">
         <div>
             <span class="pull-right glyphicon glyphicon-off" id="CerrarVentanaEliminarC" onclick="CerrarVentana();"></span>
-            <h2>Eliminar Clientes</h2>
+            <h2 id="delete-customer-title">Eliminar Clientes</h2>
             <hr /><br />
             <p>¿Está seguro de que desea eliminar a los siguientes clientes de su lista?</p>
             <div id="EListaClientes">
-                <table border="1">
+                <table border="1" id="delete-customers-table">
                     <tr>
                         <td colspan="2">Clientes</td>
                     </tr>
@@ -98,84 +100,276 @@
                 </table>
             </div>
 
-            <button type="submit">Si</button>
-            <button type="button" id="NoEliminarCliente" onclick="CerrarVentana();">No</button>
+            <button style="display: none;" type="submit" id="EliminarCliente" onclick="return IniciarEliminacion();">Si</button>
+            <button style="display: none;" type="button" id="NoEliminarCliente" onclick="CerrarVentana();">No</button>
 
         </div>
     </div>
 }
 
 
-    <div id="validacion" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button id="cerrar-validacion" type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">x</span>
-                    </button>
-                </div>
-                <div id="validaciones-contenido" class="modal-body">
+<div id="validacion" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button id="cerrar-validacion" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">x</span>
+                </button>
+            </div>
+            <div id="validaciones-contenido" class="modal-body">
 
 
-                </div>
-                <div class="modal-footer">
+            </div>
+            <div class="modal-footer">
 
-                </div>
             </div>
         </div>
     </div>
+</div>
+
+    <table class="TablaClientes">
+        <tr>
+            <th></th>
+            <th>N°</th>
+            <th>Razón Social</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Teléfono</th>
+            <th>Dirección</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><input type="checkbox" value="@item.ID" /></td>
+                <td>@counter</td>
+                <td><p>@item.razonsocial</p></td>
+                <td>@item.nombres</td>
+                <td>@item.apellidos</td>
+                <td>@item.telefono</td>
+                <td><p>@item.direccion</p></td>
+            </tr>
+            counter++;
+        }
+
+    </table>
+
+<div id="validacion" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button id="cerrar-validacion" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">x</span>
+                </button>
+            </div>
+            <div id="validaciones-contenido" class="modal-body">
 
 
+            </div>
+            <div class="modal-footer">
 
-
-<table class="TablaClientes">
-    <tr>
-        <th></th>
-        <th>N°</th>
-        <th>Razón Social</th>
-        <th>Nombres</th>
-        <th>Apellidos</th>
-        <th>Teléfono</th>
-        <th>Dirección</th>
-    </tr>
-   
-</table>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script type="text/javascript">
 
-    function validatenames(evt) {
-        var theEvent = evt || window.event;
+    $('#agregar-telefono').keypress(validatenum);
+    $('#editar-telefono').keypress(validatenum);
+    var customers = new Array();
 
-        // Handle paste
-        if (theEvent.type === 'paste') {
-            key = event.clipboardData.getData('text/plain');
-        } else {
-            // Handle key press
-            var key = theEvent.keyCode || theEvent.which;
-            key = String.fromCharCode(key);
+    $('#EliminarCB').click(function () {
+        var values = new Array();
+        $('.TablaClientes [type="checkbox"]').each(function (i, chk) {
+            if (chk.checked) {
+                var data = $(this).parents('tr:eq(0)');
+                values.push({ 'razonsocial': $(data).find('td:eq(2)').text().trim(), 'direccion': $(data).find('td:eq(6)').text().trim() });
+            }  
+        });
+        if (values.length > 0) {
+            document.getElementById("EliminarCliente").style.display = "inline";
+            document.getElementById("NoEliminarCliente").style.display = "inline";
+            FillDeleteTable(values);
         }
-        var regex = /[a-zA-Z\s]|\./;
-        if (!regex.test(key)) {
-            theEvent.returnValue = false;
-            if (theEvent.preventDefault) theEvent.preventDefault();
+    });
+
+    function FillDeleteTable(customersList) {
+        for (var i = 0; i < customersList.length; i++) {
+            $('#delete-customers-table > tbody').append('<tr><td>' + customersList[i].razonsocial + '</td><td>' +
+                customersList[i].direccion + '</td></tr>');
+
+            customers.push(customersList[i].razonsocial);
         }
     }
 
-    function validatenum(evt) {
-        var theEvent = evt || window.event;
+    function IniciarEliminacion() {
+        EliminarClientes(customers);
+        return false;
+    }
 
-        // Handle paste
-        if (theEvent.type === 'paste') {
-            key = event.clipboardData.getData('text/plain');
-        } else {
-            // Handle key press
-            var key = theEvent.keyCode || theEvent.which;
-            key = String.fromCharCode(key);
+    function CustomerCheck(selectedItem) {
+        var item = selectedItem.value;
+        if (item == "Seleccionar") {
+            ResetEdit();
+            document.getElementById("edit-reset").click();
+        } 
+            document.getElementById("pm-razon-social").textContent = "Razón Social";
+            document.getElementById("pm-nombres").textContent = "Nombres";
+            document.getElementById("pm-apellidos").textContent = "Apellidos";
+            document.getElementById("pm-telefono").textContent = "Teléfono";
+            document.getElementById("pm-direccion").textContent = "Dirección";
+    }
+
+    function ResetAdd() {
+        document.getElementById("p-razon-social").textContent = "Razón Social";
+        document.getElementById("p-nombres").textContent = "Nombres";
+        document.getElementById("p-apellidos").textContent = "Apellidos";
+        document.getElementById("p-telefono").textContent = "Teléfono";
+        document.getElementById("p-direccion").textContent = "Dirección";
+    }
+
+    function ResetEdit() {
+        document.getElementById("pm-razon-social").textContent = "Razón Social";
+        document.getElementById("pm-nombres").textContent = "Nombres";
+        document.getElementById("pm-apellidos").textContent = "Apellidos";
+        document.getElementById("pm-telefono").textContent = "Teléfono";
+        document.getElementById("pm-direccion").textContent = "Dirección";
+        document.getElementById("SeleccionCliente").selectedIndex = "0";
+    }
+
+    function Validaciones() {
+        var razonsocial = document.getElementById("agregar-razon-social").value;
+        var nombres = document.getElementById("agregar-nombres").value;
+        var apellidos = document.getElementById("agregar-apellidos").value;
+        var telefono = document.getElementById("agregar-telefono").value;
+        var direccion = document.getElementById("agregar-direccion").value;
+        var comentarios = document.getElementById("agregar-comentarios").value;
+       
+        if (razonsocial.trim() == "") {
+            document.getElementById("p-razon-social").textContent = "Razón Social";
+            document.getElementById("p-razon-social").innerHTML += "<span style='padding-right: 5%; color: red; float: right;'> Debe escribir una razón social / cliente </span>";
+            return false;
         }
-        var regex = /[-+0-9\s]|\./;
-        if (!regex.test(key)) {
-            theEvent.returnValue = false;
-            if (theEvent.preventDefault) theEvent.preventDefault();
+        if (razonsocial.trim().length < 3) {
+            document.getElementById("p-razon-social").textContent = "Razón Social";
+            document.getElementById("p-razon-social").innerHTML += "<span style='padding-right: 5%; color: red; float: right;'> Minimo 3 carácteres. </span>";
+            return false;
+        }
+
+        if (nombres.trim() != "" && nombres.trim().length < 3) {
+            document.getElementById("p-nombres").textContent = "Nombres";
+            document.getElementById("p-nombres").innerHTML += "<span style='padding-right: 5%; color: red; float: right;'> Minimo 3 carácteres. </span>";
+            return false;
+        }
+
+        if (apellidos.trim() != "" && apellidos.trim().length < 2) {
+            document.getElementById("p-apellidos").textContent = "Apellidos";
+            document.getElementById("p-apellidos").innerHTML += "<span style='padding-right: 5%; color: red; float: right;'> Minimo 2 carácteres. </span>";
+            return false;
+        }
+
+        if (telefono.trim() == "") {
+            document.getElementById("p-telefono").textContent = "Teléfono";
+            document.getElementById("p-telefono").innerHTML += "<span style='padding-right: 5%; color: red; float: right;'> El número telefonico es obligatorio </span>";
+            return false;
+        }
+        if (telefono.trim().length < 6) {
+            document.getElementById("p-telefono").textContent = "Teléfono";
+            document.getElementById("p-telefono").innerHTML += "<span style='padding-right: 5%; color: red; float: right;'> Minimo 6 digitos. </span>";
+            return false;
+        }
+        if (direccion.trim().length < 3) {
+            document.getElementById("p-direccion").textContent = "Dirección";
+            document.getElementById("p-direccion").innerHTML += "<span style='padding-right: 5%; color: red; float: right;'> Minimo 3 carácteres. </span>";
+            return false;
+        }
+
+        return ValidarCliente();
+    }
+
+
+    function ValidacionesM() {
+        var razonsocial = document.getElementById("editar-razon-social").value;
+        var nombres = document.getElementById("editar-nombres").value;
+        var apellidos = document.getElementById("editar-apellidos").value;
+        var telefono = document.getElementById("editar-telefono").value;
+        var direccion = document.getElementById("editar-direccion").value;
+        var comentarios = document.getElementById("editar-comentarios").value;
+        var itemSeleccionado = document.getElementById("SeleccionCliente");
+        var strItem = itemSeleccionado.options[itemSeleccionado.selectedIndex].text;
+
+        if (strItem.trim() == "Seleccionar") {
+            document.getElementById("pm-razon-social").textContent = "Razón Social";
+            document.getElementById("pm-razon-social").innerHTML += "<span style='padding-right: 5%; color: red; float: right;'> Debe seleccionar un cliente</span>";
+            return false;
+        }
+
+        if (razonsocial.trim() == "") {
+            document.getElementById("pm-razon-social").textContent = "Razón Social";
+            document.getElementById("pm-razon-social").innerHTML += "<span style='padding-right: 5%; color: red; float: right;'> Debe escribir una razón social / cliente </span>";
+            return false;
+        }
+        if (razonsocial.trim().length < 3) {
+            document.getElementById("pm-razon-social").textContent = "Razón Social";
+            document.getElementById("pm-razon-social").innerHTML += "<span style='padding-right: 5%; color: red; float: right;'> Minimo 3 carácteres. </span>";
+            return false;
+        }
+
+        if (nombres.trim() != "" && nombres.trim().length < 3) {
+            document.getElementById("pm-nombres").textContent = "Nombres";
+            document.getElementById("pm-nombres").innerHTML += "<span style='padding-right: 5%; color: red; float: right;'> Minimo 3 carácteres. </span>";
+            return false;
+        }
+
+        if (apellidos.trim() != "" && apellidos.trim().length < 2) {
+            document.getElementById("pm-apellidos").textContent = "Apellidos";
+            document.getElementById("pm-apellidos").innerHTML += "<span style='padding-right: 5%; color: red; float: right;'> Minimo 2 carácteres. </span>";
+            return false;
+        }
+
+        if (telefono.trim() == "") {
+            document.getElementById("pm-telefono").textContent = "Teléfono";
+            document.getElementById("pm-telefono").innerHTML += "<span style='padding-right: 5%; color: red; float: right;'> El número telefonico es obligatorio </span>";
+            return false;
+        }
+        if (telefono.trim().length < 6) {
+            document.getElementById("pm-telefono").textContent = "Teléfono";
+            document.getElementById("pm-telefono").innerHTML += "<span style='padding-right: 5%; color: red; float: right;'> Minimo 6 digitos. </span>";
+            return false;
+        }
+        if (direccion.trim().length < 3) {
+            document.getElementById("pm-direccion").textContent = "Dirección";
+            document.getElementById("pm-direccion").innerHTML += "<span style='padding-right: 5%; color: red; float: right;'> Minimo 3 carácteres. </span>";
+            return false;
+        }
+
+        return ValidarEdicionCliente();
+    }
+
+    function validatenames(evt) {
+        var inputValue = evt.which;
+        // allow letters and whitespaces only.
+        if (inputValue == 37 || inputValue == 38 || inputValue == 39 || inputValue == 40 || inputValue == 8 || inputValue == 46) { // Left / Up / Right / Down Arrow, Backspace, Delete keys
+            return;
+        }
+        if (!(inputValue >= 65 && inputValue <= 123) && (inputValue != 32 && inputValue != 0)) {
+            evt.preventDefault();
+        }
+
+    }
+
+
+    function validatenum(event) {
+        var key = window.event ? event.keyCode : event.which;
+        if (event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 || event.keyCode == 40 || event.keyCode == 8 || event.keyCode == 46) { // Left / Up / Right / Down Arrow, Backspace, Delete keys
+            return;
+        }
+        if (event.keyCode === 8 || event.keyCode === 46) {
+            return true;
+        } else if (key < 48 || key > 57) {
+            return false;
+        } else {
+            return true;
         }
     }
 
@@ -194,7 +388,7 @@
     function CerrarVentana() {
         window.location.href = "clientes";
     }
- 
+
     function Español() {
         window.location.href = "/es/perfil/clientes";
     }

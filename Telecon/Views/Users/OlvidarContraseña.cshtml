@@ -7,12 +7,12 @@
 
 <div class="RecuperarContraseña">
     <h2>RECUPERAR CONTRASEÑA DE USUARIO</h2>
-    @using (@Html.BeginForm("", "", FormMethod.Post, new { autocomplete = "off" }))
+    @using (@Html.BeginForm("Olvidar", "Users", FormMethod.Post, new { id="recover-password-form", autocomplete = "off" }))
     {
         @Html.AntiForgeryToken()
         <p>NOMBRE DE USUARIO</p>
         @Html.TextBoxFor(m => m.username, new { @id = "recover_name", @value = "", maxlength = "50" })
-        <button type="button" onclick="return RecoverPass();">ENVIAR CORREO</button>
+        <button type="submit" onclick="return RecoverPass();">ENVIAR CORREO</button>
         <button type="reset">BORRAR</button>
     }
 
@@ -51,20 +51,36 @@
         if (nombre.trim() == "" || nombre.trim() == null) {
             validaciones += "<p>Debe escribir su nombre de usuario para enviar el correo.</p>\n"
         }
+        if (nombre.trim() != "" && nombre.length < 3) {
+            validaciones += "<p>El nombre de usuario debe contener al menos 3 carácteres.</p>\n";
+            document.getElementById("recover_name").value = "";
+        }
 
         if (validaciones != "") {
             divtext.innerHTML = validaciones;
+            $('.modal-header').css('background-color', 'red');
+            $('.modal-footer').css('background-color', 'red');
             $('#validacion').modal('show');
             validaciones = "";
 
             window.clearTimeout(timer);
             timer = setTimeout(function () {
                 $("#cerrar-validacion").click();
-            }, 5000); // <-- time in milliseconds
+                document.getElementById("recover_name").focus();
+            }, 3000); // <-- time in milliseconds
 
             return false;
         } else {
-            return true;
+            divtext.innerHTML = "<p>La nueva contraseña ha sido enviada al correo registrado a este usuario.</p>\n";
+            $('.modal-header').css('background-color', 'blue');
+            $('.modal-footer').css('background-color', 'blue');
+            $('#validacion').modal('show');
+            window.clearTimeout(timer);
+            setTimeout(function () {
+                $("#cerrar-validacion").click();
+                document.getElementById("recover-password-form").submit();
+            }, 3000); // <-- time in milliseconds
+            return false;
         }
 
     }

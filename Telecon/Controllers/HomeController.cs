@@ -5,13 +5,22 @@ using System.Web;
 using System.Web.Mvc;
 using Telecon.Models;
 using Telecon.CRUD_Operations;
+using Telecon.Encryption;
+using Telecon.Model_Operations;
+using System.Security.Claims;
+using Microsoft.AspNet.Identity;
+using Microsoft.Owin.Security;
+using Telecon.Data_Formatting;
 
 namespace Telecon.Controllers
 {
     public class HomeController : Controller
     {
-
+        Security sec = new Security();
         AppSettings settings = new AppSettings();
+        UserCRUD uoperations = new UserCRUD();
+        DataFormats df = new DataFormats();
+
         // GET: Home
         public ActionResult Redireccion()
         {
@@ -28,15 +37,92 @@ namespace Telecon.Controllers
             }
         }
 
+        [HttpGet]
         public ActionResult Login()
         {
-            return View("Login");
+            if(User.Identity.IsAuthenticated == true)
+            {
+                return RedirectToAction("Perfil", "Users");
+            }
+            else
+            {
+                return View("Login");
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(User modelo)
+        {
+            if (User.Identity.IsAuthenticated == false)
+            {
+                bool loginValidation = sec.PasswordMatch(modelo.username, modelo.password);
+                string userName = df.FirstLetterToUpper(modelo.username);
+                bool userRole = uoperations.LoadUserRole(userName);
+                string roleName = null;
+
+                if (userRole == true)
+                {
+                    roleName = "Admin";
+                }
+                else
+                {
+                    roleName = "User";
+                }
+                if (loginValidation == true)
+                {
+
+                    var ident = new ClaimsIdentity(
+                    new[]
+                    {
+            // adding following 2 claim just for supporting default antiforgery provider
+                new Claim(ClaimTypes.NameIdentifier, userName),
+                new Claim("http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider", "ASP.NET Identity", "http://www.w3.org/2001/XMLSchema#string"),
+
+            // an optional claim you could omit this 
+                new Claim(ClaimTypes.Name, userName),
+
+            // you could even add some role
+                new Claim(ClaimTypes.Role, roleName),
+                        // and so on
+                    },
+                    DefaultAuthenticationTypes.ApplicationCookie);
+
+                    // Identity is sign in user based on claim don't matter 
+                    // how you generated it Identity 
+                    HttpContext.GetOwinContext().Authentication.SignIn(
+                        new AuthenticationProperties { IsPersistent = false }, ident);
+
+                    ModelState.Clear();
+                    string userIP = Request.UserHostAddress;
+                    sec.ResetAttempts(userIP);
+                    return RedirectToAction("Perfil", "Users");
+                }
+                else
+                {
+                    ModelState.Clear();
+                    string userIP = Request.UserHostAddress;
+                    sec.RegisterLoginAttempt(userIP);
+                    return RedirectToAction("LoginInvalido", "Users");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Perfil", "Users");
+            }
         }
 
         [OutputCache(Duration = 1200)]
         public ActionResult PAdminEsp()
         {
-            return View("PanelAdmin");
+            if (User.Identity.IsAuthenticated == true && User.IsInRole("Admin"))
+            {
+                return View("PanelAdmin");
+            }
+            else
+            {
+                return RedirectToAction("Perfil", "Users");
+            }
         }
 
         [OutputCache(Duration = 1200)]
@@ -60,12 +146,18 @@ namespace Telecon.Controllers
         [HttpGet]
         public ActionResult Privilegios()
         {
-            using (var context = new DataContext())
+            if (User.Identity.IsAuthenticated == true && User.IsInRole("Admin"))
             {
-                var selection = (from s in context.appSettings where s.ID == 1 select s).FirstOrDefault();
-                return View(selection);
+                using (var context = new DataContext())
+                {
+                    var selection = (from s in context.appSettings where s.ID == 1 select s).FirstOrDefault();
+                    return View(selection);
+                }
             }
-          
+            else
+            {
+                return RedirectToAction("Perfil", "Users");
+            }
         }
 
         [HttpPost]
@@ -115,15 +207,93 @@ namespace Telecon.Controllers
                 return View("Home", search);
             }
         }
+
+        [HttpGet]
         public ActionResult UserLogin()
         {
-            return View();
+            if(User.Identity.IsAuthenticated == true)
+            {
+                return RedirectToAction("UserProfile", "Users");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UserLogin(User model)
+        {
+            if (User.Identity.IsAuthenticated == false)
+            {
+                bool loginValidation = sec.PasswordMatch(model.username, model.password);
+                string userName = df.FirstLetterToUpper(model.username);
+                bool userRole = uoperations.LoadUserRole(userName);
+                string roleName = null;
+                if(userRole == true)
+                {
+                    roleName = "Admin";
+                }
+                else
+                {
+                    roleName = "User";
+                }
+
+                if (loginValidation == true)
+                {
+
+                    var ident = new ClaimsIdentity(
+                    new[]
+                    {
+            // adding following 2 claim just for supporting default antiforgery provider
+                new Claim(ClaimTypes.NameIdentifier, userName),
+                new Claim("http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider", "ASP.NET Identity", "http://www.w3.org/2001/XMLSchema#string"),
+
+            // an optional claim you could omit this 
+                new Claim(ClaimTypes.Name, userName),
+
+            // you could even add some role
+                new Claim(ClaimTypes.Role, roleName),
+                        // and so on
+                    },
+                    DefaultAuthenticationTypes.ApplicationCookie);
+
+                    // Identity is sign in user based on claim don't matter 
+                    // how you generated it Identity 
+                    HttpContext.GetOwinContext().Authentication.SignIn(
+                        new AuthenticationProperties { IsPersistent = false }, ident);
+
+                    ModelState.Clear();
+                    string userIP = Request.UserHostAddress;
+                    sec.ResetAttempts(userIP);
+                    return RedirectToAction("UserProfile", "Users");
+                }
+                else
+                {
+                    ModelState.Clear();
+                    string userIP = Request.UserHostAddress;
+                    sec.RegisterLoginAttempt(userIP);
+                    return RedirectToAction("InvalidLogin", "Users");
+                }
+            }
+            else
+            {
+                return RedirectToAction("UserProfile", "Users");
+            }
         }
 
         [OutputCache(Duration = 1200)]
         public ActionResult PAdminEng()
         {
-            return View("AdminPanel");
+            if (User.Identity.IsAuthenticated == true && User.IsInRole("Admin"))
+            {
+                return View("AdminPanel");
+            }
+            else
+            {
+                return RedirectToAction("UserProfile", "Users");
+            }
         }
 
         [OutputCache(Duration = 1200)]
@@ -147,10 +317,17 @@ namespace Telecon.Controllers
         [HttpGet]
         public ActionResult Privileges()
         {
-            using (var context = new DataContext())
+            if (User.Identity.IsAuthenticated == true && User.IsInRole("Admin"))
             {
-                var selection = (from s in context.appSettings where s.ID == 1 select s).FirstOrDefault();
-                return View("AdminPrivileges", selection);
+                using (var context = new DataContext())
+                {
+                    var selection = (from s in context.appSettings where s.ID == 1 select s).FirstOrDefault();
+                    return View("AdminPrivileges", selection);
+                }
+            }
+            else
+            {
+                return RedirectToAction("UserProfile", "Users");
             }
         }
 

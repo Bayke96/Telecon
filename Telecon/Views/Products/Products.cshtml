@@ -104,15 +104,21 @@
         </div>
     </div>
 
-    <div class="ProductosDiv">
-        <button id="AddProduct" onclick="return AddProduct();" type="submit"><span class="glyphicon glyphicon-plus"></span><br />Add Product</button>
-        <button id="EditProduct" onclick="return EditProduct();" type="submit"><span class="glyphicon glyphicon-edit"></span><br />Edit Product</button>
-        <button id="DeleteProduct" onclick="return DeleteProduct();" type="submit"><span class="glyphicon glyphicon-remove"></span><br />Delete Product</button>
-    </div>
+    @if (User.Identity.IsAuthenticated == true)
+    {
+        <div class="ProductosDiv">
+            <button id="AddProduct" onclick="return AddProduct();" type="submit"><span class="glyphicon glyphicon-plus"></span><br />Add Product</button>
+            <button id="EditProduct" onclick="return EditProduct();" type="submit"><span class="glyphicon glyphicon-edit"></span><br />Edit Product</button>
+            <button id="DeleteProduct" onclick="return DeleteProduct();" type="submit"><span class="glyphicon glyphicon-remove"></span><br />Delete Product</button>
+        </div>
+    }
+
 
 
 
     <h2 id="ItemsTitle">AVAILABLE ITEMS</h2>
+
+    <button type="button" class="center-block products-pagination">75<span class="caret"></span></button>
 
     <div class="ContenedorProductos">
         <table class="TablaProductos" border="0">
@@ -1036,6 +1042,8 @@
         </table>
     </div>
 
+    <button type="button" class="center-block products-pagination" id="product-pagination-bottom">75<span class="caret"></span></button>
+
 
     <div id="DivProdB">
         <p id="OrdenarProductoB">Sort by</p>
@@ -1133,11 +1141,15 @@
         </div>
     </div>
 
-    <div class="ProductosDivB">
-        <button id="AddProduct" onclick="return AddProduct();" type="submit"><span class="glyphicon glyphicon-plus"></span><br />Add Product</button>
-        <button id="EditProduct" onclick="return EditProduct();" type="submit"><span class="glyphicon glyphicon-edit"></span><br />Edit Product</button>
-        <button id="DeleteProduct" onclick="return DeleteProduct();" type="submit"><span class="glyphicon glyphicon-remove"></span><br />Delete Product</button>
-    </div>
+    @if (User.Identity.IsAuthenticated == true)
+    {
+        <div class="ProductosDivB">
+            <button id="AddProduct" onclick="return AddProduct();" type="submit"><span class="glyphicon glyphicon-plus"></span><br />Add Product</button>
+            <button id="EditProduct" onclick="return EditProduct();" type="submit"><span class="glyphicon glyphicon-edit"></span><br />Edit Product</button>
+            <button id="DeleteProduct" onclick="return DeleteProduct();" type="submit"><span class="glyphicon glyphicon-remove"></span><br />Delete Product</button>
+        </div>
+    }
+
 
 
 

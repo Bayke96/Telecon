@@ -12,6 +12,35 @@ button:focus {
       cursor: context-menu;
       background-image: url("/Style/Media/BG.jpg");
       background-repeat: repeat-y; }
+    .products-pagination {
+      position: relative;
+      top: 9em;
+      border-style: none;
+      color: white;
+      background-color: lightseagreen;
+      border-radius: 2px;
+      font-weight: bold;
+      font-size: 110%;
+      padding: 0;
+      transition: all 500ms ease;
+      width: 4em;
+      z-index: 5; }
+    .products-pagination:hover {
+      background-color: white;
+      color: lightseagreen; }
+    .products-pagination:hover span {
+      border-bottom-color: lightseagreen;
+      border-top-color: lightseagreen; }
+    .products-pagination span {
+      position: relative;
+      border-bottom-color: #FFFFFF;
+      border-top-color: #FFFFFF;
+      left: 15%;
+      transition: all 500ms ease;
+      text-align: right; }
+    #product-pagination-bottom {
+      position: relative;
+      top: 1em; }
     .modal-header {
       background-color: red;
       border-radius: 2px;
@@ -2138,7 +2167,8 @@ button:focus {
       color: lightslategrey;
       font-family: 'Rubik', sans-serif;
       font-size: 90%;
-      bottom: 2em; }
+      bottom: 2em;
+      transition: all 500ms ease; }
     .VentanaAgregarC > div > h2 {
       font-size: 90%;
       text-align: center;
@@ -17112,6 +17142,12 @@ button:focus {
       position: relative;
       right: 6%; } }
   @media (min-width: 1152px) {
+    .products-pagination {
+      position: relative;
+      top: 10em; }
+    #product-pagination-bottom {
+      position: relative;
+      top: 16em; }
     .MenuP {
       width: 100%;
       height: 8em; }
@@ -28340,6 +28376,12 @@ button:focus {
     .Card4 {
       visibility: hidden; } }
   @media (min-width: 1680px) {
+    .products-pagination {
+      position: relative;
+      top: 12em; }
+    #product-pagination-bottom {
+      position: relative;
+      top: 16em; }
     .MenuP {
       width: 100%;
       height: 8em; }
@@ -31355,6 +31397,12 @@ button:focus {
     .Card5 {
       visibility: hidden; } }
   @media (min-width: 1920px) {
+    .products-pagination {
+      position: relative;
+      top: 14em; }
+    #product-pagination-bottom {
+      position: relative;
+      top: 20em; }
     .MenuP {
       width: 100%;
       height: 8em; }
@@ -34352,6 +34400,12 @@ button:focus {
       width: 30%;
       left: -5%; } }
   @media (min-width: 2550px) {
+    .products-pagination {
+      position: relative;
+      top: 20em; }
+    #product-pagination-bottom {
+      position: relative;
+      top: 27em; }
     .MenuP {
       width: 100%;
       height: 8em; }
@@ -37336,6 +37390,12 @@ button:focus {
       background-color: white;
       color: dodgerblue; } }
   @media (min-width: 3440px) {
+    .products-pagination {
+      position: relative;
+      top: 19em; }
+    #product-pagination-bottom {
+      position: relative;
+      top: 21em; }
     .MenuP {
       width: 100%;
       height: 8em; }
@@ -40311,6 +40371,12 @@ button:focus {
       background-color: white;
       color: dodgerblue; } }
   @media (min-width: 3840px) {
+    .products-pagination {
+      position: relative;
+      top: 24em; }
+    #product-pagination-bottom {
+      position: relative;
+      top: 32em; }
     .MenuP {
       width: 100%;
       height: 8em; }
@@ -43195,6 +43261,35 @@ button:focus {
     padding: 0;
     background-image: url("/Style/Media/BG.jpg");
     background-repeat: repeat-y; }
+  .products-pagination {
+    position: relative;
+    top: 9em;
+    border-style: none;
+    color: white;
+    background-color: lightseagreen;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 110%;
+    padding: 0;
+    transition: all 500ms ease;
+    width: 4em;
+    z-index: 5; }
+  .products-pagination:hover {
+    background-color: white;
+    color: lightseagreen; }
+  .products-pagination:hover span {
+    border-bottom-color: lightseagreen;
+    border-top-color: lightseagreen; }
+  .products-pagination span {
+    position: relative;
+    border-bottom-color: #FFFFFF;
+    border-top-color: #FFFFFF;
+    left: 15%;
+    transition: all 500ms ease;
+    text-align: right; }
+  #product-pagination-bottom {
+    position: relative;
+    top: 1em; }
   .ContenedorProductos {
     display: inline-block; }
   .contenedor-productos-full {
@@ -45318,7 +45413,8 @@ button:focus {
     color: lightslategrey;
     font-family: 'Rubik', sans-serif;
     font-size: 90%;
-    bottom: 2em; }
+    bottom: 2em;
+    transition: all 500ms ease; }
   .VentanaAgregarC > div > h2 {
     font-size: 90%;
     text-align: center;
@@ -59939,6 +60035,12 @@ button:focus {
     right: 6%; } }
 
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) and (min-width: 1152px) {
+  .products-pagination {
+    position: relative;
+    top: 11em; }
+  #product-pagination-bottom {
+    position: relative;
+    top: 16em; }
   .MenuP {
     width: 100%;
     height: 8em; }
@@ -71421,6 +71523,12 @@ button:focus {
     visibility: hidden; } }
 
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) and (min-width: 1680px) {
+  .products-pagination {
+    position: relative;
+    top: 12em; }
+  #product-pagination-bottom {
+    position: relative;
+    top: 16em; }
   .MenuP {
     width: 100%;
     height: 8em; }
@@ -74446,6 +74554,12 @@ button:focus {
     visibility: hidden; } }
 
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) and (min-width: 1920px) {
+  .products-pagination {
+    position: relative;
+    top: 14em; }
+  #product-pagination-bottom {
+    position: relative;
+    top: 20em; }
   .MenuP {
     width: 100%;
     height: 8em; }
@@ -77464,6 +77578,12 @@ button:focus {
     left: -5%; } }
 
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) and (min-width: 2550px) {
+  .products-pagination {
+    position: relative;
+    top: 20em; }
+  #product-pagination-bottom {
+    position: relative;
+    top: 27em; }
   .MenuP {
     width: 100%;
     height: 8em; }
@@ -80608,6 +80728,12 @@ button:focus {
     color: dodgerblue; } }
 
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) and (min-width: 3440px) {
+  .products-pagination {
+    position: relative;
+    top: 19em; }
+  #product-pagination-bottom {
+    position: relative;
+    top: 21em; }
   .MenuP {
     width: 100%;
     height: 8em; }
@@ -83600,6 +83726,14 @@ button:focus {
     color: dodgerblue; } }
 
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) and (min-width: 3840px) {
+  .products-pagination {
+    position: relative;
+    top: 24em;
+    left: 2.5%; }
+  #product-pagination-bottom {
+    position: relative;
+    top: 32em;
+    left: -0.8%; }
   .MenuP {
     width: 100%;
     height: 8em; }

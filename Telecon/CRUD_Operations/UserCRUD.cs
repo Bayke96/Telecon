@@ -4,12 +4,27 @@ using Telecon.Encryption;
 using Telecon.Data_Formatting;
 using System.Globalization;
 using Telecon.CRUD_Operations;
+using System;
 
 namespace Telecon.Model_Operations
 {
     public class UserCRUD
     {
         Email email = new Email();
+        DataFormats df = new DataFormats();
+        Security sec = new Security();
+
+        // Load an users privileges 
+
+        public bool LoadUserRole(string userName)
+        {
+            string user = df.FirstLetterToUpper(userName);
+            using (var context = new DataContext())
+            {
+                bool search = (from s in context.Usuarios where s.username == user select s.admin).FirstOrDefault();
+                return search;
+            }
+        }
 
         // Search for an user's ID - Busca el ID de un usuario
 
@@ -30,9 +45,6 @@ namespace Telecon.Model_Operations
 
         public void AddUser(User modelo, bool isAdmin = false, string path = null)
         {
-            Security sec = new Security();
-            DataFormats df = new DataFormats();
-
             TextInfo cultInfo = new CultureInfo("en-US", false).TextInfo;
 
             var usuario = char.ToUpper(modelo.username.First()) + modelo.username.Substring(1).ToLower().Trim();
@@ -58,6 +70,7 @@ namespace Telecon.Model_Operations
                     number = telefono,
                     admin = isAdmin,
                     picturePath = path,
+                    optPassword = null,
                 };
 
                 context.Usuarios.Add(empleado);
@@ -111,5 +124,90 @@ namespace Telecon.Model_Operations
             }
         }
 
+        // Updates an user profile - Actualiza el perfil de usuario
+
+        public void UpdateProfile(string userName, User model)
+        {
+            string user = df.FirstLetterToUpper(userName);
+            using(var context = new DataContext())
+            {
+                var profile = (from s in context.Usuarios where s.username == user select s).FirstOrDefault();
+
+                profile.firstnames = df.FirstLetterToUpper(model.firstnames);
+                profile.lastnames = df.FirstLetterToUpper(model.lastnames);
+                profile.age = model.age;
+                profile.address = df.AddressCorrector(model.address);
+                profile.number = model.number;
+                profile.email = model.email.ToLower();
+                context.SaveChanges();
+            }
+        }
+
+
+        // Change account password
+
+        public void ChangePassword(string userName, string nContraseña)
+        {
+            string user = df.FirstLetterToUpper(userName);
+            using(var context = new DataContext())
+            {
+                var search = (from s in context.Usuarios where s.username == user select s).FirstOrDefault();
+                search.password = sec.EncryptPassword(nContraseña);
+                search.optPassword = null;
+                context.SaveChanges();
+            }
+        }
+
+        // Password Recovery Processes
+
+        public void SendPasswordRecovery(string userName)
+        {
+            string user = df.FirstLetterToUpper(userName);
+            string optionalPassword = df.GenerateString(12);
+            using (var context = new DataContext())
+            {
+                var search = (from s in context.Usuarios where s.username == user select s.ID).FirstOrDefault();
+                if (search != 0)
+                {
+                    var recovery = (from s in context.Recovery where s.userEmail == search select s).FirstOrDefault();
+                    var acc = (from s in context.Usuarios where s.ID == search select s).FirstOrDefault();
+
+                    if (recovery == null)
+                    {
+                        var accountRecovery = new PassRecovery
+                        {
+                            userEmail = search,
+                            requestDate = DateTime.Today,
+                            requestAmmount = 1
+                        };
+                        context.Recovery.Add(accountRecovery);
+                        acc.optPassword = sec.EncryptPassword(optionalPassword);
+                        context.SaveChanges();
+                        email.SendRecoveryEmail(user, optionalPassword);
+                        return;
+                    }
+
+                    if (recovery != null && recovery.requestAmmount < 2)
+                    {
+                        recovery.requestAmmount++;
+                        acc.optPassword = sec.EncryptPassword(optionalPassword);
+                        context.SaveChanges();
+                        email.SendRecoveryEmail(user, optionalPassword);
+                        return;
+                    }
+
+                    if (recovery != null && recovery.requestDate != DateTime.Today)
+                    {
+                        recovery.userEmail = search;
+                        recovery.requestDate = DateTime.Today;
+                        recovery.requestAmmount = 1;
+                        acc.optPassword = sec.EncryptPassword(optionalPassword);
+                        context.SaveChanges();
+                        email.SendRecoveryEmail(user, optionalPassword);
+                        return;
+                    }
+                }
+            }
+        }
     }
 }

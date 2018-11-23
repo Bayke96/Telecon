@@ -1,13 +1,14 @@
 ﻿@{
     Layout = "~/Views/Estructura/_Forma.cshtml";
     Page.Title = "Telecon Erickson C.A - Cambiar contraseña";
+    string userName = User.Identity.Name;
 }
 
 <div class="CambioContraseña">
-    @using (@Html.BeginForm("", "", FormMethod.Post, new { autocomplete = "off" }))
+    @using (@Html.BeginForm("CambiarContraseña", "Users", FormMethod.Post, new { id = "change-password-form", autocomplete = "off" }))
     {
         @Html.AntiForgeryToken()
-        <h2>ACTUALIZAR CONTRASEÑA - CRISTIAN GONZÁLEZ</h2>
+        <h2>ACTUALIZAR CONTRASEÑA - @userName</h2>
         <hr />
         <p>Vieja contraseña</p>
         @Html.Password("vieja_contraseña", "", new { id = "vieja_contraseña", @class = "form-control", @value = "", required = "required" })
@@ -15,7 +16,7 @@
         @Html.Password("nueva_contraseña", "", new { id = "nueva_contraseña", @class = "form-control", @value = "", required = "required" })
         <p>Repita nueva contraseña</p>
         @Html.Password("repetir_contraseña", "", new { id = "repetir_contraseña", @class = "form-control", @value = "", required = "required" })
-        <button type="button" onclick="return ChangePassword();">ACEPTAR</button>
+        <button type="submit" onclick="return ChangePassword();">ACEPTAR</button>
         <button type="reset">BORRAR</button>
     }
     
@@ -85,21 +86,20 @@
             validaciones += "<p>La contraseña en el campo repetir debe ser identica a la nueva contraseña.</p>\n"
         }
         
-
-
-
         if (validaciones != "") {
             divtext.innerHTML = validaciones;
+            $('.modal-header').css('background-color', 'red');
+            $('.modal-footer').css('background-color', 'red');
             $('#validacion').modal('show');
             validaciones = "";
-
             window.clearTimeout(timer);
             timer = setTimeout(function () {
                 $("#cerrar-validacion").click();
             }, 6500); // <-- time in milliseconds
             return false;
         } else {
-            return true;
+            ValidarContraseña();
+            return false;
         }
 
 

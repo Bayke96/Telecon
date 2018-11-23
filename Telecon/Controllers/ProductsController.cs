@@ -15,11 +15,18 @@ namespace Telecon.Controllers
        [HttpGet]
        public ActionResult Administrar()
         {
-            using(var context = new DataContext())
+            if (User.Identity.IsAuthenticated == true && User.IsInRole("Admin"))
             {
-                var selection = (from s in context.appSettings where s.ID == 1 select s).FirstOrDefault();
-                return View("AdministrarProductos", selection);
-            } 
+                using (var context = new DataContext())
+                {
+                    var selection = (from s in context.appSettings where s.ID == 1 select s).FirstOrDefault();
+                    return View("AdministrarProductos", selection);
+                }
+            }
+            else
+            {
+                return RedirectToAction("Perfil", "Users");
+            }
         }
 
         [HttpPost]
@@ -38,10 +45,17 @@ namespace Telecon.Controllers
         [HttpGet]
         public ActionResult Admin()
         {
-            using (var context = new DataContext())
+            if (User.Identity.IsAuthenticated == true && User.IsInRole("Admin"))
             {
-                var selection = (from s in context.appSettings where s.ID == 1 select s).FirstOrDefault();
-                return View("AdminProducts", selection);
+                using (var context = new DataContext())
+                {
+                    var selection = (from s in context.appSettings where s.ID == 1 select s).FirstOrDefault();
+                    return View("AdminProducts", selection);
+                }
+            }
+            else
+            {
+                return RedirectToAction("UserProfile", "Users");
             }
         }
 
@@ -81,26 +95,47 @@ namespace Telecon.Controllers
         [HttpGet]
         public ActionResult Agregar()
         {
-            return View("NuevoProducto");
+            if(User.Identity.IsAuthenticated == true)
+            {
+                return View("NuevoProducto");
+            }
+            else
+            {
+                return RedirectToAction("Login", "Home");
+            }
         }
 
         [HttpGet]
         public ActionResult Modificar()
         {
-            using (var context = new DataContext())
+            if (User.Identity.IsAuthenticated == true)
             {
-                var search = (from s in context.Productos select s).ToList();
-                return View("ModificarProducto", search);
+                using (var context = new DataContext())
+                {
+                    var search = (from s in context.Productos select s).ToList();
+                    return View("ModificarProducto", search);
+                }
+            }
+            else
+            {
+                return RedirectToAction("Login", "Home");
             }
         }
 
         [HttpGet]
         public ActionResult Eliminar()
         {
-            using(var context = new DataContext())
+            if (User.Identity.IsAuthenticated == true)
             {
-                var search = (from s in context.Productos select s).ToList();
-                return View("EliminarProducto", search);
+                using (var context = new DataContext())
+                {
+                    var search = (from s in context.Productos select s).ToList();
+                    return View("EliminarProducto", search);
+                }
+            }
+            else
+            {
+                return RedirectToAction("Login", "Home");
             }
         }
 
@@ -121,26 +156,50 @@ namespace Telecon.Controllers
             }
         }
 
+        [HttpGet]
         public ActionResult Add()
         {
-            return View("AddProduct");
+            if (User.Identity.IsAuthenticated == true)
+            {
+                return View("AddProduct");
+            }
+            else
+            {
+                return RedirectToAction("UserLogin", "Home");
+            }
         }
+
+        [HttpGet]
         public ActionResult Edit()
         {
-            using (var context = new DataContext())
+            if (User.Identity.IsAuthenticated == true)
             {
-                var search = (from s in context.Productos select s).ToList();
-                return View("EditProduct", search);
+                using (var context = new DataContext())
+                {
+                    var search = (from s in context.Productos select s).ToList();
+                    return View("EditProduct", search);
+                }
+            }
+            else
+            {
+                return RedirectToAction("UserLogin", "Home");
             }
         }
 
         [HttpGet]
         public ActionResult Delete()
         {
-            using (var context = new DataContext())
+            if (User.Identity.IsAuthenticated == true)
             {
-                var search = (from s in context.Productos select s).ToList();
-                return View("DeleteProduct", search);
+                using (var context = new DataContext())
+                {
+                    var search = (from s in context.Productos select s).ToList();
+                    return View("DeleteProduct", search);
+                }
+            }
+            else
+            {
+                return RedirectToAction("UserLogin", "Home");
             }
         }
     }

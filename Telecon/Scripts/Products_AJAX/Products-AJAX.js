@@ -43,7 +43,7 @@ function CargarProducto(item) {
 
             document.getElementById("nombre_producto").value = data.name;
             document.getElementById("descripcion_producto").value = data.description;
-            document.getElementById("precio_producto").value = data.price
+            document.getElementById("precio_producto").value = data.price;
 
             if (data.secondaryImageA != null) var ImageA = data.secondaryImageA.replace(/^.*[\\\/]/, '');
             if (data.secondaryImageB != null) var ImageB = data.secondaryImageB.replace(/^.*[\\\/]/, '');
@@ -192,7 +192,6 @@ function RegistrarProducto() {
             }
         },
         error: function (data) {
-            console.log(data.responseText);
             return false;
         }
     });

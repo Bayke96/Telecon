@@ -12,6 +12,9 @@ namespace Telecon.Models
     {
         [Key]
         public int ID { get; set; }
+        [ForeignKey("User")]
+        public int employeeID { get; set; }
+        public virtual User User { get; set; }
         [Column("c_razonsocial"), ConcurrencyCheck, Required(ErrorMessage = "You must type the customer's name."), DataType(DataType.Text), MaxLength(128)]
         public string razonsocial { get; set; }
         [Column("c_nombres"), MinLength(3), MaxLength(72)]
@@ -24,5 +27,8 @@ namespace Telecon.Models
         public string direccion { get; set; }
         [Column("c_comentarios"), MaxLength(128)]
         public string comentarios { get; set; }
+
+        [NotMapped]
+        public IEnumerable<Customer> customersList { get; set; }
     }
 }

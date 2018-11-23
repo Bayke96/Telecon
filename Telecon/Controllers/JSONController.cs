@@ -11,6 +11,9 @@ using Telecon.CRUD_Operations;
 using Newtonsoft.Json.Linq;
 using System.Web.Script.Serialization;
 using System.Text.RegularExpressions;
+using Telecon.Model_Operations;
+using Telecon.Encryption;
+using Microsoft.AspNet.Identity;
 
 namespace Telecon.Controllers
 {
@@ -18,9 +21,25 @@ namespace Telecon.Controllers
     {
 
         ProductCRUD poperations = new ProductCRUD();
+        CustomerCRUD coperations = new CustomerCRUD();
         DataFormats df = new DataFormats();
 
         // ------------------------------------- USERS JSON AJAX CALLS ----------------------------------------------- //
+
+        // ------------------------------------------------- VERIFY THAT PASSWORDS MATCH ----------------------------------- //
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public JsonResult VerifyPassword(string rawPass)
+        {
+            Security sec = new Security();
+            string userName = User.Identity.GetUserId();
+            using(var context = new DataContext())
+            {
+                bool matches = sec.PasswordMatch(userName, rawPass);
+                return Json(matches, JsonRequestBehavior.AllowGet);
+            }
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -280,9 +299,7 @@ namespace Telecon.Controllers
                 var prices = (from s in context.appSettings select new { minimo = s.precioMinimo, maximo = s.precioMaximo }).FirstOrDefault();
                 if (prices == null) json = JsonConvert.SerializeObject(new { name = found, minimo = "", maximo = "" });
                 if (prices != null) json = JsonConvert.SerializeObject(new { name = found, prices.minimo, prices.maximo });
-             
-               
-                
+
                 return Json(json, JsonRequestBehavior.AllowGet);
             }
         }
@@ -460,5 +477,79 @@ namespace Telecon.Controllers
             return Json(true);
         }
 
+        // ------------------------------------------ CLIENTES / CUSTOMERS --------------------------------------------- //
+
+        // --------------------------------------- CUSTOMERS LIST - LISTA CLIENTES ------------------------------------- //
+
+        [HttpGet]
+        public JsonResult ListaClientes()
+        {
+            using (var context = new DataContext())
+            {
+                string userName = User.Identity.GetUserId();
+                var userID = (from s in context.Usuarios where s.username == userName select s.ID).SingleOrDefault();
+                var search = (from s in context.Clientes where s.employeeID == userID select new { s.razonsocial, s.ID }).ToList();
+                return Json(search, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+
+        // ----------- CHECK IF CUSTOMER IS ALREADY REGISTERED / VERIFICAR SI EL CLIENTE YA ESTA REGISTRADO ------------------ //
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public JsonResult ValidarCliente(string razonSocial)
+        {
+            string employeeName = User.Identity.GetUserId();
+            bool result = coperations.GetCustomer(razonSocial, employeeName);
+            return Json(result);
+        }
+
+        // ----------------------- LOAD CUSTOMER INTO EDITING FORM - CARGAR EL CLIENTE PARA MODIFICARLO ----------------------- //
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public JsonResult CargarCliente(int customerID)
+        {
+            using (var context = new DataContext())
+            {
+                var search = (from s in context.Clientes where s.ID == customerID select new { s.razonsocial, s.nombres,
+                s.apellidos, s.telefono, s.direccion, s.comentarios }).FirstOrDefault();
+                return Json(search, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        // -------------------------------------- ADD CLIENT - AGREGAR CLIENTE ------------------------------------------- //
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public JsonResult AgregarCliente(Customer modelo)
+        {
+            string employeeName = User.Identity.GetUserId();
+            coperations.AddCustomer(modelo, employeeName);
+            return Json(true);
+        }
+
+        // -------------------------------------- EDIT CLIENT - EDITAR CLIENTE ------------------------------------------- //
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public JsonResult EditarCliente(int customerID, Customer modelo)
+        {
+            string employeeName = User.Identity.GetUserId();
+            coperations.EditCustomer(customerID, modelo, employeeName);
+            return Json(true);
+        }
+
+        // ---------------------------------------- DELETE CUSTOMER - ELIMINAR CLIENTE -------------------------------------------- //
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public JsonResult EliminarClientes(string[] customersList)
+        {
+            string employeeName = User.Identity.GetUserId();
+            coperations.DeleteCustomers(customersList, employeeName);
+            return Json(true);
+        }
     }
 }

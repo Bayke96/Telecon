@@ -1,6 +1,8 @@
-﻿@{
+﻿@model Telecon.Models.User
+@{
     Layout = "~/Views/Estructura/_Forma.cshtml";
     Page.Title = "Telecon Erickson C.A - Mi Perfil";
+    var imageFile = Path.GetFileName(Model.picturePath);
 }
 
 
@@ -12,28 +14,52 @@
     <button type="button" id="ChangePassword" onclick="CambiarContraseña();">Cambiar contraseña<div id="PImg2"></div></button>
     <button type="button" id="MyCustomers" onclick="Clientes();">Mis clientes<div id="PImg3"></div></button>
     <button type="button" id="Chat" onclick="Chat();">Chat en línea<div id="PImg4"></div></button>
-    <button type="button">Cerrar sesión<div id="PImg5"></div></button>
+    @using (Html.BeginForm("Desconectar", "Users", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <button type="submit">Cerrar sesión<div id="PImg5"></div></button>
+    }
 </div>
 
 <div class="PanelPerfil">
-    <h2>PERFIL DE USUARIO - CRISTIAN GONZÁLEZ</h2>
+    <h2>PERFIL DE USUARIO - @Model.username</h2>
     <hr />
 
-    <img src="~/Style/Media/IMGPAPELERIA.jpg" id="ImgPerfil" />
+    @if (imageFile != "")
+    {
+        <img src="~/Style/Media/User_Images/@imageFile" id="ImgPerfil" />
+    }
+    else
+    {
+        <img src="~/Style/Media/UsuarioPre.png" id="ImgPerfil" />
+    }
+    <p>@Model.firstnames @Model.lastnames</p>
+    <p>@Model.address</p>
+    @if (Model.admin == false)
+    {
+        <p>Usuario</p>
+    }
+    @if (Model.admin == true)
+    {
+        <p>Administrador</p>
+    }
 
-    <p>Cristian González</p>
-    <p>Puerto Ordaz, Los Mangos</p>
-    <p>Usuario Normal</p>
-    <p>0416-6860677</p>
-    <p>cdgl1996@gmail.com</p>
+    <p>@Model.number</p>
+    <p>@Model.email</p>
 </div>
 
 <div class="CambioImagen">
     <h2>CAMBIO DE IMAGEN</h2>
     <hr />
 
-    <img src="~/Style/Media/IMGPAPELERIA.jpg" id="CambioImgPerfil" />
-
+    @if (imageFile != "")
+    {
+        <img src="~/Style/Media/User_Images/@imageFile" id="CambioImgPerfil" />
+    }
+    else
+    {
+        <img src="~/Style/Media/UsuarioPre.png" id="CambioImgPerfil" />
+    }
     <label id="ActualizarImagen" for="UpdateImg" class="btn btn-primary">Buscar Imagen</label>
     <input id="UpdateImg" accept="image/*" style="visibility:hidden;" type="file" name="myImagenSelect">
 

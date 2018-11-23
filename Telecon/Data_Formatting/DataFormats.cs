@@ -11,7 +11,7 @@ namespace Telecon.Data_Formatting
         Random rand = new Random();
 
         public const string Alphabet =
-        "abcdefghijklmnopqrstuvwyxzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        "abcdefghijklmnopqrstuvwyxz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
         public string GenerateString(int size)
         {
@@ -40,6 +40,13 @@ namespace Telecon.Data_Formatting
                     !word.Equals("of", StringComparison.InvariantCultureIgnoreCase))
                 {
                     palabra = cultInfo.ToTitleCase(palabra);
+                }
+                if (word.Equals("c.a", StringComparison.InvariantCultureIgnoreCase)){
+                    palabra = palabra.ToUpper();
+                }
+                if (word.Equals("s.a", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    palabra = palabra.ToUpper();
                 }
                 result += palabra + " ";
             }

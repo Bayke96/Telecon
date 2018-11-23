@@ -2,39 +2,40 @@
 @{
     Layout = "~/Views/Estructura/_Layout.cshtml";
     Page.Title = "Telecon Erickson C.A - Update Profile";
+    string userName = User.Identity.Name;
 }
 
 <div class="ActualizarPerfil">
-    <h2>UPDATE PROFILE - CRISTIAN GONZÁLEZ</h2>
+    <h2>UPDATE PROFILE - @userName</h2>
     <hr />
    
-        @using (@Html.BeginForm("", "", FormMethod.Post, new { autocomplete = "off" }))
+        @using (@Html.BeginForm("UpdateProfile", "Users", FormMethod.Post, new { id = "update-profile-form", autocomplete = "off" }))
         {
             @Html.AntiForgeryToken()
             <table>
                 <tr>
                     <th>Names</th>
-                    <td> @Html.TextBoxFor(m => m.firstnames, new { @id = "firstnames-text", @class = "form-control", @value = "", maxlength = "50", required = "required" })</td>
+                    <td> @Html.TextBoxFor(m => m.firstnames, new { @id = "firstnames-text", @class = "form-control", @value = Model.firstnames, maxlength = "50", required = "required" })</td>
                 </tr>
                 <tr>
                     <th>Lastnames</th>
-                    <td> @Html.TextBoxFor(m => m.lastnames, new { @id = "lastnames-text", @class = "form-control", @value = "", maxlength = "50", required = "required" })</td>
+                    <td> @Html.TextBoxFor(m => m.lastnames, new { @id = "lastnames-text", @class = "form-control", @value = Model.lastnames, maxlength = "50", required = "required" })</td>
                 </tr>
                 <tr>
                     <th>E-mail</th>
-                    <td> @Html.TextBoxFor(m => m.email, new { @id = "email-text", @class = "form-control", @value = "", maxlength = "50", required = "required" })</td>
+                    <td> @Html.TextBoxFor(m => m.email, new { @id = "email-text", @class = "form-control", @value = Model.email, maxlength = "50", required = "required" })</td>
                 </tr>
                 <tr>
                     <th>Age</th>
-                    <td> @Html.TextBoxFor(m => m.age, new { @id = "age-text", @class = "form-control", @value = "", maxlength = "2", required = "required" })</td>
+                    <td> @Html.TextBoxFor(m => m.age, new { @id = "age-text", @class = "form-control", @value = Model.age, maxlength = "2", required = "required" })</td>
                 </tr>
                 <tr>
                     <th>Address</th>
-                    <td>@Html.TextBoxFor(m => m.address, new { @id = "address-text", @class = "form-control", @value = "", maxlength = "128" })</td>
+                    <td>@Html.TextBoxFor(m => m.address, new { @id = "address-text", @class = "form-control", @value = Model.address, maxlength = "128" })</td>
                 </tr>
                 <tr>
                     <th>Phone Number</th>
-                    <td>@Html.TextBoxFor(m => m.number, new { @id = "phone-text", @class = "form-control", @value = "", maxlength = "50" })</td>
+                    <td>@Html.TextBoxFor(m => m.number, new { @id = "phone-text", @class = "form-control", @value = Model.number, maxlength = "50" })</td>
                 </tr>
             </table>
 
@@ -140,15 +141,61 @@
             divtext.innerHTML = validaciones;
             $('#validacion').modal('show');
             validaciones = "";
-
             window.clearTimeout(timer);
             timer = setTimeout(function () {
                 $("#cerrar-validacion").click();
             }, 5000); // <-- time in milliseconds
             return false;
         } else {
-            return true;
+            return VerifyMail();
         }
+    }
+
+    function VerifyMail() {
+
+        var correo = document.getElementById("email-text").value;
+        var divtext = document.getElementById("validaciones-contenido");
+
+        $.ajax({
+
+            type: "POST",
+            url: "/json/email",
+            dataType: "json",
+            data: AddAntiForgeryToken({ email: correo }),
+            success: function (data) {
+                
+                if (data.emailname != null && data.emailid != @Model.ID) {
+                    divtext.innerHTML = "<p>There's already an account registered to this email.</p>\n";
+                    $('.modal-header').css('background-color', 'red');
+                    $('.modal-footer').css('background-color', 'red');
+                    $('#validacion').modal('show');
+                    window.clearTimeout(timer);
+                    timer = setTimeout(function () {
+                        $("#cerrar-validacion").click();
+                    }, 5000); // <-- time in milliseconds
+                    return false
+                }
+                else {
+                    divtext.innerHTML = "<p>User profile updated.</p>\n";
+                    $('.modal-header').css('background-color', 'blue');
+                    $('.modal-footer').css('background-color', 'blue');
+                    $('#validacion').modal('show');
+                    window.clearTimeout(timer);
+                    timer = setTimeout(function () {
+                        $("#cerrar-validacion").click();
+                        document.getElementById("update-profile-form").submit();
+                    }, 2000); // <-- time in milliseconds
+                    return true;
+                }
+               
+                
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+             
+                return false;
+            }
+        });
+        return false;
     }
 
      $(function () {

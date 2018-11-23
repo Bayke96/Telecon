@@ -12,6 +12,7 @@ namespace Telecon
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             MvcHandler.DisableMvcResponseHeader = true;
+
             
         }
         protected void Application_PreSendRequestHeaders()

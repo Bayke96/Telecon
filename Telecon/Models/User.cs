@@ -33,6 +33,9 @@ namespace Telecon.Models
         [Column("u_picture"), MaxLength(256)]
         public string picturePath { get; set; }
 
+        [Column("opt_password"), MinLength(12), MaxLength(128), DataType(DataType.Password)]
+        public string optPassword { get; set; }
+
         [NotMapped]
         public IEnumerable<User> usersList { get; set; }
     }

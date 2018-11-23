@@ -18,7 +18,7 @@ namespace Telecon
             routes.MapRoute(
                 name: "Default",
                 url: "",
-                defaults: new { controller = "Products", action = "Main", id = 2 }
+                defaults: new { controller = "Home", action = "Principal" }
             );
 
             routes.MapRoute(
@@ -357,6 +357,12 @@ namespace Telecon
             );
 
             routes.MapRoute(
+             name: "PasswordVerifyJSON",
+             url: "json/verifypassword",
+             defaults: new { controller = "JSON", action = "VerifyPassword" }
+            );
+
+            routes.MapRoute(
              name: "EmailJSON",
              url: "json/email",
              defaults: new { controller = "JSON", action = "EmailRegistered" }
@@ -430,10 +436,60 @@ namespace Telecon
        );
 
             routes.MapRoute(
+       name: "CustomerListJSON",
+       url: "json/listaclientes",
+       defaults: new { controller = "JSON", action = "ListaClientes" }
+      );
+
+            routes.MapRoute(
        name: "ProductListJSON",
        url: "json/listaproductos",
        defaults: new { controller = "JSON", action = "ListaProductos" }
       );
+
+            routes.MapRoute(
+     name: "ValidateCustomerJSON",
+     url: "json/validatecustomer",
+     defaults: new { controller = "JSON", action = "ValidarCliente" }
+    );
+
+            routes.MapRoute(
+    name: "LoadCustomerJSON",
+    url: "json/CargarCliente",
+    defaults: new { controller = "JSON", action = "CargarCliente" }
+   );
+
+         
+
+            routes.MapRoute(
+      name: "AddCustomerJSON",
+      url: "json/addcustomer",
+      defaults: new { controller = "JSON", action = "AgregarCliente" }
+     );
+
+            routes.MapRoute(
+      name: "EditCustomerJSON",
+      url: "json/editcustomer",
+      defaults: new { controller = "JSON", action = "EditarCliente" }
+     );
+
+            routes.MapRoute(
+     name: "DeleteCustomersJSON",
+     url: "json/deletecustomers",
+     defaults: new { controller = "JSON", action = "EliminarClientes" }
+    );
+
+            routes.MapRoute(
+            "LoginInvalido",
+            "es/login/failed",
+            new { controller = "Users", action = "LoginInvalido" }
+            );
+
+            routes.MapRoute(
+            "InvalidLogin",
+            "en/login/failed",
+            new { controller = "Users", action = "InvalidLogin" }
+            );
 
             routes.MapRoute(
             "404-PageNotFound",
@@ -442,10 +498,6 @@ namespace Telecon
             );
 
         }
-
-
-
-
 
     }
 }

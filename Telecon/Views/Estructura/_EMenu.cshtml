@@ -8,7 +8,15 @@
     </div>
 
     <div class="MenuSecundario">
-        <button type="button" id="LoginButton" onclick="Login();">Login</button>
+        @if (User.Identity.IsAuthenticated == false)
+        {
+            <button type="button" id="LoginButton" onclick="Login();">Login</button>
+        }
+        else
+        {
+            <button type="button" id="LoginButton" onclick="Login();" style="background-image: url('../../Style/Media/user-profile(1).png');">Profile</button>
+        }
+
         <div class="btn-group">
             <button type="button" id="LanguageM" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                 Languages
@@ -23,7 +31,17 @@
         </div>
     </div>
 
-    <button type="button" class="AdminButton" id="main-admin-button" onclick="AdminPanel();">Administration Panel</button>
+    @if (User.Identity.IsAuthenticated == true && User.IsInRole("Admin"))
+    {
+        <button type="button" style="visibility: visible;" class="AdminButton" id="main-admin-button" onclick="AdminPanel();">Administration Panel</button>
+    }
+    else
+    {
+        <button type="button" style="visibility: hidden;" class="AdminButton" id="main-admin-button" onclick="AdminPanel();">Administration Panel</button>
+    }
+
+
+    
 
 </div>
 

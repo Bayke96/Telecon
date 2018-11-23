@@ -1,4 +1,5 @@
-﻿    <div class="MenuP">
+﻿
+<div class="MenuP">
     <div class="MenuGroup">
         <button type="button" id="HomeButton" onclick="Inicio();">Inicio</button>
         <button type="button" id="ProductButton" onclick="Productos();">Productos Disponibles</button>
@@ -8,7 +9,14 @@
     </div>
 
     <div class="MenuSecundario">
-        <button type="button" id="LoginButton" onclick="Conectar();">Ingresar</button>
+        @if (User.Identity.IsAuthenticated == false)
+        {
+            <button type="button" id="LoginButton" onclick="Conectar();">Ingresar</button>
+        }
+        else
+        {
+            <button type="button" id="LoginButton" onclick="Conectar();" style="background-image: url('../../Style/Media/user-profile(1).png');">Mi Perfil</button>
+        }
         <div class="btn-group">
             <button type="button" id="LanguageM" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                 Lenguaje
@@ -23,7 +31,15 @@
         </div>
     </div>
 
-    <button type="button" class="AdminButton" id="main-admin-button" onclick="PanelAdmin();">Panel de Administración</button>
+    @if (User.Identity.IsAuthenticated == true && User.IsInRole("Admin"))
+    {
+        <button type="button" style="visibility: visible;" class="AdminButton" id="main-admin-button" onclick="PanelAdmin();">Panel de Administración</button>
+    }
+    else
+    {
+        <button type="button" style="visibility: hidden;" class="AdminButton" id="main-admin-button" onclick="PanelAdmin();">Panel de Administración</button>
+    }
+
 
 </div>
 

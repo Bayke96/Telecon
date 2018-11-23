@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="icon"
+          type="image/png"
+          href="~/Style/icono-telecon.png" />
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+
+    <title>Telecon Erickson C.A - Error de Login</title>
+
+    <style type="text/css">
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        h2 {
+            color: darkred !important;
+            text-align: center;
+            margin-top: 1%;
+            display: inline-block;
+            width: auto;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .content {
+            position: absolute;
+            text-align: center;
+            width: 100%;
+            margin: 0;
+            padding-top: 5%;
+        }
+
+        button {
+            margin-top: 2%;
+            font-weight: bold !important;
+            color: darkred !important;
+            border-color: darkred !important;
+            letter-spacing: 0.05em;
+            outline: 0px;
+            outline: none !important;
+        }
+
+        img{
+            margin: 0;
+        }
+
+        p {
+            color: dimgrey;
+            font-size: 120%;
+            letter-spacing: 0.1em;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="jumbotron" style="background-color: darkred;">
+        <div class="container">
+
+        </div>
+    </div>
+
+    <dlv class="container content">
+        <img class="center-block img-responsive" src="~/Style/Media/padlock.png" />
+        <h2>INGRESO AL SISTEMA RECHAZADO</h2>
+        <p>Nombre de usuario o contraseña invalidos</p>
+        <button type="button" class="btn btn-default" onclick="Return();">REGRESAR A INGRESO DEL SISTEMA</button>
+    </dlv>
+
+
+    <div class="navbar navbar-default navbar-fixed-bottom" style="background-color: darkred;">
+        <div class="container">
+
+        </div>
+    </div>
+
+    <script>
+        function Return() {
+            window.location.href = "/es/conectar";
+        }
+    </script>
+
+</body>
+
+
+
+</html>

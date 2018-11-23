@@ -4,22 +4,21 @@
     Page.Title = "Telecon Erickson C.A - Inicio de sesión";
 }
 
-<div class="LoginForm">
+    <div class="LoginForm">
+        @using (@Html.BeginForm("Login", "Home", FormMethod.Post, new { id = "login-form", autocomplete = "off" }))
+        {
+            @Html.AntiForgeryToken()
+            <p>INICIO DE SESIÓN</p>
+            <h4 id="EtiquetaNombre">Nombre de Usuario</h4>
+            @Html.TextBoxFor(m => m.username, new { id = "username", @class = "CampoNombre", @value = "", required = "required" })
+            <h4 id="EtiquetaContraseña">Contraseña</h4>
+            @Html.PasswordFor(m => m.password, new { id = "pass", @class = "CampoContraseña", @value = "", required = "required" })
+            <button onclick="return Login();" id="BtnIngresar">INGRESAR</button>
+            <button type="reset" id="BtnBorrar">BORRAR</button>
+            <a href="recuperarcontraseña">Olvide mi contraseña</a>
+        }
 
-    @using (@Html.BeginForm("", "", FormMethod.Post, new { autocomplete = "off" }))
-    {
-        @Html.AntiForgeryToken()
-        <p>INICIO DE SESIÓN</p>
-        <h4 id="EtiquetaNombre">Nombre de Usuario</h4>
-        @Html.TextBoxFor(m => m.username, new { id = "username", @class = "CampoNombre", @value = "", required = "required" })
-        <h4 id="EtiquetaContraseña">Contraseña</h4>
-        @Html.PasswordFor(m => m.password, new { id = "pass", @class = "CampoContraseña", @value = "", required = "required" })
-        <button onclick="return Login();" id="BtnIngresar">INGRESAR</button>
-        <button type="reset" id="BtnBorrar">BORRAR</button>
-        <a href="recuperarcontraseña">Olvide mi contraseña</a>
-    }
-   
-</div>
+    </div>
 
 <div id="validacion" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -30,11 +29,11 @@
                 </button>
             </div>
             <div id="validaciones-contenido" class="modal-body">
-                
-                
+
+
             </div>
             <div class="modal-footer">
-               
+
             </div>
         </div>
     </div>
@@ -44,7 +43,7 @@
     var timer = null;
 
     function Login() {
-       
+
         var user = document.getElementById("username").value;
         var password = document.getElementById("pass").value;
         var divtext = document.getElementById("validaciones-contenido");
@@ -70,7 +69,7 @@
         if (password.trim() != "" && password.length >= 12 && re.test(password) == false) {
             validaciones += "<p>La contraseña debe contener letras y números.</p>\n"
         }
-       
+
 
         if (validaciones != "") {
             divtext.innerHTML = validaciones;
@@ -85,8 +84,8 @@
         } else {
             return true;
         }
-       
-       
+
+
     }
 
     function Español() {
@@ -99,5 +98,5 @@
 
 </script>
 
- 
+
 

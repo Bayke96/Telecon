@@ -5,7 +5,7 @@
 }
 
 <div class="LoginForm">
-    @using (@Html.BeginForm("", "", FormMethod.Post, new { autocomplete = "off" }))
+    @using (@Html.BeginForm("UserLogin", "Users", FormMethod.Post, new { autocomplete = "off" }))
     {
         @Html.AntiForgeryToken()
         <p>USER LOGIN</p>

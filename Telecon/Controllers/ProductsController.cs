@@ -77,6 +77,7 @@ namespace Telecon.Controllers
         {
             using (var context = new DataContext())
             {
+                
                 var search = (from s in context.Productos orderby s.ID ascending select s).Skip(12 * (id - 1)).Take(20).ToList();
                 return View("Productos", search);
             }

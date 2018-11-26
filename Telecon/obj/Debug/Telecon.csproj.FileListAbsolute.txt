@@ -109,3 +109,13 @@ C:\Users\Cristian\source\repos\Telecon\Telecon\bin\Microsoft.Owin.Security.Cooki
 C:\Users\Cristian\source\repos\Telecon\Telecon\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\Cristian\source\repos\Telecon\Telecon\obj\Debug\Telecon.Migrations.Initial.resources
 C:\Users\Cristian\source\repos\Telecon\Telecon\obj\Debug\Telecon.csproj.GenerateResource.cache
+C:\Users\Cristian\source\repos\Telecon\Telecon\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\Cristian\source\repos\Telecon\Telecon\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\Cristian\source\repos\Telecon\Telecon\bin\Microsoft.AspNet.SignalR.Core.pdb
+C:\Users\Cristian\source\repos\Telecon\Telecon\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\Cristian\source\repos\Telecon\Telecon\bin\Microsoft.AspNet.SignalR.SystemWeb.pdb
+C:\Users\Cristian\source\repos\Telecon\Telecon\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\Cristian\source\repos\Telecon\Telecon\bin\WebMatrix.Data.dll
+C:\Users\Cristian\source\repos\Telecon\Telecon\bin\WebMatrix.WebData.dll
+C:\Users\Cristian\source\repos\Telecon\Telecon\bin\WebMatrix.Data.xml
+C:\Users\Cristian\source\repos\Telecon\Telecon\bin\WebMatrix.WebData.xml
